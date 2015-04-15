@@ -86,6 +86,7 @@
             this.balanceBox.ReadOnly = true;
             this.balanceBox.Size = new System.Drawing.Size(100, 20);
             this.balanceBox.TabIndex = 5;
+            
             // 
             // idBox
             // 
@@ -151,6 +152,8 @@
             this.partyList.Name = "partyList";
             this.partyList.Size = new System.Drawing.Size(169, 21);
             this.partyList.TabIndex = 12;
+            this.partyList.Text = "select...";
+            this.partyList.SelectedIndexChanged += new System.EventHandler(this.partyList_SelectedIndexChanged);
             // 
             // PeopleForm
             // 

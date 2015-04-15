@@ -50,6 +50,13 @@ namespace AgileProdObjectModel
             set { isVoting = value; }
         }
 
+        private int numOfVotes;
+        public int NumOfVotes
+        {
+            get { return numOfVotes; }
+            set { numOfVotes = value; }
+        }
+
         public Person(int id, string name, int age, string userName, string password, bool isVoting)
         {
             this.id = id;
@@ -58,6 +65,7 @@ namespace AgileProdObjectModel
             this.userName = userName;
             this.password = password;
             this.isVoting = isVoting;
+            this.numOfVotes = 0;
         }
 
         public Person(){}

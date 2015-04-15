@@ -40,10 +40,11 @@ namespace AgileProdObjectModel
         {
             if (this.balance - amount >= 0)
             {
-                this.balance = this.balance = amount;
+                this.balance = this.balance - amount;
+                return amount;
             }
 
-            return this.balance;
+            return 0;
         }
 
         public int deposit(int amount)

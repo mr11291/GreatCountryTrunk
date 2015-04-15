@@ -10,6 +10,14 @@ namespace AgileProdDAL
     public static class DataLogicPerson
     {
         private static DataRepository data;
+        private static int baseFee = 1000;
+
+        public static int BaseFee
+        {
+          get { return DataLogicPerson.baseFee; }
+          set { DataLogicPerson.baseFee = value; }
+        }
+
         static DataLogicPerson()
         {
             data = DataRepository.GetDataRepository();
@@ -33,6 +41,27 @@ namespace AgileProdDAL
             if (Success != null)
                 return Success;
             return null;
+        }
+        //Person Functions
+        /*
+         * voteToParty is a method used to add a vote to a certine party
+         */
+        public static void voteToParty(string PartyName)
+        {
+            data.GetPartyList()[PartyName]++;
+        }//voteToParty()
+
+        public static int VoterFee(Person person)
+        {
+            if (person.NumOfVotes == 0)
+            {
+                return data.GetBankAccounts()[person.Id].withdrawl(baseFee);
+            }
+            else
+            {
+                Console.WriteLine(data.GetBankAccounts()[person.Id].Balance + " " + (int)(baseFee * person.NumOfVotes * 1.5));
+                return data.GetBankAccounts()[person.Id].withdrawl((int)(baseFee * person.NumOfVotes * 1.5));
+            }
         }
 
         /*

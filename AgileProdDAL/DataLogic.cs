@@ -40,19 +40,19 @@ namespace AgileProdDAL
         /*
          * addPerson creates and adds a new person to the people dictionary
          */
-        public static bool addPerson(int id,string name,int age,string username,string password, int balance, bool isVoting)   //admin
+        public static bool addPerson(int id, string name, int age, string username, string password, int balance, bool isVoting)   //admin
         {
             if (!data.GetPeople().Any(current => current.Key == id))                               //checks if ID doesn't exist in the system
             {
                 Message newMessageBox = new Message(id);                                   //creates a new message box
                 Bank newAccount = new Bank(balance, id, name);                             //creates a new bank account
-                Person newPerson=new Person(id, name, age, username, password, isVoting);  //creates a new person
+                Person newPerson = new Person(id, name, age, username, password, isVoting);  //creates a new person
                 data.GetPeople().Add(newPerson.Id, newPerson);                                  //adds person to the dictionary
                 data.GetBankAccounts().Add(id, newAccount);                                     //adds bank to the diciotnary
                 data.GetMessages().Add(id, newMessageBox);                                      //adds message box to the dictionary
                 return true;
             }
-            return false; 
+            return false;
         }//addPerson(int, string, int, string, string, int, bool)
 
         public static bool addPartyMemeber(int id, string name, int age, string username, string password, int balance, bool isVoting, string party, int location)  //admin+member
@@ -67,10 +67,13 @@ namespace AgileProdDAL
                 data.GetMessages().Add(id, newMessageBox);                                                        //adds message box to the dictionary
                 return true;
             }
-            return false; 
+            return false;
         }
 
-
+        public static int ReturnNumOfVotes(string PartyName)
+        {
+            return data.GetPartyList()[PartyName];
+        }
         /*
          * DeletePerson deletes a person using a given ID
          */
@@ -87,14 +90,7 @@ namespace AgileProdDAL
             }
         }//DeletePerson(int)
 
-        //Person Functions
-        /*
-         * voteToParty is a method used to add a vote to a certine party
-         */
-        public static void voteToParty(string PartyName)  
-        {
-            data.GetPartyList()[PartyName]++;
-        }//voteToParty()
+
 
         //those functions are used for UpdateInfo form
         public static void ChangeName(Person someone, string newname)
@@ -102,7 +98,7 @@ namespace AgileProdDAL
             someone.Name = newname;
         }
 
-        public static void ChangeID(Person someone, int newID)  
+        public static void ChangeID(Person someone, int newID)
         {
             someone.Id = newID;
         }
@@ -128,6 +124,9 @@ namespace AgileProdDAL
             partyMember.Slogan = slogan;
         }
 
-
-    } 
+        public static int getBalance(Person user)
+        {
+            return data.GetBankAccounts()[user.Id].Balance;
+        }
+    }
 }

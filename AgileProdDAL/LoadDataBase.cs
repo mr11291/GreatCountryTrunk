@@ -13,7 +13,7 @@ namespace AgileProdDAL
     {
         // private static string path = @"..\..\..\AgileProdDAL\Database";
 
-        private static string path=Settings.Default.DataPath;
+        private static string path=Settings.Default.DataPath; //Should be changed accordingly to where you're data bases are
         
 
         internal static DataRepository LoadToDataRepository()

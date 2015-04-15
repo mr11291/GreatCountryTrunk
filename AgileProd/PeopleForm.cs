@@ -44,6 +44,7 @@ namespace AgileProd
                 if (voterCheckBox.Checked)                      //if voter check box is CHECKED
                 {
                     var templist = DataLogicAdmin.AllParties();      //get list of all parties
+                    partyList.Items.Add("select...");
                     foreach (var item in templist.Keys)         //add parties to list
                     {
                         partyList.Items.Add(item);
@@ -71,9 +72,24 @@ namespace AgileProd
             }
             else                                            //if this button was already pushed
             {
-                partyList.Items.Clear();
-                partyList.Hide();                           //hide party list 
-                voteButtonPush = false;                     //reset vote button push value
+                if (partyList.SelectedIndex == 0)
+                {
+                    partyList.Items.Clear();
+                    partyList.Hide();                           //hide party list 
+                    voteButtonPush = false;                     //reset vote button push value
+                }
+                else
+                {
+                    if (DataLogicPerson.VoterFee(user) > 0)
+                    {
+                        user.NumOfVotes += 1;
+                        DataLogicPerson.voteToParty(partyList.SelectedItem.ToString());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Insufficient funds!");
+                    }
+                }
                 return;                                     //finish click event
             }
 
@@ -87,7 +103,7 @@ namespace AgileProd
             nameBox.Text = currentPerson.Name;
             idBox.Text = Convert.ToString(currentPerson.Id);
             ageBox.Text = Convert.ToString(currentPerson.Age);
-            
+            balanceBox.Text = Convert.ToString(DataLogic.getBalance(currentPerson));
             if (currentPerson.IsVoting == false)
             {
                 voterCheckBox.Checked = false;
@@ -125,5 +141,12 @@ namespace AgileProd
             balanceBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             balanceLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
         }
+
+        private void partyList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
