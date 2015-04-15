@@ -10,8 +10,8 @@ namespace AgileProdDAL
     public static class DataLogicPerson
     {
         private static DataRepository data;
-        private static int baseFee = 1000;
-
+        private static int baseFee = 1001;
+        
         public static int BaseFee
         {
           get { return DataLogicPerson.baseFee; }
