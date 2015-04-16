@@ -10,11 +10,11 @@ namespace AgileProdDAL
     public static class DataLogicMember
     {
         private static DataRepository data;
+
         static DataLogicMember()
         {
             data = DataRepository.GetDataRepository();
         }
-
 
         public static Member LoginMember(string username, string password)  //member
         {
@@ -33,6 +33,12 @@ namespace AgileProdDAL
             if (Success != null)
                 return Success;
             return null;
+        }
+
+        public static bool sendMassageToPerson(Member sender, int id, int message)
+        {
+            data.GetMessages()[id].addMessage(sender.Id, message);
+            return true;
         }
     }
 }
