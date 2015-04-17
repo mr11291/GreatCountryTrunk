@@ -51,14 +51,12 @@ namespace AgileProdDAL
             return new ReadOnlyDictionary<string, int>(data.GetPartyList());
         }//AllParties()
 
-
         public static bool PraimeriesStatus() //   admin
         {
             return data.GetPraimerise();
         }//PraimeriesStatus()
 
-
-        public static bool LoginAdmin(string username, string password)     //admin
+        public static bool LoginAdmin(string username, string password)
         {
             var temp = data.GetAdmin().FirstOrDefault((currAdmin) => (currAdmin.Key == username.Trim() && currAdmin.Value == password.Replace(" ", ""))).Value;
 
@@ -66,7 +64,6 @@ namespace AgileProdDAL
                 return true;
             return false;
         }
-
 
         /*
  * This function assignes the boolean value of false to a isVoting field of a person/member/committee member.

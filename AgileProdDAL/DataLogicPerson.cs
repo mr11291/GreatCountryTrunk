@@ -84,6 +84,31 @@ namespace AgileProdDAL
             return true;
         }//revokeVoter(Person)
 
-        //public removeM
+        public static Message getMessage(Person person)
+        {
+            return data.GetMessages()[person.Id];
+        }
+
+        public static Tuple<int, string, int> getMessageInbox(Person person, int index)
+        {
+            return data.GetMessages()[person.Id].Inbox[index];
+        }
+
+        public static int getMessageInboxSize(Person person)
+        {
+            return data.GetMessages()[person.Id].Inbox.Count;
+        }
+
+        //replyToMessage NOT FINISHED YET!
+        public static void replyToMessage(Person person, int index, bool answer)
+        {
+            Tuple<int, string, int> message = getMessageInbox(person, index);
+            if (message.Item3 > 0 && answer == true)
+            {
+                int senderId = message.Item1;
+                data.GetMembers()[senderId].Location += 1;
+                // Here Should be a function call that votes to a party member and, takes the apropriate amount from this person etc
+            }
+        }
     }
 }
