@@ -7,20 +7,44 @@ using System.Threading.Tasks;
 
 namespace AgileProdObjectModel
 {
-    class Admin //does it extendes anything? 
+    public class Admin
     {
-        private string ID;
+
+        //Varaiables
+        private int id;
         private string name;
         private string userName;
         private string password;
 
-        public Admin(string id, string name, string username, string password)
+        //Setters Getters
+        public int Id
         {
-            this.ID = id;
+            get { return id; }
+            set { id = value; }
+        }
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+        public string UserName
+        {
+            get { return userName; }
+            set { userName = value; }
+        }
+        public string Password
+        {
+            get { return password; }
+            set { password = value; }
+        }
+
+        //Consturctor
+        public Admin(int id, string name, string username, string password)
+        {
+            this.id = id;
             this.name = name;
             this.userName = username;
             this.password = password;
         }
-
     }
 }

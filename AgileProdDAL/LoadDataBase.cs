@@ -20,7 +20,7 @@ namespace AgileProdDAL
         {
            
             bool praimeries = checkPrimeriesStatus();
-            Dictionary<string,string> admin = readFromAdmin();
+            Dictionary<int,Admin> admin = readFromAdmin();
             Dictionary<string,int> parties = readFromParties();
             Dictionary<int,Person> p = readFromPeople();
             Dictionary<int,Member> mem = readFromMember(p);
@@ -221,19 +221,27 @@ namespace AgileProdDAL
         /*
          * readFromAdmin creates a dictionary from admin database
          */
-        private static Dictionary<string, string> readFromAdmin()
+        private static Dictionary<int, Admin> readFromAdmin()
         {
-            Dictionary<string, string> admin = new Dictionary<string, string>();    //inititalize new empty dictionary
-            StreamReader file = new StreamReader(path + "\\admin.txt");       //initialize file reader
+            Dictionary<int, Admin> admin = new Dictionary<int, Admin>();    //inititalize new empty dictionary
+            StreamReader file = new StreamReader(path + "\\admin.txt");         //initialize file reader
 
-            string line = file.ReadLine();                                    //get first line
-            while (line != null)                                              //if file reader return a readable value
+            string line = file.ReadLine();          //get first line
+            while (line != null)                    //if there is a line
             {
-                var div = line.Replace(" ", string.Empty).Split(',');         //parse text
-                admin.Add(div[2], div[3]);                                    //add party to dictionary
-                line = file.ReadLine();                                       //get next line
-            }
-            return admin;                                                     //return parties dictionary
+                var div = line.Split(',');          //parse text
+
+                int id = Convert.ToInt32(div[0].Trim());
+                string name = div[1].Trim();
+                string username = div[2].Trim();
+                string password = div[3].Trim();
+
+                Admin newAdmin = new Admin(id, name, username, password);
+                admin.Add(id, newAdmin);         //add party to dictionary
+
+                line = file.ReadLine();                                           //get next line
+            }  
+            return admin;                                                        //return parties dictionary
         }//readFromAdmin()
     }
 }

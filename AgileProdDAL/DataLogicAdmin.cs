@@ -56,13 +56,26 @@ namespace AgileProdDAL
             return data.GetPraimerise();
         }//PraimeriesStatus()
 
-        public static bool LoginAdmin(string username, string password)
+        public static Admin LoginAdmin(string username, string password)
         {
-            var temp = data.GetAdmin().FirstOrDefault((currAdmin) => (currAdmin.Key == username.Trim() && currAdmin.Value == password.Replace(" ", ""))).Value;
+            //var temp = data.GetAdmin().FirstOrDefault((currAdmin) => (currAdmin.Key == username.Trim() && currAdmin.Value == password.Replace(" ", ""))).Value;
 
-            if (temp != null)
-                return true;
-            return false;
+            //if (temp != null)
+            //    return true;
+            //return false;
+            var tempAdminDictionary = data.GetAdmin();
+            Admin Success = null;
+            foreach (var item in tempAdminDictionary.Values)
+            {
+                if (username.Equals(item.UserName) && password.Equals(item.Password))
+                {
+                    Success = item;
+                    break;
+                }
+            }
+            if (Success != null)
+                return Success;
+            return null;
         }
 
         /*

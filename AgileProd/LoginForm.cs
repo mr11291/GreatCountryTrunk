@@ -26,14 +26,15 @@ namespace AgileProd
             
             Member tempmem = DataLogicMember.LoginMember(username.Text, password.Text);
             Person tempper = DataLogicPerson.LoginPerson(username.Text, password.Text);
-            if(DataLogicAdmin.LoginAdmin(username.Text,password.Text))
+            Admin tempAdmin = DataLogicAdmin.LoginAdmin(username.Text, password.Text);
+            if(tempAdmin != null)
             {
                 AdminForm newForm = new AdminForm();
                 this.Hide();
                 newForm.Show();
                 return;
             }
-            else if(tempmem!=null)
+            else if(tempmem != null)
             {
                 MemberForm f = new MemberForm(tempmem);
                 this.Hide();
