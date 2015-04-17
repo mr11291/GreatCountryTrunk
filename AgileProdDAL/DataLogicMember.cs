@@ -35,9 +35,11 @@ namespace AgileProdDAL
             return null;
         }
 
-        public static bool sendMassageToPerson(Member sender, int id, int message)
+        public static bool sendMassageToPerson(Member sender, int id, string message)
         {
-            data.GetMessages()[id].addMessage(sender.Id, message);
+            //Message newMessage = new Message(sender.Id, message);
+            //data.GetMessages().Add(id, newMessage);
+            //data.GetMessages()[id].addMessage(sender.Id, message);
             return true;
         }
     }

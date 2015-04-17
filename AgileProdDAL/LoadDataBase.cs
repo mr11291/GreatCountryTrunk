@@ -26,7 +26,7 @@ namespace AgileProdDAL
             Dictionary<int,Member> mem = readFromMember(p);
             Dictionary<int,Head> head = readFromHead(p);
             Dictionary<int,Bank> acc = readFromBank();
-            Dictionary<int, Message> mes = readFromMessage();
+            Dictionary<int, List<Message>> mes = readFromMessage();
 
             DataRepository dataR = new DataRepository(p, mem, parties, praimeries, head, admin, acc, mes);
 
@@ -90,9 +90,9 @@ namespace AgileProdDAL
             return bankAccounts;
         }
 
-        private static Dictionary<int, Message> readFromMessage()
+        private static Dictionary<int, List<Message>> readFromMessage()
         {
-            Dictionary<int, Message> messages = new Dictionary<int, Message>();
+            Dictionary<int, List<Message>> messages = new Dictionary<int, List<Message>>();
             StreamReader file = new StreamReader(path + "\\messageInbox.txt");
 
             string line = file.ReadLine();                                  //get first line
@@ -103,14 +103,25 @@ namespace AgileProdDAL
 
                 if (div.Count == 1)
                 {
-                    messages.Add(Convert.ToInt32(div[0]), null);
+                    //messages.Add(Convert.ToInt32(div[0]), null);
+                    break;
                 }
                 else
                 {
+                    int key = Convert.ToInt32(div[0].Trim());
                     for (int i = 1; i < div.Count - 1; i=i+2)
                     {
-                        Message newMessage = new Message(i, i + 1);
-                        messages.Add(Convert.ToInt32(div[0]), newMessage);
+                        List<Message> existing;
+                        if (!messages.TryGetValue(key, out existing))
+                        {
+                            existing = new List<Message>();
+                            messages[key] = existing;
+                        }
+                        
+                        Message newMessage = new Message(Convert.ToInt32(div[i].Trim()), div[i + 1].Trim());
+                        existing.Add(newMessage);
+                        //messages[Convert.ToInt32(div[0])] = 
+                        //messages.Add(Convert.ToInt32(div[0]), newMessage);
                     }
                 }
                 line = file.ReadLine();

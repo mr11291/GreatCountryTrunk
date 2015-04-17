@@ -11,75 +11,46 @@ namespace AgileProdObjectModel
         //this is a sub class of class Message.
         //the idea is to have a list of tuples as a message container.
         //because we want to know who sent the message, having a tuple of <sender id, message> is ideal.
-        public class TupleList<T1, T2> : List<Tuple<T1, T2>>
-        {
-            public void Add(T1 item, T2 item2)
-            {
-                Add(new Tuple<T1, T2>(item, item2));
-                
-            }
-        }
+        //public class TupleList<T1, T2> : List<Tuple<T1, T2>>
+        //{
+        //    public void Add(T1 item, T2 item2)
+        //    {
+        //        Add(new Tuple<T1, T2>(item, item2));
+
+        //    }
+        //}
 
         //Variables
-        
-        private TupleList<int, int> inbox = null;
+        //private TupleList<int, string> inbox = null;
+        //private Tuple<int, string> inbox;
+
+        int senderId;
+        string messageIn = null;
 
         //Setters Getters
-        public TupleList<int, int> Inbox
+        public string MessageIn
         {
-            get { return inbox; }
-            set { inbox = value; }
-        }      
-
-        //Constructor
-        public Message(int id, int message = 0)
+            get { return messageIn; }
+            set { messageIn = value; }
+        }
+        public int SenderId
         {
-            //if (message != 1 && message != 2)
-            //{
-            //    this.
-            //}
-            //if (message != 1 && message != 2)
-            //{
-            //    this.messageType = -1;
-            //}
-            //else
-            //{
-            //    this.messageType = message;
-            //}
+            get { return senderId; }
+            set { senderId = value; }
         }
 
-        //adds a new message to the inbox;
-        public void addMessage(int id, int message)
+        //Constructor
+        public Message(int id, string message = null)
         {
-            inbox.Add(id, message);
+            this.senderId = id;
+            this.messageIn = message;
         }
 
         //returns the whole message as a tuple
-        public Tuple<int,int> getFullMessage(int index)
+        public Tuple<int, string> getFullMessage()
         {
-            return inbox[index];
+            return new Tuple<int, string>(this.senderId, this.messageIn);
         }
-
-        //returns the message it self
-        public int getMessage(int index)
-        {
-            return inbox[index].Item2;
-        }
-
-        //returns the id of the sender
-        public int getSenderId(int index)
-        {
-            return inbox[index].Item1;
-        }
-
-        //checks if inbox is empty
-        public bool isEmpty()
-        {
-            if (this.inbox == null)
-            {
-                return true;
-            }
-            return false;
-        }
+    
     }
 }
