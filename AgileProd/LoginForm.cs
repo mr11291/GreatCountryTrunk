@@ -49,7 +49,6 @@ namespace AgileProd
             }
         }
         
-
         private void lblCreateVol_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             LoginForm currentForm = new LoginForm();
@@ -57,9 +56,6 @@ namespace AgileProd
             cvf.Show();
             this.Hide();
         }
-
- 
-
-
+   
     }
 }

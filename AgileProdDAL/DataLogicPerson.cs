@@ -84,6 +84,6 @@ namespace AgileProdDAL
             return true;
         }//revokeVoter(Person)
 
-
+        //public removeM
     }
 }

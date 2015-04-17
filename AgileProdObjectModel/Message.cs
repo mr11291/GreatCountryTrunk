@@ -10,12 +10,15 @@ namespace AgileProdObjectModel
     {
         //this is a sub class of class Message.
         //the idea is to have a list of tuples as a message container.
-        
         public class TupleList<item1, item2, item3> : List<Tuple<int, string, int>>
         {
             public void Add(int item1, string item2, int item3)
             {
                 Add(new Tuple<int, string, int>(item1, item2, item3)); 
+            }
+            public void Remove(int index)
+            {
+                Remove(index);
             }
         }
 
@@ -42,5 +45,9 @@ namespace AgileProdObjectModel
             inbox.Add(id, text, money);
         }
 
+        public void removeMessage(int index)
+        {
+            inbox.Remove(index);
+        }
     }
 }

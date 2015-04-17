@@ -72,7 +72,6 @@
     <Content Include="Database\admin.txt" />
     <Content Include="Database\bankAccounts.txt" />
     <Content Include="Database\committee.txt" />
-    <Content Include="Database\head.txt" />
     <Content Include="Database\members.txt" />
     <Content Include="Database\messageInbox.txt" />
     <Content Include="Database\nameDB.txt" />
