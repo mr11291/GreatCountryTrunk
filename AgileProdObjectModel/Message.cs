@@ -10,47 +10,37 @@ namespace AgileProdObjectModel
     {
         //this is a sub class of class Message.
         //the idea is to have a list of tuples as a message container.
-        //because we want to know who sent the message, having a tuple of <sender id, message> is ideal.
-        //public class TupleList<T1, T2> : List<Tuple<T1, T2>>
-        //{
-        //    public void Add(T1 item, T2 item2)
-        //    {
-        //        Add(new Tuple<T1, T2>(item, item2));
-
-        //    }
-        //}
-
-        //Variables
-        //private TupleList<int, string> inbox = null;
-        //private Tuple<int, string> inbox;
-
-        int senderId;
-        string messageIn = null;
-
-        //Setters Getters
-        public string MessageIn
+        
+        public class TupleList<item1, item2, item3> : List<Tuple<int, string, int>>
         {
-            get { return messageIn; }
-            set { messageIn = value; }
-        }
-        public int SenderId
-        {
-            get { return senderId; }
-            set { senderId = value; }
+            public void Add(int item1, string item2, int item3)
+            {
+                Add(new Tuple<int, string, int>(item1, item2, item3)); 
+            }
         }
 
-        //Constructor
-        public Message(int id, string message = null)
+        //private int id;
+
+        private TupleList<int, string, int> inbox = null;
+
+        public TupleList<int, string, int> Inbox
         {
-            this.senderId = id;
-            this.messageIn = message;
+            get { return inbox; }
+            set { inbox = value; }
+        }
+        
+        public Message(int id, string text, int money = 0)
+        {
+            inbox = new TupleList<int, string, int>();
+            inbox.Add(id, text, money);
         }
 
-        //returns the whole message as a tuple
-        public Tuple<int, string> getFullMessage()
+        //public Message()
+
+        public void addMessage(int id, string text, int money)
         {
-            return new Tuple<int, string>(this.senderId, this.messageIn);
+            inbox.Add(id, text, money);
         }
-    
+
     }
 }

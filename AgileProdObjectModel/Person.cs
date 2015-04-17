@@ -8,54 +8,55 @@ namespace AgileProdObjectModel
 {
     public class Person
     {
-        //Varaiables
         private int id;
-        private string name;
-        private int age;
-        private string userName;
-        private string password;
-        private bool isVoting;
-        private int numOfVotes;
-
-        //Setters Getters
         public int Id
         {
             get { return id; }
             set { id = value; }
         }
+
+        private string name;
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
+
+        private int age;
         public int Age
         {
             get { return age; }
             set { age = value; }
         }
+
+        private string userName;
         public string UserName
         {
             get { return userName; }
             set { userName = value; }
         }
+
+        private string password;
         public string Password
         {
             get { return password; }
             set { password = value; }
         }
+
+        private bool isVoting;
         public bool IsVoting
         {
             get { return isVoting; }
             set { isVoting = value; }
         }
+
+        private int numOfVotes;
         public int NumOfVotes
         {
             get { return numOfVotes; }
             set { numOfVotes = value; }
         }
 
-        //Constructors
-        public Person(){}
         public Person(int id, string name, int age, string userName, string password, bool isVoting)
         {
             this.id = id;
@@ -66,5 +67,8 @@ namespace AgileProdObjectModel
             this.isVoting = isVoting;
             this.numOfVotes = 0;
         }
+
+        public Person(){}
+
     }
 }

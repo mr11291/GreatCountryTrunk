@@ -17,14 +17,17 @@ namespace AgileProdDAL
         private static Dictionary<int, Person> people;       
         private static Dictionary<int, Member> members;
         private static Dictionary<string, int> partyList;
-        private static Dictionary<int, List<Message>> messages;
+        private static Dictionary<int, Message> messages;
         private static Dictionary<int, Bank> bankAccounts;
         private static bool praimerise;
         private static Dictionary<int, Head> committee;
         private static Dictionary<string, string> admin;
         private static DataRepository instance;
 
-        public  DataRepository(Dictionary<int, Person> peopleD, Dictionary<int, Member> membersD, Dictionary<string, int> partyListD, bool praimeriseD, Dictionary<int, Head> headD, Dictionary<string, string> adminD, Dictionary<int, Bank> bankAccountsD, Dictionary<int, List<Message>> messagesD)
+        public  DataRepository(Dictionary<int, Person> peopleD, Dictionary<int, Member> membersD,
+                               Dictionary<string, int> partyListD, bool praimeriseD, Dictionary<int, Head> headD,
+                               Dictionary<string, string> adminD, Dictionary<int, Bank> bankAccountsD,
+                               Dictionary<int, Message> messagesD)
         {
             people = peopleD;
             members = membersD;
@@ -103,7 +106,7 @@ namespace AgileProdDAL
         //    praimerise = praim;
         //}
 
-        public Dictionary<int, List<Message>> GetMessages()
+        public Dictionary<int, Message> GetMessages()
         {
             return messages;
         }

@@ -26,7 +26,7 @@ namespace AgileProdDAL
             Dictionary<int,Member> mem = readFromMember(p);
             Dictionary<int,Head> head = readFromHead(p);
             Dictionary<int,Bank> acc = readFromBank();
-            Dictionary<int, List<Message>> mes = readFromMessage();
+            Dictionary<int, Message> mes = readFromMessage();
 
             DataRepository dataR = new DataRepository(p, mem, parties, praimeries, head, admin, acc, mes);
 
@@ -90,9 +90,9 @@ namespace AgileProdDAL
             return bankAccounts;
         }
 
-        private static Dictionary<int, List<Message>> readFromMessage()
+        private static Dictionary<int, Message> readFromMessage()
         {
-            Dictionary<int, List<Message>> messages = new Dictionary<int, List<Message>>();
+            Dictionary<int, Message> messages = new Dictionary<int, Message>();
             StreamReader file = new StreamReader(path + "\\messageInbox.txt");
 
             string line = file.ReadLine();                                  //get first line
@@ -100,28 +100,28 @@ namespace AgileProdDAL
             while (line != null)
             {
                 var div = line.Split(',').ToList();
+                int inboxOwner = Convert.ToInt32(div[0].Trim());
 
                 if (div.Count == 1)
                 {
-                    //messages.Add(Convert.ToInt32(div[0]), null);
-                    break;
+                    messages.Add(Convert.ToInt32(div[0]), null);
                 }
                 else
                 {
-                    int key = Convert.ToInt32(div[0].Trim());
-                    for (int i = 1; i < div.Count - 1; i=i+2)
+                    
+                    for (int i = 1; i < div.Count; i=i+3)
                     {
-                        List<Message> existing;
-                        if (!messages.TryGetValue(key, out existing))
+                        int senderId = Convert.ToInt32(div[i].Trim());
+                        string text = div[i+1].Trim();
+                        int bribeAmount = Convert.ToInt32(div[i+2].Trim());
+                        if (i == 1)
                         {
-                            existing = new List<Message>();
-                            messages[key] = existing;
+                            messages[inboxOwner] = new Message(senderId, text, bribeAmount);
                         }
-                        
-                        Message newMessage = new Message(Convert.ToInt32(div[i].Trim()), div[i + 1].Trim());
-                        existing.Add(newMessage);
-                        //messages[Convert.ToInt32(div[0])] = 
-                        //messages.Add(Convert.ToInt32(div[0]), newMessage);
+                        else
+                        {
+                            messages[inboxOwner].addMessage(senderId, text, bribeAmount);
+                        }
                     }
                 }
                 line = file.ReadLine();
