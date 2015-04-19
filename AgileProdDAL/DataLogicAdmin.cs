@@ -87,9 +87,9 @@ namespace AgileProdDAL
         }
 
         /*
- * This function assignes the boolean value of false to a isVoting field of a person/member/committee member.
- * USED BY ADMIN
- */
+         * This function assignes the boolean value of false to a isVoting field of a person/member/committee member.
+         * USED BY ADMIN
+         */
         public static bool revokeVoter(int id)
         {
             data.GetPeople()[id].IsVoting = false;
@@ -97,9 +97,9 @@ namespace AgileProdDAL
         }//revokeVoter(int)
 
         /*
- * This function assignes the boolean value of true to a isVoting field of a person/member/committee member.
- * USED BY ADMIN
- */
+         * This function assignes the boolean value of true to a isVoting field of a person/member/committee member.
+         * USED BY ADMIN
+         */
         public static bool registerVoter(int id)
         {
             data.GetPeople()[id].IsVoting = true;

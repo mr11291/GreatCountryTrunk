@@ -263,15 +263,36 @@ namespace AgileProd
 
         private void fillMessageList(int id)
         {
+            if (MessageList.Items.Count != 0)
+            {
+                MessageList.Items.Clear();
+            }
             var messages = DataLogicAdmin.getMessages(user);
             foreach (var item in messages)
             {
                 int senderId = item.Item1;
-                //string senderName = DataLogicAdmin.AllAdmins()[senderId].Name;
-                //DataLogicAdmin.AllAdmins().
                 string message = item.Item2;
+                string senderName = null;
 
-                //MessageList.Items.Add(senderName + ": " + message);
+                if (DataLogicAdmin.AllAdmins().ContainsKey(senderId))
+                {
+                    senderName = DataLogicAdmin.AllAdmins()[senderId].Name;
+                }
+                else if (DataLogicAdmin.AllPersons().ContainsKey(senderId))
+                {
+                    senderName = DataLogicAdmin.AllPersons()[senderId].Name;
+                }
+
+                if (senderName != null)
+                {
+                    MessageList.Items.Add(senderName + ": " + message);
+                }
+                else 
+                {
+                    MessageList.Items.Add("ERROR! you shouldnt get here!");
+                }
+
+                
             }
 
         }
