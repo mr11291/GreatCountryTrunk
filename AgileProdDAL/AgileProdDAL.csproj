@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="DataLogic.cs" />
     <Compile Include="DataLogicAdmin.cs" />
+    <Compile Include="DataLogicCommittee.cs" />
     <Compile Include="DataLogicMember.cs" />
     <Compile Include="DataLogicPerson.cs" />
     <Compile Include="DataRepository.cs" />
