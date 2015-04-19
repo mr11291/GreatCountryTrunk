@@ -125,7 +125,7 @@ namespace AgileProdDAL
             return data.GetBankAccounts()[user.Id].Balance;
         }
 
-        
+
 
     }
 }

@@ -268,6 +268,7 @@ namespace AgileProd
             {
                 int senderId = item.Item1;
                 string senderName = DataLogicAdmin.AllAdmins()[senderId].Name;
+                DataLogicAdmin.AllAdmins().
                 string message = item.Item2;
 
                 MessageList.Items.Add(senderName + ": " + message);
