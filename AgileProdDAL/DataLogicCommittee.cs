@@ -14,6 +14,7 @@ namespace AgileProdDAL
         {
             data = DataRepository.GetDataRepository();
         }
+        public static bool AddParty(string Name,int Id)
         {
             if(data.GetPeople().Any(current => current.Key==Id && !data.GetMembers().Any(current1 => current1.Key== Id) && !data.GetPartyList().Any(current2 =>current2.Key== Name))
             {
@@ -29,4 +30,3 @@ namespace AgileProdDAL
 
     }
 }
-
