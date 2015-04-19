@@ -17,19 +17,21 @@ namespace AgileProd
     {
         bool buttonClickVP;
         bool buttonClickDelete;
+        Admin user;
         //Button btnVoterDel;
         //Button btnVoterUp;
-        public AdminForm()
+        public AdminForm(Admin admin)
         {
+
+            InitializeComponent();
+            user = admin;
             buttonClickVP = false;
             buttonClickDelete = false;
-            InitializeComponent();
             IDtextbox.Hide();
             IDlabel.Hide();
             ViewPeople.Hide();
             dataGridPeople.Hide();
-
-
+            tabMenu.SelectedIndexChanged += tabMenu_SelectedIndexChanged;
             //tx = new TextBox();
             //btnVoterDel = new Button();
             //btnVoterUp = new Button();
@@ -39,6 +41,7 @@ namespace AgileProd
             //btnVoterDel.Click += insertDelButton;
             //btnVoterUp.Click += insertUpdateButton;
         }
+
 
         //private void btnDelVoter_Click(object sender, EventArgs e)
         //{
@@ -156,10 +159,10 @@ namespace AgileProd
          */
         private void AddPerson_Click(object sender, EventArgs e)
         {
-            AdminForm currentForm = new AdminForm();                                                    //set current form
+            AdminForm currentForm = new AdminForm(user);                                                     //set current form
             CreateVoterForm voterForm = new CreateVoterForm(DataLogicAdmin.AllPersons(), currentForm, null); //initialize new voter form
-            voterForm.Show();                                                                           //open voter form
-            this.Hide();                                                                                //close current form
+            voterForm.Show();                                                                                //open voter form
+            this.Hide();                                                                                     //close current form
         }
 
         /*
@@ -246,5 +249,30 @@ namespace AgileProd
             return;
         }
     
+        private void tabMenu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch(tabMenu.SelectedIndex)
+            {
+            case 4:
+                {
+                    fillMessageList(user.Id);
+                }
+                break;
+            }
+        }
+
+        private void fillMessageList(int id)
+        {
+            var messages = DataLogicAdmin.getMessages(user);
+            foreach (var item in messages)
+            {
+                int senderId = item.Item1;
+                string senderName = DataLogicAdmin.AllAdmins()[senderId].Name;
+                string message = item.Item2;
+
+                MessageList.Items.Add(senderName + ": " + message);
+            }
+
+        }
     }
 }

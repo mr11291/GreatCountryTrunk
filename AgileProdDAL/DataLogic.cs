@@ -21,7 +21,6 @@ namespace AgileProdDAL
             data = DataRepository.GetDataRepository(); //initialize data base.
         }//DataLogic()
 
-
         public static bool addMember(int id, string name, int age, string username, string password, bool isVoting, string group, int location, int balance)   //admin
         {
             if (!data.GetMembers().Any(current => current.Key == id))
@@ -34,7 +33,6 @@ namespace AgileProdDAL
             }
             return false;
         }
-
 
         //Admin Functions 
         /*
@@ -90,8 +88,6 @@ namespace AgileProdDAL
             }
         }//DeletePerson(int)
 
-
-
         //those functions are used for UpdateInfo form
         public static void ChangeName(Person someone, string newname)
         {
@@ -128,5 +124,8 @@ namespace AgileProdDAL
         {
             return data.GetBankAccounts()[user.Id].Balance;
         }
+
+        
+
     }
 }
