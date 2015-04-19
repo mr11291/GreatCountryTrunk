@@ -17,7 +17,11 @@ namespace AgileProdDAL
         }
         public static bool AddParty(string Name, int Id)
         {
+<<<<<<< HEAD
             if (data.GetPeople().Any(current => current.Key == Id && !data.GetMembers().Any(current1 => current1.Key == Id) && !data.GetPartyList().Any(current2 => current2.Key == Name)))
+=======
+            if(data.GetPeople().Any(current => current.Key==Id && !data.GetMembers().Any(current1 => current1.Key== Id) && !data.GetPartyList().Any(current2 =>current2.Key== Name))
+>>>>>>> parent of 28a8e06... AddParty+ DatalogicCommittee
             {
 
                 Person thisPerson = data.GetPeople()[Id];
