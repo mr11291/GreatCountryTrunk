@@ -21,7 +21,7 @@ namespace AgileProdDAL
             {
 
                 Person thisPerson = data.GetPeople()[Id];
-                Member newMember = new Member(Id, thisPerson.Name, thisPerson.Age, thisPerson.UserName, thisPerson.Password, thisPerson.IsVoting, Name, 1);
+                Member newMember = new Member(Id, thisPerson.Name, thisPerson.Age, thisPerson.UserName, thisPerson.Password, thisPerson.IsVoting, Name,1);
                 data.GetPartyList().Add(Name, 0);
                 data.GetMembers().Add(Id, newMember);
                 return true;
