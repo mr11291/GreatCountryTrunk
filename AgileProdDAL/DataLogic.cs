@@ -53,6 +53,32 @@ namespace AgileProdDAL
         public static void ChangePassword(Person someone, string newpassword)
         {
             someone.Password = newpassword;
-        }     
+        }
+
+        public static void firstSetPartyLeader()
+        {
+            int highestBalance = 0;
+            Member memberBalance = null;
+            foreach (var party in data.GetPartyList().Keys)
+            {
+                foreach (var id in data.GetMembers().Keys)
+                {
+                    if (data.GetMembers()[id].Party.Equals(party))
+                    {
+                        int balance = data.GetBankAccounts()[id].Balance;
+                        if (balance > highestBalance)
+                        {
+                            highestBalance = balance;
+                            memberBalance = (data.GetMembers()[id]);
+                        }
+                    }
+                }
+                if (memberBalance != null)
+                {
+                    memberBalance.Location = -1;
+                    memberBalance = null;
+                }
+            }
+        }
     }
 }
