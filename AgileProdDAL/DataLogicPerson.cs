@@ -100,6 +100,8 @@ namespace AgileProdDAL
             return data.GetMessages()[person.Id].Inbox.Count;
         }
 
+        //ON GOING DEVELOPMENT!:
+
         //replyToMessage NOT FINISHED YET!
         public static void replyToMessage(Person person, int index, bool answer)
         {
@@ -110,6 +112,12 @@ namespace AgileProdDAL
                 data.GetMembers()[senderId].Location += 1;
                 // Here Should be a function call that votes to a party member and, takes the apropriate amount from this person etc
             }
-        }   
+        }
+
+        //NEEDS TO BE UPDATED AND DOCUMENTED
+        public static int getBalance(Person user)
+        {
+            return data.GetBankAccounts()[user.Id].Balance;
+        }
     }
 }
