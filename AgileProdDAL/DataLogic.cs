@@ -128,5 +128,46 @@ namespace AgileProdDAL
         {
             return data.GetBankAccounts()[user.Id].Balance;
         }
+
+        // Delete party
+        public static bool DelParty(string Pname)
+        {
+            try
+            {
+                Dictionary<int, Member> TempMem = new Dictionary<int, Member>();
+                data.GetPartyList().Remove(Pname);
+                foreach (var x in data.GetMembers())
+                {
+                    if (x.Value.Party != Pname.Replace(" ", string.Empty))
+                    {
+                        TempMem.Add(x.Key, x.Value);
+                    }
+                }
+
+                data.setMember(TempMem);
+
+                Console.WriteLine(data.GetMembers().Count());
+                Console.WriteLine(data.GetPartyList().Count());
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        // Withdrawal from person bank account
+        public static int WithdrawalPeronAcc(int id, int amount)
+        {
+            try
+            {
+                return data.GetBankAccounts()[id].withdrawl(amount);
+            }
+            catch
+            {
+                return -1; 
+            }
+            
+        }
     }
 }
