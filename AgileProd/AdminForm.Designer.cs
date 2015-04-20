@@ -30,6 +30,11 @@
         {
             this.tabMenu = new System.Windows.Forms.TabControl();
             this.ViewPeopleList = new System.Windows.Forms.TabPage();
+            this.txtAmntdrwl = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtWthdrwl = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnWithdrwl = new System.Windows.Forms.Button();
             this.dataGridPeople = new System.Windows.Forms.DataGridView();
             this.dataGridID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,26 +55,15 @@
             this.txtDelParty = new System.Windows.Forms.TextBox();
             this.btnDelParty = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-
-            this.btnWithdrwl = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtWthdrwl = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtAmntdrwl = new System.Windows.Forms.TextBox();
+            this.MessageTab = new System.Windows.Forms.TabPage();
+            this.ReadButton = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.MessageList = new System.Windows.Forms.ListBox();
             this.tabMenu.SuspendLayout();
             this.ViewPeopleList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPeople)).BeginInit();
             this.tabPage3.SuspendLayout();
-
-            this.MessageTab = new System.Windows.Forms.TabPage();
-            this.MessageList = new System.Windows.Forms.ListBox();
-            this.DeleteButton = new System.Windows.Forms.Button();
-            this.ReadButton = new System.Windows.Forms.Button();
-            this.tabMenu.SuspendLayout();
-            this.ViewPeopleList.SuspendLayout();
-           
             this.MessageTab.SuspendLayout();
-
             this.SuspendLayout();
             // 
             // tabMenu
@@ -87,15 +81,12 @@
             // 
             // ViewPeopleList
             // 
-
+            this.ViewPeopleList.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ViewPeopleList.Controls.Add(this.txtAmntdrwl);
             this.ViewPeopleList.Controls.Add(this.label3);
             this.ViewPeopleList.Controls.Add(this.txtWthdrwl);
             this.ViewPeopleList.Controls.Add(this.label2);
             this.ViewPeopleList.Controls.Add(this.btnWithdrwl);
-
-            this.ViewPeopleList.BackColor = System.Drawing.Color.WhiteSmoke;
-
             this.ViewPeopleList.Controls.Add(this.dataGridPeople);
             this.ViewPeopleList.Controls.Add(this.ViewPeople);
             this.ViewPeopleList.Controls.Add(this.IDlabel);
@@ -110,6 +101,50 @@
             this.ViewPeopleList.Size = new System.Drawing.Size(877, 235);
             this.ViewPeopleList.TabIndex = 0;
             this.ViewPeopleList.Text = "Person";
+            // 
+            // txtAmntdrwl
+            // 
+            this.txtAmntdrwl.Location = new System.Drawing.Point(155, 151);
+            this.txtAmntdrwl.Multiline = true;
+            this.txtAmntdrwl.Name = "txtAmntdrwl";
+            this.txtAmntdrwl.Size = new System.Drawing.Size(85, 23);
+            this.txtAmntdrwl.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(103, 154);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Amount:";
+            // 
+            // txtWthdrwl
+            // 
+            this.txtWthdrwl.Location = new System.Drawing.Point(140, 122);
+            this.txtWthdrwl.Multiline = true;
+            this.txtWthdrwl.Name = "txtWthdrwl";
+            this.txtWthdrwl.Size = new System.Drawing.Size(100, 23);
+            this.txtWthdrwl.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(116, 127);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(21, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "ID:";
+            // 
+            // btnWithdrwl
+            // 
+            this.btnWithdrwl.Location = new System.Drawing.Point(8, 122);
+            this.btnWithdrwl.Name = "btnWithdrwl";
+            this.btnWithdrwl.Size = new System.Drawing.Size(102, 23);
+            this.btnWithdrwl.TabIndex = 9;
+            this.btnWithdrwl.Text = "withdrawal";
+            this.btnWithdrwl.UseVisualStyleBackColor = true;
+            this.btnWithdrwl.Click += new System.EventHandler(this.btnWithdrwl_Click);
             // 
             // dataGridPeople
             // 
@@ -285,50 +320,6 @@
             this.tabPage4.Text = "Admin";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-
-            // btnWithdrwl
-            // 
-            this.btnWithdrwl.Location = new System.Drawing.Point(8, 122);
-            this.btnWithdrwl.Name = "btnWithdrwl";
-            this.btnWithdrwl.Size = new System.Drawing.Size(102, 23);
-            this.btnWithdrwl.TabIndex = 9;
-            this.btnWithdrwl.Text = "withdrawal";
-            this.btnWithdrwl.UseVisualStyleBackColor = true;
-            this.btnWithdrwl.Click += new System.EventHandler(this.btnWithdrwl_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(116, 127);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "ID:";
-            // 
-            // txtWthdrwl
-            // 
-            this.txtWthdrwl.Location = new System.Drawing.Point(140, 122);
-            this.txtWthdrwl.Multiline = true;
-            this.txtWthdrwl.Name = "txtWthdrwl";
-            this.txtWthdrwl.Size = new System.Drawing.Size(100, 23);
-            this.txtWthdrwl.TabIndex = 11;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(103, 154);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Amount:";
-            // 
-            // txtAmntdrwl
-            // 
-            this.txtAmntdrwl.Location = new System.Drawing.Point(155, 151);
-            this.txtAmntdrwl.Multiline = true;
-            this.txtAmntdrwl.Name = "txtAmntdrwl";
-            this.txtAmntdrwl.Size = new System.Drawing.Size(85, 23);
-            this.txtAmntdrwl.TabIndex = 13;
             // MessageTab
             // 
             this.MessageTab.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -342,32 +333,31 @@
             this.MessageTab.TabIndex = 4;
             this.MessageTab.Text = "Messages";
             // 
-            // MessageList
+            // ReadButton
             // 
-            this.MessageList.FormattingEnabled = true;
-            this.MessageList.Location = new System.Drawing.Point(3, 6);
-            this.MessageList.Name = "MessageList";
-            this.MessageList.Size = new System.Drawing.Size(205, 225);
-            this.MessageList.TabIndex = 0;
+            this.ReadButton.Location = new System.Drawing.Point(507, 6);
+            this.ReadButton.Name = "ReadButton";
+            this.ReadButton.Size = new System.Drawing.Size(75, 23);
+            this.ReadButton.TabIndex = 2;
+            this.ReadButton.Text = "Read";
+            this.ReadButton.UseVisualStyleBackColor = true;
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(213, 35);
+            this.DeleteButton.Location = new System.Drawing.Point(507, 35);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(75, 23);
             this.DeleteButton.TabIndex = 1;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = true;
             // 
-            // ReadButton
+            // MessageList
             // 
-            this.ReadButton.Location = new System.Drawing.Point(213, 6);
-            this.ReadButton.Name = "ReadButton";
-            this.ReadButton.Size = new System.Drawing.Size(75, 23);
-            this.ReadButton.TabIndex = 2;
-            this.ReadButton.Text = "Read";
-            this.ReadButton.UseVisualStyleBackColor = true;
-
+            this.MessageList.FormattingEnabled = true;
+            this.MessageList.Location = new System.Drawing.Point(3, 6);
+            this.MessageList.Name = "MessageList";
+            this.MessageList.Size = new System.Drawing.Size(498, 225);
+            this.MessageList.TabIndex = 0;
             // 
             // AdminForm
             // 
@@ -382,11 +372,9 @@
             this.ViewPeopleList.ResumeLayout(false);
             this.ViewPeopleList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPeople)).EndInit();
-
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.MessageTab.ResumeLayout(false);
-
             this.ResumeLayout(false);
 
         }
