@@ -34,6 +34,7 @@ namespace AgileProdDAL
             praimerise = praimeriseD;
             messages = messagesD;
             admin = adminD;
+            
         }
 
 
@@ -98,10 +99,11 @@ namespace AgileProdDAL
             return praimerise;
         }
 
-        //public void setPraimeries(bool praim)
-        //{
-        //    praimerise = praim;
-        //}
+        public void setPraimeries(bool praim)
+        {
+            praimerise = praim;
+           
+        }
 
         public Dictionary<int, Message> GetMessages()
         {
