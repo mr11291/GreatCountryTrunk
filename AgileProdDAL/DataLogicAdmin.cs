@@ -99,7 +99,37 @@ namespace AgileProdDAL
             return data.GetMessages()[user.Id].Inbox;
         }
 
+
         //ON GOING DEVELOPMENT!:
+
+        public static bool AddPerosnToParty(int id , string partyName,int location)
+        {
+            try
+            {
+                if (data.GetPartyList().Keys.Contains(partyName))
+                {
+                    string newMemberName = data.GetMembers()[id].Name;
+                    int newMemberAge = data.GetMembers()[id].Age;
+                    string newMemberUserName = data.GetMembers()[id].UserName;
+                    string newMemberPassword = data.GetMembers()[id].Password;
+                    bool newMemberVoting = data.GetMembers()[id].IsVoting;
+                    Member m = new Member(id, newMemberName, newMemberAge, newMemberUserName, newMemberPassword, newMemberVoting, partyName, location);
+                    data.GetMembers().Add(id, m);
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static void SetPraimeryStatus()
+        {
+            data.setPraimeries(true);
+        }
+
 
         //NEEDS TO BE UPDATED TO USE MESSAGES
         public static bool addMember(int id, string name, int age, string username, string password, bool isVoting, string group, int location, int balance)

@@ -119,5 +119,16 @@ namespace AgileProdDAL
         {
             return data.GetBankAccounts()[user.Id].Balance;
         }
+
+        public static bool AddToParty(Person p,string partyName,int location)
+        {
+            if(data.GetPartyList().Keys.Contains(partyName))
+            {
+                Member m = new Member(p.Id, p.Name, p.Age, p.UserName, p.Password, p.IsVoting, partyName, location);
+                data.GetMembers().Add(m.Id, m);
+                return true;
+            }
+            return false;
+        }
     }
 }

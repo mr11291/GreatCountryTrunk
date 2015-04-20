@@ -34,6 +34,7 @@ namespace AgileProdDAL
             praimerise = praimeriseD;
             messages = messagesD;
             admin = adminD;
+            
         }
 
         /*
@@ -84,6 +85,11 @@ namespace AgileProdDAL
         {
             members = memberD;
         }
+        public void setPraimeries(bool praim)
+        {
+            praimerise = praim;
+
+        }
         
         /*
         public void setPeople(Dictionary<int, Person> peopleD)
@@ -91,10 +97,12 @@ namespace AgileProdDAL
             people = peopleD;
         }
 
+<<<<<<< HEAD
         public void setHead(Dictionary<int, Head> headD)
         {
             head = headD;
-        }
+=======
+
 
         public void setPartyList(Dictionary<string, int> PartyListD)
         {
