@@ -181,7 +181,7 @@ namespace AgileProd
             {
                 chooseFromList = rnd.Next(1, ID.Count - 1);
                 j++;
-                if (j > 5) { index++; j = 1; locationInParty = 1; }
+                if (j > 5) { index++; j = 1; locationInParty = 0; }
                 while (container.Contains(chooseFromList))
                 {
                     chooseFromList = rnd.Next(1, ID.Count - 1);
@@ -189,22 +189,62 @@ namespace AgileProd
 
                 file.WriteLine(ID[chooseFromList] + " , " + party[index] + " , " + locationInParty);
                 container.Add(chooseFromList);
-                locationInParty++;
             }
         }//writeToPartyMember(StreamWriter, List<int>, int)
 
         /*
          * writeToCommittee writes committee database
          */
-        public void writeToCommittee(StreamWriter file, List<int> ID)
+        public void writeToCommittee(StreamWriter outputfile, StreamReader inputfile)
         {
-            Random rnd = new Random();                      //initialize new sudo random
-            for (int i = 0; i < committeeLen; i++)          //iterate defualt amount times
+            List<Tuple<int, int>> listOfCommittee = new List<Tuple<int, int>>();
+
+            string line = inputfile.ReadLine();
+            int count = 0;
+            int lowestAge = 0;
+            while (line != null)                         //stop when you reach the end of the file
             {
-                int personIndex = rnd.Next(1, ID.Count - 1);    //get a random person
-                file.WriteLine(ID[personIndex]);                //add people to committee
+                var linelist = line.Split(',');
+                Tuple<int, int> temp = new Tuple<int, int>(Convert.ToInt32(linelist[0]), Convert.ToInt32(linelist[2].Trim()));
+
+                if (count < 5)
+                {
+                    if (count == 0)
+                    {
+                        lowestAge = temp.Item2;
+                    }
+                    else if (temp.Item2 < lowestAge)
+                    {
+                        lowestAge = temp.Item2;
+                    }
+                    listOfCommittee.Add(temp);
+                    count++;
+                }
+                else
+                {
+                    if (temp.Item2 > lowestAge)
+                    {
+                        for (int i = 0; i < listOfCommittee.Count; i++)
+                        {
+                            if (listOfCommittee[i].Item2 < temp.Item2)
+                            {
+                                lowestAge = listOfCommittee[i].Item2;
+                                listOfCommittee[i] = temp;
+                                break;
+                            }
+                        }
+                    }
+                }
+                line = inputfile.ReadLine();
             }
-        }//writeToCommittiee(StreamWriter, list<int>);
+
+            for (int i = 0; i < listOfCommittee.Count; i++)
+            {
+                outputfile.WriteLine(listOfCommittee[i].Item1 + ", " + listOfCommittee[i].Item2);
+            }
+            outputfile.Close();
+            inputfile.Close();
+        }//writeToCommittiee;
 
         /*
          * 
@@ -214,6 +254,7 @@ namespace AgileProd
             List<int> ID = new List<int>();                            //initialize new empty ID list 
                                                                        //Initialize paths:
             StreamWriter personfile = new StreamWriter(personPath);      //person path
+            StreamReader personfilereader = new StreamReader(personPath);
             StreamWriter bankfile = new StreamWriter(bankPath);      //person path
             StreamWriter memberfile = new StreamWriter(memberPath);      //party member path
             StreamWriter committeefile = new StreamWriter(CommiteePath); //coommittee member path
@@ -221,13 +262,14 @@ namespace AgileProd
 
             ID = writeToPerson(personfile);                            //write people database
             personfile.Close();
-            writeToBank(bankfile, ID);
+            writeToBank(bankfile, ID);                                 //write bank file
             bankfile.Close();
             writeToPartyMember(memberfile, ID, 15);                    //write party member database
             memberfile.Close();
-            writeToCommittee(committeefile, ID);                       //write committee member database
+            writeToCommittee(committeefile, personfilereader);         //write committee member database
+            personfilereader.Close();
             committeefile.Close();
-            writeToMessage(messagefile, ID);
+            writeToMessage(messagefile, ID);                           //write message file
             messagefile.Close();
 
             
