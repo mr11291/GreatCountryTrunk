@@ -10,46 +10,43 @@ namespace AgileProdObjectModel
     {
         //this is a sub class of class Message.
         //the idea is to have a list of tuples as a message container.
-        //because we know there are only two types of messages that could be sent, having a tuple of <sender id, message> is ideal.
-        public class TupleList<T1, T2> : List<Tuple<T1, T2>>
+        public class TupleList<item1, item2, item3> : List<Tuple<int, string, int>>
         {
-            public void Add(T1 item, T2 item2)
+            public void Add(int item1, string item2, int item3)
             {
-                Add(new Tuple<T1, T2>(item, item2));
-                
+                Add(new Tuple<int, string, int>(item1, item2, item3)); 
+            }
+            public void Remove(int index)
+            {
+                Remove(index);
             }
         }
 
-        //private int id;
-        private int messageType;
-        public int MessageType
-        {
-            get { return messageType; }
-            set { messageType = value; }
-        }
+        //Varaiables
+        private TupleList<int, string, int> inbox = null;
 
-        private TupleList<int, int> inbox = null;
-        public TupleList<int, int> Inbox
+        //Setters Getters
+        public TupleList<int, string, int> Inbox
         {
             get { return inbox; }
             set { inbox = value; }
         }
         
-        public Message(int id, int message = 0)
+        //Constructor
+        public Message(int id, string text, int money = 0)
         {
-            if (message != 1 && message != 2)
-            {
-                this.messageType = -1;
-            }
-            else
-            {
-                this.messageType = message;
-            }
+            inbox = new TupleList<int, string, int>();
+            inbox.Add(id, text, money);
         }
 
-        public void addMessage(int id, int message)
+        //Functions that handle in-class actions
+        public void addMessage(int id, string text, int money)
         {
-            inbox.Add(id, message);
+            inbox.Add(id, text, money);
+        }
+        public void removeMessage(int index)
+        {
+            inbox.Remove(index);
         }
     }
 }

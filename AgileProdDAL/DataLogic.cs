@@ -44,7 +44,7 @@ namespace AgileProdDAL
         {
             if (!data.GetPeople().Any(current => current.Key == id))                               //checks if ID doesn't exist in the system
             {
-                Message newMessageBox = new Message(id);                                   //creates a new message box
+                Message newMessageBox = null;                                  //creates a new message box
                 Bank newAccount = new Bank(balance, id, name);                             //creates a new bank account
                 Person newPerson = new Person(id, name, age, username, password, isVoting);  //creates a new person
                 data.GetPeople().Add(newPerson.Id, newPerson);                                  //adds person to the dictionary
@@ -59,7 +59,7 @@ namespace AgileProdDAL
         {
             if (!data.GetMembers().Any(current => current.Key == id))                               //checks if ID doesn't exist in the system
             {
-                Message newMessageBox = new Message(id);                                                     //creates a new message box
+                Message newMessageBox = null;                                                     //creates a new message box
                 Bank newAccount = new Bank(balance, id, name);                                               //creates a new bank account
                 Member newMember = new Member(id, name, age, username, password, isVoting, party, location); //creates a new person
                 data.GetMembers().Add(newMember.Id, newMember);                                                   //adds person to the dictionary

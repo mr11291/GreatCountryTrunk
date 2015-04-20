@@ -8,6 +8,11 @@ namespace AgileProdObjectModel
 {
     public class Head:Person
     {
+        /*
+         * Committee class is more of a representation of a state, created only to seperate a regular person and a committee member
+         */
+
+        //Constructor of person
         public Head(int id, string name, int age, string userName, string password, bool isVoting)
         {
             this.Id = id;
@@ -17,9 +22,5 @@ namespace AgileProdObjectModel
             this.Password = password;
             this.IsVoting = isVoting;
         }
-
-
-
-
     }
 }

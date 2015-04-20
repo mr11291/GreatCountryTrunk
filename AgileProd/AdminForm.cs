@@ -19,7 +19,7 @@ namespace AgileProd
         bool buttonClickDelete;
         //Button btnVoterDel;
         //Button btnVoterUp;
-        public AdminForm()
+        public AdminForm(Admin user = null)
         {
             buttonClickVP = false;
             buttonClickDelete = false;

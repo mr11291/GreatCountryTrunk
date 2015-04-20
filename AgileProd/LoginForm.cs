@@ -21,35 +21,33 @@ namespace AgileProd
         }
 
         private void btnEnter_Click(object sender, EventArgs e)
-        {
-            //Member temp = new Member(1, "name", 12, "user", "pa", true, "shloofim", 1);
-            
-            Member tempmem = DataLogicMember.LoginMember(username.Text, password.Text);
-            Person tempper = DataLogicPerson.LoginPerson(username.Text, password.Text);
-            if(DataLogicAdmin.LoginAdmin(username.Text,password.Text))
+        {         
+            Member tempMember = DataLogicMember.LoginMember(username.Text, password.Text);
+            Person tempPerson = DataLogicPerson.LoginPerson(username.Text, password.Text);
+            Admin tempAdmin = DataLogicAdmin.LoginAdmin(username.Text, password.Text);
+            if(tempAdmin != null)
             {
-                AdminForm newForm = new AdminForm();
+                AdminForm newForm = new AdminForm(tempAdmin);
                 this.Hide();
                 newForm.Show();
                 return;
             }
-            else if(tempmem!=null)
+            else if(tempMember != null)
             {
-                MemberForm f = new MemberForm(tempmem);
+                MemberForm f = new MemberForm(tempMember);
                 this.Hide();
                 f.Show();
                 return;
             }
-            else if(tempper!=null)
+            else if(tempPerson!=null)
             {
-                PeopleForm p = new PeopleForm(tempper);
+                PeopleForm p = new PeopleForm(tempPerson);
                 this.Hide();
                 p.Show();
                 return;
             }
         }
         
-
         private void lblCreateVol_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             LoginForm currentForm = new LoginForm();
@@ -57,9 +55,6 @@ namespace AgileProd
             cvf.Show();
             this.Hide();
         }
-
- 
-
-
+   
     }
 }
