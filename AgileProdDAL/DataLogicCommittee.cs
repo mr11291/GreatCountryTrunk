@@ -32,5 +32,17 @@ namespace AgileProdDAL
             else
                 return false;
         }
+
+        public static void ChangePraimeryStatus()
+        {
+            if (data.GetPraimerise() == false)
+                data.setPraimeries(true);
+            else
+                data.setPraimeries(false);
+        }
+
+
+
+
     }
 }
