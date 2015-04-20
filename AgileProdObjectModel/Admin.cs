@@ -41,6 +41,7 @@ namespace AgileProdObjectModel
         //Consturctor
         public Admin(int id, string name, string username, string password)
         {
+            //Varaiables
             this.id = id;
             this.name = name;
             this.userName = username;

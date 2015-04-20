@@ -22,29 +22,28 @@ namespace AgileProdObjectModel
             }
         }
 
-        //private int id;
-
+        //Varaiables
         private TupleList<int, string, int> inbox = null;
 
+        //Setters Getters
         public TupleList<int, string, int> Inbox
         {
             get { return inbox; }
             set { inbox = value; }
         }
         
+        //Constructor
         public Message(int id, string text, int money = 0)
         {
             inbox = new TupleList<int, string, int>();
             inbox.Add(id, text, money);
         }
 
-        //public Message()
-
+        //Functions that handle in-class actions
         public void addMessage(int id, string text, int money)
         {
             inbox.Add(id, text, money);
         }
-
         public void removeMessage(int index)
         {
             inbox.Remove(index);

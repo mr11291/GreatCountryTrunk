@@ -110,5 +110,7 @@ namespace AgileProdDAL
                 // Here Should be a function call that votes to a party member and, takes the apropriate amount from this person etc
             }
         }
+    
+        
     }
 }

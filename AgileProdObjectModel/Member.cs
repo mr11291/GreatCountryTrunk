@@ -8,27 +8,29 @@ namespace AgileProdObjectModel
 {
     public class Member:Person
     {
+        //Varaiables
         private string party;
-        public string Party
-        {
-            get { return party; }
-            set { party = value; }
-        }
-
         private int location;
+        private string slogan;
+
+        //Setters Getters
         public int Location
         {
             get { return location; }
             set { location = value; }
         }
-
-        private string slogan;
+        public string Party
+        {
+            get { return party; }
+            set { party = value; }
+        }
         public string Slogan
         {
             get { return slogan; }
             set { slogan = value; }
         }
 
+        //Constructor
         public Member(int id, string name, int age, string userName, string password, bool isVoting, string party, int location)
         {
             this.Id = id;
@@ -41,7 +43,5 @@ namespace AgileProdObjectModel
             this.IsVoting = isVoting;
             this.slogan = null;
         }
-
-
     }
 }
