@@ -58,10 +58,10 @@ namespace AgileProdDAL
             return members;
         }
 
-        //public void setMember(Dictionary<int, Member> memberD)
-        //{
-        //    members = memberD;
-        //}
+        public void setMember(Dictionary<int, Member> memberD)
+        {
+            members = memberD;
+        }
 
         public Dictionary<int, Head> GetCommittee()
         {

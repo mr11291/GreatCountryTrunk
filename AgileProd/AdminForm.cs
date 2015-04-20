@@ -245,6 +245,36 @@ namespace AgileProd
             IDtextbox.Text = (string)dataGridPeople[0, e.RowIndex].Value; //get's value of clicked cell, converts it to a string and copies it to text box
             return;
         }
+
+        private void btnDelParty_Click(object sender, EventArgs e)
+        {
+            if (txtDelParty.Text == "")
+            {
+                MessageBox.Show("Please enter party name for delete");
+            }
+            else
+            {
+                DataLogic.DelParty(txtDelParty.Text);
+                txtDelParty.Text = "";
+            }
+        }
+
+        private void btnWithdrwl_Click(object sender, EventArgs e)
+        {
+            if (txtAmntdrwl.Text == "")
+            {
+                MessageBox.Show("Please enter amount to withdrawal.");
+                return;
+            }
+
+            if (txtWthdrwl.Text == "")
+            {
+                MessageBox.Show("Please enter id for withdrawal.");
+                return;
+            }
+
+            DataLogic.WithdrawalPeronAcc(int.Parse(txtWthdrwl.Text), int.Parse(txtAmntdrwl.Text));
+        }
     
     }
 }

@@ -31,6 +31,12 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.ViewPeopleList = new System.Windows.Forms.TabPage();
             this.dataGridPeople = new System.Windows.Forms.DataGridView();
+            this.dataGridID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isVoting = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ViewPeople = new System.Windows.Forms.Button();
             this.IDlabel = new System.Windows.Forms.Label();
             this.IDtextbox = new System.Windows.Forms.TextBox();
@@ -40,16 +46,19 @@
             this.RegisterVoter = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtDelParty = new System.Windows.Forms.TextBox();
+            this.btnDelParty = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dataGridID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isVoting = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnWithdrwl = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtWthdrwl = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtAmntdrwl = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.ViewPeopleList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPeople)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -66,6 +75,11 @@
             // 
             // ViewPeopleList
             // 
+            this.ViewPeopleList.Controls.Add(this.txtAmntdrwl);
+            this.ViewPeopleList.Controls.Add(this.label3);
+            this.ViewPeopleList.Controls.Add(this.txtWthdrwl);
+            this.ViewPeopleList.Controls.Add(this.label2);
+            this.ViewPeopleList.Controls.Add(this.btnWithdrwl);
             this.ViewPeopleList.Controls.Add(this.dataGridPeople);
             this.ViewPeopleList.Controls.Add(this.ViewPeople);
             this.ViewPeopleList.Controls.Add(this.IDlabel);
@@ -96,6 +110,42 @@
             this.dataGridPeople.Name = "dataGridPeople";
             this.dataGridPeople.Size = new System.Drawing.Size(586, 222);
             this.dataGridPeople.TabIndex = 8;
+            // 
+            // dataGridID
+            // 
+            this.dataGridID.HeaderText = "ID";
+            this.dataGridID.Name = "dataGridID";
+            this.dataGridID.ReadOnly = true;
+            // 
+            // dataGridName
+            // 
+            this.dataGridName.HeaderText = "Name";
+            this.dataGridName.Name = "dataGridName";
+            this.dataGridName.ReadOnly = true;
+            // 
+            // dataGridAge
+            // 
+            this.dataGridAge.HeaderText = "Age";
+            this.dataGridAge.Name = "dataGridAge";
+            this.dataGridAge.ReadOnly = true;
+            this.dataGridAge.Width = 40;
+            // 
+            // dataGridUserName
+            // 
+            this.dataGridUserName.HeaderText = "Username";
+            this.dataGridUserName.Name = "dataGridUserName";
+            this.dataGridUserName.ReadOnly = true;
+            // 
+            // dataGridPassword
+            // 
+            this.dataGridPassword.HeaderText = "Password";
+            this.dataGridPassword.Name = "dataGridPassword";
+            this.dataGridPassword.ReadOnly = true;
+            // 
+            // isVoting
+            // 
+            this.isVoting.HeaderText = "Registered Voter";
+            this.isVoting.Name = "isVoting";
             // 
             // ViewPeople
             // 
@@ -174,6 +224,9 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label1);
+            this.tabPage3.Controls.Add(this.txtDelParty);
+            this.tabPage3.Controls.Add(this.btnDelParty);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -181,6 +234,32 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Committee Member";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(93, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Party name:";
+            // 
+            // txtDelParty
+            // 
+            this.txtDelParty.Location = new System.Drawing.Point(162, 39);
+            this.txtDelParty.Name = "txtDelParty";
+            this.txtDelParty.Size = new System.Drawing.Size(121, 20);
+            this.txtDelParty.TabIndex = 1;
+            // 
+            // btnDelParty
+            // 
+            this.btnDelParty.Location = new System.Drawing.Point(8, 36);
+            this.btnDelParty.Name = "btnDelParty";
+            this.btnDelParty.Size = new System.Drawing.Size(75, 23);
+            this.btnDelParty.TabIndex = 0;
+            this.btnDelParty.Text = "Delete party";
+            this.btnDelParty.UseVisualStyleBackColor = true;
+            this.btnDelParty.Click += new System.EventHandler(this.btnDelParty_Click);
             // 
             // tabPage4
             // 
@@ -191,41 +270,49 @@
             this.tabPage4.Text = "Admin";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // dataGridID
+            // btnWithdrwl
             // 
-            this.dataGridID.HeaderText = "ID";
-            this.dataGridID.Name = "dataGridID";
-            this.dataGridID.ReadOnly = true;
+            this.btnWithdrwl.Location = new System.Drawing.Point(8, 122);
+            this.btnWithdrwl.Name = "btnWithdrwl";
+            this.btnWithdrwl.Size = new System.Drawing.Size(102, 23);
+            this.btnWithdrwl.TabIndex = 9;
+            this.btnWithdrwl.Text = "withdrawal";
+            this.btnWithdrwl.UseVisualStyleBackColor = true;
+            this.btnWithdrwl.Click += new System.EventHandler(this.btnWithdrwl_Click);
             // 
-            // dataGridName
+            // label2
             // 
-            this.dataGridName.HeaderText = "Name";
-            this.dataGridName.Name = "dataGridName";
-            this.dataGridName.ReadOnly = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(116, 127);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(21, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "ID:";
             // 
-            // dataGridAge
+            // txtWthdrwl
             // 
-            this.dataGridAge.HeaderText = "Age";
-            this.dataGridAge.Name = "dataGridAge";
-            this.dataGridAge.ReadOnly = true;
-            this.dataGridAge.Width = 40;
+            this.txtWthdrwl.Location = new System.Drawing.Point(140, 122);
+            this.txtWthdrwl.Multiline = true;
+            this.txtWthdrwl.Name = "txtWthdrwl";
+            this.txtWthdrwl.Size = new System.Drawing.Size(100, 23);
+            this.txtWthdrwl.TabIndex = 11;
             // 
-            // dataGridUserName
+            // label3
             // 
-            this.dataGridUserName.HeaderText = "Username";
-            this.dataGridUserName.Name = "dataGridUserName";
-            this.dataGridUserName.ReadOnly = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(103, 154);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Amount:";
             // 
-            // dataGridPassword
+            // txtAmntdrwl
             // 
-            this.dataGridPassword.HeaderText = "Password";
-            this.dataGridPassword.Name = "dataGridPassword";
-            this.dataGridPassword.ReadOnly = true;
-            // 
-            // isVoting
-            // 
-            this.isVoting.HeaderText = "Registered Voter";
-            this.isVoting.Name = "isVoting";
+            this.txtAmntdrwl.Location = new System.Drawing.Point(155, 151);
+            this.txtAmntdrwl.Multiline = true;
+            this.txtAmntdrwl.Name = "txtAmntdrwl";
+            this.txtAmntdrwl.Size = new System.Drawing.Size(85, 23);
+            this.txtAmntdrwl.TabIndex = 13;
             // 
             // AdminForm
             // 
@@ -240,6 +327,8 @@
             this.ViewPeopleList.ResumeLayout(false);
             this.ViewPeopleList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPeople)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -265,6 +354,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridUserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridPassword;
         private System.Windows.Forms.DataGridViewTextBoxColumn isVoting;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtDelParty;
+        private System.Windows.Forms.Button btnDelParty;
+        private System.Windows.Forms.TextBox txtWthdrwl;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnWithdrwl;
+        private System.Windows.Forms.TextBox txtAmntdrwl;
+        private System.Windows.Forms.Label label3;
 
     }
 }
