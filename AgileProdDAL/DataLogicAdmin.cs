@@ -160,5 +160,10 @@ namespace AgileProdDAL
                 return false;
             }
         }
+
+        public static int getMessageCount(Admin user)
+        {
+            return data.GetMessages()[user.Id].Count;
+        }
     }
 }

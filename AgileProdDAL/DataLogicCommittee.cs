@@ -15,6 +15,7 @@ namespace AgileProdDAL
         {
             data = DataRepository.GetDataRepository();
         }
+
         //AddParty, committee is the only user that can add new party, the function get the new name and the ID of the head of the party
         public static bool AddParty(string Name, int Id)
         {
@@ -31,7 +32,5 @@ namespace AgileProdDAL
             else
                 return false;
         }
-
     }
-
 }

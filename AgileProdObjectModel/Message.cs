@@ -24,6 +24,7 @@ namespace AgileProdObjectModel
 
         //Varaiables
         private TupleList<int, string, int> inbox = null;
+        private int count = 0;
 
         //Setters Getters
         public TupleList<int, string, int> Inbox
@@ -31,22 +32,30 @@ namespace AgileProdObjectModel
             get { return inbox; }
             set { inbox = value; }
         }
-        
+        public int Count
+        {
+            get { return count; }
+            set { count = value; }
+        }
+
         //Constructor
         public Message(int id, string text, int money = 0)
         {
             inbox = new TupleList<int, string, int>();
             inbox.Add(id, text, money);
+            count++;
         }
 
         //Functions that handle in-class actions
         public void addMessage(int id, string text, int money)
         {
             inbox.Add(id, text, money);
+            count++;
         }
         public void removeMessage(int index)
         {
             inbox.Remove(index);
+            count--;
         }
     }
 }

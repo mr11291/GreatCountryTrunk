@@ -33,6 +33,7 @@ namespace AgileProd
             ViewPeople.Hide();
             dataGridPeople.Hide();
             tabMenu.SelectedIndexChanged += tabMenu_SelectedIndexChanged;
+            tabMenu.TabPages[4].Text = "Messages " + "[" + DataLogicAdmin.getMessageCount(user) + "]";
             //tx = new TextBox();
             //btnVoterDel = new Button();
             //btnVoterUp = new Button();
@@ -286,6 +287,7 @@ namespace AgileProd
             {
             case 4:
                 {
+                    tabMenu.TabPages[4].Text = "Messages";
                     fillMessageList(user.Id);
                 }
                 break;
