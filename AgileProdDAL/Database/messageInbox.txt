@@ -999,8 +999,8 @@
 553886409
 164914463
 310300611, 310300611, NO MESSAGES FOR YOU!, 0
-203761481, 310300611, This test is so awesome!, 0
-205572928, 310300611, Cyber attack!, 0
-302993894, 310300611, Do you want to buy insurence? you can even make money of it! not a fonzie scheme!, 0
-111111111, 310300611, Does it even work?, 0
-123456789, 310300611, This message will destroy it self in 5..4..3..2..1, 0
+203761481, 310300611, This test is so awesome!, 0, 205572928, Hey! i geuss this system works!, 0
+205572928, 310300611, Cyber attack!, 0, 123456789, Hey! i geuss this system works!, 0
+302993894, 310300611, Do you want to buy insurence? you can even make money of it! not a fonzie scheme!, 0, 111111111, Hey! i geuss this system works!, 0
+111111111, 310300611, Does it even work?, 0, 123456789, Hey! i geuss this system works!, 0
+123456789, 310300611, This message will destroy it self in 5..4..3..2..1, 0, 203761481, Hey! i geuss this system works!, 0
