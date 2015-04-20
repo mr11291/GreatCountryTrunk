@@ -17,19 +17,22 @@ namespace AgileProd
     {
         bool buttonClickVP;
         bool buttonClickDelete;
+        Admin user;
         //Button btnVoterDel;
         //Button btnVoterUp;
-        public AdminForm(Admin user = null)
+
+        public AdminForm(Admin admin)
         {
+
+            InitializeComponent();
+            user = admin;
             buttonClickVP = false;
             buttonClickDelete = false;
-            InitializeComponent();
             IDtextbox.Hide();
             IDlabel.Hide();
             ViewPeople.Hide();
             dataGridPeople.Hide();
-
-
+            tabMenu.SelectedIndexChanged += tabMenu_SelectedIndexChanged;
             //tx = new TextBox();
             //btnVoterDel = new Button();
             //btnVoterUp = new Button();
@@ -39,6 +42,7 @@ namespace AgileProd
             //btnVoterDel.Click += insertDelButton;
             //btnVoterUp.Click += insertUpdateButton;
         }
+
 
         //private void btnDelVoter_Click(object sender, EventArgs e)
         //{
@@ -156,10 +160,10 @@ namespace AgileProd
          */
         private void AddPerson_Click(object sender, EventArgs e)
         {
-            AdminForm currentForm = new AdminForm();                                                    //set current form
+            AdminForm currentForm = new AdminForm(user);                                                     //set current form
             CreateVoterForm voterForm = new CreateVoterForm(DataLogicAdmin.AllPersons(), currentForm, null); //initialize new voter form
-            voterForm.Show();                                                                           //open voter form
-            this.Hide();                                                                                //close current form
+            voterForm.Show();                                                                                //open voter form
+            this.Hide();                                                                                     //close current form
         }
 
         /*
@@ -181,7 +185,7 @@ namespace AgileProd
             {
                 if (IDtextbox.Text == null)
                 {
-                    if (DataLogic.DeletePerson(Convert.ToInt32(IDtextbox.Text)))
+                    if (DataLogicAdmin.DeletePerson(Convert.ToInt32(IDtextbox.Text)))
                     {
                         MessageBox.Show("Person deleted successfuly!");
                     }
@@ -276,5 +280,52 @@ namespace AgileProd
             DataLogic.WithdrawalPeronAcc(int.Parse(txtWthdrwl.Text), int.Parse(txtAmntdrwl.Text));
         }
     
+        private void tabMenu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch(tabMenu.SelectedIndex)
+            {
+            case 4:
+                {
+                    fillMessageList(user.Id);
+                }
+                break;
+            }
+        }
+
+        private void fillMessageList(int id)
+        {
+            if (MessageList.Items.Count != 0)
+            {
+                MessageList.Items.Clear();
+            }
+            var messages = DataLogicAdmin.getMessages(user);
+            foreach (var item in messages)
+            {
+                int senderId = item.Item1;
+                string message = item.Item2;
+                string senderName = null;
+
+                if (DataLogicAdmin.AllAdmins().ContainsKey(senderId))
+                {
+                    senderName = DataLogicAdmin.AllAdmins()[senderId].Name;
+                }
+                else if (DataLogicAdmin.AllPersons().ContainsKey(senderId))
+                {
+                    senderName = DataLogicAdmin.AllPersons()[senderId].Name;
+                }
+
+                if (senderName != null)
+                {
+                    MessageList.Items.Add(senderName + ": " + message);
+                }
+                else 
+                {
+                    MessageList.Items.Add("ERROR! you shouldnt get here!");
+                }
+
+                
+            }
+
+        }
     }
 }

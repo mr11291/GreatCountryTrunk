@@ -163,14 +163,15 @@ namespace AgileProdDAL
             string line = file.ReadLine();                                      //get first line
             while (line != null)                                                //loop through the whole file
             {
-                var div = Convert.ToInt32(line);                                //convert (string)id to int
+                var div = line.Split(',');                                      //convert (string)id to int
+                
                 for (int i = 0; i < people.Count; i++)                          //go trough people dictionary
                 {
-                    var temp = people[div];                                     //get peson using id of committee members
-                    if (div == temp.Id)                                         //check if ids match
+                    var temp = people[Convert.ToInt32(div[0])];                 //get peson using id of committee members
+                    if (Convert.ToInt32(div[0]) == temp.Id)                     //check if ids match
                     {
                                                                                 //create a new committee member
-                        Head h = new Head(div, temp.Name, temp.Age, temp.UserName, temp.Password, false);
+                        Head h = new Head(Convert.ToInt32(div[0]), temp.Name, temp.Age, temp.UserName, temp.Password, false);
                         committee.Add(h.Id, h);                                 //add new committee member to dictionary
                         break;
                     }

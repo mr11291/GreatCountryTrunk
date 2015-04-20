@@ -103,7 +103,7 @@ namespace AgileProd
             nameBox.Text = currentPerson.Name;
             idBox.Text = Convert.ToString(currentPerson.Id);
             ageBox.Text = Convert.ToString(currentPerson.Age);
-            balanceBox.Text = Convert.ToString(DataLogic.getBalance(currentPerson));
+            balanceBox.Text = Convert.ToString(DataLogicPerson.getBalance(currentPerson));
             if (currentPerson.IsVoting == false)
             {
                 voterCheckBox.Checked = false;

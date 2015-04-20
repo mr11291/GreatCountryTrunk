@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabMenu = new System.Windows.Forms.TabControl();
             this.ViewPeopleList = new System.Windows.Forms.TabPage();
             this.dataGridPeople = new System.Windows.Forms.DataGridView();
             this.dataGridID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,36 +50,52 @@
             this.txtDelParty = new System.Windows.Forms.TextBox();
             this.btnDelParty = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+
             this.btnWithdrwl = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtWthdrwl = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtAmntdrwl = new System.Windows.Forms.TextBox();
-            this.tabControl1.SuspendLayout();
+            this.tabMenu.SuspendLayout();
             this.ViewPeopleList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPeople)).BeginInit();
             this.tabPage3.SuspendLayout();
+
+            this.MessageTab = new System.Windows.Forms.TabPage();
+            this.MessageList = new System.Windows.Forms.ListBox();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.ReadButton = new System.Windows.Forms.Button();
+            this.tabMenu.SuspendLayout();
+            this.ViewPeopleList.SuspendLayout();
+           
+            this.MessageTab.SuspendLayout();
+
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabMenu
             // 
-            this.tabControl1.Controls.Add(this.ViewPeopleList);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(885, 261);
-            this.tabControl1.TabIndex = 0;
+            this.tabMenu.Controls.Add(this.ViewPeopleList);
+            this.tabMenu.Controls.Add(this.tabPage2);
+            this.tabMenu.Controls.Add(this.tabPage3);
+            this.tabMenu.Controls.Add(this.tabPage4);
+            this.tabMenu.Controls.Add(this.MessageTab);
+            this.tabMenu.Location = new System.Drawing.Point(0, 0);
+            this.tabMenu.Name = "tabMenu";
+            this.tabMenu.SelectedIndex = 0;
+            this.tabMenu.Size = new System.Drawing.Size(885, 261);
+            this.tabMenu.TabIndex = 0;
             // 
             // ViewPeopleList
             // 
+
             this.ViewPeopleList.Controls.Add(this.txtAmntdrwl);
             this.ViewPeopleList.Controls.Add(this.label3);
             this.ViewPeopleList.Controls.Add(this.txtWthdrwl);
             this.ViewPeopleList.Controls.Add(this.label2);
             this.ViewPeopleList.Controls.Add(this.btnWithdrwl);
+
+            this.ViewPeopleList.BackColor = System.Drawing.Color.WhiteSmoke;
+
             this.ViewPeopleList.Controls.Add(this.dataGridPeople);
             this.ViewPeopleList.Controls.Add(this.ViewPeople);
             this.ViewPeopleList.Controls.Add(this.IDlabel);
@@ -94,7 +110,6 @@
             this.ViewPeopleList.Size = new System.Drawing.Size(877, 235);
             this.ViewPeopleList.TabIndex = 0;
             this.ViewPeopleList.Text = "Person";
-            this.ViewPeopleList.UseVisualStyleBackColor = true;
             // 
             // dataGridPeople
             // 
@@ -270,6 +285,7 @@
             this.tabPage4.Text = "Admin";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+
             // btnWithdrwl
             // 
             this.btnWithdrwl.Location = new System.Drawing.Point(8, 122);
@@ -313,34 +329,77 @@
             this.txtAmntdrwl.Name = "txtAmntdrwl";
             this.txtAmntdrwl.Size = new System.Drawing.Size(85, 23);
             this.txtAmntdrwl.TabIndex = 13;
+            // MessageTab
+            // 
+            this.MessageTab.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.MessageTab.Controls.Add(this.ReadButton);
+            this.MessageTab.Controls.Add(this.DeleteButton);
+            this.MessageTab.Controls.Add(this.MessageList);
+            this.MessageTab.Location = new System.Drawing.Point(4, 22);
+            this.MessageTab.Name = "MessageTab";
+            this.MessageTab.Padding = new System.Windows.Forms.Padding(3);
+            this.MessageTab.Size = new System.Drawing.Size(877, 235);
+            this.MessageTab.TabIndex = 4;
+            this.MessageTab.Text = "Messages";
+            // 
+            // MessageList
+            // 
+            this.MessageList.FormattingEnabled = true;
+            this.MessageList.Location = new System.Drawing.Point(3, 6);
+            this.MessageList.Name = "MessageList";
+            this.MessageList.Size = new System.Drawing.Size(205, 225);
+            this.MessageList.TabIndex = 0;
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Location = new System.Drawing.Point(213, 35);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(75, 23);
+            this.DeleteButton.TabIndex = 1;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            // 
+            // ReadButton
+            // 
+            this.ReadButton.Location = new System.Drawing.Point(213, 6);
+            this.ReadButton.Name = "ReadButton";
+            this.ReadButton.Size = new System.Drawing.Size(75, 23);
+            this.ReadButton.TabIndex = 2;
+            this.ReadButton.Text = "Read";
+            this.ReadButton.UseVisualStyleBackColor = true;
+
             // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 262);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabMenu);
             this.Name = "AdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminForm";
-            this.tabControl1.ResumeLayout(false);
+            this.tabMenu.ResumeLayout(false);
             this.ViewPeopleList.ResumeLayout(false);
             this.ViewPeopleList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPeople)).EndInit();
+
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.MessageTab.ResumeLayout(false);
+
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabMenu;
         private System.Windows.Forms.TabPage ViewPeopleList;
         private System.Windows.Forms.Button DeletePerson;
         private System.Windows.Forms.Button AddPerson;
         private System.Windows.Forms.Button RevokeVoter;
         private System.Windows.Forms.Button RegisterVoter;
+        private System.Windows.Forms.TabPage MessageTab;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
@@ -354,6 +413,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridUserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridPassword;
         private System.Windows.Forms.DataGridViewTextBoxColumn isVoting;
+
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDelParty;
         private System.Windows.Forms.Button btnDelParty;
@@ -362,6 +422,10 @@
         private System.Windows.Forms.Button btnWithdrwl;
         private System.Windows.Forms.TextBox txtAmntdrwl;
         private System.Windows.Forms.Label label3;
+
+        private System.Windows.Forms.ListBox MessageList;
+        private System.Windows.Forms.Button ReadButton;
+        private System.Windows.Forms.Button DeleteButton;
 
     }
 }

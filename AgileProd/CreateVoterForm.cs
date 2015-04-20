@@ -49,7 +49,7 @@ namespace AgileProd
                 if (valid.CheckIDExist(int.Parse(textBox1.Text)))
                 {
                     MessageBox.Show("id exist, updating... ");
-                    DataLogic.DeletePerson(int.Parse(textBox1.Text));
+                    DataLogicAdmin.DeletePerson(int.Parse(textBox1.Text));
                 }
                 DataLogic.addPerson(int.Parse(textBox1.Text), textBoxname.Text, int.Parse(textBoxage.Text), textBoxusername.Text, textBoxpassword.Text, int.Parse(textBoxBalance.Text), false);
                 this.preForm.Show();
