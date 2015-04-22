@@ -49,5 +49,36 @@ namespace AgileProdDAL
         {
             partyMember.Slogan = slogan;
         }
+
+
+
+        public void selectPartyLeader()
+        {
+            //Tuple<int, int> temp = new Tuple<int, int> (Convert.ToInt32(data.GetMembers().Keys), Convert.ToInt32(data.GetPartyList().Keys));
+            int balance = 0;
+            foreach (var party in data.GetPartyList().Keys)
+            {
+                foreach (var id in data.GetMembers().Keys)
+                {
+                    if(data.GetMembers()[id].Equals(party)){
+                        if (data.GetBankAccounts()[id].Balance > balance)
+                        {   
+                            
+                            balance=data.GetBankAccounts()[id].Balance;
+
+                            
+
+                        }
+                
+
+                    }
+                    data.GetMembers()[id].Location = -1;
+                }
+
+                
+            }
+           
+            
+        }
     }
 }
