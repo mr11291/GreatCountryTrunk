@@ -56,6 +56,12 @@
     <Compile Include="CreateVoterForm.Designer.cs">
       <DependentUpon>CreateVoterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PersonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonForm.Designer.cs">
+      <DependentUpon>PersonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateVoterForm.resx">
       <DependentUpon>CreateVoterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonForm.resx">
+      <DependentUpon>PersonForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateInfoForm.resx">
       <DependentUpon>UpdateInfoForm.cs</DependentUpon>
