@@ -32,8 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AeroWizard">
+      <HintPath>..\packages\AeroWizard.2.0.9\lib\net40\AeroWizard.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,11 +54,23 @@
     <Compile Include="AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateVoterForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CreateVoterForm.Designer.cs">
       <DependentUpon>CreateVoterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonForm.Designer.cs">
+      <DependentUpon>PersonForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateInfoForm.cs">
       <SubType>Form</SubType>
@@ -86,6 +102,9 @@
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateVoterForm.resx">
       <DependentUpon>CreateVoterForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,6 +129,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
