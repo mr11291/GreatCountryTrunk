@@ -125,9 +125,12 @@ namespace AgileProdDAL
             }
         }
 
-        public static void SetPraimeryStatus()
+        public static void ChangePraimeryStatus()
         {
-            data.setPraimeries(true);
+            if (data.GetPraimerise() == false)
+                data.setPraimeries(true);
+            else
+                data.setPraimeries(false);
         }
 
 
