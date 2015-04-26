@@ -120,7 +120,7 @@ namespace AgileProdDAL
             return data.GetBankAccounts()[user.Id].Balance;
         }
 
-        public static bool AddToParty(Person p,string partyName,int location)
+        public static bool addToParty(Person p,string partyName,int location)
         {
             if(data.GetPartyList().Keys.Contains(partyName))
             {
