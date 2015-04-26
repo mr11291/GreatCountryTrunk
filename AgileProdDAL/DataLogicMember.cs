@@ -49,5 +49,28 @@ namespace AgileProdDAL
         {
             partyMember.Slogan = slogan;
         }
+
+        //selectPartyLeader selects a party leader using an algorithem to find the richest person in each party
+        public static void selectPartyLeader()
+        {
+            //Tuple<int, int> temp = new Tuple<int, int> (Convert.ToInt32(data.GetMembers().Keys), Convert.ToInt32(data.GetPartyList().Keys));
+            int RichestMemberId = 0;
+            int balance = 0;
+            foreach (var party in data.GetPartyList().Keys)                 //loop trough all of the parties
+            {
+                foreach (var id in data.GetMembers().Keys)                  //loop trough all of the party members
+                {
+                    if (data.GetMembers()[id].Equals(party))                //this if loop will make sure we are only looking at people from the same party
+                    {
+                        if (data.GetBankAccounts()[id].Balance > balance)   //we will get into this if only if we found someone richer
+                        {
+                            balance = data.GetBankAccounts()[id].Balance;   //set new balance to compare with
+                            RichestMemberId = id;                           //remember richest party member
+                        }
+                    }
+                }
+                data.GetMembers()[RichestMemberId].Location = -1;           //set richest party member to be the party leader of his party
+            }  
+        }
     }
 }
