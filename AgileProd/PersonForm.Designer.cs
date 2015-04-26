@@ -30,14 +30,14 @@
         {
             this.personTabMenu = new System.Windows.Forms.TabControl();
             this.MenuTab = new System.Windows.Forms.TabPage();
-            this.SettingsTab = new System.Windows.Forms.TabPage();
-            this.BankTab = new System.Windows.Forms.TabPage();
-            this.MessageTab = new System.Windows.Forms.TabPage();
-            this.VoteButton = new System.Windows.Forms.Button();
-            this.VoterCheckBox = new System.Windows.Forms.CheckBox();
             this.InfoGrid = new System.Windows.Forms.DataGridView();
             this.IDcolumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VoterCheckBox = new System.Windows.Forms.CheckBox();
+            this.VoteButton = new System.Windows.Forms.Button();
+            this.SettingsTab = new System.Windows.Forms.TabPage();
+            this.BankTab = new System.Windows.Forms.TabPage();
+            this.MessageTab = new System.Windows.Forms.TabPage();
             this.personTabMenu.SuspendLayout();
             this.MenuTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InfoGrid)).BeginInit();
@@ -68,6 +68,49 @@
             this.MenuTab.Text = "Menu";
             this.MenuTab.UseVisualStyleBackColor = true;
             // 
+            // InfoGrid
+            // 
+            this.InfoGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.InfoGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDcolumn,
+            this.NameColumn});
+            this.InfoGrid.Location = new System.Drawing.Point(339, 6);
+            this.InfoGrid.Name = "InfoGrid";
+            this.InfoGrid.Size = new System.Drawing.Size(244, 198);
+            this.InfoGrid.TabIndex = 2;
+            // 
+            // IDcolumn
+            // 
+            this.IDcolumn.HeaderText = "ID";
+            this.IDcolumn.Name = "IDcolumn";
+            this.IDcolumn.ReadOnly = true;
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.HeaderText = "Name";
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.ReadOnly = true;
+            // 
+            // VoterCheckBox
+            // 
+            this.VoterCheckBox.AutoSize = true;
+            this.VoterCheckBox.Location = new System.Drawing.Point(496, 210);
+            this.VoterCheckBox.Name = "VoterCheckBox";
+            this.VoterCheckBox.Size = new System.Drawing.Size(96, 17);
+            this.VoterCheckBox.TabIndex = 1;
+            this.VoterCheckBox.Text = "Registed Voter";
+            this.VoterCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // VoteButton
+            // 
+            this.VoteButton.Location = new System.Drawing.Point(7, 6);
+            this.VoteButton.Name = "VoteButton";
+            this.VoteButton.Size = new System.Drawing.Size(75, 23);
+            this.VoteButton.TabIndex = 0;
+            this.VoteButton.Text = "Vote";
+            this.VoteButton.UseVisualStyleBackColor = true;
+            this.VoteButton.Click += new System.EventHandler(this.VoteButton_Click);
+            // 
             // SettingsTab
             // 
             this.SettingsTab.Location = new System.Drawing.Point(4, 22);
@@ -95,49 +138,6 @@
             this.MessageTab.TabIndex = 3;
             this.MessageTab.Text = "Messages";
             this.MessageTab.UseVisualStyleBackColor = true;
-            // 
-            // VoteButton
-            // 
-            this.VoteButton.Location = new System.Drawing.Point(7, 6);
-            this.VoteButton.Name = "VoteButton";
-            this.VoteButton.Size = new System.Drawing.Size(75, 23);
-            this.VoteButton.TabIndex = 0;
-            this.VoteButton.Text = "Vote";
-            this.VoteButton.UseVisualStyleBackColor = true;
-            this.VoteButton.Click += new System.EventHandler(this.VoteButton_Click);
-            // 
-            // VoterCheckBox
-            // 
-            this.VoterCheckBox.AutoSize = true;
-            this.VoterCheckBox.Location = new System.Drawing.Point(496, 210);
-            this.VoterCheckBox.Name = "VoterCheckBox";
-            this.VoterCheckBox.Size = new System.Drawing.Size(96, 17);
-            this.VoterCheckBox.TabIndex = 1;
-            this.VoterCheckBox.Text = "Registed Voter";
-            this.VoterCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // InfoGrid
-            // 
-            this.InfoGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.InfoGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDcolumn,
-            this.NameColumn});
-            this.InfoGrid.Location = new System.Drawing.Point(88, 6);
-            this.InfoGrid.Name = "InfoGrid";
-            this.InfoGrid.Size = new System.Drawing.Size(495, 198);
-            this.InfoGrid.TabIndex = 2;
-            // 
-            // IDcolumn
-            // 
-            this.IDcolumn.HeaderText = "ID";
-            this.IDcolumn.Name = "IDcolumn";
-            this.IDcolumn.ReadOnly = true;
-            // 
-            // NameColumn
-            // 
-            this.NameColumn.HeaderText = "Name";
-            this.NameColumn.Name = "NameColumn";
-            this.NameColumn.ReadOnly = true;
             // 
             // PersonForm
             // 

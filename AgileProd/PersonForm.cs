@@ -19,6 +19,7 @@ namespace AgileProd
         {
             InitializeComponent();
             this.InfoGrid.Hide();
+
         }
 
         private void VoteButton_Click(object sender, EventArgs e)
@@ -31,6 +32,11 @@ namespace AgileProd
             
             //InfoGrid.Rows.Add()
             //foreach (DataLogic)
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

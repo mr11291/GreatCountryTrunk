@@ -56,6 +56,12 @@
     <Compile Include="CreateVoterForm.Designer.cs">
       <DependentUpon>CreateVoterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Derived.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Derived.Designer.cs">
+      <DependentUpon>Derived.cs</DependentUpon>
+    </Compile>
     <Compile Include="PersonForm.cs">
       <SubType>Form</SubType>
     </Compile>
