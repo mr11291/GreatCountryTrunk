@@ -140,5 +140,31 @@ namespace AgileProdDAL
             }
             return false;
         }
+
+        //the function returen the id of the most rich person in DB person 
+        public static int mostRich(Dictionary<int,Person> dict)
+        {
+            int rich = -1;
+            foreach (var x in dict.Keys)
+            {
+                if (data.GetBankAccounts()[x].Balance >= rich)
+                    rich = x;
+            }
+            return rich;
+        }
+
+        //the function add 1 vote to a member
+        public static bool VotToParty(Person per, int memId)
+        {
+            foreach (var x in data.GetMembers().Keys)
+            {
+                if (data.GetMembers()[memId].Id == memId)//the member excist
+                { 
+                    data.GetMembers()[memId].NumOfVotes++;
+                    return true; //function seccied
+                }
+            }
+            return false; //the member dosn't excist
+        }
     }
 }
