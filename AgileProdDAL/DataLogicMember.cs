@@ -33,7 +33,7 @@ namespace AgileProdDAL
                 }
             }         
             return Success;                                                             //return member instance                        
-        }mmmmmm
+        }
 
         //sendMessageToPerson is a function that is used to send messages from party member to person
         public static bool sendMassageToPerson(Member sender, int id, string message, int bribeAmount = 0)
