@@ -131,11 +131,11 @@ namespace AgileProdDAL
             return false;
         }
         //Deposit account of a Person
-        public static bool Deposit_account(Person user, int money)
+        public static bool depositToAccount(Person user, int money)
         {
-            if(money>0)
+            if(money >= 0)
             {
-                data.GetBankAccounts()[user.Id].Balance+=money;//add the amuont to the balnce of the user
+                data.GetBankAccounts()[user.Id].Balance += money;//add the amuont to the balnce of the user
                 return true;//succsses
             }
             return false;
