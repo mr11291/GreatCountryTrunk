@@ -41,7 +41,7 @@ namespace AgileProd
             }
             else if(tempPerson!=null)
             {
-                PersonForm p = new PersonForm(tempPerson);
+                PeopleForm p = new PeopleForm(tempPerson);
                 this.Hide();
                 p.Show();
                 return;
