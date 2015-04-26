@@ -14,7 +14,7 @@ namespace AgileProd
 {
     public partial class MemberForm : Form
     {
-        //int type;
+        int type;
         Button addMem;
         TextBox id;
         Member currMember;
@@ -28,7 +28,7 @@ namespace AgileProd
             {
                 lblWelcome.Text = "Hello Member: " + currentMember.Name;
                 lblWelcome.Size = new System.Drawing.Size(12, 12);
-                //type = 1;
+                type = 1;
                 btnAddMem.Show();
                 addMem = new Button();
                 addMem.Hide();
@@ -40,7 +40,7 @@ namespace AgileProd
             {
                 lblWelcome.Text = "Hello Member: " + currentMember.Name;
                 lblWelcome.Size = new System.Drawing.Size(12, 12);
-                // type = 0;
+                type = 0;
             }
         }
 
