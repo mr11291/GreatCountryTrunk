@@ -35,8 +35,8 @@
             this.btnEnter = new System.Windows.Forms.Button();
             this.lblCreateVol = new System.Windows.Forms.LinkLabel();
             this.inputWarning = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.HandShakeImage = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.HandShakeImage)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -87,7 +87,7 @@
             // lblCreateVol
             // 
             this.lblCreateVol.AutoSize = true;
-            this.lblCreateVol.Location = new System.Drawing.Point(104, 130);
+            this.lblCreateVol.Location = new System.Drawing.Point(12, 317);
             this.lblCreateVol.Name = "lblCreateVol";
             this.lblCreateVol.Size = new System.Drawing.Size(63, 13);
             this.lblCreateVol.TabIndex = 5;
@@ -106,15 +106,15 @@
             this.inputWarning.Text = "username or password is incorrect!";
             this.inputWarning.Visible = false;
             // 
-            // pictureBox1
+            // HandShakeImage
             // 
-            this.pictureBox1.Image = global::AgileProd.Properties.Resources.handshakemoney;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 151);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(285, 184);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.HandShakeImage.Image = global::AgileProd.Properties.Resources.handshakemoney;
+            this.HandShakeImage.Location = new System.Drawing.Point(-1, 130);
+            this.HandShakeImage.Name = "HandShakeImage";
+            this.HandShakeImage.Size = new System.Drawing.Size(285, 184);
+            this.HandShakeImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.HandShakeImage.TabIndex = 7;
+            this.HandShakeImage.TabStop = false;
             // 
             // LoginForm
             // 
@@ -122,7 +122,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 336);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.HandShakeImage);
             this.Controls.Add(this.inputWarning);
             this.Controls.Add(this.lblCreateVol);
             this.Controls.Add(this.btnEnter);
@@ -133,7 +133,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HandShakeImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,11 +148,7 @@
         private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.LinkLabel lblCreateVol;
         private System.Windows.Forms.Label inputWarning;
-        private System.Windows.Forms.PictureBox pictureBox1;
-
-
-
-
+        private System.Windows.Forms.PictureBox HandShakeImage;
     }
 }
 

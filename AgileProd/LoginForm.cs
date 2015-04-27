@@ -18,6 +18,8 @@ namespace AgileProd
         public LoginForm()
         {
             InitializeComponent();
+            //lblCreateVol.Parent = HandShakeImage;
+            //lblCreateVol.BackColor = Color.Transparent;
         }
 
         private void btnEnter_Click(object sender, EventArgs e)
