@@ -47,6 +47,11 @@ namespace AgileProd
                 newfrom.Show();
                 return;
             }
+            else
+            {
+                inputWarning.Show();
+                return;
+            }
         }
         
         private void lblCreateVol_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

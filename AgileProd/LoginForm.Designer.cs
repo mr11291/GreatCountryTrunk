@@ -34,12 +34,13 @@
             this.password = new System.Windows.Forms.TextBox();
             this.btnEnter = new System.Windows.Forms.Button();
             this.lblCreateVol = new System.Windows.Forms.LinkLabel();
+            this.inputWarning = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(62, 75);
+            this.lblUsername.Location = new System.Drawing.Point(62, 68);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(63, 13);
             this.lblUsername.TabIndex = 0;
@@ -48,7 +49,7 @@
             // lblPass
             // 
             this.lblPass.AutoSize = true;
-            this.lblPass.Location = new System.Drawing.Point(65, 110);
+            this.lblPass.Location = new System.Drawing.Point(62, 94);
             this.lblPass.Name = "lblPass";
             this.lblPass.Size = new System.Drawing.Size(56, 13);
             this.lblPass.TabIndex = 1;
@@ -56,14 +57,14 @@
             // 
             // username
             // 
-            this.username.Location = new System.Drawing.Point(132, 74);
+            this.username.Location = new System.Drawing.Point(131, 65);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(100, 20);
             this.username.TabIndex = 2;
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(132, 110);
+            this.password.Location = new System.Drawing.Point(131, 91);
             this.password.Name = "password";
             this.password.PasswordChar = '*';
             this.password.Size = new System.Drawing.Size(100, 20);
@@ -92,12 +93,24 @@
             this.lblCreateVol.Text = "Create User";
             this.lblCreateVol.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCreateVol_LinkClicked);
             // 
+            // inputWarning
+            // 
+            this.inputWarning.AutoSize = true;
+            this.inputWarning.ForeColor = System.Drawing.Color.Red;
+            this.inputWarning.Location = new System.Drawing.Point(62, 126);
+            this.inputWarning.Name = "inputWarning";
+            this.inputWarning.Size = new System.Drawing.Size(170, 13);
+            this.inputWarning.TabIndex = 6;
+            this.inputWarning.Text = "username or password is incorrect!";
+            this.inputWarning.Visible = false;
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 264);
+            this.Controls.Add(this.inputWarning);
             this.Controls.Add(this.lblCreateVol);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.password);
@@ -120,6 +133,7 @@
         private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.LinkLabel lblCreateVol;
+        private System.Windows.Forms.Label inputWarning;
 
 
 
