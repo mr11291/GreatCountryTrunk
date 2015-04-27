@@ -10,12 +10,8 @@ namespace CreateDataBase
     {
         static void Main(string[] args)
         {
-            CreateCSVFilesV2 csvF = new CreateCSVFilesV2(@"C:\Users\Michael\Desktop\GreatCountryTrunk\AgileProdDAL\Database\people.txt",
-                                                         @"C:\Users\Michael\Desktop\GreatCountryTrunk\AgileProdDAL\Database\members.txt",
-                                                         @"C:\Users\Michael\Desktop\GreatCountryTrunk\AgileProdDAL\Database\committee.txt",
-                                                         @"C:\Users\Michael\Desktop\GreatCountryTrunk\AgileProdDAL\Database\bankAccounts.txt",
-                                                         @"C:\Users\Michael\Desktop\GreatCountryTrunk\AgileProdDAL\Database\messageInbox.txt");
-            csvF.writeFiles();
+            //CreateCSVFilesV2 csvF = new CreateCSVFilesV2(@"Z:\Studies\Software Maintenance\Database\people.txt", @"Z:\Studies\Software Maintenance\Database\members.txt", @"Z:\Studies\Software Maintenance\Database\committee.txt", @"Z:\Studies\Software Maintenance\Database\bankAccounts.txt", @"Z:\Studies\Software Maintenance\Database\messageInbox.txt");
+            //csvF.WriteFiles();
         }
     }
 }
