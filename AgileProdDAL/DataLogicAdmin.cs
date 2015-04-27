@@ -133,7 +133,6 @@ namespace AgileProdDAL
                 data.setPraimeries(false);
         }
 
-
         //NEEDS TO BE UPDATED TO USE MESSAGES
         public static bool addMember(int id, string name, int age, string username, string password, bool isVoting, string group, int location, int balance)
         {
@@ -172,9 +171,9 @@ namespace AgileProdDAL
                 //Message newMessageBox = new Message();                                                     //creates a new message box
                 Bank newAccount = new Bank(balance, id, name);                                               //creates a new bank account
                 Member newMember = new Member(id, name, age, username, password, isVoting, party, location); //creates a new person
-                data.GetMembers().Add(newMember.Id, newMember);                                                   //adds person to the dictionary
-                data.GetBankAccounts().Add(id, newAccount);                                                       //adds bank to the diciotnary
-                data.GetMessages().Add(id, null);                                                        //adds message box to the dictionary
+                data.GetMembers().Add(newMember.Id, newMember);                                              //adds person to the dictionary
+                data.GetBankAccounts().Add(id, newAccount);                                                  //adds bank to the diciotnary
+                data.GetMessages().Add(id, null);                                                            //adds message box to the dictionary
                 return true;
             }
             return false;
@@ -196,7 +195,15 @@ namespace AgileProdDAL
 
         public static int getMessageCount(Admin user)
         {
-            return data.GetMessages()[user.Id].Count;
+            try
+            {
+                int count = data.GetMessages()[user.Id].Count;
+                return count;
+            }
+            catch (KeyNotFoundException)
+            {
+                return 0;
+            }
         }
     }
 }

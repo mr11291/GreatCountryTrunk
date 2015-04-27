@@ -106,11 +106,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabMenu;
-        private System.Windows.Forms.TabPage blankTab;
-        private System.Windows.Forms.TabPage settingsTab;
-        private System.Windows.Forms.TabPage bankTab;
-        private System.Windows.Forms.TabPage messageTab;
+        protected System.Windows.Forms.TabControl tabMenu;
+        protected System.Windows.Forms.TabPage blankTab;
+        protected System.Windows.Forms.TabPage settingsTab;
+        protected System.Windows.Forms.TabPage bankTab;
+        protected System.Windows.Forms.TabPage messageTab;
 
     }
 }

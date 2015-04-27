@@ -28,9 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.tabMenu.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // blankTab
+            // 
+            this.blankTab.Text = "Person";
+            // 
+            // PersonForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(684, 312);
+            this.Name = "PersonForm";
             this.Text = "PersonForm";
+            this.tabMenu.ResumeLayout(false);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
