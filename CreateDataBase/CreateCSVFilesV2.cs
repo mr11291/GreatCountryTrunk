@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 using System.Threading;
 
 
-namespace AgileProd
+namespace CreateDataBase
 {
     class CreateCSVFilesV2
     {
         //Varaiables
+        List<String> partyList = new List<String>() { "Unification", "All Of Us", "The Zionistic Camp", "The Jewish House", "There is a Future", "Energy" };
         private string GenPath = @"Z:\Studies\Software Maintenance\Database"; //defualt path to databases
         public List<string> listOfNames;                                      //list of all the names from the database
         public const int committeeLen = 5;                                    //the defualt size of the elections commitee
@@ -20,6 +21,7 @@ namespace AgileProd
         public string personPath;                                             //path to person database file
         public string memberPath;                                             //path to party member database file
         public string CommiteePath;                                           //path to comittee database file
+        public string partiesPath;
         public string messagePath;
         public string bankPath;                                               //path to bank database file
         public int numberOfPeople;                                            //path to person database file
@@ -33,10 +35,11 @@ namespace AgileProd
          * it's inner varaiables.
          * Also takes the number of people we would like to create as an integer parameter.
          */
-        public CreateCSVFilesV2(string personPath, string memberPath, string committeePath, string bankPath, string messagePath)
+        public CreateCSVFilesV2(string personPath, string memberPath, string partiesPath, string committeePath, string bankPath, string messagePath)
         {
             this.personPath = personPath;
             this.memberPath = memberPath;
+            this.partiesPath = partiesPath;
             this.CommiteePath = committeePath;
             this.bankPath = bankPath;
             this.messagePath = messagePath;
@@ -156,6 +159,15 @@ namespace AgileProd
             }
         }
 
+        public void writeToParties(StreamWriter file, List<String> partyList)
+        {
+            for (int i = 0; i < partyList.Count; i++)
+            {
+                file.WriteLine(partyList[i] + ", " + 0);
+            }
+
+        }
+
         public void writeToMessage(StreamWriter file, List<int> ID)
         {
             for (int i = 0; i < listOfNames.Count; i++)
@@ -167,10 +179,10 @@ namespace AgileProd
         /*
          * writeToPartyMember gathers information and writes member database
          */
-        public void writeToPartyMember(StreamWriter file, List<int> ID, int numMem)
+        public void writeToPartyMember(StreamWriter file, List<int> ID, int numMem, List<String> party)
         {
-            List<string> party = new List<string>() { "Unification", "All Of Us", "The Zionistic Camp", "The Jewish House", "There is a Future", "Energy" }; //party list
-            int locationInParty = 1;                                       //defualt place in party
+            //List<string> party = new List<string>() { "Unification", "All Of Us", "The Zionistic Camp", "The Jewish House", "There is a Future", "Energy" }; //party list
+            int locationInParty = 0;                                       //defualt place in party
             List<int> container = new List<int>();                         //new empty list 
             Random rnd = new Random();                                     //new sudo random
             int chooseFromList;
@@ -251,31 +263,34 @@ namespace AgileProd
          */
         public void writeFiles()
         {
-            List<int> ID = new List<int>();                            //initialize new empty ID list 
-                                                                       //Initialize paths:
+            List<int> ID = new List<int>();                              //initialize new empty ID list 
+                                                        //Initialize paths:
             StreamWriter personfile = new StreamWriter(personPath);      //person path
-            StreamReader personfilereader = new StreamReader(personPath);
-            StreamWriter bankfile = new StreamWriter(bankPath);      //person path
+            StreamWriter bankfile = new StreamWriter(bankPath);          //person path
             StreamWriter memberfile = new StreamWriter(memberPath);      //party member path
+            StreamWriter partiesfile = new StreamWriter(partiesPath);
             StreamWriter committeefile = new StreamWriter(CommiteePath); //coommittee member path
-            StreamWriter messagefile = new StreamWriter(messagePath); //coommittee member path
+            StreamWriter messagefile = new StreamWriter(messagePath);    //coommittee member path
 
-            ID = writeToPerson(personfile);                            //write people database
+            ID = writeToPerson(personfile);                              //write people database
             personfile.Close();
-            writeToBank(bankfile, ID);                                 //write bank file
-            bankfile.Close();
-            writeToPartyMember(memberfile, ID, 15);                    //write party member database
-            memberfile.Close();
-            writeToCommittee(committeefile, personfilereader);         //write committee member database
+
+            StreamReader personfilereader = new StreamReader(personPath);
+            writeToCommittee(committeefile, personfilereader);           //write committee member database
             personfilereader.Close();
             committeefile.Close();
-            writeToMessage(messagefile, ID);                           //write message file
-            messagefile.Close();
 
-            
-            
-            
-            
+            writeToBank(bankfile, ID);                                   //write bank file
+            bankfile.Close();
+
+            writeToParties(partiesfile, this.partyList);                 //write to party data base
+            partiesfile.Close();
+
+            writeToPartyMember(memberfile, ID, 15, this.partyList);      //write party member database
+            memberfile.Close();
+
+            writeToMessage(messagefile, ID);                             //write message file
+            messagefile.Close();          
         }//writeFiles()
 
     }

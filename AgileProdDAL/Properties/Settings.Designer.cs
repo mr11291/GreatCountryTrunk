@@ -25,7 +25,7 @@ namespace AgileProdDAL.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\User\\Desktop\\testForProject")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\Database")]
         public string DataPath {
             get {
                 return ((string)(this["DataPath"]));

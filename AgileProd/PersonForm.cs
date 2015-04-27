@@ -13,8 +13,6 @@ namespace AgileProd
 {
     public partial class PersonForm : BaseForm
     {
-
-
         public PersonForm(Person user) : base(user)
         {
             InitializeComponent();

@@ -11,7 +11,7 @@ namespace AgileProdDAL
 {
     internal static class LoadDataBase
     {
-        private static string path=Settings.Default.DataPath;
+        private static string path = Settings.Default.DataPath;
 
         //loadToDataPerosatory collects all of the dictionaries to one place
         internal static DataRepository LoadToDataRepository()
@@ -56,6 +56,7 @@ namespace AgileProdDAL
                 people.Add(newPerson.Id, newPerson);                            //link new person to his/hers ID
                 line = file.ReadLine();                                         //get next line
             }
+            file.Close();
             return people;                                                      //return people dictionary
         }//readFromPeople()
 
@@ -83,6 +84,7 @@ namespace AgileProdDAL
                 bankAccounts.Add(account.Id, account);                          //add instance to bank account dictionary
                 line = file.ReadLine();                                         //get next line
             }
+            file.Close();
             return bankAccounts;                                                //return bank accounts dictionary
         }//readFromPeople()
 
@@ -123,6 +125,7 @@ namespace AgileProdDAL
                 }
                 line = file.ReadLine();                                         //get next line
             }
+            file.Close();
             return messages;                                                    //return message dictionary
         }//readFromMessage()
 
@@ -151,6 +154,7 @@ namespace AgileProdDAL
                 }//for i
                 line = file.ReadLine(); 
             }//while
+            file.Close();
             return members;                                                     //return dictionary
         }//readFromMember(Dictionary<int, Person>)
 
@@ -178,6 +182,7 @@ namespace AgileProdDAL
                 }
                 line = file.ReadLine();                                         //get next line
             }
+            file.Close();
             return committee;                                                   //return dictionary
         }//readFromHead(Dictionary<int, Person>)
 
@@ -186,15 +191,15 @@ namespace AgileProdDAL
         {
             Dictionary<string, int> parties = new Dictionary<string, int>();    //inititalize new empty dictionary
             StreamReader file = new StreamReader(path + "\\parties.txt");       //initialize file reader
+            string line = null;                                                 //initialize string line
 
-            string line = file.ReadLine();                                      //get first line
-            while (line != null)                                                //if file reader return a readable value
+            while ((line = file.ReadLine()) != null)                            //if file reader return a readable value
             {
-                var div = line.Split(',');                                      //parse text
-                div[0].Trim();
+                var div = line.Split(','); 
                 parties.Add(div[0], int.Parse(div[1]));                         //add party to dictionary
                 line = file.ReadLine();                                         //get next line
             }
+            file.Close();
             return parties;                                                     //return parties dictionary
         }//readFromParties();
 
@@ -202,7 +207,8 @@ namespace AgileProdDAL
         private static bool checkPrimeriesStatus()
         {
             StreamReader file = new StreamReader(path + "\\praimerise.txt"); //initialize file reader
-            string line = file.ReadLine();                                   //get line
+            string line = file.ReadLine();
+            file.Close();
             return Convert.ToBoolean(int.Parse(line));                       //conver and return 0 or 1 as boolean value
         }//checkPrimeriesStatus()
 
@@ -226,7 +232,8 @@ namespace AgileProdDAL
                 admin.Add(id, newAdmin);                                    //add party to dictionary
 
                 line = file.ReadLine();                                     //get next line
-            }  
+            }
+            file.Close();
             return admin;                                                   //return parties dictionary
         }//readFromAdmin()
     }
