@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Threading;
 
 
-namespace AgileProd
+namespace CreateDataBase
 {
     class CreateCSVFilesV2
     {
@@ -251,14 +251,14 @@ namespace AgileProd
          */
         public void writeFiles()
         {
-            List<int> ID = new List<int>();                            //initialize new empty ID list 
-                                                                       //Initialize paths:
-            StreamWriter personfile = new StreamWriter(personPath);      //person path
-            StreamReader personfilereader = new StreamReader(personPath);
-            StreamWriter bankfile = new StreamWriter(bankPath);      //person path
-            StreamWriter memberfile = new StreamWriter(memberPath);      //party member path
-            StreamWriter committeefile = new StreamWriter(CommiteePath); //coommittee member path
-            StreamWriter messagefile = new StreamWriter(messagePath); //coommittee member path
+            List<int> ID = new List<int>();                                 //initialize new empty ID list 
+                                                                            //Initialize paths:
+            StreamWriter personfile = new StreamWriter(personPath);         //person path
+            StreamReader personfilereader = new StreamReader(personPath);   //person path
+            StreamWriter bankfile = new StreamWriter(bankPath);             //bank path
+            StreamWriter memberfile = new StreamWriter(memberPath);         //party member path
+            StreamWriter committeefile = new StreamWriter(CommiteePath);    //coommittee member path
+            StreamWriter messagefile = new StreamWriter(messagePath);       //coommittee member path
 
             ID = writeToPerson(personfile);                            //write people database
             personfile.Close();
@@ -271,11 +271,6 @@ namespace AgileProd
             committeefile.Close();
             writeToMessage(messagefile, ID);                           //write message file
             messagefile.Close();
-
-            
-            
-            
-            
         }//writeFiles()
 
     }
