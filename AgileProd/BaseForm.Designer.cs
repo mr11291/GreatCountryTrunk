@@ -30,9 +30,9 @@
         {
             this.tabMenu = new System.Windows.Forms.TabControl();
             this.blankTab = new System.Windows.Forms.TabPage();
-            this.settingsTab = new System.Windows.Forms.TabPage();
             this.bankTab = new System.Windows.Forms.TabPage();
             this.messageTab = new System.Windows.Forms.TabPage();
+            this.settingsTab = new System.Windows.Forms.TabPage();
             this.tabMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,20 +60,11 @@
             this.blankTab.TabIndex = 1;
             this.blankTab.Text = "Blank";
             // 
-            // settingsTab
-            // 
-            this.settingsTab.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.settingsTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.settingsTab.Location = new System.Drawing.Point(4, 22);
-            this.settingsTab.Name = "settingsTab";
-            this.settingsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.settingsTab.Size = new System.Drawing.Size(672, 284);
-            this.settingsTab.TabIndex = 2;
-            this.settingsTab.Text = "Settings";
-            // 
             // bankTab
             // 
             this.bankTab.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.bankTab.BackgroundImage = global::AgileProd.Properties.Resources.cashstack_op10;
+            this.bankTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.bankTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.bankTab.Location = new System.Drawing.Point(4, 22);
             this.bankTab.Name = "bankTab";
@@ -84,12 +75,27 @@
             // messageTab
             // 
             this.messageTab.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.messageTab.BackgroundImage = global::AgileProd.Properties.Resources.cashenvelope_op15;
+            this.messageTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.messageTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.messageTab.Location = new System.Drawing.Point(4, 22);
             this.messageTab.Name = "messageTab";
             this.messageTab.Size = new System.Drawing.Size(672, 284);
             this.messageTab.TabIndex = 4;
             this.messageTab.Text = "Messages";
+            // 
+            // settingsTab
+            // 
+            this.settingsTab.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.settingsTab.BackgroundImage = global::AgileProd.Properties.Resources.wrench_op10;
+            this.settingsTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.settingsTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.settingsTab.Location = new System.Drawing.Point(4, 22);
+            this.settingsTab.Name = "settingsTab";
+            this.settingsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.settingsTab.Size = new System.Drawing.Size(672, 284);
+            this.settingsTab.TabIndex = 2;
+            this.settingsTab.Text = "Settings";
             // 
             // BaseForm
             // 

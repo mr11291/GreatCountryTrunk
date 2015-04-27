@@ -25,5 +25,6 @@ namespace AgileProd
             this.user = user;
             InitializeComponent();
         }
+
     }
 }
