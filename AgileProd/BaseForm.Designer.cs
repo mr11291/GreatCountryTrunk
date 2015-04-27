@@ -32,8 +32,10 @@
             this.blankTab = new System.Windows.Forms.TabPage();
             this.bankTab = new System.Windows.Forms.TabPage();
             this.messageTab = new System.Windows.Forms.TabPage();
+            this.fromList = new System.Windows.Forms.ListView();
             this.settingsTab = new System.Windows.Forms.TabPage();
             this.tabMenu.SuspendLayout();
+            this.messageTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMenu
@@ -78,11 +80,21 @@
             this.messageTab.BackgroundImage = global::AgileProd.Properties.Resources.cashenvelope_op15;
             this.messageTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.messageTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.messageTab.Controls.Add(this.fromList);
             this.messageTab.Location = new System.Drawing.Point(4, 22);
             this.messageTab.Name = "messageTab";
             this.messageTab.Size = new System.Drawing.Size(672, 284);
             this.messageTab.TabIndex = 4;
             this.messageTab.Text = "Messages";
+            // 
+            // fromList
+            // 
+            this.fromList.GridLines = true;
+            this.fromList.Location = new System.Drawing.Point(1, 3);
+            this.fromList.Name = "fromList";
+            this.fromList.Size = new System.Drawing.Size(160, 276);
+            this.fromList.TabIndex = 0;
+            this.fromList.UseCompatibleStateImageBehavior = false;
             // 
             // settingsTab
             // 
@@ -106,6 +118,7 @@
             this.Name = "BaseForm";
             this.Text = "BaseForm";
             this.tabMenu.ResumeLayout(false);
+            this.messageTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -117,6 +130,7 @@
         protected System.Windows.Forms.TabPage settingsTab;
         protected System.Windows.Forms.TabPage bankTab;
         protected System.Windows.Forms.TabPage messageTab;
+        private System.Windows.Forms.ListView fromList;
 
     }
 }
