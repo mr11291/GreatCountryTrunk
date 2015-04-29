@@ -82,11 +82,13 @@ namespace AgileProdDAL
             return true;
         }//revokeVoter(Person)
 
-        //getMessage function is used to get the message box of a person
-        public static Message getMessage(Person person)
+
+        //getMessages used by the system to get the messages of an person
+        public static List<Tuple<int, string, int>> getMessages(Person user)
         {
-            return data.GetMessages()[person.Id]; //use person's id to get messages from dictionary
+            return data.GetMessages()[user.Id].Inbox;
         }
+
 
         //getMessageInbox function used to get a certain message from message box using an index
         public static Tuple<int, string, int> getMessageInbox(Person person, int index)
@@ -139,6 +141,18 @@ namespace AgileProdDAL
                 return true;//succsses
             }
             return false;
+        }
+
+        public static string getSenderName(int id)
+        {
+            try
+            {
+                return data.GetPeople()[id].Name;
+            }
+            catch
+            {
+                return "Unknown person!";
+            }
         }
     }
 }

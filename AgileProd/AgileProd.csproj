@@ -35,6 +35,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -108,6 +109,7 @@
     <EmbeddedResource Include="PersonForm.resx">
       <DependentUpon>PersonForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="UpdateInfoForm.resx">
       <DependentUpon>UpdateInfoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +132,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
