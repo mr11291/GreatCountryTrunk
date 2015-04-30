@@ -164,7 +164,15 @@ namespace AgileProdDAL
         //getMessages used by the system to get the messages of an person
         public static List<Tuple<int, string, int>> getMessages(Person user)
         {
-            return data.GetMessages()[user.Id].Inbox;
+            try
+            {
+                return data.GetMessages()[user.Id].Inbox;
+            }
+            catch
+            {
+                return null;
+            }
+
         }
 
         //getMessageInbox function used to get a certain message from message box using an index

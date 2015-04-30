@@ -18,8 +18,6 @@ namespace AgileProd
         public LoginForm()
         {
             InitializeComponent();
-            //lblCreateVol.Parent = HandShakeImage;
-            //lblCreateVol.BackColor = Color.Transparent;
         }
 
         private void btnEnter_Click(object sender, EventArgs e)
@@ -52,7 +50,6 @@ namespace AgileProd
             else if(tempPerson!=null)
             {
                 PersonForm newfrom = new PersonForm(tempPerson);
-                //PeopleForm p = new PeopleForm(tempPerson);
                 this.Hide();
                 newfrom.Show();
                 return;
@@ -71,6 +68,34 @@ namespace AgileProd
             cvf.Show();
             this.Hide();
         }
+
+        private void enteradmin_Click(object sender, EventArgs e)
+        {
+            Admin tempAdmin = DataLogicAdmin.LoginAdmin("mr11291", "12345");
+            AdminForm newForm = new AdminForm(tempAdmin);
+            this.Hide();
+            newForm.Show();
+            return;
+        }
+
+        private void enterperson_Click(object sender, EventArgs e)
+        {
+            Person tempPerson = DataLogicPerson.LoginPerson("bet", "12345");
+            PersonForm newfrom = new PersonForm(tempPerson);
+            this.Hide();
+            newfrom.Show();
+            return;
+        }
+
+        private void entercommittee_Click(object sender, EventArgs e)
+        {
+            Head tempHead = DataLogicCommittee.LoginCommittee("guyguy", "guyguy");
+            CommitteeForm newForm = new CommitteeForm(tempHead);
+            this.Hide();
+            newForm.Show();
+            return;
+        }
+
    
     }
 }
