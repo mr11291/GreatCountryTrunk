@@ -23,13 +23,21 @@ namespace AgileProd
         }
 
         private void btnEnter_Click(object sender, EventArgs e)
-        {         
+        {
+            Head tempHead = DataLogicCommittee.LoginCommittee(username.Text, password.Text);
             Member tempMember = DataLogicMember.LoginMember(username.Text, password.Text);
             Person tempPerson = DataLogicPerson.LoginPerson(username.Text, password.Text);
             Admin tempAdmin = DataLogicAdmin.LoginAdmin(username.Text, password.Text);
             if(tempAdmin != null)
             {
                 AdminForm newForm = new AdminForm(tempAdmin);
+                this.Hide();
+                newForm.Show();
+                return;
+            }
+            else if(tempHead !=null)
+            {
+                CommitteeForm newForm= new CommitteeForm(tempHead);
                 this.Hide();
                 newForm.Show();
                 return;
