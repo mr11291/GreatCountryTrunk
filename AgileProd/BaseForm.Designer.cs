@@ -294,7 +294,7 @@
             // 
             // settingsIdBox
             // 
-            this.settingsIdBox.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.settingsIdBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.settingsIdBox.Location = new System.Drawing.Point(70, 46);
             this.settingsIdBox.Name = "settingsIdBox";
             this.settingsIdBox.ReadOnly = true;
@@ -347,12 +347,13 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(70, 251);
+            this.saveButton.Location = new System.Drawing.Point(70, 124);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 9;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // BaseForm
             // 

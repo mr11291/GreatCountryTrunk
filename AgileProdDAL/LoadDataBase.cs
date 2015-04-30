@@ -197,7 +197,6 @@ namespace AgileProdDAL
             {
                 var div = line.Split(','); 
                 parties.Add(div[0], int.Parse(div[1]));                         //add party to dictionary
-                line = file.ReadLine();                                         //get next line
             }
             file.Close();
             return parties;                                                     //return parties dictionary

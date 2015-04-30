@@ -70,13 +70,12 @@ namespace AgileProd
             this.settingsIdBox.Text = Convert.ToString(user.Id);
             this.settingsUserNameBox.Text = user.UserName;
             this.settingsPasswordBox.Text = user.Password;
-            
         }
 
         private void fillMessageList()
         {
             var messages = DataLogicPerson.getMessages(user);
-                    
+
             foreach (var item in messages)
             {
                 ListViewItem details = new ListViewItem();
@@ -97,15 +96,25 @@ namespace AgileProd
         {
             ListViewItem details = new ListViewItem();
             details = fromList.SelectedItems[0];
-
+            
+            //find message
             foreach (var item in DataLogicPerson.getMessages(user))
             {
+                //find sender id
                 if (item.Item1 == Convert.ToInt32(details.SubItems[1].Text))
                 {
+                    //display message
                     DialogResult dialogResult = MessageBox.Show(item.Item2, Convert.ToString(details.SubItems[0].Text) + ":", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        //do something
+                        //if its a bribe offer
+                        if (DataLogicPerson.isMember(item.Item1) && item.Item3 > 0)
+                        {
+                            if (DataLogicPerson.voteToMember(user, item.Item1))
+                            {
+                                MessageBox.Show("You have voted for" + DataLogicPerson.getMemberNameById(item.Item1));
+                            }
+                        }
                     }
                     else if (dialogResult == DialogResult.No)
                     {
@@ -113,45 +122,21 @@ namespace AgileProd
                     }
                 }
             }
-            //string message = DataLogicPerson.getMessages
+
         }
 
-        //private void fillMessageList(int id)
-        //{
-        //    if (MessageList.Items.Count != 0)
-        //    {
-        //        MessageList.Items.Clear();
-        //    }
-        //    var messages = DataLogicAdmin.getMessages(user);
-        //    foreach (var item in messages)
-        //    {
-        //        int senderId = item.Item1;
-        //        string message = item.Item2;
-        //        string senderName = null;
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (!(user.Name.Equals(this.settingsNameBox.Text)) ||
+                !(user.UserName.Equals(this.settingsUserNameBox.Text)) ||
+                !(user.Password.Equals(this.settingsPasswordBox.Text)))
+            {
+                user.Name = this.settingsNameBox.Text;
+                user.UserName = this.settingsUserNameBox.Text;
+                user.Password = this.settingsPasswordBox.Text;
 
-        //        if (DataLogicAdmin.AllAdmins().ContainsKey(senderId))
-        //        {
-        //            senderName = DataLogicAdmin.AllAdmins()[senderId].Name;
-        //        }
-        //        else if (DataLogicAdmin.AllPersons().ContainsKey(senderId))
-        //        {
-        //            senderName = DataLogicAdmin.AllPersons()[senderId].Name;
-        //        }
-
-        //        if (senderName != null)
-        //        {
-        //            MessageList.Items.Add(senderName + ": " + message);
-        //        }
-        //        else
-        //        {
-        //            MessageList.Items.Add("ERROR! you shouldnt get here!");
-        //        }
-
-
-        //    }
-
-        //}
-
-
+                MessageBox.Show("Success!", "Information saved!");
+            }
+        }
     }
 }
