@@ -18,7 +18,6 @@ namespace AgileProd
         bool buttonClickVP;
         bool buttonClickDelete;
         Admin user;
-        int test = 0;
         //Button btnVoterDel;
         //Button btnVoterUp;
 

@@ -48,6 +48,11 @@ namespace AgileProd
                         fillMessageList();
                     }
                     break;
+                case 3:
+                    {
+                        initializeSettingsInfo();
+                    }
+                    break;
             }
         }
 
@@ -57,6 +62,15 @@ namespace AgileProd
             this.nameBox.Text = user.Name;
             this.idBox.Text = Convert.ToString(user.Id);
             this.balanceBox.Text = Convert.ToString(tempBalance) + " $";
+        }
+
+        private void initializeSettingsInfo()
+        {
+            this.settingsNameBox.Text = user.Name;
+            this.settingsIdBox.Text = Convert.ToString(user.Id);
+            this.settingsUserNameBox.Text = user.UserName;
+            this.settingsPasswordBox.Text = user.Password;
+            
         }
 
         private void fillMessageList()
