@@ -108,11 +108,11 @@ namespace AgileProdDAL
             {
                 if (data.GetPartyList().Keys.Contains(partyName))
                 {
-                    string newMemberName = data.GetMembers()[id].Name;
-                    int newMemberAge = data.GetMembers()[id].Age;
-                    string newMemberUserName = data.GetMembers()[id].UserName;
-                    string newMemberPassword = data.GetMembers()[id].Password;
-                    bool newMemberVoting = data.GetMembers()[id].IsVoting;
+                    string newMemberName = data.GetPeople()[id].Name;
+                    int newMemberAge = data.GetPeople()[id].Age;
+                    string newMemberUserName = data.GetPeople()[id].UserName;
+                    string newMemberPassword = data.GetPeople()[id].Password;
+                    bool newMemberVoting = data.GetPeople()[id].IsVoting;
                     Member m = new Member(id, newMemberName, newMemberAge, newMemberUserName, newMemberPassword, newMemberVoting, partyName, location);
                     data.GetMembers().Add(id, m);
                     return true;
