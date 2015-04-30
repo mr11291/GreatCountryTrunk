@@ -9,11 +9,31 @@ namespace AgileProdDAL
 {
     public static class DataLogicCommittee
     {
+       
         private static DataRepository data;
 
         static DataLogicCommittee()
         {
             data = DataRepository.GetDataRepository();
+        }
+        public static Head LoginCommittee(string username, string password)  //Committee
+        {
+            
+            var tempMemberDictionary = data.GetCommittee();                               //get temporary party member dictionary
+            Head Success = null;                                                      //initialize a new empty Member class instance
+            foreach (var item in tempMemberDictionary.Values)                           //loop trough the dictionary
+            {
+                if (username.Equals(item.UserName) && password.Equals(item.Password))   //if the given username/password and the existing username/passwords match 
+                {
+                    Success = item;                                                     //initialize member using found member
+                    break;                                                              //break loop
+                }
+            }
+            return Success;                                                             //return member instance                        
+        }
+        public static Dictionary<string, int> GetPartyList()
+        {
+            return data.GetPartyList();
         }
 
         //AddParty, committee is the only user that can add new party, the function get the new name and the ID of the head of the party

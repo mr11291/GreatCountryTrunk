@@ -48,9 +48,19 @@
             this.nameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.idHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.settingsTab = new System.Windows.Forms.TabPage();
+            this.settingsPasswordBox = new System.Windows.Forms.TextBox();
+            this.settingsUserNameBox = new System.Windows.Forms.TextBox();
+            this.settingsIdBox = new System.Windows.Forms.TextBox();
+            this.settingsNameBox = new System.Windows.Forms.TextBox();
+            this.settingsPasswordLabel = new System.Windows.Forms.Label();
+            this.settingsUserNameLabel = new System.Windows.Forms.Label();
+            this.settingsIdLabel = new System.Windows.Forms.Label();
+            this.settingNameLabel = new System.Windows.Forms.Label();
+            this.saveButton = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
             this.bankTab.SuspendLayout();
             this.messageTab.SuspendLayout();
+            this.settingsTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMenu
@@ -250,12 +260,100 @@
             this.settingsTab.BackgroundImage = global::AgileProd.Properties.Resources.wrench_op10;
             this.settingsTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.settingsTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.settingsTab.Controls.Add(this.saveButton);
+            this.settingsTab.Controls.Add(this.settingsPasswordBox);
+            this.settingsTab.Controls.Add(this.settingsUserNameBox);
+            this.settingsTab.Controls.Add(this.settingsIdBox);
+            this.settingsTab.Controls.Add(this.settingsNameBox);
+            this.settingsTab.Controls.Add(this.settingsPasswordLabel);
+            this.settingsTab.Controls.Add(this.settingsUserNameLabel);
+            this.settingsTab.Controls.Add(this.settingsIdLabel);
+            this.settingsTab.Controls.Add(this.settingNameLabel);
             this.settingsTab.Location = new System.Drawing.Point(4, 22);
             this.settingsTab.Name = "settingsTab";
             this.settingsTab.Padding = new System.Windows.Forms.Padding(3);
             this.settingsTab.Size = new System.Drawing.Size(672, 284);
             this.settingsTab.TabIndex = 2;
             this.settingsTab.Text = "Settings";
+            // 
+            // settingsPasswordBox
+            // 
+            this.settingsPasswordBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.settingsPasswordBox.Location = new System.Drawing.Point(70, 98);
+            this.settingsPasswordBox.Name = "settingsPasswordBox";
+            this.settingsPasswordBox.Size = new System.Drawing.Size(100, 20);
+            this.settingsPasswordBox.TabIndex = 8;
+            // 
+            // settingsUserNameBox
+            // 
+            this.settingsUserNameBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.settingsUserNameBox.Location = new System.Drawing.Point(70, 72);
+            this.settingsUserNameBox.Name = "settingsUserNameBox";
+            this.settingsUserNameBox.Size = new System.Drawing.Size(100, 20);
+            this.settingsUserNameBox.TabIndex = 7;
+            // 
+            // settingsIdBox
+            // 
+            this.settingsIdBox.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.settingsIdBox.Location = new System.Drawing.Point(70, 46);
+            this.settingsIdBox.Name = "settingsIdBox";
+            this.settingsIdBox.ReadOnly = true;
+            this.settingsIdBox.Size = new System.Drawing.Size(100, 20);
+            this.settingsIdBox.TabIndex = 6;
+            // 
+            // settingsNameBox
+            // 
+            this.settingsNameBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.settingsNameBox.Location = new System.Drawing.Point(70, 20);
+            this.settingsNameBox.Name = "settingsNameBox";
+            this.settingsNameBox.Size = new System.Drawing.Size(100, 20);
+            this.settingsNameBox.TabIndex = 5;
+            // 
+            // settingsPasswordLabel
+            // 
+            this.settingsPasswordLabel.AutoSize = true;
+            this.settingsPasswordLabel.Location = new System.Drawing.Point(6, 101);
+            this.settingsPasswordLabel.Name = "settingsPasswordLabel";
+            this.settingsPasswordLabel.Size = new System.Drawing.Size(56, 13);
+            this.settingsPasswordLabel.TabIndex = 3;
+            this.settingsPasswordLabel.Text = "Password:";
+            // 
+            // settingsUserNameLabel
+            // 
+            this.settingsUserNameLabel.AutoSize = true;
+            this.settingsUserNameLabel.Location = new System.Drawing.Point(6, 75);
+            this.settingsUserNameLabel.Name = "settingsUserNameLabel";
+            this.settingsUserNameLabel.Size = new System.Drawing.Size(61, 13);
+            this.settingsUserNameLabel.TabIndex = 2;
+            this.settingsUserNameLabel.Text = "User name:";
+            // 
+            // settingsIdLabel
+            // 
+            this.settingsIdLabel.AutoSize = true;
+            this.settingsIdLabel.Location = new System.Drawing.Point(6, 49);
+            this.settingsIdLabel.Name = "settingsIdLabel";
+            this.settingsIdLabel.Size = new System.Drawing.Size(21, 13);
+            this.settingsIdLabel.TabIndex = 1;
+            this.settingsIdLabel.Text = "ID:";
+            // 
+            // settingNameLabel
+            // 
+            this.settingNameLabel.AutoSize = true;
+            this.settingNameLabel.Location = new System.Drawing.Point(6, 23);
+            this.settingNameLabel.Name = "settingNameLabel";
+            this.settingNameLabel.Size = new System.Drawing.Size(38, 13);
+            this.settingNameLabel.TabIndex = 0;
+            this.settingNameLabel.Text = "Name:";
+            // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(70, 124);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 9;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // BaseForm
             // 
@@ -270,6 +368,8 @@
             this.bankTab.PerformLayout();
             this.messageTab.ResumeLayout(false);
             this.messageTab.PerformLayout();
+            this.settingsTab.ResumeLayout(false);
+            this.settingsTab.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -296,6 +396,15 @@
         private System.Windows.Forms.Button readButton;
         private System.Windows.Forms.ColumnHeader nameHeader;
         private System.Windows.Forms.ColumnHeader idHeader;
+        private System.Windows.Forms.TextBox settingsPasswordBox;
+        private System.Windows.Forms.TextBox settingsUserNameBox;
+        private System.Windows.Forms.TextBox settingsIdBox;
+        private System.Windows.Forms.TextBox settingsNameBox;
+        private System.Windows.Forms.Label settingsPasswordLabel;
+        private System.Windows.Forms.Label settingsUserNameLabel;
+        private System.Windows.Forms.Label settingsIdLabel;
+        private System.Windows.Forms.Label settingNameLabel;
+        private System.Windows.Forms.Button saveButton;
 
     }
 }
