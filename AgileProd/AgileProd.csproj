@@ -58,6 +58,12 @@
     <Compile Include="BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommitteeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommitteeForm.Designer.cs">
+      <DependentUpon>CommitteeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateVoterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommitteeForm.resx">
+      <DependentUpon>CommitteeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateVoterForm.resx">
       <DependentUpon>CreateVoterForm.cs</DependentUpon>

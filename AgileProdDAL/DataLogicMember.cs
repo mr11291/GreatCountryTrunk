@@ -49,6 +49,10 @@ namespace AgileProdDAL
         {
             partyMember.Slogan = slogan;
         }
+        public static Dictionary<int,Member> GetMember()
+        {
+            return data.GetMembers();
+        }
 
         //selectPartyLeader selects a party leader using an algorithem to find the richest person in each party
         public static void selectPartyLeader()
