@@ -53,9 +53,7 @@ namespace AgileProd
                     if (item.Party.Equals(ListOf.SelectedItems[0].Text.Replace(" ",String.Empty)))
                     {
                         ListOf2.Items.Add(item.Name);
-
                     }
-
                 }
             }
 
@@ -67,7 +65,7 @@ namespace AgileProd
             {
                 if(ListOf.SelectedItems.Count > 1)
                 {
-                    MessageBox.Show("You allredy vote");
+                    MessageBox.Show("You allredy voted");
                 }
                 else
                 {

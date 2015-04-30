@@ -45,7 +45,7 @@
             // 
             this.VoteButton.Location = new System.Drawing.Point(6, 6);
             this.VoteButton.Name = "VoteButton";
-            this.VoteButton.Size = new System.Drawing.Size(89, 37);
+            this.VoteButton.Size = new System.Drawing.Size(75, 23);
             this.VoteButton.TabIndex = 0;
             this.VoteButton.Text = "Vote";
             this.VoteButton.UseVisualStyleBackColor = true;
@@ -53,7 +53,7 @@
             // 
             // ListOf
             // 
-            this.ListOf.Location = new System.Drawing.Point(189, 33);
+            this.ListOf.Location = new System.Drawing.Point(104, 6);
             this.ListOf.Name = "ListOf";
             this.ListOf.Size = new System.Drawing.Size(141, 216);
             this.ListOf.TabIndex = 1;
@@ -63,7 +63,7 @@
             // 
             // ListOf2
             // 
-            this.ListOf2.Location = new System.Drawing.Point(412, 33);
+            this.ListOf2.Location = new System.Drawing.Point(251, 6);
             this.ListOf2.Name = "ListOf2";
             this.ListOf2.Size = new System.Drawing.Size(142, 216);
             this.ListOf2.TabIndex = 2;
