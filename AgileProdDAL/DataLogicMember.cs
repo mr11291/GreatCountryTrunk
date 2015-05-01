@@ -42,39 +42,41 @@ namespace AgileProdDAL
             return true;
         }
 
-        //ON GOING DEVELOPMENT!:
-
-        //NEEDS DOCUMENTATION
-        public static void AddSlogan(Member partyMember, string slogan)
-        {
-            partyMember.Slogan = slogan;
-        }
-        public static Dictionary<int,Member> GetMember()
-        {
-            return data.GetMembers();
-        }
-
         //selectPartyLeader selects a party leader using an algorithem to find the richest person in each party
         public static void selectPartyLeader()
         {
             //Tuple<int, int> temp = new Tuple<int, int> (Convert.ToInt32(data.GetMembers().Keys), Convert.ToInt32(data.GetPartyList().Keys));
             int RichestMemberId = 0;
             int balance = 0;
-            foreach (var party in data.GetPartyList().Keys)                 //loop trough all of the parties
+            foreach (var party in data.GetPartyList())                          //loop trough all of the parties
             {
-                foreach (var id in data.GetMembers().Keys)                  //loop trough all of the party members
+                foreach (var id in data.GetMembers())                           //loop trough all of the party members
                 {
-                    if (data.GetMembers()[id].Equals(party))                //this if loop will make sure we are only looking at people from the same party
+                    if (data.GetMembers()[id.Key].Party.Replace(" ", string.Empty).Equals(party.Key.Replace(" ", string.Empty)))    //this if loop will make sure we are only looking at people from the same party
                     {
-                        if (data.GetBankAccounts()[id].Balance > balance)   //we will get into this if only if we found someone richer
+                        if (data.GetBankAccounts()[id.Key].Balance > balance)   //we will get into this if only if we found someone richer
                         {
-                            balance = data.GetBankAccounts()[id].Balance;   //set new balance to compare with
-                            RichestMemberId = id;                           //remember richest party member
+                            balance = data.GetBankAccounts()[id.Key].Balance;   //set new balance to compare with
+                            RichestMemberId = id.Key;                           //remember richest party member
                         }
                     }
                 }
-                data.GetMembers()[RichestMemberId].Location = -1;           //set richest party member to be the party leader of his party
-            }  
+                data.GetMembers()[RichestMemberId].Location = -1;               //set richest party member to be the party leader of his party
+                balance = 0;
+            }
         }
+
+        //NEEDS DOCUMENTATION
+        public static void AddSlogan(Member partyMember, string slogan)
+        {
+            partyMember.Slogan = slogan;
+        }
+
+        public static Dictionary<int,Member> GetMember()
+        {
+            return data.GetMembers();
+        }
+
+        
     }
 }

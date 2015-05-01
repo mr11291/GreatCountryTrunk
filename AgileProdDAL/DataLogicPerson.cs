@@ -60,8 +60,6 @@ namespace AgileProdDAL
             }
         }//voteToParty()
 
-        
-        //New Methods 30/4/2015
         public static bool voteToMember(string MemberName)
         {
             int memberId = 0;
@@ -164,7 +162,15 @@ namespace AgileProdDAL
         //getMessages used by the system to get the messages of an person
         public static List<Tuple<int, string, int>> getMessages(Person user)
         {
-            return data.GetMessages()[user.Id].Inbox;
+            try
+            {
+                return data.GetMessages()[user.Id].Inbox;
+            }
+            catch
+            {
+                return null;
+            }
+
         }
 
         //getMessageInbox function used to get a certain message from message box using an index
@@ -210,6 +216,7 @@ namespace AgileProdDAL
             }
             return false;
         }
+
         //Deposit account of a Person
         public static bool depositToAccount(Person user, int money)
         {

@@ -48,6 +48,7 @@
             this.nameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.idHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.settingsTab = new System.Windows.Forms.TabPage();
+            this.saveButton = new System.Windows.Forms.Button();
             this.settingsPasswordBox = new System.Windows.Forms.TextBox();
             this.settingsUserNameBox = new System.Windows.Forms.TextBox();
             this.settingsIdBox = new System.Windows.Forms.TextBox();
@@ -56,7 +57,7 @@
             this.settingsUserNameLabel = new System.Windows.Forms.Label();
             this.settingsIdLabel = new System.Windows.Forms.Label();
             this.settingNameLabel = new System.Windows.Forms.Label();
-            this.saveButton = new System.Windows.Forms.Button();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
             this.bankTab.SuspendLayout();
             this.messageTab.SuspendLayout();
@@ -260,6 +261,7 @@
             this.settingsTab.BackgroundImage = global::AgileProd.Properties.Resources.wrench_op10;
             this.settingsTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.settingsTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.settingsTab.Controls.Add(this.logoutButton);
             this.settingsTab.Controls.Add(this.saveButton);
             this.settingsTab.Controls.Add(this.settingsPasswordBox);
             this.settingsTab.Controls.Add(this.settingsUserNameBox);
@@ -275,6 +277,16 @@
             this.settingsTab.Size = new System.Drawing.Size(672, 284);
             this.settingsTab.TabIndex = 2;
             this.settingsTab.Text = "Settings";
+            // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(70, 124);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 9;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // settingsPasswordBox
             // 
@@ -345,15 +357,15 @@
             this.settingNameLabel.TabIndex = 0;
             this.settingNameLabel.Text = "Name:";
             // 
-            // saveButton
+            // logoutButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(70, 124);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(75, 23);
-            this.saveButton.TabIndex = 9;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.logoutButton.Location = new System.Drawing.Point(587, 251);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(75, 23);
+            this.logoutButton.TabIndex = 10;
+            this.logoutButton.Text = "Log out";
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // BaseForm
             // 
@@ -405,6 +417,7 @@
         private System.Windows.Forms.Label settingsIdLabel;
         private System.Windows.Forms.Label settingNameLabel;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button logoutButton;
 
     }
 }

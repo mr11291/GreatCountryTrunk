@@ -16,7 +16,7 @@ namespace AgileProdDAL
         private static Dictionary<int, Bank> bankAccounts;  //<id, bank account instnace> 
         private static Dictionary<int, Head> committee;     //<id, committee member instance> 
         private static Dictionary<int, Admin> admin;        //<id, admin instance>
-        private static Dictionary<string, int> partyList;   //<party name, amount of votes recived
+        private static Dictionary<string, int> partyList;   //<party name, amount of votes recived>
         private static bool praimerise;                     //represents an on going praimeries
         private static DataRepository instance;             //an instance of data reposetory
 
@@ -78,7 +78,9 @@ namespace AgileProdDAL
         public static DataRepository GetDataRepository()
         {
             if (instance == null)
+            {
                 instance = LoadDataBase.LoadToDataRepository();
+            }
             return instance;
         }//Singleton instance
         public void setMember(Dictionary<int, Member> memberD)

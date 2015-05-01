@@ -75,21 +75,23 @@ namespace AgileProd
         private void fillMessageList()
         {
             var messages = DataLogicPerson.getMessages(user);
-
-            foreach (var item in messages)
+            if (messages != null)
             {
-                ListViewItem details = new ListViewItem();
-                int senderId = item.Item1;
-                string senderName = DataLogicPerson.getSenderName(senderId);
-                string message = item.Item2;
-                int amount = item.Item3;
-                details.Text = senderName;
-                details.SubItems.Add(Convert.ToString(senderId));
-                fromList.Items.Add(details);
+                foreach (var item in messages)
+                {
+                    ListViewItem details = new ListViewItem();
+                    int senderId = item.Item1;
+                    string senderName = DataLogicPerson.getSenderName(senderId);
+                    string message = item.Item2;
+                    int amount = item.Item3;
+                    details.Text = senderName;
+                    details.SubItems.Add(Convert.ToString(senderId));
+                    fromList.Items.Add(details);
 
-                fromList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                    fromList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                }
+                fromList.Columns[fromList.Columns.Count - 1].Width = -2;
             }
-            fromList.Columns[fromList.Columns.Count - 1].Width = -2;
         }
 
         private void readButton_Click(object sender, EventArgs e)
@@ -137,6 +139,14 @@ namespace AgileProd
 
                 MessageBox.Show("Success!", "Information saved!");
             }
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            LoginForm goback = new LoginForm();
+            //TODO update database
+            this.Close();
+            goback.Show();
         }
     }
 }
