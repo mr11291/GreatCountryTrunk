@@ -153,7 +153,6 @@
             this.partyList.Size = new System.Drawing.Size(169, 21);
             this.partyList.TabIndex = 12;
             this.partyList.Text = "select...";
-            this.partyList.SelectedIndexChanged += new System.EventHandler(this.partyList_SelectedIndexChanged);
             // 
             // PeopleForm
             // 
