@@ -96,7 +96,7 @@
             this.tabMenu.Location = new System.Drawing.Point(0, 0);
             this.tabMenu.Name = "tabMenu";
             this.tabMenu.SelectedIndex = 0;
-            this.tabMenu.Size = new System.Drawing.Size(885, 261);
+            this.tabMenu.Size = new System.Drawing.Size(885, 385);
             this.tabMenu.TabIndex = 0;
             // 
             // ViewPeopleList
@@ -121,7 +121,7 @@
             this.ViewPeopleList.Location = new System.Drawing.Point(4, 22);
             this.ViewPeopleList.Name = "ViewPeopleList";
             this.ViewPeopleList.Padding = new System.Windows.Forms.Padding(3);
-            this.ViewPeopleList.Size = new System.Drawing.Size(877, 235);
+            this.ViewPeopleList.Size = new System.Drawing.Size(877, 359);
             this.ViewPeopleList.TabIndex = 0;
             this.ViewPeopleList.Text = "Person";
             // 
@@ -208,7 +208,7 @@
             this.isVoting});
             this.dataGridPeople.Location = new System.Drawing.Point(282, 7);
             this.dataGridPeople.Name = "dataGridPeople";
-            this.dataGridPeople.Size = new System.Drawing.Size(586, 222);
+            this.dataGridPeople.Size = new System.Drawing.Size(586, 346);
             this.dataGridPeople.TabIndex = 8;
             this.dataGridPeople.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPeople_CellClick_1);
             // 
@@ -546,7 +546,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 262);
+            this.ClientSize = new System.Drawing.Size(884, 387);
             this.Controls.Add(this.tabMenu);
             this.Name = "AdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

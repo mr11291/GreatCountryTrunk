@@ -60,8 +60,6 @@ namespace AgileProdDAL
             }
         }//voteToParty()
 
-        
-        //New Methods 30/4/2015
         public static bool voteToMember(string MemberName)
         {
             int memberId = 0;
@@ -218,6 +216,7 @@ namespace AgileProdDAL
             }
             return false;
         }
+
         //Deposit account of a Person
         public static bool depositToAccount(Person user, int money)
         {

@@ -140,5 +140,13 @@ namespace AgileProd
                 MessageBox.Show("Success!", "Information saved!");
             }
         }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            LoginForm goback = new LoginForm();
+            //TODO update database
+            this.Close();
+            goback.Show();
+        }
     }
 }

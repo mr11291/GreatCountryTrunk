@@ -212,32 +212,36 @@ namespace AgileProd
             {
                 MessageList.Items.Clear();
             }
+            
             var messages = DataLogicAdmin.getMessages(user);
-            foreach (var item in messages)
+            if (messages != null)
             {
-                int senderId = item.Item1;
-                string message = item.Item2;
-                string senderName = null;
+                foreach (var item in messages)
+                {
+                    int senderId = item.Item1;
+                    string message = item.Item2;
+                    string senderName = null;
 
-                if (DataLogicAdmin.AllAdmins().ContainsKey(senderId))
-                {
-                    senderName = DataLogicAdmin.AllAdmins()[senderId].Name;
-                }
-                else if (DataLogicAdmin.AllPersons().ContainsKey(senderId))
-                {
-                    senderName = DataLogicAdmin.AllPersons()[senderId].Name;
-                }
+                    if (DataLogicAdmin.AllAdmins().ContainsKey(senderId))
+                    {
+                        senderName = DataLogicAdmin.AllAdmins()[senderId].Name;
+                    }
+                    else if (DataLogicAdmin.AllPersons().ContainsKey(senderId))
+                    {
+                        senderName = DataLogicAdmin.AllPersons()[senderId].Name;
+                    }
 
-                if (senderName != null)
-                {
-                    MessageList.Items.Add(senderName + ": " + message);
-                }
-                else 
-                {
-                    MessageList.Items.Add("ERROR! you shouldnt get here!");
-                }
+                    if (senderName != null)
+                    {
+                        MessageList.Items.Add(senderName + ": " + message);
+                    }
+                    else
+                    {
+                        MessageList.Items.Add("ERROR! you shouldnt get here!");
+                    }
 
-                
+
+                }
             }
 
         }

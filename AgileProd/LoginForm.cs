@@ -26,6 +26,7 @@ namespace AgileProd
             Member tempMember = DataLogicMember.LoginMember(username.Text, password.Text);
             Person tempPerson = DataLogicPerson.LoginPerson(username.Text, password.Text);
             Admin tempAdmin = DataLogicAdmin.LoginAdmin(username.Text, password.Text);
+            DataLogicMember.selectPartyLeader();
             if(tempAdmin != null)
             {
                 AdminForm newForm = new AdminForm(tempAdmin);
@@ -72,6 +73,7 @@ namespace AgileProd
         private void enteradmin_Click(object sender, EventArgs e)
         {
             Admin tempAdmin = DataLogicAdmin.LoginAdmin("mr11291", "12345");
+            DataLogicMember.selectPartyLeader();
             AdminForm newForm = new AdminForm(tempAdmin);
             this.Hide();
             newForm.Show();
@@ -81,6 +83,7 @@ namespace AgileProd
         private void enterperson_Click(object sender, EventArgs e)
         {
             Person tempPerson = DataLogicPerson.LoginPerson("bet", "12345");
+            DataLogicMember.selectPartyLeader();
             PersonForm newfrom = new PersonForm(tempPerson);
             this.Hide();
             newfrom.Show();
@@ -90,6 +93,7 @@ namespace AgileProd
         private void entercommittee_Click(object sender, EventArgs e)
         {
             Head tempHead = DataLogicCommittee.LoginCommittee("guyguy", "guyguy");
+            DataLogicMember.selectPartyLeader();
             CommitteeForm newForm = new CommitteeForm(tempHead);
             this.Hide();
             newForm.Show();
