@@ -13,7 +13,7 @@ namespace CreateDataBase
     {
         //Varaiables
         List<String> partyList = new List<String>() { "Unification", "All Of Us", "The Zionistic Camp", "The Jewish House", "There is a Future", "Energy" };
-        private string GenPath = @"C:\Users\Michael\Desktop\GreatCountryTrunk\AgileProdDAL\Database"; //defualt path to databases
+        private string GenPath = @"C:\Users\shalevhazan\Desktop\GreatCountryTrunk\AgileProdDAL\Database"; //defualt path to databases
         public List<string> listOfNames;                                      //list of all the names from the database
         public const int committeeLen = 5;                                    //the defualt size of the elections commitee
         public const bool isVoting = false;                                   //isVoting determines if this person has registed as a voter
