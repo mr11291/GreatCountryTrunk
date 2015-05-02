@@ -57,8 +57,6 @@
     <Compile Include="BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ComboboxItem.cs" />
-    <Compile Include="ComboboxItem_2.cs" />
     <Compile Include="CreateVoterForm.cs">
       <SubType>Form</SubType>
     </Compile>
