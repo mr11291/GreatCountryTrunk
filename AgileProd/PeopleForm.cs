@@ -141,12 +141,5 @@ namespace AgileProd
             balanceBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             balanceLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
         }
-
-        private void partyList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }

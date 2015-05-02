@@ -13,7 +13,7 @@ namespace CreateDataBase
     {
         //Varaiables
         List<String> partyList = new List<String>() { "Unification", "All Of Us", "The Zionistic Camp", "The Jewish House", "There is a Future", "Energy" };
-        private string GenPath = @"Z:\Studies\Software Maintenance\Database"; //defualt path to databases
+        private string GenPath = @"C:\Users\shalevhazan\Desktop\GreatCountryTrunk\AgileProdDAL\Database"; //defualt path to databases
         public List<string> listOfNames;                                      //list of all the names from the database
         public const int committeeLen = 5;                                    //the defualt size of the elections commitee
         public const bool isVoting = false;                                   //isVoting determines if this person has registed as a voter
@@ -27,7 +27,7 @@ namespace CreateDataBase
         public int numberOfPeople;                                            //path to person database file
 
         //Methods of CreateCSVfilesV2 class
-        
+
 
         /* 
          * Constructor of CreateCsvFiles class.
@@ -189,7 +189,7 @@ namespace CreateDataBase
             int j = 0;
             int index = 0;
 
-            for (int i = 0; i < party.Count*5; i++)
+            for (int i = 0; i < party.Count * 5; i++)
             {
                 chooseFromList = rnd.Next(1, ID.Count - 1);
                 j++;
@@ -264,7 +264,7 @@ namespace CreateDataBase
         public void writeFiles()
         {
             List<int> ID = new List<int>();                              //initialize new empty ID list 
-                                                        //Initialize paths:
+            //Initialize paths:
             StreamWriter personfile = new StreamWriter(personPath);      //person path
             StreamWriter bankfile = new StreamWriter(bankPath);          //person path
             StreamWriter memberfile = new StreamWriter(memberPath);      //party member path
@@ -290,7 +290,7 @@ namespace CreateDataBase
             memberfile.Close();
 
             writeToMessage(messagefile, ID);                             //write message file
-            messagefile.Close();          
+            messagefile.Close();
         }//writeFiles()
 
     }

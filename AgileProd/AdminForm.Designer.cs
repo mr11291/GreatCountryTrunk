@@ -150,7 +150,7 @@
             this.btnPersonToParty.TabIndex = 14;
             this.btnPersonToParty.Text = "Add Person ToParty";
             this.btnPersonToParty.UseVisualStyleBackColor = true;
-            this.btnPersonToParty.Click += new System.EventHandler(this.btnPersonToParty_Click_1);
+            //this.btnPersonToParty.Click += new System.EventHandler(this.btnPersonToParty_Click_1);
             // 
             // txtAmntdrwl
             // 
@@ -210,7 +210,7 @@
             this.dataGridPeople.Name = "dataGridPeople";
             this.dataGridPeople.Size = new System.Drawing.Size(586, 346);
             this.dataGridPeople.TabIndex = 8;
-            this.dataGridPeople.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPeople_CellClick_1);
+            //this.dataGridPeople.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPeople_CellClick_1);
             // 
             // dataGridID
             // 
@@ -303,7 +303,7 @@
             this.RevokeVoter.TabIndex = 4;
             this.RevokeVoter.Text = "Revoke a voter";
             this.RevokeVoter.UseVisualStyleBackColor = true;
-            this.RevokeVoter.Click += new System.EventHandler(this.RevokeVoter_Click);
+            //this.RevokeVoter.Click += new System.EventHandler(this.RevokeVoter_Click);
             // 
             // RegisterVoter
             // 
@@ -313,7 +313,7 @@
             this.RegisterVoter.TabIndex = 3;
             this.RegisterVoter.Text = "Register a voter";
             this.RegisterVoter.UseVisualStyleBackColor = true;
-            this.RegisterVoter.Click += new System.EventHandler(this.RegisterVoter_Click);
+            //this.RegisterVoter.Click += new System.EventHandler(this.RegisterVoter_Click);
             // 
             // tabPage2
             // 
@@ -336,7 +336,7 @@
             this.txtIDForMember.Name = "txtIDForMember";
             this.txtIDForMember.Size = new System.Drawing.Size(100, 23);
             this.txtIDForMember.TabIndex = 11;
-            this.txtIDForMember.TextChanged += new System.EventHandler(this.txtIDForMember_TextChanged);
+            //this.txtIDForMember.TextChanged += new System.EventHandler(this.txtIDForMember_TextChanged);
             // 
             // label4
             // 
@@ -361,7 +361,7 @@
             this.dataGridMember.Size = new System.Drawing.Size(550, 222);
             this.dataGridMember.TabIndex = 9;
             this.dataGridMember.Visible = false;
-            this.dataGridMember.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridMember);
+            //this.dataGridMember.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridMember);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -401,7 +401,7 @@
             this.btnMemberList.TabIndex = 2;
             this.btnMemberList.Text = "Members List";
             this.btnMemberList.UseVisualStyleBackColor = true;
-            this.btnMemberList.Click += new System.EventHandler(this.btnMemberList_Click);
+            //this.btnMemberList.Click += new System.EventHandler(this.btnMemberList_Click);
             // 
             // tabPage3
             // 
@@ -428,7 +428,7 @@
             this.btnChangePStatus.TabIndex = 12;
             this.btnChangePStatus.Text = "Change Praimeries Status";
             this.btnChangePStatus.UseVisualStyleBackColor = true;
-            this.btnChangePStatus.Click += new System.EventHandler(this.btnChangePStatus_Click);
+            //this.btnChangePStatus.Click += new System.EventHandler(this.btnChangePStatus_Click);
             // 
             // btnPraimeriesStatus
             // 
@@ -438,7 +438,7 @@
             this.btnPraimeriesStatus.TabIndex = 11;
             this.btnPraimeriesStatus.Text = "Praimeries Status";
             this.btnPraimeriesStatus.UseVisualStyleBackColor = true;
-            this.btnPraimeriesStatus.Click += new System.EventHandler(this.btnPraimeriesStatus_Click);
+            //this.btnPraimeriesStatus.Click += new System.EventHandler(this.btnPraimeriesStatus_Click);
             // 
             // dataGridParty
             // 
@@ -449,7 +449,7 @@
             this.dataGridParty.Name = "dataGridParty";
             this.dataGridParty.Size = new System.Drawing.Size(145, 222);
             this.dataGridParty.TabIndex = 10;
-            this.dataGridParty.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridParty_CellClick);
+            //this.dataGridParty.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridParty_CellClick);
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -465,7 +465,7 @@
             this.btnListP.TabIndex = 3;
             this.btnListP.Text = "List Of Parties";
             this.btnListP.UseVisualStyleBackColor = true;
-            this.btnListP.Click += new System.EventHandler(this.btnListP_Click);
+            //this.btnListP.Click += new System.EventHandler(this.btnListP_Click);
             // 
             // label1
             // 
@@ -523,7 +523,7 @@
             this.ReadButton.TabIndex = 2;
             this.ReadButton.Text = "Read";
             this.ReadButton.UseVisualStyleBackColor = true;
-            this.ReadButton.Click += new System.EventHandler(this.ReadButton_Click);
+            //this.ReadButton.Click += new System.EventHandler(this.ReadButton_Click);
             // 
             // DeleteButton
             // 

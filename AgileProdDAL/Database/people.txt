@@ -520,7 +520,7 @@
 508878147, Josephine Rubin, 44 ,gawrh ,pass508878147 ,False
 186998258, Matthia Breuer, 44 ,bkmjs ,pass186998258 ,False
 564595043, Ruta Borach, 81 ,prcdn ,pass564595043 ,False
-625522405, Sara Yedidyah, 81 ,apnip ,pass625522405 ,False
+625522405, Sara Yedidyah, 81 ,guy ,guy ,False
 955051589, Jerusha Spitzer, 64 ,lcoih ,pass955051589 ,False
 247869946, Cochava Margolis, 101 ,uutsn ,pass247869946 ,False
 696513553, Athaleyah Krickstein, 101 ,cmceb ,pass696513553 ,False

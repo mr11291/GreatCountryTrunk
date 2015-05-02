@@ -35,7 +35,6 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
-    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -140,7 +139,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -165,33 +163,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\stack-of-paper-vector-676-stacked-money-papers-vector.png" />
-    <None Include="Resources\cash-envelope.png" />
     <None Include="Resources\handshakemoney.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cash-envelope2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cash-envelope4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cash-envelope3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\stack-of-paper-vector-676-stacked-money-papers-vector2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\stack-of-paper-vector-676-stacked-money-papers-vector3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\wrench-op10.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\wrench-op15.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cashstack_op10.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
