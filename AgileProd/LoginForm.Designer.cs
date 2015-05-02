@@ -36,6 +36,10 @@
             this.lblCreateVol = new System.Windows.Forms.LinkLabel();
             this.inputWarning = new System.Windows.Forms.Label();
             this.HandShakeImage = new System.Windows.Forms.PictureBox();
+            this.enterperson = new System.Windows.Forms.Button();
+            this.entercommittee = new System.Windows.Forms.Button();
+            this.entermember = new System.Windows.Forms.Button();
+            this.enteradmin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.HandShakeImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +80,7 @@
             // 
             this.btnEnter.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.btnEnter.Location = new System.Drawing.Point(99, 101);
+            this.btnEnter.Location = new System.Drawing.Point(197, 101);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(75, 23);
             this.btnEnter.TabIndex = 4;
@@ -87,7 +91,7 @@
             // lblCreateVol
             // 
             this.lblCreateVol.AutoSize = true;
-            this.lblCreateVol.Location = new System.Drawing.Point(12, 317);
+            this.lblCreateVol.Location = new System.Drawing.Point(12, 331);
             this.lblCreateVol.Name = "lblCreateVol";
             this.lblCreateVol.Size = new System.Drawing.Size(63, 13);
             this.lblCreateVol.TabIndex = 5;
@@ -111,17 +115,60 @@
             this.HandShakeImage.Image = global::AgileProd.Properties.Resources.handshakemoney;
             this.HandShakeImage.Location = new System.Drawing.Point(-1, 130);
             this.HandShakeImage.Name = "HandShakeImage";
-            this.HandShakeImage.Size = new System.Drawing.Size(285, 184);
+            this.HandShakeImage.Size = new System.Drawing.Size(285, 198);
             this.HandShakeImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.HandShakeImage.TabIndex = 7;
             this.HandShakeImage.TabStop = false;
+            // 
+            // enterperson
+            // 
+            this.enterperson.Location = new System.Drawing.Point(12, 101);
+            this.enterperson.Name = "enterperson";
+            this.enterperson.Size = new System.Drawing.Size(47, 23);
+            this.enterperson.TabIndex = 8;
+            this.enterperson.Text = "person";
+            this.enterperson.UseVisualStyleBackColor = true;
+            this.enterperson.Click += new System.EventHandler(this.enterperson_Click);
+            // 
+            // entercommittee
+            // 
+            this.entercommittee.Location = new System.Drawing.Point(65, 101);
+            this.entercommittee.Name = "entercommittee";
+            this.entercommittee.Size = new System.Drawing.Size(65, 23);
+            this.entercommittee.TabIndex = 9;
+            this.entercommittee.Text = "committee";
+            this.entercommittee.UseVisualStyleBackColor = true;
+            this.entercommittee.Click += new System.EventHandler(this.entercommittee_Click);
+            // 
+            // entermember
+            // 
+            this.entermember.Location = new System.Drawing.Point(136, 101);
+            this.entermember.Name = "entermember";
+            this.entermember.Size = new System.Drawing.Size(55, 23);
+            this.entermember.TabIndex = 10;
+            this.entermember.Text = "member";
+            this.entermember.UseVisualStyleBackColor = true;
+            // 
+            // enteradmin
+            // 
+            this.enteradmin.Location = new System.Drawing.Point(12, 70);
+            this.enteradmin.Name = "enteradmin";
+            this.enteradmin.Size = new System.Drawing.Size(47, 21);
+            this.enteradmin.TabIndex = 11;
+            this.enteradmin.Text = "admin";
+            this.enteradmin.UseVisualStyleBackColor = true;
+            this.enteradmin.Click += new System.EventHandler(this.enteradmin_Click);
             // 
             // LoginForm
             // 
             this.AcceptButton = this.btnEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 336);
+            this.ClientSize = new System.Drawing.Size(284, 353);
+            this.Controls.Add(this.enteradmin);
+            this.Controls.Add(this.entermember);
+            this.Controls.Add(this.entercommittee);
+            this.Controls.Add(this.enterperson);
             this.Controls.Add(this.HandShakeImage);
             this.Controls.Add(this.inputWarning);
             this.Controls.Add(this.lblCreateVol);
@@ -149,6 +196,10 @@
         private System.Windows.Forms.LinkLabel lblCreateVol;
         private System.Windows.Forms.Label inputWarning;
         private System.Windows.Forms.PictureBox HandShakeImage;
+        private System.Windows.Forms.Button enterperson;
+        private System.Windows.Forms.Button entercommittee;
+        private System.Windows.Forms.Button entermember;
+        private System.Windows.Forms.Button enteradmin;
     }
 }
 

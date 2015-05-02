@@ -1,4 +1,4 @@
-484728005, Betzalel Henriques, 44 ,grqvv ,pass484728005 ,False
+484728005, Betzalel Henriques, 44 ,bet ,12345 ,False
 371381467, Japhet Rosen, 44 ,dtgqb ,pass371381467 ,False
 263014251, Alvah Gross, 81 ,pjvhb ,pass263014251 ,False
 707924814, Seraphim Levinsky, 118 ,ycarh ,pass707924814 ,False
@@ -131,7 +131,7 @@
 334537615, Cain Spiro, 100 ,vaxvo ,pass334537615 ,False
 547701769, Noach Hurwitz, 34 ,ejars ,pass547701769 ,False
 735879413, Talmai Harpaz, 34 ,ueyvm ,pass735879413 ,False
-341122169, Adriyel Wolmark, 119 ,ytnwm ,pass341122169 ,False
+341122169, Adriyel Wolmark, 119 ,guyguy ,guyguy ,False
 765106976, Gurion Homa, 54 ,ilrhs ,pass765106976 ,False
 299955762, Dovev Weidenseld, 54 ,wbnrx ,pass299955762 ,False
 235425863, Zephan Schwab, 91 ,rewsy ,pass235425863 ,False

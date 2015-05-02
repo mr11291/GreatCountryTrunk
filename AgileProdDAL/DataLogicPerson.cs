@@ -50,8 +50,85 @@ namespace AgileProdDAL
         //voteToParty is a method used to add a vote to a party
         public static void voteToParty(string PartyName)
         {
-            data.GetPartyList()[PartyName]++;
+            try
+            {
+                data.GetPartyList()[PartyName]++;
+            }
+            catch
+            {
+                return;
+            }
         }//voteToParty()
+
+        public static bool voteToMember(string MemberName)
+        {
+            int memberId = 0;
+            foreach (var item in data.GetMembers().Values)
+            {
+                if (item.Name.Equals(MemberName))
+                {
+                    memberId = item.Id;
+                }
+            }
+
+            try
+            {
+                data.GetMembers()[memberId].Location += 1;
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static bool voteToMember(Person user, int id)
+        {
+            try
+            {
+                data.GetMembers()[id].Location += 1;
+                user.NumOfVotes += 1;
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static bool isMember(int id)
+        {
+            if (data.GetMembers().Keys.Contains(id))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public static Member getMemberById(int id)
+        {
+            try
+            {
+                return data.GetMembers()[id];
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static string getMemberNameById(int id)
+        {
+            try
+            {
+                return data.GetMembers()[id].Name;
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
         //VoterFee is a function used to claim voting fee from voters
         public static int VoterFee(Person person)
@@ -82,10 +159,18 @@ namespace AgileProdDAL
             return true;
         }//revokeVoter(Person)
 
-        //getMessage function is used to get the message box of a person
-        public static Message getMessage(Person person)
+        //getMessages used by the system to get the messages of an person
+        public static List<Tuple<int, string, int>> getMessages(Person user)
         {
-            return data.GetMessages()[person.Id]; //use person's id to get messages from dictionary
+            try
+            {
+                return data.GetMessages()[user.Id].Inbox;
+            }
+            catch
+            {
+                return null;
+            }
+
         }
 
         //getMessageInbox function used to get a certain message from message box using an index
@@ -109,8 +194,9 @@ namespace AgileProdDAL
             if (message.Item3 > 0 && answer == true)
             {
                 int senderId = message.Item1;
+
                 data.GetMembers()[senderId].Location += 1;
-                // Here Should be a function call that votes to a party member and, takes the apropriate amount from this person etc
+                
             }
         }
 
@@ -130,6 +216,7 @@ namespace AgileProdDAL
             }
             return false;
         }
+
         //Deposit account of a Person
         public static bool depositToAccount(Person user, int money)
         {
@@ -139,6 +226,18 @@ namespace AgileProdDAL
                 return true;//succsses
             }
             return false;
+        }
+
+        public static string getSenderName(int id)
+        {
+            try
+            {
+                return data.GetPeople()[id].Name;
+            }
+            catch
+            {
+                return "Unknown person!";
+            }
         }
     }
 }
