@@ -163,7 +163,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="handshakemoney.png" />
     <None Include="Resources\handshakemoney.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
