@@ -16,6 +16,8 @@ namespace AgileProd
     public partial class AdminForm : Form
     {
         bool buttonClickVP;
+        bool buttonClickLP;
+        bool buttomClickLM;
         bool buttonClickDelete;
         Admin user;
         //Button btnVoterDel;
@@ -27,134 +29,19 @@ namespace AgileProd
             InitializeComponent();
             user = admin;
             buttonClickVP = false;
+            buttonClickLP = false;
+            buttomClickLM = false;
             buttonClickDelete = false;
             IDtextbox.Hide();
             IDlabel.Hide();
-            ViewPeople.Hide();
+            //ViewPeople.Hide();
             dataGridPeople.Hide();
+            dataGridParty.Hide();
             tabMenu.SelectedIndexChanged += tabMenu_SelectedIndexChanged;
             tabMenu.TabPages[4].Text = "Messages " + "[" + DataLogicAdmin.getMessageCount(user) + "]";
-            //tx = new TextBox();
-            //btnVoterDel = new Button();
-            //btnVoterUp = new Button();
-            //tx.Hide();
-            //btnVoterDel.Hide();
-            //btnVoterUp.Hide();
-            //btnVoterDel.Click += insertDelButton;
-            //btnVoterUp.Click += insertUpdateButton;
+
         }
 
-
-        //private void btnDelVoter_Click(object sender, EventArgs e)
-        //{
-        //    comboBox1.Hide();
-        //    btnCreateVoter.Hide();
-        //    btnUpdateVoter.Hide();
-        //    btnDelVoter.Hide();
-        //    tx.Show();
-        //    btnVoterDel.Show();
-        //    btnVoterDel.Text = "Delete";
-        //    btnVoterDel.BackColor = Color.Orange;
-        //    btnVoterDel.Location = new Point(tx.Location.X, tx.Location.Y + tx.Height);
-        //    this.Controls.Add(tx);
-        //    this.Controls.Add(btnVoterDel);
-            
-        //}
-
-        //private void insertDelButton(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        string nameUser = DataLogic.AllPersons()[int.Parse(tx.Text.Replace(" ", ""))].name;
-        //        DataLogic.DelVoter(int.Parse(tx.Text.Trim()));
-        //        MessageBox.Show("User " + nameUser + " Deleted");
-        //        tx.Hide();
-        //        tx.Clear();
-        //        btnVoterDel.Hide();
-                
-        //    }
-        //    catch
-        //    {
-        //        MessageBox.Show("Not found try again...");
-        //        tx.Hide();
-        //        tx.Clear();
-        //        btnVoterDel.Hide();
-        //    }
-        //    btnCreateVoter.Show();
-        //    btnUpdateVoter.Show();
-        //    btnDelVoter.Show();
-        //    comboBox1.Show();
-            
-        //}
-
-
-        //private void insertUpdateButton(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        Person person = DataLogic.AllPersons()[int.Parse(tx.Text.Replace(" ", ""))];
-        //        CreateVolterForm cvf = new CreateVolterForm(DataLogic.AllPersons(), this,person);
-        //        this.Hide();
-        //        cvf.Show();
-        //        tx.Hide();
-        //        tx.Clear();
-        //        btnVoterUp.Hide();
-
-        //    }
-        //    catch
-        //    {
-        //        MessageBox.Show("Not found try again...");
-        //        tx.Hide();
-        //        tx.Clear();
-        //        btnVoterUp.Hide();
-        //    }
-        //    btnCreateVoter.Show();
-        //    btnUpdateVoter.Show();
-        //    btnDelVoter.Show();
-        //    comboBox1.Show();
-        //}
-
-        //private void btnUpdateVoter_Click(object sender, EventArgs e)
-        //{
-        //    comboBox1.Hide();
-        //    btnCreateVoter.Hide();
-        //    btnUpdateVoter.Hide();
-        //    btnDelVoter.Hide();
-        //    tx.Show();
-        //    btnVoterUp.Show();
-        //    btnVoterUp.Text = "Update";
-        //    btnVoterUp.BackColor = Color.Orange;
-        //    btnVoterUp.Location = new Point(tx.Location.X, tx.Location.Y + tx.Height);
-        //    this.Controls.Add(tx);
-        //    this.Controls.Add(btnVoterUp);
-        //}
-
-        //private void btnCreateVoter_Click(object sender, EventArgs e)
-        //{
-        //    AdminForm currentForm = new AdminForm();
-        //    CreateVolterForm cvf = new CreateVolterForm(DataLogic.AllPersons(), currentForm, null);
-        //    cvf.Show();
-        //    this.Hide();
-        //}
-
-        //private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (comboBox1.SelectedItem.ToString() == "Person")
-        //    {
-        //        btnCreateVoter.Show();
-        //        btnDelVoter.Show();
-        //        btnUpdateVoter.Show();
-        //    }
-        //    else
-        //    {
-        //        btnUpdateVoter.Hide();
-        //        btnCreateVoter.Hide();
-        //        btnDelVoter.Hide();
-        //    }
-                        
-                
-        //}
-        
         /*
          * AddPerson_Click is a button function of AdminForm
          * it's job is to open the create person form
@@ -184,20 +71,32 @@ namespace AgileProd
             }
             else
             {
-                if (IDtextbox.Text == null)
+                if (IDtextbox.Text != null)
                 {
                     if (DataLogicAdmin.DeletePerson(Convert.ToInt32(IDtextbox.Text)))
                     {
                         MessageBox.Show("Person deleted successfuly!");
+                        Refresh();
+                        //this.buttonClickVP = false ;
+                        dataGridPeople.Hide();
+                       // dataGridPeople.Dispose();
+                       // dataGridPeople = new DataGridView();
+                      
+                        dataGridPeople.ClearSelection();
+                        IDtextbox.Clear();
                     }
                     else
                     {
                         MessageBox.Show("Looks like the id does not exist");
                     }
+
+                    dataGridPeople.Rows.Clear();
+
                     buttonClickDelete = false;
                     IDtextbox.Hide();
+                    IDtextbox.Clear();
                     IDlabel.Hide();
-                    ViewPeople.Hide();
+                 //   ViewPeople.Hide();
                     return;
                 }
                 else
@@ -205,7 +104,7 @@ namespace AgileProd
                     buttonClickDelete = false;
                     IDtextbox.Hide();
                     IDlabel.Hide();
-                    ViewPeople.Hide();
+                   // ViewPeople.Hide();
                     return;
                 }
             }
@@ -220,11 +119,11 @@ namespace AgileProd
             
             if (this.buttonClickVP == false)
             {
-                dataGridPeople.Show();                                      //show data grid
-                this.dataGridPeople.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPeople_CellClick);  //initialize click event handler
-                DataGridViewRow row = new DataGridViewRow();                //create a new empty data grid view row 
+                dataGridPeople.Show();                                      //show data grid  //initialize click event handler
+                DataGridViewRow row = new DataGridViewRow(); 
+                //create a new empty data grid view row
                 var temp = DataLogicAdmin.AllPersons();                          //get persons read only dictionary
-
+                
                 foreach (var item in temp.Values)                           //loop trough dictionary 
                 {
                     dataGridPeople.Rows.Add(item.Id.ToString(), item.Name, item.Age.ToString(), item.UserName, item.Password, item.IsVoting.ToString());  //add values to grid vie
@@ -241,27 +140,40 @@ namespace AgileProd
             }
 
         }
-        
+
+
+
+
+
+
+
+
+
+
+
+
         /*
          * dataGridPeople_CellClick is an event hander of class AdminForm
          */
-        private void dataGridPeople_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            IDtextbox.Text = (string)dataGridPeople[0, e.RowIndex].Value; //get's value of clicked cell, converts it to a string and copies it to text box
-            return;
-        }
 
         private void btnDelParty_Click(object sender, EventArgs e)
         {
             if (txtDelParty.Text == "")
             {
                 MessageBox.Show("Please enter party name for delete");
+                
             }
             else
             {
                 DataLogic.DelParty(txtDelParty.Text);
                 txtDelParty.Text = "";
+                MessageBox.Show("deleted :)");
+                dataGridParty.Rows.Clear();
+                dataGridParty.Hide();
             }
+            txtDelParty.Clear();
+            buttonClickLP = false;
+  
         }
 
         private void btnWithdrwl_Click(object sender, EventArgs e)
@@ -300,34 +212,208 @@ namespace AgileProd
             {
                 MessageList.Items.Clear();
             }
+            
             var messages = DataLogicAdmin.getMessages(user);
-            foreach (var item in messages)
+            if (messages != null)
             {
-                int senderId = item.Item1;
-                string message = item.Item2;
-                string senderName = null;
+                foreach (var item in messages)
+                {
+                    int senderId = item.Item1;
+                    string message = item.Item2;
+                    string senderName = null;
 
-                if (DataLogicAdmin.AllAdmins().ContainsKey(senderId))
-                {
-                    senderName = DataLogicAdmin.AllAdmins()[senderId].Name;
-                }
-                else if (DataLogicAdmin.AllPersons().ContainsKey(senderId))
-                {
-                    senderName = DataLogicAdmin.AllPersons()[senderId].Name;
-                }
+                    if (DataLogicAdmin.AllAdmins().ContainsKey(senderId))
+                    {
+                        senderName = DataLogicAdmin.AllAdmins()[senderId].Name;
+                    }
+                    else if (DataLogicAdmin.AllPersons().ContainsKey(senderId))
+                    {
+                        senderName = DataLogicAdmin.AllPersons()[senderId].Name;
+                    }
 
-                if (senderName != null)
-                {
-                    MessageList.Items.Add(senderName + ": " + message);
-                }
-                else 
-                {
-                    MessageList.Items.Add("ERROR! you shouldnt get here!");
-                }
+                    if (senderName != null)
+                    {
+                        MessageList.Items.Add(senderName + ": " + message);
+                    }
+                    else
+                    {
+                        MessageList.Items.Add("ERROR! you shouldnt get here!");
+                    }
 
-                
+
+                }
             }
 
         }
+
+        private void RegisterVoter_Click(object sender, EventArgs e)
+        {
+           
+            IDtextbox.Show();
+            if(IDtextbox.Text!="")
+            {
+                DataLogicAdmin.registerVoter(int.Parse(IDtextbox.Text));
+                MessageBox.Show(DataLogicAdmin.AllPersons()[int.Parse(IDtextbox.Text)].Name + " register");
+                IDtextbox.Clear();
+                IDtextbox.Hide();
+                dataGridPeople.Hide();
+                buttonClickVP = false;
+            }
+            IDtextbox.Clear();
+            dataGridPeople.Rows.Clear();
+
+        }
+
+        private void RevokeVoter_Click(object sender, EventArgs e)
+        {
+            IDtextbox.Show();
+            if (IDtextbox.Text != "")
+            {
+                DataLogicAdmin.revokeVoter(int.Parse(IDtextbox.Text));
+                MessageBox.Show(DataLogicAdmin.AllPersons()[int.Parse(IDtextbox.Text)].Name + " revoke");
+                IDtextbox.Clear();
+                IDtextbox.Hide();
+                dataGridPeople.Hide();
+                buttonClickVP = false;
+            }
+            IDtextbox.Clear();
+            dataGridPeople.Rows.Clear();
+        }
+
+        private void ReadButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnListP_Click(object sender, EventArgs e)
+        {
+             
+            if (this.buttonClickLP == false)
+            {
+                dataGridParty.Show();                                   //show data grid
+                 //initialize click event handler
+                DataGridViewRow row = new DataGridViewRow();
+                //create a new empty data grid view row
+                var temp = DataLogicAdmin.AllParties();                          //get persons read only dictionary
+
+                foreach (var item in temp.Keys)                           //loop trough dictionary 
+                {
+                    dataGridParty.Rows.Add(item.ToString());  //add values to grid vie
+                }
+
+                this.buttonClickLP = true;
+                return;
+            }
+            else
+            {
+                dataGridParty.Hide();
+                dataGridParty.Rows.Clear();
+                this.buttonClickLP = false;
+                return;
+            }
+        }
+
+
+        private void dataGridPeople_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            IDtextbox.Text = (string)dataGridPeople[0, e.RowIndex].Value; //get's value of clicked cell, converts it to a string and copies it to text box
+            return;
+        }
+
+
+
+
+        private void btnPraimeriesStatus_Click(object sender, EventArgs e)
+        {
+            bool a = DataLogicAdmin.PraimeriesStatus();
+            MessageBox.Show(a.ToString());
+        }
+
+        private void btnChangePStatus_Click(object sender, EventArgs e)
+        {
+            DataLogicAdmin.ChangePraimeryStatus();
+        }
+
+        private void btnMemberList_Click(object sender, EventArgs e)
+        {
+            if (this.buttomClickLM == false)
+            {
+                dataGridMember.Show();                                   //show data grid
+                //initialize click event handler
+                DataGridViewRow row = new DataGridViewRow();
+                //create a new empty data grid view row
+                var temp = DataLogicAdmin.AllMembers();                          //get persons read only dictionary
+
+                foreach (var item in temp.Values)                           //loop trough dictionary 
+                {
+                    dataGridMember.Rows.Add(item.Id.ToString(), item.Name, item.Age.ToString(), item.Location.ToString(), item.Party);  //add values to grid vie
+                }
+
+                this.buttomClickLM = true;
+                return;
+            }
+            else
+            {
+                dataGridMember.Hide();
+                dataGridMember.Rows.Clear();
+                this.buttomClickLM = false;
+                return;
+            }
+        }
+
+        private void txtIDForMember_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DataGridMember(object sender, DataGridViewCellEventArgs e)
+        {
+            txtIDForMember.Text = (string)dataGridMember[0, e.RowIndex].Value;
+        }
+
+        private void dataGridParty_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtDelParty.Text = (string)dataGridParty[0, e.RowIndex].Value; //get's value of clicked cell, converts it to a string and copies it to text box
+            return;
+        }
+
+
+        private void btnPersonToParty_Click_1(object sender, EventArgs e)
+        {
+            IDtextbox.Show();
+            if (IDtextbox.Text == "")
+            {
+                MessageBox.Show("Please enter ID");
+
+            }
+            else
+            {
+                if (txtPartyNameForPerson.Text != "")
+                {
+                    DataLogicAdmin.AddPerosnToParty(int.Parse(IDtextbox.Text), txtPartyNameForPerson.Text, 0);
+                    IDtextbox.Text = "";
+                    txtPartyNameForPerson.Text = "";
+                    MessageBox.Show("Added :)");
+                    dataGridMember.Rows.Clear();
+                    dataGridMember.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Please enter party name");
+                }
+
+            }
+            IDtextbox.Clear();
+            txtPartyNameForPerson.Clear();
+            buttomClickLM = false;
+            dataGridMember.Rows.Clear();
+        }
+
+
+
+
+
+
+
     }
 }

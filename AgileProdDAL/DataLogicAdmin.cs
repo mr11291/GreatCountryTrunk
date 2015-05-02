@@ -96,11 +96,15 @@ namespace AgileProdDAL
         //getMessages used by the system to get the messages of an admin
         public static List<Tuple<int, string, int>> getMessages(Admin user)
         {
-            return data.GetMessages()[user.Id].Inbox;
+            try
+            {
+                return data.GetMessages()[user.Id].Inbox;
+            }
+            catch
+            {
+                return null;
+            }
         }
-
-
-        //ON GOING DEVELOPMENT!:
 
         public static bool AddPerosnToParty(int id , string partyName,int location)
         {
@@ -108,11 +112,11 @@ namespace AgileProdDAL
             {
                 if (data.GetPartyList().Keys.Contains(partyName))
                 {
-                    string newMemberName = data.GetMembers()[id].Name;
-                    int newMemberAge = data.GetMembers()[id].Age;
-                    string newMemberUserName = data.GetMembers()[id].UserName;
-                    string newMemberPassword = data.GetMembers()[id].Password;
-                    bool newMemberVoting = data.GetMembers()[id].IsVoting;
+                    string newMemberName = data.GetPeople()[id].Name;
+                    int newMemberAge = data.GetPeople()[id].Age;
+                    string newMemberUserName = data.GetPeople()[id].UserName;
+                    string newMemberPassword = data.GetPeople()[id].Password;
+                    bool newMemberVoting = data.GetPeople()[id].IsVoting;
                     Member m = new Member(id, newMemberName, newMemberAge, newMemberUserName, newMemberPassword, newMemberVoting, partyName, location);
                     data.GetMembers().Add(id, m);
                     return true;
@@ -133,21 +137,22 @@ namespace AgileProdDAL
                 data.setPraimeries(false);
         }
 
-        //NEEDS TO BE UPDATED TO USE MESSAGES
         public static bool addMember(int id, string name, int age, string username, string password, bool isVoting, string group, int location, int balance)
         {
             if (!data.GetMembers().Any(current => current.Key == id))
             {
+                
                 Bank account = new Bank(balance, id, name);
                 Member m = new Member(id, name, age, username, password, isVoting, group, location);
+
                 data.GetMembers().Add(m.Id, m);
                 data.GetBankAccounts().Add(id, account);
+                DataLogicMessage.createEmptyMessageBox(id);
                 return true;
             }
             return false;
         }
 
-        //NEEDS TO BE UPDATED TO USE MESSAGES
         public static bool addPerson(int id, string name, int age, string username, string password, int balance, bool isVoting)
         {
             if (!data.GetPeople().Any(current => current.Key == id))                               //checks if ID doesn't exist in the system
@@ -157,13 +162,12 @@ namespace AgileProdDAL
                 Person newPerson = new Person(id, name, age, username, password, isVoting);  //creates a new person
                 data.GetPeople().Add(newPerson.Id, newPerson);                                  //adds person to the dictionary
                 data.GetBankAccounts().Add(id, newAccount);                                     //adds bank to the diciotnary
-                data.GetMessages().Add(id, null);                                      //adds message box to the dictionary
+                DataLogicMessage.createEmptyMessageBox(id);
                 return true;
             }
             return false;
         }//addPerson(int, string, int, string, string, int, bool)
 
-        //NEEDS TO BE UPDATED TO USE MESSAGES
         public static bool addPartyMemeber(int id, string name, int age, string username, string password, int balance, bool isVoting, string party, int location)  //admin+member
         {
             if (!data.GetMembers().Any(current => current.Key == id))                               //checks if ID doesn't exist in the system
@@ -173,13 +177,12 @@ namespace AgileProdDAL
                 Member newMember = new Member(id, name, age, username, password, isVoting, party, location); //creates a new person
                 data.GetMembers().Add(newMember.Id, newMember);                                              //adds person to the dictionary
                 data.GetBankAccounts().Add(id, newAccount);                                                  //adds bank to the diciotnary
-                data.GetMessages().Add(id, null);                                                            //adds message box to the dictionary
+                DataLogicMessage.createEmptyMessageBox(id);
                 return true;
             }
             return false;
         }
 
-        //NEEDS TO BE UPDATE AND DOCUMENTED
         public static bool DeletePerson(int id)
         {
             try
@@ -202,7 +205,7 @@ namespace AgileProdDAL
             }
             catch (KeyNotFoundException)
             {
-                return 0;
+                return -1;
             }
         }
     }

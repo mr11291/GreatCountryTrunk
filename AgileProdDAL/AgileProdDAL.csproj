@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataLogicBank.cs" />
+    <Compile Include="DataLogicMessage.cs" />
     <Compile Include="DataLogic.cs" />
     <Compile Include="DataLogicAdmin.cs" />
     <Compile Include="DataLogicCommittee.cs" />
