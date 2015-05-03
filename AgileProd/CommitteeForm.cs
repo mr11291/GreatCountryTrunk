@@ -30,9 +30,7 @@ namespace AgileProd
         //all the active of vote button
         private void VoteButton_Click(object sender, EventArgs e)
         {
-            Name1.Hide();
-            TextName.Hide();
-            EnterB.Hide();
+            HideAddParty();
             if(!ListOf.Visible)//check the status of listOf
             {
                 ListOf.Show();
@@ -65,6 +63,7 @@ namespace AgileProd
                         ListOf2.Items.Add(item.Name);//add the member to list
                     }
                 }
+                MessageBox.Show("Click on the member that you whant to vote for");
             }
 
         }
@@ -73,10 +72,18 @@ namespace AgileProd
         {
             if (ListOf2.SelectedItems.Count > 0)
             {
-                if(!DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text))
+                DialogResult dialogResult = MessageBox.Show("You sure that you whant to vote to this member? ", "Some Title", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (!DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text))
                     {
                         MessageBox.Show("Something went wrong");
-                    }       
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
             }
 
         }
@@ -159,7 +166,7 @@ namespace AgileProd
             if (dialogResult == DialogResult.Yes)
             {
                 DataLogicCommittee.ChangePraimeryStatus();
-                button1.Hide();
+                button1.Enabled = false;
                     
             }     
         }
