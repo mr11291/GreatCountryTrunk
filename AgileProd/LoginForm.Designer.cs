@@ -148,6 +148,7 @@
             this.entermember.TabIndex = 10;
             this.entermember.Text = "member";
             this.entermember.UseVisualStyleBackColor = true;
+            this.entermember.Click += new System.EventHandler(this.entermember_Click);
             // 
             // enteradmin
             // 

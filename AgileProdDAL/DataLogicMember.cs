@@ -64,7 +64,10 @@ namespace AgileProdDAL
                 data.GetMembers()[RichestMemberId].Location = -1;               //set richest party member to be the party leader of his party
                 balance = 0;
             }
+
         }
+
+      
 
         //NEEDS DOCUMENTATION
         public static void AddSlogan(Member partyMember, string slogan)
@@ -77,6 +80,66 @@ namespace AgileProdDAL
             return data.GetMembers();
         }
 
-        
+        //the function returen the id of the most rich member in the party  
+        public static int mostRich(string NameOfParty, Dictionary<int, Member> dict)
+        {
+            int rich = -1;
+            foreach (var x in dict.Values)
+            {
+                if (x.Party.Equals(NameOfParty))
+                    //chack if the party member is at the same party we search 
+                    if (data.GetBankAccounts()[x.Id].Balance >= rich)
+                        //chack if the party member is thr richest 
+                        rich = x.Id;
+            }
+            return rich;
+        }
+
+        //the function remove party member from DB, if neccery delete allso the party from DB
+        // return int for messeges in GUI:
+        //0- "the member dosn't excist" , 1- "function seccied" , (-1)- "the party dosn't excist" 
+        public static int QuitParty(Member mem)
+        {
+            if (data.GetMembers().ContainsKey(mem.Id))
+            {
+                int count = 0;
+                foreach (var x in data.GetMembers().Values)
+                {
+                    if (x.Party.Equals(mem.Party))
+                    {  //count how mach members we have in the party befor quiting
+                        count++;
+                    }
+                }
+                if (count == 0)
+                {
+                    return -1;
+                } //the party dosn't excist
+                else if (count == 1) //the party have only 1 member and he want to quit
+                {
+                    data.GetMembers().Remove(mem.Id); //delete the mem from Members DB
+                    data.GetPartyList().Remove(mem.Party); //delete the Party of the member that quit from Party DB
+                    return 1;//the fnction seccied
+                }
+                else //the party have more then 1 member and he want to quit
+                {
+                    if (mem.Location == -1)//the member that quits is the party leader
+                    {
+                        string nameOfParty = mem.Party;
+                        data.GetMembers().Remove(mem.Id); //delete the mem from Members DB
+                        int NewHead = mostRich(nameOfParty, data.GetMembers());
+                        data.GetMembers()[NewHead].Location = -1;//set the new party leader
+                        return 1;//function seccied
+                    }
+                    else
+                    {
+                        data.GetMembers().Remove(mem.Id); //delete the mem from Members DB
+                        return 1;//function seccied
+                    }
+                }
+            }
+            else
+                return 0; //the member dosn't excist
+        }
+
     }
 }

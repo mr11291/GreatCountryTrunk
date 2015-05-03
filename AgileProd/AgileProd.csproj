@@ -69,6 +69,14 @@
     <Compile Include="CreateVoterForm.Designer.cs">
       <DependentUpon>CreateVoterForm.cs</DependentUpon>
     </Compile>
+
+    <Compile Include="SlogenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SlogenForm.Designer.cs">
+      <DependentUpon>SlogenForm.cs</DependentUpon>
+    </Compile>
+
     <Compile Include="PersonForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +125,11 @@
     <EmbeddedResource Include="PersonForm.resx">
       <DependentUpon>PersonForm.cs</DependentUpon>
     </EmbeddedResource>
+
+    <EmbeddedResource Include="SlogenForm.resx">
+      <DependentUpon>SlogenForm.cs</DependentUpon>
+    </EmbeddedResource>
+
     <EmbeddedResource Include="UpdateInfoForm.resx">
       <DependentUpon>UpdateInfoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,7 +176,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+
     <Content Include="handshakemoney.png" />
+
     <None Include="Resources\handshakemoney.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -278,6 +278,16 @@
             this.settingsTab.TabIndex = 2;
             this.settingsTab.Text = "Settings";
             // 
+            // logoutButton
+            // 
+            this.logoutButton.Location = new System.Drawing.Point(587, 251);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(75, 23);
+            this.logoutButton.TabIndex = 10;
+            this.logoutButton.Text = "Log out";
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
             // saveButton
             // 
             this.saveButton.Location = new System.Drawing.Point(70, 124);
@@ -312,6 +322,7 @@
             this.settingsIdBox.ReadOnly = true;
             this.settingsIdBox.Size = new System.Drawing.Size(100, 20);
             this.settingsIdBox.TabIndex = 6;
+            this.settingsIdBox.TextChanged += new System.EventHandler(this.settingsIdBox_TextChanged);
             // 
             // settingsNameBox
             // 
@@ -320,6 +331,7 @@
             this.settingsNameBox.Name = "settingsNameBox";
             this.settingsNameBox.Size = new System.Drawing.Size(100, 20);
             this.settingsNameBox.TabIndex = 5;
+            this.settingsNameBox.TextChanged += new System.EventHandler(this.settingsNameBox_TextChanged);
             // 
             // settingsPasswordLabel
             // 

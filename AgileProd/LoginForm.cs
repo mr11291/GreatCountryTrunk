@@ -92,7 +92,8 @@ namespace AgileProd
 
         private void entercommittee_Click(object sender, EventArgs e)
         {
-            Head tempHead = DataLogicCommittee.LoginCommittee("guyguy", "guyguy");
+
+            Head tempHead = DataLogicCommittee.LoginCommittee("guy","guy");
             DataLogicMember.selectPartyLeader();
             CommitteeForm newForm = new CommitteeForm(tempHead);
             this.Hide();
@@ -100,6 +101,14 @@ namespace AgileProd
             return;
         }
 
-   
+        private void entermember_Click(object sender, EventArgs e)
+        {
+            Member tempMem = DataLogicMember.LoginMember("yjghe", "pass307192011");
+            DataLogicMember.selectPartyLeader();
+            MemberForm newForm = new MemberForm(tempMem);
+            this.Hide();
+            newForm.Show();
+            return;
+        }  
     }
 }

@@ -12,36 +12,20 @@ using AgileProdDAL;
 
 namespace AgileProd
 {
-    public partial class MemberForm : Form
+    public partial class MemberForm : BaseForm
     {
-        //int type;
-        Button addMem;
-        TextBox id;
+
+        Button addMem = null;
+        TextBox id = null;
+
         Member currMember;
-        public MemberForm(Member currentMember)
+        
+
+        public MemberForm(Member currentMember): base(currentMember)
         {
             InitializeComponent();
             this.currMember = currentMember;
-            btnAddMem.Hide();
-            
-            if(currentMember.Location==1)
-            {
-                lblWelcome.Text = "Hello Member: " + currentMember.Name;
-                lblWelcome.Size = new System.Drawing.Size(12, 12);
-                //type = 1;
-                btnAddMem.Show();
-                addMem = new Button();
-                addMem.Hide();
-                id = new TextBox();
-                id.Hide();
-                addMem.Click += tryToAdd;
-            }
-            else
-            {
-                lblWelcome.Text = "Hello Member: " + currentMember.Name;
-                lblWelcome.Size = new System.Drawing.Size(12, 12);
-                //type = 0;
-            }
+            initializeSettingsInfo();
         }
 
         private void btnAddMem_Click(object sender, EventArgs e)
@@ -57,26 +41,43 @@ namespace AgileProd
             this.Controls.Add(addMem);
         }
 
-        public void tryToAdd(object sender,EventArgs e)
+        private void button3_Click(object sender, EventArgs e)//the Quit Party button
         {
-            try
+            DialogResult dialogResult = MessageBox.Show("You sure that you whant to quit the party? ", "Some Title", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                
-                Person p=DataLogicAdmin.AllPersons().FirstOrDefault((currVoter) => (currVoter.Key == int.Parse(id.Text))).Value;
-                //DataLogic.addMember(p.Id, p.Name, p.Age, p.UserName, p.Password, p.IsVoting, currMember.Party, ReturnLastMemberLocation(currMember.Party) + 1, balance);
+                int msg = DataLogicMember.QuitParty(currMember);
+                if (msg == 1)
+                { MessageBox.Show("You'r request for leaving the party has accepted. Thank's for your service at the party");
+                  this.Hide();
+                  return;
+                }
+                else { MessageBox.Show("Error " + msg); }
+
             }
-            catch
-            {
-                MessageBox.Show("Error... try again");
-            }
-            id.Hide();
-            addMem.Hide();
-            btnAddMem.Show();
         }
 
-        public int ReturnLastMemberLocation(string party)
+        private void button6_Click(object sender, EventArgs e)// the button change the slogen
         {
-            return DataLogicAdmin.AllMembers().Where(x => x.Value.Party==party).Max(x => x.Value.Location);
+
+            if (!(Application.OpenForms.OfType<SlogenForm>().Any()))
+            {
+                SlogenForm newform = new SlogenForm(currMember);
+                newform.Show();
+            }
+            else
+            {
+                initializeSettingsInfo();
+            }
+        }
+
+        private void initializeSettingsInfo()// initialize the info for the boxes in vthe window form
+        {
+            int PartyLeader = DataLogicMember.mostRich(currMember.Party, DataLogicMember.GetMember());
+            this.PartyNameBox.Text = currMember.Party;
+            this.PartySlogenBox.Text = DataLogicMember.GetMember()[PartyLeader].Slogan;
+            this.MySlogenBox.Text = currMember.Slogan;
+            
         }
     }
 }
