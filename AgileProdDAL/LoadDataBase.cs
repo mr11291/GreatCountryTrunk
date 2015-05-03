@@ -147,7 +147,16 @@ namespace AgileProdDAL
                     if (int.Parse(div[0]) == temp.Id)                           //check if dictionary returned a valid value
                     {
                         //create a new party member
-                        Member partyMember = new Member(temp.Id, temp.Name, temp.Age, temp.UserName, temp.Password, false, div[1], int.Parse(div[2]));
+                        Member partyMember = null;
+                        if(div.Length==8)
+                        {
+                             partyMember = new Member(temp.Id, temp.Name, temp.Age, temp.UserName, temp.Password, false, div[1], int.Parse(div[2]));
+                        }
+                        else
+                        {
+                             partyMember = new Member(temp.Id, temp.Name, temp.Age, temp.UserName, temp.Password, false, div[1], int.Parse(div[2]),div[3].Trim());
+                        }
+                        
                         members.Add(partyMember.Id, partyMember);               //add party member to party dictionary 
                         break;
                     }//if
