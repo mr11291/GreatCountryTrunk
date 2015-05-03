@@ -65,7 +65,6 @@
             this.blankTab.Controls.Add(this.button3);
             this.blankTab.Controls.Add(this.button2);
             this.blankTab.Controls.Add(this.button1);
-            this.blankTab.Click += new System.EventHandler(this.blankTab_Click);
             // 
             // label1
             // 
@@ -113,7 +112,6 @@
             this.button2.Text = "Add Member";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -134,7 +132,6 @@
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Party Slogen:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // PartySlogenBox
             // 
@@ -165,7 +162,6 @@
             this.MySlogenBox.Name = "MySlogenBox";
             this.MySlogenBox.Size = new System.Drawing.Size(154, 20);
             this.MySlogenBox.TabIndex = 7;
-            this.MySlogenBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label5
             // 
@@ -184,7 +180,6 @@
             this.button4.TabIndex = 9;
             this.button4.Text = "Suggest To Leader";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -204,7 +199,6 @@
             this.label6.Size = new System.Drawing.Size(105, 13);
             this.label6.TabIndex = 11;
             this.label6.Text = "Your Party Members:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // listView2
             // 

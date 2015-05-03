@@ -39,9 +39,10 @@ namespace AgileProd
                 DataLogicMember.AddSlogan(currMember, this.input);
                 this.Hide();
                 return;
-            }
-            this.Hide();
-            return;
+            }           
+            
+            this.Close();
+
         }
     }
 }

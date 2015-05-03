@@ -14,10 +14,10 @@ namespace AgileProd
 {
     public partial class MemberForm : BaseForm
     {
-        int type;
-        Button addMem;
-        TextBox id;
+        Button addMem = null;
+        TextBox id = null;
         Member currMember;
+        
 
         public MemberForm(Member currentMember): base(currentMember)
         {
@@ -59,26 +59,6 @@ namespace AgileProd
             this.Controls.Add(addMem);
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void blankTab_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)//the Quit Party button
         {
             DialogResult dialogResult = MessageBox.Show("You sure that you whant to quit the party? ", "Some Title", MessageBoxButtons.YesNo);
@@ -95,22 +75,18 @@ namespace AgileProd
             }
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button6_Click(object sender, EventArgs e)// the button change the slogen
         {
-            SlogenForm newform = new SlogenForm(currMember);
-            newform.Show();
-            initializeSettingsInfo();
+
+            if (!(Application.OpenForms.OfType<SlogenForm>().Any()))
+            {
+                SlogenForm newform = new SlogenForm(currMember);
+                newform.Show();
+            }
+            else
+            {
+                initializeSettingsInfo();
+            }
         }
 
         private void initializeSettingsInfo()// initialize the info for the boxes in vthe window form

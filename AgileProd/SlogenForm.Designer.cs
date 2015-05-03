@@ -49,7 +49,6 @@
             this.slogandirections.Size = new System.Drawing.Size(115, 13);
             this.slogandirections.TabIndex = 1;
             this.slogandirections.Text = "Enter your new slogen:";
-
             // 
             // Submmit
             // 
@@ -70,7 +69,7 @@
             this.Controls.Add(this.slogandirections);
             this.Controls.Add(this.slogenBox);
             this.Name = "SlogenForm";
-            this.Text = "Chenge The Slogen";
+            this.Text = "Slogen Update";
             this.ResumeLayout(false);
             this.PerformLayout();
 
