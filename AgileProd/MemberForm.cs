@@ -23,6 +23,9 @@ namespace AgileProd
             InitializeComponent();
             this.currMember = currentMember;
             initializeSettingsInfo();
+            fillPartyColleague();
+            partyList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            partyList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void btnAddMem_Click(object sender, EventArgs e)
@@ -70,6 +73,24 @@ namespace AgileProd
             this.PartyNameBox.Text = currMember.Party;
             this.PartySlogenBox.Text = DataLogicMember.GetMember()[PartyLeader].Slogan;
             this.MySlogenBox.Text = currMember.Slogan;
+        }
+
+        private void fillPartyColleague()
+        {
+            int charCount = 0;
+            string longestname = null;
+            foreach (var item in DataLogicMember.returnColleagues(currMember.Party))
+            {
+                partyList.Items.Add(item.Value.Name);
+                if (charCount < item.Value.Name.Length)
+                {
+                    charCount = item.Value.Name.Length;
+                    longestname = item.Value.Name;
+                }
+            }
+            Size textsize = TextRenderer.MeasureText(longestname, this.Font);
+            partyList.Width = textsize.Width + 4;
+
         }
     }
 }

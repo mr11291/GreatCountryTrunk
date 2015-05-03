@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using AgileProdObjectModel;
 using AgileProdDAL;
 
-
 namespace AgileProd
 {
     public partial class SlogenForm : Form
@@ -36,13 +35,13 @@ namespace AgileProd
         //Clicking on submit
         private void Submmit_Click(object sender, EventArgs e)
         {
-            if (!(this.input == null))
+            if (!(this.input == null))                              //if input changed
             {
-                DataLogicMember.AddSlogan(currMember, this.input);
-                this.Hide();
+                DataLogicMember.AddSlogan(currMember, this.input);  //use add slogen function to update user slogen
+                this.Hide();                                        
                 return;
-            }           
-            this.Close();
+            }
+            return;
         }
     }
 }

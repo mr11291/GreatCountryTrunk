@@ -42,7 +42,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.partyList = new System.Windows.Forms.ListView();
             this.changeSlogenButton = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
             this.blankTab.SuspendLayout();
@@ -51,7 +51,7 @@
             // blankTab
             // 
             this.blankTab.Controls.Add(this.changeSlogenButton);
-            this.blankTab.Controls.Add(this.listView2);
+            this.blankTab.Controls.Add(this.partyList);
             this.blankTab.Controls.Add(this.label6);
             this.blankTab.Controls.Add(this.button5);
             this.blankTab.Controls.Add(this.label5);
@@ -63,6 +63,7 @@
             this.blankTab.Controls.Add(this.quitPartyButton);
             this.blankTab.Controls.Add(this.button2);
             this.blankTab.Controls.Add(this.button1);
+            this.blankTab.Text = "Party Member";
             // 
             // label1
             // 
@@ -125,7 +126,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(192, 38);
+            this.label2.Location = new System.Drawing.Point(432, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 3;
@@ -133,7 +134,7 @@
             // 
             // PartySlogenBox
             // 
-            this.PartySlogenBox.Location = new System.Drawing.Point(268, 35);
+            this.PartySlogenBox.Location = new System.Drawing.Point(508, 37);
             this.PartySlogenBox.Name = "PartySlogenBox";
             this.PartySlogenBox.ReadOnly = true;
             this.PartySlogenBox.Size = new System.Drawing.Size(154, 20);
@@ -142,7 +143,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(192, 13);
+            this.label3.Location = new System.Drawing.Point(432, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 13);
             this.label3.TabIndex = 5;
@@ -150,7 +151,7 @@
             // 
             // PartyNameBox
             // 
-            this.PartyNameBox.Location = new System.Drawing.Point(268, 10);
+            this.PartyNameBox.Location = new System.Drawing.Point(508, 10);
             this.PartyNameBox.Name = "PartyNameBox";
             this.PartyNameBox.ReadOnly = true;
             this.PartyNameBox.Size = new System.Drawing.Size(154, 20);
@@ -158,7 +159,7 @@
             // 
             // MySlogenBox
             // 
-            this.MySlogenBox.Location = new System.Drawing.Point(268, 61);
+            this.MySlogenBox.Location = new System.Drawing.Point(508, 63);
             this.MySlogenBox.Name = "MySlogenBox";
             this.MySlogenBox.ReadOnly = true;
             this.MySlogenBox.Size = new System.Drawing.Size(154, 20);
@@ -167,7 +168,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(192, 64);
+            this.label5.Location = new System.Drawing.Point(432, 66);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 13);
             this.label5.TabIndex = 8;
@@ -186,23 +187,24 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label6.Location = new System.Drawing.Point(285, 95);
+            this.label6.Location = new System.Drawing.Point(432, 126);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(105, 13);
+            this.label6.Size = new System.Drawing.Size(87, 13);
             this.label6.TabIndex = 11;
-            this.label6.Text = "Your Party Members:";
+            this.label6.Text = "Your Colleagues:";
             // 
-            // listView2
+            // partyList
             // 
-            this.listView2.Location = new System.Drawing.Point(234, 111);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(227, 131);
-            this.listView2.TabIndex = 12;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.partyList.Location = new System.Drawing.Point(435, 148);
+            this.partyList.Name = "partyList";
+            this.partyList.Size = new System.Drawing.Size(227, 131);
+            this.partyList.TabIndex = 12;
+            this.partyList.UseCompatibleStateImageBehavior = false;
+            this.partyList.View = System.Windows.Forms.View.List;
             // 
             // changeSlogenButton
             // 
-            this.changeSlogenButton.Location = new System.Drawing.Point(428, 35);
+            this.changeSlogenButton.Location = new System.Drawing.Point(508, 89);
             this.changeSlogenButton.Name = "changeSlogenButton";
             this.changeSlogenButton.Size = new System.Drawing.Size(98, 23);
             this.changeSlogenButton.TabIndex = 13;
@@ -249,7 +251,7 @@
         private System.Windows.Forms.TextBox MySlogenBox;
         private System.Windows.Forms.TextBox PartyNameBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView partyList;
         private System.Windows.Forms.Button changeSlogenButton;
     }
 }

@@ -67,8 +67,6 @@ namespace AgileProdDAL
 
         }
 
-      
-
         //NEEDS DOCUMENTATION
         public static void AddSlogan(Member partyMember, string slogan)
         {
@@ -139,6 +137,20 @@ namespace AgileProdDAL
             }
             else
                 return 0; //the member dosn't excist
+        }
+
+        public static Dictionary<int, Member> returnColleagues(string partyName)
+        {
+            Dictionary<int, Member> temp = new Dictionary<int, Member>();
+
+            foreach (var item in data.GetMembers())
+            {
+                if (item.Value.Party.Equals(partyName))
+                {
+                    temp.Add(item.Key, item.Value);
+                }
+            }
+            return temp;
         }
 
     }

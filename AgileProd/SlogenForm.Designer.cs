@@ -39,16 +39,16 @@
             this.slogenBox.Name = "slogenBox";
             this.slogenBox.Size = new System.Drawing.Size(222, 20);
             this.slogenBox.TabIndex = 0;
-            this.slogenBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.slogenBox.TextChanged += new System.EventHandler(this.slogenBox_TextChanged);
             // 
             // slogandirections
             // 
             this.slogandirections.AutoSize = true;
             this.slogandirections.Location = new System.Drawing.Point(29, 41);
             this.slogandirections.Name = "slogandirections";
-            this.slogandirections.Size = new System.Drawing.Size(115, 13);
+            this.slogandirections.Size = new System.Drawing.Size(149, 13);
             this.slogandirections.TabIndex = 1;
-            this.slogandirections.Text = "Enter your new slogen:";
+            this.slogandirections.Text = "Enter your new slogen please:";
             // 
             // Submmit
             // 
@@ -56,7 +56,7 @@
             this.Submmit.Name = "Submmit";
             this.Submmit.Size = new System.Drawing.Size(75, 23);
             this.Submmit.TabIndex = 2;
-            this.Submmit.Text = "Submmit";
+            this.Submmit.Text = "Submit";
             this.Submmit.UseVisualStyleBackColor = true;
             this.Submmit.Click += new System.EventHandler(this.Submmit_Click);
             // 

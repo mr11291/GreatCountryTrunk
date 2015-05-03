@@ -95,7 +95,7 @@ namespace AgileProd
 
         private void entermember_Click(object sender, EventArgs e)
         {
-            Member tempMem = DataLogicMember.LoginMember("yjghe", "pass307192011");
+            Member tempMem = DataLogicMember.LoginMember("uowbm", "pass141981029");
             DataLogicMember.selectPartyLeader();
             MemberForm newForm = new MemberForm(tempMem);
             this.Hide();
