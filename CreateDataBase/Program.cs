@@ -10,12 +10,12 @@ namespace CreateDataBase
     {
         static void Main(string[] args)
         {
-            CreateCSVFilesV2 csvF = new CreateCSVFilesV2(@"C:\Users\Michael\Desktop\GreatCountryTrunk\AgileProdDAL\Database\people.txt",
-                                                         @"C:\Users\Michael\Desktop\GreatCountryTrunk\AgileProdDAL\Database\members.txt",
-                                                         @"C:\Users\Michael\Desktop\GreatCountryTrunk\AgileProdDAL\Database\parties.txt",
-                                                         @"C:\Users\Michael\Desktop\GreatCountryTrunk\AgileProdDAL\Database\committee.txt",
-                                                         @"C:\Users\Michael\Desktop\GreatCountryTrunk\AgileProdDAL\Database\bankAccounts.txt",
-                                                         @"C:\Users\Michael\Desktop\GreatCountryTrunk\AgileProdDAL\Database\messageInbox.txt");
+            CreateCSVFilesV2 csvF = new CreateCSVFilesV2(@"C:\Users\Guyvkn\Desktop\GreatCountryTrunk\AgileProdDAL\Database\people.txt",
+                                                         @"C:\Users\Guyvkn\Desktop\GreatCountryTrunk\AgileProdDAL\Database\members.txt",
+                                                         @"C:\Users\Guyvkn\Desktop\GreatCountryTrunk\AgileProdDAL\Database\parties.txt",
+                                                         @"C:\Users\Guyvkn\Desktop\GreatCountryTrunk\AgileProdDAL\Database\committee.txt",
+                                                         @"C:\Users\Guyvkn\Desktop\GreatCountryTrunk\AgileProdDAL\Database\bankAccounts.txt",
+                                                         @"C:\Users\Guyvkn\Desktop\GreatCountryTrunk\AgileProdDAL\Database\messageInbox.txt");
             csvF.writeFiles();
         }
     }

@@ -1,30 +1,30 @@
-625522405 , Unification , 0
-931515358 , Unification , 0
-307192011 , Unification , 0
-547314120 , Unification , 0
-563877123 , Unification , 0
-968886372 , All Of Us , 0
-683672043 , All Of Us , 0
-454081859 , All Of Us , 0
-404867292 , All Of Us , 0
-196173714 , All Of Us , 0
-162812172 , The Zionistic Camp , 0
-849435061 , The Zionistic Camp , 0
-931990697 , The Zionistic Camp , 0
-888888474 , The Zionistic Camp , 0
-994730161 , The Zionistic Camp , 0
-712771048 , The Jewish House , 0
-827900295 , The Jewish House , 0
-115713033 , The Jewish House , 0
-906115057 , The Jewish House , 0
-154478172 , The Jewish House , 0
-722363512 , There is a Future , 0
-980531900 , There is a Future , 0
-803655664 , There is a Future , 0
-439549835 , There is a Future , 0
-537943477 , There is a Future , 0
-618366821 , Energy , 0
-942645218 , Energy , 0
-182255516 , Energy , 0
-407355053 , Energy , 0
-191122954 , Energy , 0
+141981029 , Unification , 0
+114252737 , Unification , 0
+795282073 , Unification , 0
+697449763 , Unification , 0
+511123983 , Unification , 0
+238515120 , All Of Us , 0
+856363390 , All Of Us , 0
+578797079 , All Of Us , 0
+935901656 , All Of Us , 0
+468698624 , All Of Us , 0
+158296824 , The Zionistic Camp , 0
+890980669 , The Zionistic Camp , 0
+829050505 , The Zionistic Camp , 0
+773348420 , The Zionistic Camp , 0
+860345303 , The Zionistic Camp , 0
+169912655 , The Jewish House , 0
+809200316 , The Jewish House , 0
+587613287 , The Jewish House , 0
+326393793 , The Jewish House , 0
+495778309 , The Jewish House , 0
+798496873 , There is a Future , 0
+910362062 , There is a Future , 0
+329307918 , There is a Future , 0
+581827360 , There is a Future , 0
+569013786 , There is a Future , 0
+254544301 , Energy , 0
+276568321 , Energy , 0
+487526481 , Energy , 0
+407417102 , Energy , 0
+355864170 , Energy , 0
