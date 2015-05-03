@@ -62,14 +62,6 @@ namespace AgileProd
             }
         }
         
-        private void lblCreateVol_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            LoginForm currentForm = new LoginForm();
-            CreateVoterForm cvf = new CreateVoterForm(DataLogicAdmin.AllPersons(),currentForm,null);
-            cvf.Show();
-            this.Hide();
-        }
-
         private void enteradmin_Click(object sender, EventArgs e)
         {
             Admin tempAdmin = DataLogicAdmin.LoginAdmin("mr11291", "12345");

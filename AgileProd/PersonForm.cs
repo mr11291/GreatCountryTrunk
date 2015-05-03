@@ -14,35 +14,21 @@ namespace AgileProd
 {
     public partial class PersonForm : BaseForm
     {
-
-        private bool voteButtonPush = false;
+        //private bool voteButtonPush = false;
         private Person user;
 
         public PersonForm(Person Cuser) : base(Cuser)
-        {
+        {           
             InitializeComponent();
-            partyList.Hide();
             HideVoets();
             user = Cuser;
-            rvkbtn.Hide();
-
             var templist = DataLogicAdmin.AllParties();      //get list of all parties
-            AddToParty.Items.Add("select...");
-            foreach (var item in templist.Keys)         //add parties to list
-            {
-                AddToParty.Items.Add(item);
-            }
-            AddToParty.SelectedIndex = 0;                //initialize selection
-            AddToParty.Show();
         }
 
         private void voteButton_Click(object sender, EventArgs e)
         {
-
-            if (!voteButtonPush)                            //if this button wasn't pushed yet
-            {
             ListOf.Clear();
-            }
+           
             if (!ListOf.Visible)//check the status of listOf
             {
                 ListOf.Show();
@@ -50,15 +36,6 @@ namespace AgileProd
             }
 
             FeelListOf();// feel the list by party name
-        }
-
-        private void updateInfoButton_Click(object sender, EventArgs e)
-        {
-            UpdateInfoForm update = new UpdateInfoForm(this.user, this);
-            HideVoets();
-            this.Hide();
-            update.Show();
-            return;
         }
 
         private void FeelListOf()
@@ -93,18 +70,34 @@ namespace AgileProd
                         ListOf2.Items.Add(item.Name);//add the member to list
                     }
                 }
+                MessageBox.Show("Click on the member that you whant to vote for");
             }
 
         }
 
         private void ListOf2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             if (ListOf2.SelectedItems.Count > 0)
             {
-                if (!DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text))
+                DialogResult dialogResult = MessageBox.Show("You sure that you whant to vote to this member? ", "Some Title", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    MessageBox.Show("Something went wrong");
+                    if (!DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text))
+                    {
+                        MessageBox.Show("Something went wrong");
+                    }
+                    else
+                    {
+                        return;
+                    }
+                  
                 }
+
+            }
+            else
+            {
+                return;
             }
         }
     }

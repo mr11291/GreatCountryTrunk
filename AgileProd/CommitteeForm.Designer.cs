@@ -125,7 +125,6 @@
             this.TextName.Name = "TextName";
             this.TextName.Size = new System.Drawing.Size(142, 20);
             this.TextName.TabIndex = 6;
-            this.TextName.TextChanged += new System.EventHandler(this.TextName_TextChanged);
             // 
             // Name1
             // 
@@ -135,7 +134,6 @@
             this.Name1.Size = new System.Drawing.Size(117, 13);
             this.Name1.TabIndex = 7;
             this.Name1.Text = "Enter the head party id:";
-            this.Name1.Click += new System.EventHandler(this.Name1_Click);
             // 
             // EnterB
             // 
@@ -162,7 +160,6 @@
             this.TextParty.Name = "TextParty";
             this.TextParty.Size = new System.Drawing.Size(142, 20);
             this.TextParty.TabIndex = 10;
-            this.TextParty.TextChanged += new System.EventHandler(this.TextParty_TextChanged);
             // 
             // EnterB2
             // 

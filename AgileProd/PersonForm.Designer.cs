@@ -29,17 +29,10 @@
         private void InitializeComponent()
         {
             this.voteButton = new System.Windows.Forms.Button();
-            this.partyList = new System.Windows.Forms.ComboBox();
-            this.updateInfoButton = new System.Windows.Forms.Button();
-            this.rvkbtn = new System.Windows.Forms.Button();
-            this.addtoprty = new System.Windows.Forms.Button();
-            this.AddToParty = new System.Windows.Forms.ComboBox();
-
             this.CommitteListLabel = new System.Windows.Forms.Label();
             this.MemberListLabel = new System.Windows.Forms.Label();
             this.ListOf2 = new System.Windows.Forms.ListView();
             this.ListOf = new System.Windows.Forms.ListView();
-
             this.tabMenu.SuspendLayout();
             this.blankTab.SuspendLayout();
             this.SuspendLayout();
@@ -50,85 +43,18 @@
             this.blankTab.Controls.Add(this.ListOf);
             this.blankTab.Controls.Add(this.MemberListLabel);
             this.blankTab.Controls.Add(this.CommitteListLabel);
-            this.blankTab.Controls.Add(this.AddToParty);
-            this.blankTab.Controls.Add(this.addtoprty);
-            this.blankTab.Controls.Add(this.rvkbtn);
-            this.blankTab.Controls.Add(this.updateInfoButton);
-            this.blankTab.Controls.Add(this.partyList);
             this.blankTab.Controls.Add(this.voteButton);
             this.blankTab.Text = "Person";
             // 
             // voteButton
             // 
-
-            this.voteButton.Location = new System.Drawing.Point(16, 16);
-            this.voteButton.Name = "voteButton";
-            this.voteButton.Size = new System.Drawing.Size(75, 23);
-
             this.voteButton.Location = new System.Drawing.Point(6, 6);
             this.voteButton.Name = "voteButton";
             this.voteButton.Size = new System.Drawing.Size(92, 23);
-
             this.voteButton.TabIndex = 0;
             this.voteButton.Text = "Vote";
             this.voteButton.UseVisualStyleBackColor = true;
             this.voteButton.Click += new System.EventHandler(this.voteButton_Click);
-            // 
-            // partyList
-            // 
-            this.partyList.FormattingEnabled = true;
-
-            this.partyList.Location = new System.Drawing.Point(119, 18);
-
-            this.partyList.Location = new System.Drawing.Point(445, 95);
-
-            this.partyList.Name = "partyList";
-            this.partyList.Size = new System.Drawing.Size(169, 21);
-            this.partyList.TabIndex = 13;
-            this.partyList.Text = "select...";
-
-            // 
-            // updateInfoButton
-            // 
-            this.updateInfoButton.Location = new System.Drawing.Point(6, 35);
-            this.updateInfoButton.Name = "updateInfoButton";
-            this.updateInfoButton.Size = new System.Drawing.Size(92, 23);
-
-            this.updateInfoButton.TabIndex = 14;
-            this.updateInfoButton.Text = "Update info";
-            this.updateInfoButton.UseVisualStyleBackColor = true;
-            this.updateInfoButton.Click += new System.EventHandler(this.updateInfoButton_Click);
-            // 
-            // rvkbtn
-            // 
-
-            this.rvkbtn.Location = new System.Drawing.Point(6, 64);
-            this.rvkbtn.Name = "rvkbtn";
-            this.rvkbtn.Size = new System.Drawing.Size(92, 23);
-            this.rvkbtn.TabIndex = 15;
-            this.rvkbtn.Text = "Revoke Voting";
-            this.rvkbtn.UseVisualStyleBackColor = true;
-            // 
-            // addtoprty
-            // 
-            this.addtoprty.Location = new System.Drawing.Point(6, 93);
-            this.addtoprty.Name = "addtoprty";
-            this.addtoprty.Size = new System.Drawing.Size(92, 23);
-            this.addtoprty.TabIndex = 16;
-            this.addtoprty.Text = "Add To Party";
-            this.addtoprty.UseVisualStyleBackColor = true;
-
-            // 
-            // AddToParty
-            // 
-            this.AddToParty.FormattingEnabled = true;
-
-            this.AddToParty.Location = new System.Drawing.Point(445, 37);
-
-            this.AddToParty.Name = "AddToParty";
-            this.AddToParty.Size = new System.Drawing.Size(169, 21);
-            this.AddToParty.TabIndex = 17;
-            this.AddToParty.Text = "select...";
             // 
             // CommitteListLabel
             // 
@@ -185,16 +111,9 @@
         #endregion
 
         private System.Windows.Forms.Button voteButton;
-        private System.Windows.Forms.ComboBox partyList;
-        private System.Windows.Forms.Button updateInfoButton;
-        private System.Windows.Forms.Button rvkbtn;
-        private System.Windows.Forms.Button addtoprty;
-        private System.Windows.Forms.ComboBox AddToParty;
-
         private System.Windows.Forms.Label CommitteListLabel;
         private System.Windows.Forms.Label MemberListLabel;
         private System.Windows.Forms.ListView ListOf2;
         private System.Windows.Forms.ListView ListOf;
-
     }
 }

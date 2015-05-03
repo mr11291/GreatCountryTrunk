@@ -97,7 +97,7 @@
             this.lblCreateVol.TabIndex = 5;
             this.lblCreateVol.TabStop = true;
             this.lblCreateVol.Text = "Create User";
-            this.lblCreateVol.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCreateVol_LinkClicked);
+            //this.lblCreateVol.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCreateVol_LinkClicked);
             // 
             // inputWarning
             // 

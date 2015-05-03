@@ -34,127 +34,8 @@ namespace AgileProd
             dataGridPeople.Hide();
             tabMenu.SelectedIndexChanged += tabMenu_SelectedIndexChanged;
             tabMenu.TabPages[4].Text = "Messages " + "[" + DataLogicAdmin.getMessageCount(user) + "]";
-            //tx = new TextBox();
-            //btnVoterDel = new Button();
-            //btnVoterUp = new Button();
-            //tx.Hide();
-            //btnVoterDel.Hide();
-            //btnVoterUp.Hide();
-            //btnVoterDel.Click += insertDelButton;
-            //btnVoterUp.Click += insertUpdateButton;
         }
 
-
-        //private void btnDelVoter_Click(object sender, EventArgs e)
-        //{
-        //    comboBox1.Hide();
-        //    btnCreateVoter.Hide();
-        //    btnUpdateVoter.Hide();
-        //    btnDelVoter.Hide();
-        //    tx.Show();
-        //    btnVoterDel.Show();
-        //    btnVoterDel.Text = "Delete";
-        //    btnVoterDel.BackColor = Color.Orange;
-        //    btnVoterDel.Location = new Point(tx.Location.X, tx.Location.Y + tx.Height);
-        //    this.Controls.Add(tx);
-        //    this.Controls.Add(btnVoterDel);
-            
-        //}
-
-        //private void insertDelButton(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        string nameUser = DataLogic.AllPersons()[int.Parse(tx.Text.Replace(" ", ""))].name;
-        //        DataLogic.DelVoter(int.Parse(tx.Text.Trim()));
-        //        MessageBox.Show("User " + nameUser + " Deleted");
-        //        tx.Hide();
-        //        tx.Clear();
-        //        btnVoterDel.Hide();
-                
-        //    }
-        //    catch
-        //    {
-        //        MessageBox.Show("Not found try again...");
-        //        tx.Hide();
-        //        tx.Clear();
-        //        btnVoterDel.Hide();
-        //    }
-        //    btnCreateVoter.Show();
-        //    btnUpdateVoter.Show();
-        //    btnDelVoter.Show();
-        //    comboBox1.Show();
-            
-        //}
-
-
-        //private void insertUpdateButton(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        Person person = DataLogic.AllPersons()[int.Parse(tx.Text.Replace(" ", ""))];
-        //        CreateVolterForm cvf = new CreateVolterForm(DataLogic.AllPersons(), this,person);
-        //        this.Hide();
-        //        cvf.Show();
-        //        tx.Hide();
-        //        tx.Clear();
-        //        btnVoterUp.Hide();
-
-        //    }
-        //    catch
-        //    {
-        //        MessageBox.Show("Not found try again...");
-        //        tx.Hide();
-        //        tx.Clear();
-        //        btnVoterUp.Hide();
-        //    }
-        //    btnCreateVoter.Show();
-        //    btnUpdateVoter.Show();
-        //    btnDelVoter.Show();
-        //    comboBox1.Show();
-        //}
-
-        //private void btnUpdateVoter_Click(object sender, EventArgs e)
-        //{
-        //    comboBox1.Hide();
-        //    btnCreateVoter.Hide();
-        //    btnUpdateVoter.Hide();
-        //    btnDelVoter.Hide();
-        //    tx.Show();
-        //    btnVoterUp.Show();
-        //    btnVoterUp.Text = "Update";
-        //    btnVoterUp.BackColor = Color.Orange;
-        //    btnVoterUp.Location = new Point(tx.Location.X, tx.Location.Y + tx.Height);
-        //    this.Controls.Add(tx);
-        //    this.Controls.Add(btnVoterUp);
-        //}
-
-        //private void btnCreateVoter_Click(object sender, EventArgs e)
-        //{
-        //    AdminForm currentForm = new AdminForm();
-        //    CreateVolterForm cvf = new CreateVolterForm(DataLogic.AllPersons(), currentForm, null);
-        //    cvf.Show();
-        //    this.Hide();
-        //}
-
-        //private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (comboBox1.SelectedItem.ToString() == "Person")
-        //    {
-        //        btnCreateVoter.Show();
-        //        btnDelVoter.Show();
-        //        btnUpdateVoter.Show();
-        //    }
-        //    else
-        //    {
-        //        btnUpdateVoter.Hide();
-        //        btnCreateVoter.Hide();
-        //        btnDelVoter.Hide();
-        //    }
-                        
-                
-        //}
-        
         /*
          * AddPerson_Click is a button function of AdminForm
          * it's job is to open the create person form
@@ -162,8 +43,8 @@ namespace AgileProd
         private void AddPerson_Click(object sender, EventArgs e)
         {
             AdminForm currentForm = new AdminForm(user);                                                     //set current form
-            CreateVoterForm voterForm = new CreateVoterForm(DataLogicAdmin.AllPersons(), currentForm, null); //initialize new voter form
-            voterForm.Show();                                                                                //open voter form
+            //CreateVoterForm voterForm = new CreateVoterForm(DataLogicAdmin.AllPersons(), currentForm, null); //initialize new voter form
+            //voterForm.Show();                                                                                //open voter form
             this.Hide();                                                                                     //close current form
         }
 
