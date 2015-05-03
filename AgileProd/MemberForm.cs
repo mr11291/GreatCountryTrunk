@@ -14,13 +14,10 @@ namespace AgileProd
 {
     public partial class MemberForm : BaseForm
     {
-
         Button addMem = null;
         TextBox id = null;
-
         Member currMember;
         
-
         public MemberForm(Member currentMember): base(currentMember)
         {
             InitializeComponent();
@@ -41,32 +38,28 @@ namespace AgileProd
             this.Controls.Add(addMem);
         }
 
-        private void button3_Click(object sender, EventArgs e)//the Quit Party button
+        private void quitPartyButton_Click(object sender, EventArgs e)//the Quit Party button
         {
-            DialogResult dialogResult = MessageBox.Show("You sure that you whant to quit the party? ", "Some Title", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Are you sure that you want to quit the party? ", "ARE YOU LEAVING US?!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 int msg = DataLogicMember.QuitParty(currMember);
                 if (msg == 1)
-                { MessageBox.Show("You'r request for leaving the party has accepted. Thank's for your service at the party");
+                { MessageBox.Show("Your request for leaving the party has accepted. Thank's for your service");
                   this.Hide();
                   return;
                 }
                 else { MessageBox.Show("Error " + msg); }
-
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)// the button change the slogen
+        private void slogenChangeButton_Click(object sender, EventArgs e)// the button change the slogen
         {
 
             if (!(Application.OpenForms.OfType<SlogenForm>().Any()))
             {
                 SlogenForm newform = new SlogenForm(currMember);
-                newform.Show();
-            }
-            else
-            {
+                newform.ShowDialog();
                 initializeSettingsInfo();
             }
         }
@@ -77,7 +70,6 @@ namespace AgileProd
             this.PartyNameBox.Text = currMember.Party;
             this.PartySlogenBox.Text = DataLogicMember.GetMember()[PartyLeader].Slogan;
             this.MySlogenBox.Text = currMember.Slogan;
-            
         }
     }
 }

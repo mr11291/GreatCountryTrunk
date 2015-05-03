@@ -33,36 +33,34 @@
             this.btnAddMem = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.quitPartyButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.PartySlogenBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.PartyNameBox = new System.Windows.Forms.TextBox();
             this.MySlogenBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.listView2 = new System.Windows.Forms.ListView();
-            this.button6 = new System.Windows.Forms.Button();
+            this.changeSlogenButton = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
             this.blankTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // blankTab
             // 
-            this.blankTab.Controls.Add(this.button6);
+            this.blankTab.Controls.Add(this.changeSlogenButton);
             this.blankTab.Controls.Add(this.listView2);
             this.blankTab.Controls.Add(this.label6);
             this.blankTab.Controls.Add(this.button5);
-            this.blankTab.Controls.Add(this.button4);
             this.blankTab.Controls.Add(this.label5);
             this.blankTab.Controls.Add(this.MySlogenBox);
             this.blankTab.Controls.Add(this.PartyNameBox);
             this.blankTab.Controls.Add(this.label3);
             this.blankTab.Controls.Add(this.PartySlogenBox);
             this.blankTab.Controls.Add(this.label2);
-            this.blankTab.Controls.Add(this.button3);
+            this.blankTab.Controls.Add(this.quitPartyButton);
             this.blankTab.Controls.Add(this.button2);
             this.blankTab.Controls.Add(this.button1);
             // 
@@ -113,16 +111,16 @@
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // quitPartyButton
             // 
-            this.button3.ForeColor = System.Drawing.Color.Red;
-            this.button3.Location = new System.Drawing.Point(8, 250);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Quit Party";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.quitPartyButton.ForeColor = System.Drawing.Color.Red;
+            this.quitPartyButton.Location = new System.Drawing.Point(8, 250);
+            this.quitPartyButton.Name = "quitPartyButton";
+            this.quitPartyButton.Size = new System.Drawing.Size(75, 23);
+            this.quitPartyButton.TabIndex = 2;
+            this.quitPartyButton.Text = "Quit Party";
+            this.quitPartyButton.UseVisualStyleBackColor = true;
+            this.quitPartyButton.Click += new System.EventHandler(this.quitPartyButton_Click);
             // 
             // label2
             // 
@@ -137,6 +135,7 @@
             // 
             this.PartySlogenBox.Location = new System.Drawing.Point(268, 35);
             this.PartySlogenBox.Name = "PartySlogenBox";
+            this.PartySlogenBox.ReadOnly = true;
             this.PartySlogenBox.Size = new System.Drawing.Size(154, 20);
             this.PartySlogenBox.TabIndex = 4;
             // 
@@ -153,6 +152,7 @@
             // 
             this.PartyNameBox.Location = new System.Drawing.Point(268, 10);
             this.PartyNameBox.Name = "PartyNameBox";
+            this.PartyNameBox.ReadOnly = true;
             this.PartyNameBox.Size = new System.Drawing.Size(154, 20);
             this.PartyNameBox.TabIndex = 6;
             // 
@@ -160,6 +160,7 @@
             // 
             this.MySlogenBox.Location = new System.Drawing.Point(268, 61);
             this.MySlogenBox.Name = "MySlogenBox";
+            this.MySlogenBox.ReadOnly = true;
             this.MySlogenBox.Size = new System.Drawing.Size(154, 20);
             this.MySlogenBox.TabIndex = 7;
             // 
@@ -171,15 +172,6 @@
             this.label5.Size = new System.Drawing.Size(60, 13);
             this.label5.TabIndex = 8;
             this.label5.Text = "My Slogen:";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(446, 60);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(144, 20);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Suggest To Leader";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -208,15 +200,15 @@
             this.listView2.TabIndex = 12;
             this.listView2.UseCompatibleStateImageBehavior = false;
             // 
-            // button6
+            // changeSlogenButton
             // 
-            this.button6.Location = new System.Drawing.Point(446, 35);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(144, 23);
-            this.button6.TabIndex = 13;
-            this.button6.Text = "Change My Slogen";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.changeSlogenButton.Location = new System.Drawing.Point(428, 35);
+            this.changeSlogenButton.Name = "changeSlogenButton";
+            this.changeSlogenButton.Size = new System.Drawing.Size(98, 23);
+            this.changeSlogenButton.TabIndex = 13;
+            this.changeSlogenButton.Text = "Suggest Slogen";
+            this.changeSlogenButton.UseVisualStyleBackColor = true;
+            this.changeSlogenButton.Click += new System.EventHandler(this.slogenChangeButton_Click);
             // 
             // MemberForm
             // 
@@ -246,19 +238,18 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Button btnAddMem;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button quitPartyButton;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox PartySlogenBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox MySlogenBox;
         private System.Windows.Forms.TextBox PartyNameBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button changeSlogenButton;
     }
 }

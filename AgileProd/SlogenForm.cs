@@ -15,9 +15,11 @@ namespace AgileProd
 {
     public partial class SlogenForm : Form
     {
+        //Varaiables
         private Member currMember;
         private String input;
 
+        //Constructor
         public SlogenForm(Member currentMember)
         {
             InitializeComponent();
@@ -25,13 +27,13 @@ namespace AgileProd
             this.input = null;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)//text box
+        //handling change in slogen text box
+        private void slogenBox_TextChanged(object sender, EventArgs e)
         {
-            
             this.input = slogenBox.Text;
-
         }
 
+        //Clicking on submit
         private void Submmit_Click(object sender, EventArgs e)
         {
             if (!(this.input == null))
@@ -40,9 +42,7 @@ namespace AgileProd
                 this.Hide();
                 return;
             }           
-            
             this.Close();
-
         }
     }
 }
