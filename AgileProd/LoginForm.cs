@@ -18,6 +18,10 @@ namespace AgileProd
         public LoginForm()
         {
             InitializeComponent();
+            enteradmin.Hide();
+            entercommittee.Hide();
+            entermember.Hide();
+            enterperson.Hide();
         }
 
         private void btnEnter_Click(object sender, EventArgs e)
@@ -74,7 +78,7 @@ namespace AgileProd
 
         private void enterperson_Click(object sender, EventArgs e)
         {
-            Person tempPerson = DataLogicPerson.LoginPerson("bet", "12345");
+            Person tempPerson = DataLogicPerson.LoginPerson("gvlvo", "pass896243744");
             DataLogicMember.selectPartyLeader();
             PersonForm newfrom = new PersonForm(tempPerson);
             this.Hide();
@@ -84,8 +88,7 @@ namespace AgileProd
 
         private void entercommittee_Click(object sender, EventArgs e)
         {
-
-            Head tempHead = DataLogicCommittee.LoginCommittee("guy","guy");
+            Head tempHead = DataLogicCommittee.LoginCommittee("nxeda", "pass322441657");
             DataLogicMember.selectPartyLeader();
             CommitteeForm newForm = new CommitteeForm(tempHead);
             this.Hide();
@@ -95,7 +98,7 @@ namespace AgileProd
 
         private void entermember_Click(object sender, EventArgs e)
         {
-            Member tempMem = DataLogicMember.LoginMember("uowbm", "pass141981029");
+            Member tempMem = DataLogicMember.LoginMember("caqvs", "pass697449763");
             DataLogicMember.selectPartyLeader();
             MemberForm newForm = new MemberForm(tempMem);
             this.Hide();

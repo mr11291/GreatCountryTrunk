@@ -80,7 +80,7 @@
             // 
             this.btnEnter.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.btnEnter.Location = new System.Drawing.Point(197, 101);
+            this.btnEnter.Location = new System.Drawing.Point(98, 101);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(75, 23);
             this.btnEnter.TabIndex = 4;
@@ -97,7 +97,6 @@
             this.lblCreateVol.TabIndex = 5;
             this.lblCreateVol.TabStop = true;
             this.lblCreateVol.Text = "Create User";
-            //this.lblCreateVol.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCreateVol_LinkClicked);
             // 
             // inputWarning
             // 
