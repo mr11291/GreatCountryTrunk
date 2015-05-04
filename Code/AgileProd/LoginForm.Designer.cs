@@ -121,7 +121,7 @@
             // 
             // enterperson
             // 
-            this.enterperson.Location = new System.Drawing.Point(234, 43);
+            this.enterperson.Location = new System.Drawing.Point(12, 101);
             this.enterperson.Name = "enterperson";
             this.enterperson.Size = new System.Drawing.Size(47, 23);
             this.enterperson.TabIndex = 8;
@@ -131,7 +131,7 @@
             // 
             // entercommittee
             // 
-            this.entercommittee.Location = new System.Drawing.Point(216, 101);
+            this.entercommittee.Location = new System.Drawing.Point(65, 101);
             this.entercommittee.Name = "entercommittee";
             this.entercommittee.Size = new System.Drawing.Size(65, 23);
             this.entercommittee.TabIndex = 9;
@@ -141,7 +141,7 @@
             // 
             // entermember
             // 
-            this.entermember.Location = new System.Drawing.Point(226, 72);
+            this.entermember.Location = new System.Drawing.Point(136, 101);
             this.entermember.Name = "entermember";
             this.entermember.Size = new System.Drawing.Size(55, 23);
             this.entermember.TabIndex = 10;
@@ -151,7 +151,7 @@
             // 
             // enteradmin
             // 
-            this.enteradmin.Location = new System.Drawing.Point(234, 16);
+            this.enteradmin.Location = new System.Drawing.Point(12, 70);
             this.enteradmin.Name = "enteradmin";
             this.enteradmin.Size = new System.Drawing.Size(47, 21);
             this.enteradmin.TabIndex = 11;
