@@ -91,7 +91,7 @@
             // lblCreateVol
             // 
             this.lblCreateVol.AutoSize = true;
-            this.lblCreateVol.Location = new System.Drawing.Point(12, 485);
+            this.lblCreateVol.Location = new System.Drawing.Point(12, 474);
             this.lblCreateVol.Name = "lblCreateVol";
             this.lblCreateVol.Size = new System.Drawing.Size(63, 13);
             this.lblCreateVol.TabIndex = 5;
@@ -151,10 +151,10 @@
             // 
             // HandShakeImage
             // 
-            this.HandShakeImage.Image = global::AgileProd.Properties.Resources.KimLogo;
-            this.HandShakeImage.Location = new System.Drawing.Point(-20, 140);
+            this.HandShakeImage.Image = global::AgileProd.Properties.Resources.KimLogoSmaller;
+            this.HandShakeImage.Location = new System.Drawing.Point(-44, 130);
             this.HandShakeImage.Name = "HandShakeImage";
-            this.HandShakeImage.Size = new System.Drawing.Size(324, 332);
+            this.HandShakeImage.Size = new System.Drawing.Size(369, 341);
             this.HandShakeImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.HandShakeImage.TabIndex = 7;
             this.HandShakeImage.TabStop = false;
@@ -164,7 +164,7 @@
             this.AcceptButton = this.btnEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 507);
+            this.ClientSize = new System.Drawing.Size(284, 492);
             this.Controls.Add(this.enteradmin);
             this.Controls.Add(this.entermember);
             this.Controls.Add(this.entercommittee);
