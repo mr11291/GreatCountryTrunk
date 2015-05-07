@@ -7,14 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 using AgileProdDAL;
 using AgileProdObjectModel;
-using System.IO;
 
 namespace AgileProd
 {
     public partial class LoginForm : Form
     {
+        private SoundPlayer snd = new SoundPlayer(Properties.Resources.KoreanAnthem);
+        
         public LoginForm()
         {
             InitializeComponent();
@@ -22,6 +24,20 @@ namespace AgileProd
             entercommittee.Hide();
             entermember.Hide();
             enterperson.Hide();
+            playAnthem();
+            snd.Play();
+        }
+
+        private void playAnthem()
+        {
+            SoundPlayer snd = new SoundPlayer(Properties.Resources.KoreanAnthem);
+            snd.Play();
+        }
+
+        private void stopAnthem()
+        {
+            SoundPlayer snd = new SoundPlayer(Properties.Resources.KoreanAnthem);
+            snd.Stop();
         }
 
         private void btnEnter_Click(object sender, EventArgs e)
@@ -34,6 +50,7 @@ namespace AgileProd
             if(tempAdmin != null)
             {
                 AdminForm newForm = new AdminForm(tempAdmin);
+                snd.Stop();
                 this.Hide();
                 newForm.Show();
                 return;
@@ -41,6 +58,7 @@ namespace AgileProd
             else if(tempHead !=null)
             {
                 CommitteeForm newForm= new CommitteeForm(tempHead);
+                snd.Stop();
                 this.Hide();
                 newForm.Show();
                 return;
@@ -48,6 +66,7 @@ namespace AgileProd
             else if(tempMember != null)
             {
                 MemberForm f = new MemberForm(tempMember);
+                snd.Stop();
                 this.Hide();
                 f.Show();
                 return;
@@ -55,6 +74,7 @@ namespace AgileProd
             else if(tempPerson!=null)
             {
                 PersonForm newfrom = new PersonForm(tempPerson);
+                snd.Stop();
                 this.Hide();
                 newfrom.Show();
                 return;
@@ -104,6 +124,6 @@ namespace AgileProd
             this.Hide();
             newForm.Show();
             return;
-        }  
+        }
     }
 }

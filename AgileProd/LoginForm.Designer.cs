@@ -35,11 +35,11 @@
             this.btnEnter = new System.Windows.Forms.Button();
             this.lblCreateVol = new System.Windows.Forms.LinkLabel();
             this.inputWarning = new System.Windows.Forms.Label();
-            this.HandShakeImage = new System.Windows.Forms.PictureBox();
             this.enterperson = new System.Windows.Forms.Button();
             this.entercommittee = new System.Windows.Forms.Button();
             this.entermember = new System.Windows.Forms.Button();
             this.enteradmin = new System.Windows.Forms.Button();
+            this.HandShakeImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.HandShakeImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +91,7 @@
             // lblCreateVol
             // 
             this.lblCreateVol.AutoSize = true;
-            this.lblCreateVol.Location = new System.Drawing.Point(12, 331);
+            this.lblCreateVol.Location = new System.Drawing.Point(12, 485);
             this.lblCreateVol.Name = "lblCreateVol";
             this.lblCreateVol.Size = new System.Drawing.Size(63, 13);
             this.lblCreateVol.TabIndex = 5;
@@ -108,16 +108,6 @@
             this.inputWarning.TabIndex = 6;
             this.inputWarning.Text = "username or password is incorrect!";
             this.inputWarning.Visible = false;
-            // 
-            // HandShakeImage
-            // 
-            this.HandShakeImage.Image = global::AgileProd.Properties.Resources.handshakemoney;
-            this.HandShakeImage.Location = new System.Drawing.Point(-1, 130);
-            this.HandShakeImage.Name = "HandShakeImage";
-            this.HandShakeImage.Size = new System.Drawing.Size(285, 198);
-            this.HandShakeImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.HandShakeImage.TabIndex = 7;
-            this.HandShakeImage.TabStop = false;
             // 
             // enterperson
             // 
@@ -159,12 +149,22 @@
             this.enteradmin.UseVisualStyleBackColor = true;
             this.enteradmin.Click += new System.EventHandler(this.enteradmin_Click);
             // 
+            // HandShakeImage
+            // 
+            this.HandShakeImage.Image = global::AgileProd.Properties.Resources.KimLogo;
+            this.HandShakeImage.Location = new System.Drawing.Point(-20, 140);
+            this.HandShakeImage.Name = "HandShakeImage";
+            this.HandShakeImage.Size = new System.Drawing.Size(324, 332);
+            this.HandShakeImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.HandShakeImage.TabIndex = 7;
+            this.HandShakeImage.TabStop = false;
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 353);
+            this.ClientSize = new System.Drawing.Size(284, 507);
             this.Controls.Add(this.enteradmin);
             this.Controls.Add(this.entermember);
             this.Controls.Add(this.entercommittee);
