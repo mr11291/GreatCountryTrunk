@@ -48,6 +48,7 @@
             this.nameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.idHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.settingsTab = new System.Windows.Forms.TabPage();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.settingsPasswordBox = new System.Windows.Forms.TextBox();
             this.settingsUserNameBox = new System.Windows.Forms.TextBox();
@@ -57,7 +58,6 @@
             this.settingsUserNameLabel = new System.Windows.Forms.Label();
             this.settingsIdLabel = new System.Windows.Forms.Label();
             this.settingNameLabel = new System.Windows.Forms.Label();
-            this.logoutButton = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
             this.bankTab.SuspendLayout();
             this.messageTab.SuspendLayout();
@@ -368,16 +368,6 @@
             this.settingNameLabel.Size = new System.Drawing.Size(38, 13);
             this.settingNameLabel.TabIndex = 0;
             this.settingNameLabel.Text = "Name:";
-            // 
-            // logoutButton
-            // 
-            this.logoutButton.Location = new System.Drawing.Point(587, 251);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(75, 23);
-            this.logoutButton.TabIndex = 10;
-            this.logoutButton.Text = "Log out";
-            this.logoutButton.UseVisualStyleBackColor = true;
-            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // BaseForm
             // 
