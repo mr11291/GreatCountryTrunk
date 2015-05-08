@@ -22,8 +22,8 @@ namespace AgileProd
             InitializeComponent();
             enteradmin.Hide();
             entercommittee.Hide();
-            entermember.Hide();
-            enterperson.Hide();
+            entermember.Show();
+            enterperson.Show();
             playAnthem();
             snd.Play();
         }
@@ -98,7 +98,7 @@ namespace AgileProd
 
         private void enterperson_Click(object sender, EventArgs e)
         {
-            Person tempPerson = DataLogicPerson.LoginPerson("gvlvo", "pass896243744");
+            Person tempPerson = DataLogicPerson.LoginPerson("gvlvo","pass896243744");
             DataLogicMember.selectPartyLeader();
             PersonForm newfrom = new PersonForm(tempPerson);
             this.Hide();

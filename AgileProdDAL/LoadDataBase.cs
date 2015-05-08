@@ -51,7 +51,7 @@ namespace AgileProdDAL
                     }
                 }//for i
                        //create new prson using parsed data:   ID      Full Name            Age                 User Name        Password         BankAccount       Voter Status
-                Person newPerson = new Person(Convert.ToInt32(div[0]), div[1].Trim(), Convert.ToInt32(div[2]), div[3].Trim(), div[4].Trim(), Convert.ToBoolean(div[5]));
+                Person newPerson = new Person(Convert.ToInt32(div[0]), div[1].Trim(), Convert.ToInt32(div[2]), div[3].Trim(), div[4].Trim(), Convert.ToBoolean(div[5]), Convert.ToInt32(div[6]));
                 //Person newPerson = new Person()
                 people.Add(newPerson.Id, newPerson);                            //link new person to his/hers ID
                 line = file.ReadLine();                                         //get next line
@@ -147,7 +147,7 @@ namespace AgileProdDAL
                     if (int.Parse(div[0]) == temp.Id)                           //check if dictionary returned a valid value
                     {
                         //create a new party member
-                        Member partyMember = new Member(temp.Id, temp.Name, temp.Age, temp.UserName, temp.Password, false, div[1], int.Parse(div[2]));
+                        Member partyMember = new Member(temp.Id, temp.Name, temp.Age, temp.UserName, temp.Password, false,temp.NumOfVotes, div[1], int.Parse(div[2]));
                         members.Add(partyMember.Id, partyMember);               //add party member to party dictionary 
                         break;
                     }//if
@@ -175,7 +175,7 @@ namespace AgileProdDAL
                     if (Convert.ToInt32(div[0]) == temp.Id)                     //check if ids match
                     {
                                                                                 //create a new committee member
-                        Head h = new Head(Convert.ToInt32(div[0]), temp.Name, temp.Age, temp.UserName, temp.Password, false);
+                        Head h = new Head(Convert.ToInt32(div[0]), temp.Name, temp.Age, temp.UserName, temp.Password, false,temp.NumOfVotes);
                         committee.Add(h.Id, h);                                 //add new committee member to dictionary
                         break;
                     }

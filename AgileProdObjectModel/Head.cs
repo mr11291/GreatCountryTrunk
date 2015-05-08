@@ -13,7 +13,7 @@ namespace AgileProdObjectModel
          */
 
         //Constructor of person
-        public Head(int id, string name, int age, string userName, string password, bool isVoting)
+        public Head(int id, string name, int age, string userName, string password,bool isVoting,int numofvote)
         {
             this.Id = id;
             this.Name = name;
@@ -21,6 +21,7 @@ namespace AgileProdObjectModel
             this.UserName = userName;
             this.Password = password;
             this.IsVoting = isVoting;
+            this.NumOfVotes = numofvote;
         }
     }
 }

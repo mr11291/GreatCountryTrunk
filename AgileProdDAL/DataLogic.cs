@@ -22,12 +22,12 @@ namespace AgileProdDAL
         }//DataLogic()
 
 
-        public static bool addMember(int id, string name, int age, string username, string password, bool isVoting, string group, int location, int balance)   //admin
+        public static bool addMember(int id, string name, int age, string username, string password, bool isVoting,int numofvote, string group, int location, int balance)   //admin
         {
             if (!data.GetMembers().Any(current => current.Key == id))
             {
                 Bank account = new Bank(balance, id, name);
-                Member m = new Member(id, name, age, username, password, isVoting, group, location);
+                Member m = new Member(id, name, age, username, password, isVoting,numofvote, group, location);
                 data.GetMembers().Add(m.Id, m);
                 data.GetBankAccounts().Add(id, account);
                 return true;
@@ -40,13 +40,13 @@ namespace AgileProdDAL
         /*
          * addPerson creates and adds a new person to the people dictionary
          */
-        public static bool addPerson(int id, string name, int age, string username, string password, int balance, bool isVoting)   //admin
+        public static bool addPerson(int id, string name, int age, string username, string password, int balance, bool isVoting, int numOfVote)   //admin
         {
             if (!data.GetPeople().Any(current => current.Key == id))                               //checks if ID doesn't exist in the system
             {
                 Message newMessageBox = null;                                  //creates a new message box
                 Bank newAccount = new Bank(balance, id, name);                             //creates a new bank account
-                Person newPerson = new Person(id, name, age, username, password, isVoting);  //creates a new person
+                Person newPerson = new Person(id, name, age, username, password, isVoting,numOfVote);  //creates a new person
                 data.GetPeople().Add(newPerson.Id, newPerson);                                  //adds person to the dictionary
                 data.GetBankAccounts().Add(id, newAccount);                                     //adds bank to the diciotnary
                 data.GetMessages().Add(id, newMessageBox);                                      //adds message box to the dictionary
@@ -55,13 +55,13 @@ namespace AgileProdDAL
             return false;
         }//addPerson(int, string, int, string, string, int, bool)
 
-        public static bool addPartyMemeber(int id, string name, int age, string username, string password, int balance, bool isVoting, string party, int location)  //admin+member
+        public static bool addPartyMemeber(int id, string name, int age, string username, string password, int balance, bool isVoting,int numofvote, string party, int location)  //admin+member
         {
             if (!data.GetMembers().Any(current => current.Key == id))                               //checks if ID doesn't exist in the system
             {
                 Message newMessageBox = null;                                                     //creates a new message box
                 Bank newAccount = new Bank(balance, id, name);                                               //creates a new bank account
-                Member newMember = new Member(id, name, age, username, password, isVoting, party, location); //creates a new person
+                Member newMember = new Member(id, name, age, username, password, isVoting,numofvote, party, location); //creates a new person
                 data.GetMembers().Add(newMember.Id, newMember);                                                   //adds person to the dictionary
                 data.GetBankAccounts().Add(id, newAccount);                                                       //adds bank to the diciotnary
                 data.GetMessages().Add(id, newMessageBox);                                                        //adds message box to the dictionary

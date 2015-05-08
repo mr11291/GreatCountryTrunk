@@ -44,7 +44,7 @@ namespace AgileProdDAL
             {
 
                 Person thisPerson = data.GetPeople()[Id];//crating new person for the head of the newParty
-                Member newMember = new Member(Id, thisPerson.Name, thisPerson.Age, thisPerson.UserName, thisPerson.Password, thisPerson.IsVoting, Name,1);//crating a member
+                Member newMember = new Member(Id, thisPerson.Name, thisPerson.Age, thisPerson.UserName, thisPerson.Password, thisPerson.IsVoting,thisPerson.NumOfVotes, Name,1);//crating a member
                 data.GetPartyList().Add(Name, 0);//Add the new party to PartyList
                 data.GetMembers().Add(Id, newMember);//Add new member(Head) to the members
                 return true;

@@ -55,7 +55,7 @@ namespace AgileProdObjectModel
         }
 
         //Constructor
-        public Person(int id, string name, int age, string userName, string password, bool isVoting)
+        public Person(int id, string name, int age, string userName, string password, bool isVoting, int numOfVote=0)
         {
             this.id = id;
             this.name = name;
@@ -63,7 +63,7 @@ namespace AgileProdObjectModel
             this.userName = userName;
             this.password = password;
             this.isVoting = isVoting;
-            this.numOfVotes = 0;
+            this.numOfVotes = numOfVote;
         }
 
         //Public Constructor

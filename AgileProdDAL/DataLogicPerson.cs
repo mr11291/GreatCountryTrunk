@@ -210,7 +210,7 @@ namespace AgileProdDAL
         {
             if(data.GetPartyList().Keys.Contains(partyName))
             {
-                Member m = new Member(p.Id, p.Name, p.Age, p.UserName, p.Password, p.IsVoting, partyName, location);
+                Member m = new Member(p.Id, p.Name, p.Age, p.UserName, p.Password, p.IsVoting,p.NumOfVotes, partyName, location);
                 data.GetMembers().Add(m.Id, m);
                 return true;
             }
