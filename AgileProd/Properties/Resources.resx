@@ -160,4 +160,19 @@
   <data name="wrench_op15" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wrench-op15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DisapointedPutin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DisapointedPutin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HappyKim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HappyKim.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ImpressedBush" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ImpressedBush.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MadSittingPutin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MadSittingPutin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="suspiciusPutin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\suspiciusPutin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

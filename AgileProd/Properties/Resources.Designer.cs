@@ -113,9 +113,39 @@ namespace AgileProd.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DisapointedPutin {
+            get {
+                object obj = ResourceManager.GetObject("DisapointedPutin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap handshakemoney {
             get {
                 object obj = ResourceManager.GetObject("handshakemoney", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HappyKim {
+            get {
+                object obj = ResourceManager.GetObject("HappyKim", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ImpressedBush {
+            get {
+                object obj = ResourceManager.GetObject("ImpressedBush", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -152,6 +182,16 @@ namespace AgileProd.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MadSittingPutin {
+            get {
+                object obj = ResourceManager.GetObject("MadSittingPutin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap moneystack_op100 {
             get {
                 object obj = ResourceManager.GetObject("moneystack_op100", resourceCulture);
@@ -175,6 +215,16 @@ namespace AgileProd.Properties {
         internal static System.Drawing.Bitmap moneystack_op25 {
             get {
                 object obj = ResourceManager.GetObject("moneystack_op25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap suspiciusPutin {
+            get {
+                object obj = ResourceManager.GetObject("suspiciusPutin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -145,8 +145,9 @@ namespace CreateDataBase
             IDlist = generateID(100000000, 999999999);              //generate and initialize ID list 
 
             for (int i = 0; i < listOfNames.Count; i++)             //loop trough all the names
-            {   //write to file:   ID                Full Name                  Age                                  User Name                                Default Password            default voter status
-                file.WriteLine(IDlist[i] + ", " + listOfNames[i] + ", " + generateAge(18, 120) + " ," + generateUserName(containerUserName, 5, 5) + " ," + defaultPass + IDlist[i] + " ," + isVoting +" ," + 0);
+
+            {   //write to file:   ID                Full Name                  Age                                  User Name                                Default Password       default voter status
+                file.WriteLine(IDlist[i] + ", " + listOfNames[i] + ", " + generateAge(18, 120) + " ," + generateUserName(containerUserName, 5, 5) + " ," + defaultPass + IDlist[i] + " ," + isVoting + " ," + 0);
             }
             return IDlist;                                          //return id list
         }//writeToPerson(StreamWriter)
