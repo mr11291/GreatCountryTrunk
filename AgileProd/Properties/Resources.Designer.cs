@@ -143,6 +143,26 @@ namespace AgileProd.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HappyPutinSmiling {
+            get {
+                object obj = ResourceManager.GetObject("HappyPutinSmiling", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HappySittingPutin {
+            get {
+                object obj = ResourceManager.GetObject("HappySittingPutin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ImpressedBush {
             get {
                 object obj = ResourceManager.GetObject("ImpressedBush", resourceCulture);
@@ -176,6 +196,16 @@ namespace AgileProd.Properties {
         internal static System.IO.UnmanagedMemoryStream KoreanAnthem {
             get {
                 return ResourceManager.GetStream("KoreanAnthem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MadKim {
+            get {
+                object obj = ResourceManager.GetObject("MadKim", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
