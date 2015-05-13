@@ -74,18 +74,25 @@ namespace AgileProd
             }
 
         }
-
+        //This function is when user push to vote for a member
         private void ListOf2_SelectedIndexChanged(object sender, EventArgs e)
         {
             
             if (ListOf2.SelectedItems.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show("You sure that you whant to vote to this member? ", "Some Title", MessageBoxButtons.YesNo);
+                //massge with the name of the member 
+                DialogResult dialogResult = MessageBox.Show("You sure that you whant to vote for " + ListOf2.SelectedItems[0].Text+"?", "Some Title", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    if (!DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text))
+                    //massge with the price that the user going to pay of
+                    DialogResult dialogResult2 = MessageBox.Show("Kim will charge you: " + Convert.ToString(DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes)) + "$", "", MessageBoxButtons.YesNo);
+                    if (dialogResult2 == DialogResult.Yes)
                     {
-                        MessageBox.Show("Something went wrong");
+                        //if agree those function update the database by user choice and add one to his num of vote
+                        DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text);
+                        DataLogicPerson.withdrawlFromAccount(user, DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes));
+                        user.NumOfVotes++;
+                        
                     }
                     else
                     {

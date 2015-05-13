@@ -87,7 +87,7 @@ namespace AgileProdDAL
             try
             {
                 data.GetMembers()[id].Location += 1;
-                user.NumOfVotes += 1;
+                //user.NumOfVotes += 1;
                 return true;
             }
             catch
@@ -228,6 +228,16 @@ namespace AgileProdDAL
             return false;
         }
 
+        public static bool withdrawlFromAccount(Person user, int money)
+        {
+            if(money >= 0)
+            {
+                data.GetBankAccounts()[user.Id].withdrawl(money);
+                return true;//succsses
+            }
+            return false;
+        }
+
         public static string getSenderName(int id)
         {
             try
@@ -238,6 +248,18 @@ namespace AgileProdDAL
             {
                 return "Unknown person!";
             }
+        }
+       /* public static void IfWhantTovote(Boolean answer, int id)
+        {
+            if (answer)
+            {
+                
+            }
+        }*/
+        public static int GetChargeBynumberofvote(int NumOfVotes)
+        {
+            return NumOfVotes * baseFee;
+
         }
     }
 }
