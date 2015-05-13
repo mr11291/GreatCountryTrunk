@@ -16,16 +16,19 @@ namespace AgileProd
     
     public partial class CommitteeForm : BaseForm
     {
+        private Head user;
         private static int HeadId;//keep the id of the new head of party
         private static String Partyname;//keep the name of the new party
         //constractor of committee
         public CommitteeForm(Head user): base(user)
         {
+            this.user = user;
             tabMenu.TabPages[0].Text = "Committee";//change the name of the tab
             InitializeComponent();
             //hise all the tabs and text box
             HideVoets();
-            HideAddParty();  
+            HideAddParty();
+ 
         }
         //all the active of vote button
         private void VoteButton_Click(object sender, EventArgs e)
@@ -61,6 +64,7 @@ namespace AgileProd
                     if (item.Party.Equals(ListOf.SelectedItems[0].Text.Replace(" ",String.Empty)))
                     {
                         ListOf2.Items.Add(item.Name);//add the member to list
+                        
                     }
                 }
                 MessageBox.Show("Click on the member that you whant to vote for");
@@ -68,24 +72,33 @@ namespace AgileProd
 
         }
         //vote to the chosen member
+        //This function is when user push to vote for a member
         private void ListOf2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //massge with the name of the member 
             if (ListOf2.SelectedItems.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show("You sure that you whant to vote to this member? ", "Some Title", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("You sure that you whant to vote for " + ListOf2.SelectedItems[0].Text+"?", "Some Title", MessageBoxButtons.YesNo);
+                //massge with the price that the user going to pay of
                 if (dialogResult == DialogResult.Yes)
                 {
-                    if (!DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text))
+                    DialogResult dialogResult2 = MessageBox.Show("Kim will charge you: " + Convert.ToString(DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes)) + "$", "", MessageBoxButtons.YesNo);
+                    //if agree those function update the database by user choice and add one to his num of vote
+                    if (dialogResult2 == DialogResult.Yes)
                     {
-                        MessageBox.Show("Something went wrong");
+                        
+                        DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text);
+                        DataLogicPerson.withdrawlFromAccount(user, DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes));
+                        user.NumOfVotes++;
+
                     }
                     else
                     {
                         return;
                     }
+
                 }
             }
-
         }
         //when click to add party
         private void AddPartyButton_Click(object sender, EventArgs e)
