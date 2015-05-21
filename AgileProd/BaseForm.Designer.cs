@@ -42,6 +42,8 @@
             this.idLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.messageTab = new System.Windows.Forms.TabPage();
+            this.readBtn = new System.Windows.Forms.Button();
+            this.btnAllMsg = new System.Windows.Forms.Button();
             this.readButton = new System.Windows.Forms.Button();
             this.fromLabel = new System.Windows.Forms.Label();
             this.fromList = new System.Windows.Forms.ListView();
@@ -204,6 +206,8 @@
             this.messageTab.BackgroundImage = global::AgileProd.Properties.Resources.cashenvelope_op15;
             this.messageTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.messageTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.messageTab.Controls.Add(this.readBtn);
+            this.messageTab.Controls.Add(this.btnAllMsg);
             this.messageTab.Controls.Add(this.readButton);
             this.messageTab.Controls.Add(this.fromLabel);
             this.messageTab.Controls.Add(this.fromList);
@@ -212,6 +216,26 @@
             this.messageTab.Size = new System.Drawing.Size(672, 284);
             this.messageTab.TabIndex = 4;
             this.messageTab.Text = "Messages";
+            // 
+            // readBtn
+            // 
+            this.readBtn.Location = new System.Drawing.Point(248, 69);
+            this.readBtn.Name = "readBtn";
+            this.readBtn.Size = new System.Drawing.Size(121, 23);
+            this.readBtn.TabIndex = 6;
+            this.readBtn.Text = "Read Next Message";
+            this.readBtn.UseVisualStyleBackColor = true;
+            this.readBtn.Click += new System.EventHandler(this.readBtn_Click);
+            // 
+            // btnAllMsg
+            // 
+            this.btnAllMsg.Location = new System.Drawing.Point(248, 112);
+            this.btnAllMsg.Name = "btnAllMsg";
+            this.btnAllMsg.Size = new System.Drawing.Size(121, 23);
+            this.btnAllMsg.TabIndex = 5;
+            this.btnAllMsg.Text = "Show All Messages";
+            this.btnAllMsg.UseVisualStyleBackColor = true;
+            this.btnAllMsg.Click += new System.EventHandler(this.btnAllMsg_Click);
             // 
             // readButton
             // 
@@ -420,6 +444,8 @@
         private System.Windows.Forms.Label settingNameLabel;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button logoutButton;
+        private System.Windows.Forms.Button btnAllMsg;
+        private System.Windows.Forms.Button readBtn;
 
     }
 }

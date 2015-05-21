@@ -216,5 +216,13 @@ namespace AgileProd
             }
 
         }
+
+        //private void cngprty_Click(object sender, EventArgs e)
+        //{
+        //    if (DataLogicMember.GetMember()[int.Parse(txtIDForMember.Text)].Location != -1)
+        //    {
+        //        DataLogicMember.
+        //    }
+        //}
     }
 }

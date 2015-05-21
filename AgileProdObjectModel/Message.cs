@@ -8,6 +8,7 @@ namespace AgileProdObjectModel
 {
     public class Message
     {
+       
         //this is a sub class of class Message.
         //the idea is to have a list of tuples as a message container.
         public class TupleList<item1, item2, item3> : List<Tuple<int, string, int>>

@@ -16,6 +16,8 @@ namespace AgileProdObjectModel
         private string password;
         private bool isVoting;
         private int numOfVotes;
+        private int msgIterator;
+        public Memento memento;
 
         //Setters Getters
         public int Id
@@ -53,6 +55,11 @@ namespace AgileProdObjectModel
             get { return numOfVotes; }
             set { numOfVotes = value; }
         }
+        public int MsgIterator
+        {
+            get { return msgIterator; }
+            set { msgIterator = value; }
+        }
 
         //Constructor
         public Person(int id, string name, int age, string userName, string password, bool isVoting, int numOfVote=0)
@@ -64,8 +71,9 @@ namespace AgileProdObjectModel
             this.password = password;
             this.isVoting = isVoting;
             this.numOfVotes = numOfVote;
+            this.msgIterator = 0;
+            this.memento = null;
         }
-
         //Public Constructor
         public Person(){}
     }

@@ -48,6 +48,7 @@
     <Compile Include="DataLogicPerson.cs" />
     <Compile Include="DataRepository.cs" />
     <Compile Include="LoadDataBase.cs" />
+    <Compile Include="Oparation.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>

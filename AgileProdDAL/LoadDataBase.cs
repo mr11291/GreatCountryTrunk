@@ -24,8 +24,9 @@ namespace AgileProdDAL
             Dictionary<int,Head> head = readFromHead(p);        //<id, committee member instance>
             Dictionary<int,Bank> acc = readFromBank();          //<id, bank account instance>
             Dictionary<int, Message> mes = readFromMessage();   //<id, message inbox instance>
+            Dictionary<int, Memento> memento = ReadFromMemento();
             
-            DataRepository dataR = new DataRepository(p, mem, parties, praimeries, head, admin, acc, mes);  //creates data reposatory
+            DataRepository dataR = new DataRepository(p, mem, parties, praimeries, head, admin, acc, mes, memento);  //creates data reposatory
 
             return dataR;           //returns a data reposatory of all of the dictionaries
         }//LoadToDataReposatory()
@@ -240,6 +241,24 @@ namespace AgileProdDAL
         private static void pickLeader()
         {
             DataLogicMember.selectPartyLeader();
+        }
+
+        private static Dictionary<int, Memento> ReadFromMemento()
+        {
+            Dictionary<int, Memento> memento = new Dictionary<int, Memento>();      //initialize new empty dictionary
+            StreamReader file = new StreamReader(path + "\\memento.txt");       //initialize text reader
+
+            string line = file.ReadLine();                                      //get first line
+
+            while (line != null)                                                //go into "while" loop, while there are more line 
+            {
+                var div = line.Replace(" ", string.Empty).Split(',');           //parse and the line
+                Memento mem = new Memento(div[1],int.Parse(div[2]));
+                memento.Add(int.Parse(div[0]), mem);
+                line = file.ReadLine();
+            }//while
+            file.Close();
+            return memento;                       
         }
 
     }

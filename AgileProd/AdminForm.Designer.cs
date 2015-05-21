@@ -53,6 +53,10 @@
             this.RevokeVoter = new System.Windows.Forms.Button();
             this.RegisterVoter = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.partychange = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cngprty = new System.Windows.Forms.Button();
             this.txtIDForMember = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridMember = new System.Windows.Forms.DataGridView();
@@ -313,6 +317,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.partychange);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.cngprty);
             this.tabPage2.Controls.Add(this.txtIDForMember);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.dataGridMember);
@@ -325,9 +333,45 @@
             this.tabPage2.Text = "Party Member";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // partychange
+            // 
+            this.partychange.Location = new System.Drawing.Point(172, 57);
+            this.partychange.Multiline = true;
+            this.partychange.Name = "partychange";
+            this.partychange.Size = new System.Drawing.Size(100, 23);
+            this.partychange.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(132, 60);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Party:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(18, 91);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "back to previous party";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // cngprty
+            // 
+            this.cngprty.Location = new System.Drawing.Point(18, 50);
+            this.cngprty.Name = "cngprty";
+            this.cngprty.Size = new System.Drawing.Size(93, 23);
+            this.cngprty.TabIndex = 12;
+            this.cngprty.Text = "change party";
+            this.cngprty.UseVisualStyleBackColor = true;
+           // this.cngprty.Click += new System.EventHandler(this.cngprty_Click);
+            // 
             // txtIDForMember
             // 
-            this.txtIDForMember.Location = new System.Drawing.Point(205, 52);
+            this.txtIDForMember.Location = new System.Drawing.Point(53, 15);
             this.txtIDForMember.Multiline = true;
             this.txtIDForMember.Name = "txtIDForMember";
             this.txtIDForMember.Size = new System.Drawing.Size(100, 23);
@@ -336,7 +380,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(177, 55);
+            this.label4.Location = new System.Drawing.Point(26, 18);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(21, 13);
             this.label4.TabIndex = 10;
@@ -606,5 +650,9 @@
         private System.Windows.Forms.Button btnPersonToParty;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPartyNameForPerson;
+        private System.Windows.Forms.TextBox partychange;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button cngprty;
     }
 }

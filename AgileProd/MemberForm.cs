@@ -26,6 +26,7 @@ namespace AgileProd
             fillPartyColleague();
             partyList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             partyList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            this.lblttlmoney.Text = "Total money: " + DataLogic.getBalance(currMember);
         }
 
         private void btnAddMem_Click(object sender, EventArgs e)
@@ -48,9 +49,12 @@ namespace AgileProd
             {
                 int msg = DataLogicMember.QuitParty(currMember);
                 if (msg == 1)
-                { MessageBox.Show("Your request for leaving the party has accepted. Thank's for your service");
-                  this.Hide();
-                  return;
+                { 
+                    MessageBox.Show("Your request for leaving the party has accepted. Thank's for your service");
+                    this.Hide();
+                    DataLogicAdmin.AllPersons()[currMember.Id].memento = new Memento(currMember.Party, currMember.Location);
+                    DataLogicMember.InsertToMemento(currMember.Id, DataLogicAdmin.AllPersons()[currMember.Id].memento);
+                    return;
                 }
                 else { MessageBox.Show("Error " + msg); }
             }
@@ -92,5 +96,21 @@ namespace AgileProd
             partyList.Width = textsize.Width + 4;
 
         }
+
+
+        private void MmberVote_Click(object sender, EventArgs e)
+        {
+            if (DataLogicPerson.VoterFee(currMember) > 0)
+            {
+                this.lblttlmoney.Text = "Total money: " + DataLogic.getBalance(currMember);
+                DataLogicPerson.voteToParty(currMember.Party);
+                MessageBox.Show("You voted to " + currMember.Party + " party");
+            }
+            else
+            {
+                MessageBox.Show("not enough money!!!");
+            }
+        }
+
     }
 }
