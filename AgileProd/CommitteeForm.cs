@@ -171,6 +171,25 @@ namespace AgileProd
             }     
         }
 
+        private void TextName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Delete_Party_Click(object sender, EventArgs e)
+        {
+            if (!(Application.OpenForms.OfType<DeletPartyForm>().Any()))
+            {
+                    DeletPartyForm newform = new DeletPartyForm();
+                    newform.ShowDialog();
+            }
+        }
+
+        private void End_Election_Click(object sender, EventArgs e)
+        {
+            //End_Election function at DataLgicCommittee
+        }
+
            
 
     }
