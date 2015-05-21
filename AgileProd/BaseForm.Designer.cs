@@ -33,11 +33,9 @@
             this.bankTab = new System.Windows.Forms.TabPage();
             this.listView1 = new System.Windows.Forms.ListView();
             this.lastTransactionsLabel = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.balanceBox = new System.Windows.Forms.TextBox();
             this.idBox = new System.Windows.Forms.TextBox();
             this.nameBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.balanceLabel = new System.Windows.Forms.Label();
             this.idLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -98,11 +96,9 @@
             this.bankTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.bankTab.Controls.Add(this.listView1);
             this.bankTab.Controls.Add(this.lastTransactionsLabel);
-            this.bankTab.Controls.Add(this.textBox4);
             this.bankTab.Controls.Add(this.balanceBox);
             this.bankTab.Controls.Add(this.idBox);
             this.bankTab.Controls.Add(this.nameBox);
-            this.bankTab.Controls.Add(this.label4);
             this.bankTab.Controls.Add(this.balanceLabel);
             this.bankTab.Controls.Add(this.idLabel);
             this.bankTab.Controls.Add(this.nameLabel);
@@ -130,13 +126,6 @@
             this.lastTransactionsLabel.TabIndex = 8;
             this.lastTransactionsLabel.Text = "Last Transactions:";
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(70, 110);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 7;
-            // 
             // balanceBox
             // 
             this.balanceBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
@@ -163,15 +152,6 @@
             this.nameBox.ReadOnly = true;
             this.nameBox.Size = new System.Drawing.Size(100, 20);
             this.nameBox.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 113);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "label4";
             // 
             // balanceLabel
             // 
@@ -422,11 +402,9 @@
         private System.Windows.Forms.ListView fromList;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label lastTransactionsLabel;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox balanceBox;
         private System.Windows.Forms.TextBox idBox;
         private System.Windows.Forms.TextBox nameBox;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label balanceLabel;
         private System.Windows.Forms.Label idLabel;
         private System.Windows.Forms.Label nameLabel;
