@@ -169,5 +169,28 @@ namespace AgileProdDAL
             }
             
         }
+
+        public static Tuple<int, string, int> NextMessage(Person person)
+        {
+            
+            int totalcount = data.GetMessages()[person.Id].Count;
+            if (totalcount > person.MsgIterator)
+            {
+                person.MsgIterator++;
+                return data.GetMessages()[person.Id].Inbox[person.MsgIterator-1];
+            }
+            return null;
+        }
+
+        public static List<string> AllMessageForSpecificPerson(Person p)
+        {
+            List<string> result=new List<string>();
+            IEnumerator<Tuple<int, string, int>> iter = data.GetMessages()[p.Id].Inbox.GetEnumerator();
+            while (iter.MoveNext())
+            {
+                result.Add(iter.Current.Item2);
+            }
+            return result;
+        }
     }
 }

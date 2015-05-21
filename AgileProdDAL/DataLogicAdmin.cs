@@ -142,13 +142,15 @@ namespace AgileProdDAL
         {
             if (!data.GetMembers().Any(current => current.Key == id))
             {
-                
                 Bank account = new Bank(balance, id, name);
                 Member m = new Member(id, name, age, username, password, isVoting,numofvote, group, location);
 
                 data.GetMembers().Add(m.Id, m);
-                data.GetBankAccounts().Add(id, account);
-                DataLogicMessage.createEmptyMessageBox(id);
+                if (data.GetPeople()[id].memento.PartyName == null)
+                {
+                    data.GetBankAccounts().Add(id, account);
+                    DataLogicMessage.createEmptyMessageBox(id);
+                }
                 return true;
             }
             return false;

@@ -172,5 +172,30 @@ namespace AgileProd
             }
             return false;
         }
+
+        private void readBtn_Click(object sender, EventArgs e)
+        {
+            Tuple<int, string, int> resultMsg = DataLogic.NextMessage(user);
+            try
+            {
+                MessageBox.Show(resultMsg.Item2);
+            }
+            catch
+            {
+                MessageBox.Show("No more messages to read");
+            }
+        }
+
+        private void btnAllMsg_Click(object sender, EventArgs e)
+        {
+            string result = "";
+            foreach (var i in DataLogic.AllMessageForSpecificPerson(user))
+            {
+                result += i + " \n";
+            }
+            MessageBox.Show(result);
+        }
+
+
     }
 }

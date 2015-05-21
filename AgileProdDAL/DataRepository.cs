@@ -9,7 +9,7 @@ namespace AgileProdDAL
 {
     internal class DataRepository
     {
-
+        private static Dictionary<int, Memento> memetoes;   //
         private static Dictionary<int, Person> people;      //<id, person instance>   
         private static Dictionary<int, Member> members;     //<id, party member instance> 
         private static Dictionary<int, Message> messages;   //<id, message inbox instance> 
@@ -24,7 +24,7 @@ namespace AgileProdDAL
         public DataRepository(Dictionary<int, Person> peopleD, Dictionary<int, Member> membersD,
                                Dictionary<string, int> partyListD, bool praimeriseD, Dictionary<int, Head> headD,
                                Dictionary<int, Admin> adminD, Dictionary<int, Bank> bankAccountsD,
-                               Dictionary<int, Message> messagesD)
+                               Dictionary<int, Message> messagesD, Dictionary<int, Memento> memento)
         {
             people = peopleD;
             members = membersD;
@@ -34,6 +34,7 @@ namespace AgileProdDAL
             praimerise = praimeriseD;
             messages = messagesD;
             admin = adminD;
+            memetoes = memento;
             
         }
 
@@ -43,6 +44,10 @@ namespace AgileProdDAL
          */
 
         //Setters Getters
+        public Dictionary<int, Memento> GetMementoes()
+        {
+            return memetoes;
+        }
         public Dictionary<int, Person> GetPeople()
         {
             return people;
@@ -83,6 +88,10 @@ namespace AgileProdDAL
             }
             return instance;
         }//Singleton instance
+        public void setMemento(Dictionary<int, Memento> memento)
+        {
+            memetoes = memento;
+        }
         public void setMember(Dictionary<int, Member> memberD)
         {
             members = memberD;

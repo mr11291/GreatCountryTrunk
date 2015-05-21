@@ -22,7 +22,17 @@ namespace AgileProd
             InitializeComponent();
             HideVoets();
             user = Cuser;
+            this.InfoAboutParty.Hide();
             var templist = DataLogicAdmin.AllParties();      //get list of all parties
+            this.cmbxInfoParty.DataSource = new BindingSource(templist, null);
+            this.cmbxInfoParty.DisplayMember = "Key";
+            this.cmbxInfoParty.ValueMember = "Value";
+            this.lblttlmoney.Text += " " + DataLogic.getBalance(user);
+            user.memento = DataLogicPerson.GetMemento(user.Id);
+            if (Cuser.memento.PartyName != null)
+            {
+                BtnBckLastPrty.Visible = true;
+            }
         }
 
         private void voteButton_Click(object sender, EventArgs e)
@@ -70,7 +80,7 @@ namespace AgileProd
                         ListOf2.Items.Add(item.Name);//add the member to list
                     }
                 }
-                MessageBox.Show("Click on the member that you whant to vote for");
+                MessageBox.Show("Click on the member that you want to vote for");
             }
 
         }
@@ -99,6 +109,42 @@ namespace AgileProd
             {
                 return;
             }
+        }
+
+        private void InfoParty_Click(object sender, EventArgs e)
+        {
+            this.InfoAboutParty.Show();
+            this.InfoAboutParty.Clear();
+            List<string> listInfo = DataLogicPerson.InfoForParty(this.cmbxInfoParty.Text);
+            for (int i = 0; i < listInfo.Count; i++)
+            {
+                this.InfoAboutParty.Items.Add(listInfo[i]);
+
+                if (i == 0)
+                {
+                    this.InfoAboutParty.Items[0].ForeColor = Color.Blue;
+                }
+            }
+        }
+
+        private void VoteParty_Click(object sender, EventArgs e)
+        {
+            if (DataLogicPerson.VoterFee(user) > 0)
+            {
+                this.lblttlmoney.Text = "Total money: " + DataLogic.getBalance(user);
+                DataLogicPerson.voteToParty(this.cmbxInfoParty.Text);
+                MessageBox.Show("You voted to " + this.cmbxInfoParty.Text + " party");
+            }
+            else
+            {
+                MessageBox.Show("not enough money!!!"); 
+            }
+        }
+
+        private void BtnBckLastPrty_Click(object sender, EventArgs e)
+        {
+            DataLogicAdmin.addMember(user.Id, user.Name, user.Age, user.UserName, user.Password, user.IsVoting, user.NumOfVotes, user.memento.PartyName, user.memento.location, DataLogicPerson.getBalance(user));
+            MessageBox.Show("welcome to " + user.memento.PartyName + " party");
         }
     }
 }

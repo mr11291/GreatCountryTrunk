@@ -152,6 +152,10 @@ namespace AgileProdDAL
             }
             return temp;
         }
+        public static void InsertToMemento(int id, Memento memento)
+        {
+            data.GetMementoes().Add(id, memento);
+        }
 
     }
 }

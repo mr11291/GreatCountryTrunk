@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.btnAddMem = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.MmberVote = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.quitPartyButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,12 +44,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.partyList = new System.Windows.Forms.ListView();
             this.changeSlogenButton = new System.Windows.Forms.Button();
+            this.lblttlmoney = new System.Windows.Forms.Label();
             this.tabMenu.SuspendLayout();
             this.blankTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // blankTab
             // 
+            this.blankTab.Controls.Add(this.lblttlmoney);
             this.blankTab.Controls.Add(this.changeSlogenButton);
             this.blankTab.Controls.Add(this.partyList);
             this.blankTab.Controls.Add(this.label6);
@@ -62,7 +64,7 @@
             this.blankTab.Controls.Add(this.label2);
             this.blankTab.Controls.Add(this.quitPartyButton);
             this.blankTab.Controls.Add(this.button2);
-            this.blankTab.Controls.Add(this.button1);
+            this.blankTab.Controls.Add(this.MmberVote);
             this.blankTab.Text = "Party Member";
             // 
             // label1
@@ -93,14 +95,15 @@
             this.btnAddMem.UseVisualStyleBackColor = true;
             this.btnAddMem.Click += new System.EventHandler(this.btnAddMem_Click);
             // 
-            // button1
+            // MmberVote
             // 
-            this.button1.Location = new System.Drawing.Point(8, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Vote";
-            this.button1.UseVisualStyleBackColor = true;
+            this.MmberVote.Location = new System.Drawing.Point(8, 8);
+            this.MmberVote.Name = "MmberVote";
+            this.MmberVote.Size = new System.Drawing.Size(75, 23);
+            this.MmberVote.TabIndex = 0;
+            this.MmberVote.Text = "Vote";
+            this.MmberVote.UseVisualStyleBackColor = true;
+            this.MmberVote.Click += new System.EventHandler(this.MmberVote_Click);
             // 
             // button2
             // 
@@ -212,6 +215,15 @@
             this.changeSlogenButton.UseVisualStyleBackColor = true;
             this.changeSlogenButton.Click += new System.EventHandler(this.slogenChangeButton_Click);
             // 
+            // lblttlmoney
+            // 
+            this.lblttlmoney.AutoSize = true;
+            this.lblttlmoney.Location = new System.Drawing.Point(6, 136);
+            this.lblttlmoney.Name = "lblttlmoney";
+            this.lblttlmoney.Size = new System.Drawing.Size(68, 13);
+            this.lblttlmoney.TabIndex = 15;
+            this.lblttlmoney.Text = "Total money:";
+            // 
             // MemberForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,7 +254,7 @@
         private System.Windows.Forms.Button btnAddMem;
         private System.Windows.Forms.Button quitPartyButton;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button MmberVote;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox PartySlogenBox;
         private System.Windows.Forms.Label label6;
@@ -253,5 +265,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListView partyList;
         private System.Windows.Forms.Button changeSlogenButton;
+        private System.Windows.Forms.Label lblttlmoney;
     }
 }

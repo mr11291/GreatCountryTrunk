@@ -23,6 +23,5 @@ namespace AgileProdDAL
             Message newMessage = null;
             data.GetMessages().Add(id, newMessage);
         }
-
     }
 }

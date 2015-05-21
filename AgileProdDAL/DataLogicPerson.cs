@@ -11,7 +11,7 @@ namespace AgileProdDAL
     {
         //Varaiables
         private static DataRepository data;
-        private static int baseFee = 1000;
+        private static int baseFee = 10000;
         
         //Setter Getter
         public static int BaseFee
@@ -133,7 +133,8 @@ namespace AgileProdDAL
         //VoterFee is a function used to claim voting fee from voters
         public static int VoterFee(Person person)
         {
-            if (person.NumOfVotes == 0)                                         //if a person did not vote yet
+            person.NumOfVotes++;
+            if (person.NumOfVotes == 1)                                         //if a person did not vote yet
             {
                 return data.GetBankAccounts()[person.Id].withdrawl(baseFee);    //use base fee
             }
@@ -239,5 +240,29 @@ namespace AgileProdDAL
                 return "Unknown person!";
             }
         }
+        public static List<string> InfoForParty(string nParty)
+        {
+            List<string> ForParty = new List<string>();
+            foreach (var x in data.GetMembers().Values)
+            {
+                if (x.Party == nParty.Replace(" ",""))
+                {
+                    ForParty.Add(x.Name);
+
+                    if (x.Location == -1)
+                    {
+                        ForParty.Insert(0, x.Slogan);
+                    }
+                }
+            }
+
+            return ForParty;
+        }
+
+        public static Memento GetMemento(int id)
+        {
+            return data.GetMementoes()[id];
+        }
+        
     }
 }
