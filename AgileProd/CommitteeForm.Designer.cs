@@ -41,12 +41,16 @@
             this.TextParty = new System.Windows.Forms.TextBox();
             this.EnterB2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.Delete_Party = new System.Windows.Forms.Button();
+            this.End_Election = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
             this.blankTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // blankTab
             // 
+            this.blankTab.Controls.Add(this.End_Election);
+            this.blankTab.Controls.Add(this.Delete_Party);
             this.blankTab.Controls.Add(this.button1);
             this.blankTab.Controls.Add(this.EnterB2);
             this.blankTab.Controls.Add(this.TextParty);
@@ -125,6 +129,7 @@
             this.TextName.Name = "TextName";
             this.TextName.Size = new System.Drawing.Size(142, 20);
             this.TextName.TabIndex = 6;
+            this.TextName.TextChanged += new System.EventHandler(this.TextName_TextChanged);
             // 
             // Name1
             // 
@@ -181,6 +186,28 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Delete_Party
+            // 
+            this.Delete_Party.ForeColor = System.Drawing.Color.Red;
+            this.Delete_Party.Location = new System.Drawing.Point(6, 218);
+            this.Delete_Party.Name = "Delete_Party";
+            this.Delete_Party.Size = new System.Drawing.Size(75, 23);
+            this.Delete_Party.TabIndex = 13;
+            this.Delete_Party.Text = "Delete Party";
+            this.Delete_Party.UseVisualStyleBackColor = true;
+            this.Delete_Party.Click += new System.EventHandler(this.Delete_Party_Click);
+            // 
+            // End_Election
+            // 
+            this.End_Election.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.End_Election.Location = new System.Drawing.Point(438, 218);
+            this.End_Election.Name = "End_Election";
+            this.End_Election.Size = new System.Drawing.Size(75, 23);
+            this.End_Election.TabIndex = 14;
+            this.End_Election.Text = "End Election";
+            this.End_Election.UseVisualStyleBackColor = true;
+            this.End_Election.Click += new System.EventHandler(this.End_Election_Click);
+            // 
             // CommitteeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,5 +237,7 @@
         private System.Windows.Forms.Label Partynamelabel;
         private System.Windows.Forms.Button EnterB2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Delete_Party;
+        private System.Windows.Forms.Button End_Election;
     }
 }

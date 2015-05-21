@@ -61,6 +61,32 @@ namespace AgileProdDAL
                 data.setPraimeries(false);
         }
 
+        //the function delete party from DB parties and delete party members from DB members ,
+        //if party dosn't excist return falus, party excist return true
+        public static bool DeleteParty(string partyName)
+        {
+            if (data.GetPartyList().ContainsKey(partyName)) //check if party excist 
+            {
+                data.GetPartyList().Remove(partyName);// delete party from DB parties
+                foreach (var x in data.GetMembers().Values)
+                {
+                    if (x.Party.Equals(partyName)) //delete party members from DB members
+                    {  
+                        data.GetMembers().Remove(x.Id);
+                    }
+
+                }
+
+                return true;
+
+            }
+            else return false; //party dosn't ecxist dosn't excist
+        }
+
+
+        //public static void End_Election() {}
+
+
 
 
 
