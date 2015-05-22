@@ -99,18 +99,26 @@ namespace AgileProd
 
 
         private void MmberVote_Click(object sender, EventArgs e)
-        {
-            if (DataLogicPerson.VoterFee(currMember) > 0)
+        {   
+            //massge with the price that the user going to pay of
+            DialogResult dialogResult = MessageBox.Show("You are going to pay " + DataLogicPerson.GetChargeBynumberofvote(currMember.NumOfVotes) + " for the right to vote..", "Some Title", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                this.lblttlmoney.Text = "Total money: " + DataLogic.getBalance(currMember);
-                DataLogicPerson.voteToParty(currMember.Party);
-                MessageBox.Show("You voted to " + currMember.Party + " party");
+                if (DataLogicPerson.VoterFee(currMember) > 0)
+                {
+                    this.lblttlmoney.Text = "Total money: " + DataLogic.getBalance(currMember);
+                    DataLogicPerson.voteToParty(currMember.Party);
+                    MessageBox.Show("You voted to " + currMember.Party + " party"); 
+                }
+                else
+                {
+                    MessageBox.Show("not enough money!!!");
+                }
             }
-            else
-            {
-                MessageBox.Show("not enough money!!!");
-            }
+                
         }
+
+
 
     }
 }

@@ -125,6 +125,7 @@
             this.cmbxInfoParty.Name = "cmbxInfoParty";
             this.cmbxInfoParty.Size = new System.Drawing.Size(121, 21);
             this.cmbxInfoParty.TabIndex = 23;
+         
             // 
             // InfoAboutParty
             // 

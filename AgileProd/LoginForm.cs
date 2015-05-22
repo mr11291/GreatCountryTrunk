@@ -98,7 +98,7 @@ namespace AgileProd
 
         private void enterperson_Click(object sender, EventArgs e)
         {
-            Person tempPerson = DataLogicPerson.LoginPerson("gvlvo","pass896243744");
+            Person tempPerson = DataLogicPerson.LoginPerson("lfavq", "pass896243744");
             DataLogicMember.selectPartyLeader();
             PersonForm newfrom = new PersonForm(tempPerson);
             this.Hide();
@@ -108,7 +108,7 @@ namespace AgileProd
 
         private void entercommittee_Click(object sender, EventArgs e)
         {
-            Head tempHead = DataLogicCommittee.LoginCommittee("nxeda", "pass322441657");
+            Head tempHead = DataLogicCommittee.LoginCommittee("nxeda", "pass507194715");
             DataLogicMember.selectPartyLeader();
             CommitteeForm newForm = new CommitteeForm(tempHead);
             this.Hide();

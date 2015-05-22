@@ -28,6 +28,7 @@ namespace AgileProd
             //hise all the tabs and text box
             HideVoets();
             HideAddParty();
+            lvotetoparty2.Hide();
  
         }
         //all the active of vote button
@@ -203,7 +204,28 @@ namespace AgileProd
             //End_Election function at DataLgicCommittee
         }
 
-           
+        private void VoteToParty_Click(object sender, EventArgs e)
+        {
+            HideVoets();
+            HideAddParty();
+            CommitteListLabel.Show();
+            if (DataLogicPerson.VoterFee(user) > 0)
+            {
+                lvotetoparty2.Clear();
+                foreach (var item in DataLogicCommittee.GetPartyList())//get all the partymember and add it to the list
+                {
+                    lvotetoparty2.Items.Add(item.Key);
+                }
 
+                //this.lblttlmoney.Text = "Total money: " + DataLogic.getBalance(user);
+                //DataLogicPerson.voteToParty(this.cmbxInfoParty.Text);
+                //MessageBox.Show("You voted to " + this.cmbxInfoParty.Text + " party");
+            }
+            else
+            {
+                MessageBox.Show("not enough money!!!"); 
+            }
+        }
+          
     }
 }

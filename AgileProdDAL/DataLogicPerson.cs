@@ -141,7 +141,7 @@ namespace AgileProdDAL
             else                                                                //if a person already voted
             {                                                                   //use bigger fee
                 //Console.WriteLine(data.GetBankAccounts()[person.Id].Balance + " " + (int)(baseFee * person.NumOfVotes * 1.5));
-                return data.GetBankAccounts()[person.Id].withdrawl((int)(baseFee * person.NumOfVotes * 1.5));
+                return data.GetBankAccounts()[person.Id].withdrawl((int)(baseFee * person.NumOfVotes*1.5));
             }
         }
 
@@ -260,7 +260,7 @@ namespace AgileProdDAL
         }*/
         public static int GetChargeBynumberofvote(int NumOfVotes)
         {
-            return NumOfVotes * baseFee;
+            return (int)(baseFee * NumOfVotes*1.5);
 
         }
 

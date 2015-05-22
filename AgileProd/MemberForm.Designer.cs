@@ -99,17 +99,17 @@
             // 
             this.MmberVote.Location = new System.Drawing.Point(8, 8);
             this.MmberVote.Name = "MmberVote";
-            this.MmberVote.Size = new System.Drawing.Size(75, 23);
+            this.MmberVote.Size = new System.Drawing.Size(107, 23);
             this.MmberVote.TabIndex = 0;
-            this.MmberVote.Text = "Vote";
+            this.MmberVote.Text = "Vote to your party";
             this.MmberVote.UseVisualStyleBackColor = true;
             this.MmberVote.Click += new System.EventHandler(this.MmberVote_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(8, 35);
+            this.button2.Location = new System.Drawing.Point(9, 37);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(106, 23);
             this.button2.TabIndex = 1;
             this.button2.Text = "Add Member";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
@@ -179,9 +179,9 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(8, 61);
+            this.button5.Location = new System.Drawing.Point(9, 66);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 36);
+            this.button5.Size = new System.Drawing.Size(107, 24);
             this.button5.TabIndex = 10;
             this.button5.Text = "Remove Member";
             this.button5.UseVisualStyleBackColor = true;

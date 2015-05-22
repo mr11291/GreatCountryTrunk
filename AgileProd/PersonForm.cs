@@ -23,6 +23,7 @@ namespace AgileProd
             HideVoets();
             user = Cuser;
             this.InfoAboutParty.Hide();
+            cmbxInfoParty.Hide();
             var templist = DataLogicAdmin.AllParties();      //get list of all parties
             this.cmbxInfoParty.DataSource = new BindingSource(templist, null);
             this.cmbxInfoParty.DisplayMember = "Key";
@@ -120,6 +121,7 @@ namespace AgileProd
 
         private void InfoParty_Click(object sender, EventArgs e)
         {
+            cmbxInfoParty.Show();
             this.InfoAboutParty.Show();
             this.InfoAboutParty.Clear();
             List<string> listInfo = DataLogicPerson.InfoForParty(this.cmbxInfoParty.Text);
@@ -153,6 +155,8 @@ namespace AgileProd
             DataLogicAdmin.addMember(user.Id, user.Name, user.Age, user.UserName, user.Password, user.IsVoting, user.NumOfVotes, user.memento.PartyName, user.memento.location, DataLogicPerson.getBalance(user));
             MessageBox.Show("welcome to " + user.memento.PartyName + " party");
         }
+
+
 
        
     }

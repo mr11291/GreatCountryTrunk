@@ -82,8 +82,6 @@ namespace AgileProdDAL
             }
             else return false; //party dosn't ecxist dosn't excist
         }
-
-
         //public static void End_Election() {}
 
 
