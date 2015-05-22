@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.VoteButton = new System.Windows.Forms.Button();
             this.ListOf = new System.Windows.Forms.ListView();
             this.ListOf2 = new System.Windows.Forms.ListView();
@@ -45,12 +46,16 @@
             this.End_Election = new System.Windows.Forms.Button();
             this.VoteToParty = new System.Windows.Forms.Button();
             this.lvotetoparty2 = new System.Windows.Forms.ListView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabMenu.SuspendLayout();
             this.blankTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // blankTab
             // 
+            this.blankTab.Controls.Add(this.pictureBox1);
             this.blankTab.Controls.Add(this.lvotetoparty2);
             this.blankTab.Controls.Add(this.VoteToParty);
             this.blankTab.Controls.Add(this.End_Election);
@@ -229,6 +234,21 @@
             this.lvotetoparty2.Size = new System.Drawing.Size(141, 218);
             this.lvotetoparty2.TabIndex = 16;
             this.lvotetoparty2.UseCompatibleStateImageBehavior = false;
+            this.lvotetoparty2.View = System.Windows.Forms.View.List;
+            this.lvotetoparty2.SelectedIndexChanged += new System.EventHandler(this.lvotetoparty2_SelectedIndexChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AgileProd.Properties.Resources.HappyKim;
+            this.pictureBox1.Location = new System.Drawing.Point(316, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(198, 214);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
+            // 
+            // timer1
+            // 
             // 
             // CommitteeForm
             // 
@@ -240,6 +260,7 @@
             this.tabMenu.ResumeLayout(false);
             this.blankTab.ResumeLayout(false);
             this.blankTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -263,5 +284,8 @@
         private System.Windows.Forms.Button End_Election;
         private System.Windows.Forms.Button VoteToParty;
         private System.Windows.Forms.ListView lvotetoparty2;
+        private System.Windows.Forms.PictureBox HandShakeImage;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

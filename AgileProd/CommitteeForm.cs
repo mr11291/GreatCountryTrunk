@@ -22,14 +22,15 @@ namespace AgileProd
         //constractor of committee
         public CommitteeForm(Head user): base(user)
         {
+            
             this.user = user;
             tabMenu.TabPages[0].Text = "Committee";//change the name of the tab
             InitializeComponent();
             //hise all the tabs and text box
             HideVoets();
+            pictureBox1.Hide();
             HideAddParty();
             lvotetoparty2.Hide();
- 
         }
         //all the active of vote button
         private void VoteButton_Click(object sender, EventArgs e)
@@ -208,22 +209,32 @@ namespace AgileProd
         {
             HideVoets();
             HideAddParty();
+            lvotetoparty2.Show();
             CommitteListLabel.Show();
-            if (DataLogicPerson.VoterFee(user) > 0)
+            foreach (var item in DataLogicCommittee.GetPartyList())//get all the partymember and add it to the list
             {
-                lvotetoparty2.Clear();
-                foreach (var item in DataLogicCommittee.GetPartyList())//get all the partymember and add it to the list
-                {
-                    lvotetoparty2.Items.Add(item.Key);
-                }
-
-                //this.lblttlmoney.Text = "Total money: " + DataLogic.getBalance(user);
-                //DataLogicPerson.voteToParty(this.cmbxInfoParty.Text);
-                //MessageBox.Show("You voted to " + this.cmbxInfoParty.Text + " party");
+                lvotetoparty2.Items.Add(item.Key);
             }
-            else
+            MessageBox.Show("Click on the party that you whant to vote for..");
+           
+
+            
+        }
+
+        private void lvotetoparty2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("You are going to pay " + DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) + " for the right to vote..", "Some Title", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                MessageBox.Show("not enough money!!!"); 
+                if (DataLogicPerson.VoterFee(user) > 0)
+                {
+                    DataLogicPerson.voteToParty(this.lvotetoparty2.Text);
+                    MessageBox.Show("You voted to " + this.lvotetoparty2.Text + " party");
+                }
+                else
+                {
+                    MessageBox.Show("not enough money!!!");
+                }
             }
         }
           
