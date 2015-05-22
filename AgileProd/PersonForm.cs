@@ -153,5 +153,7 @@ namespace AgileProd
             DataLogicAdmin.addMember(user.Id, user.Name, user.Age, user.UserName, user.Password, user.IsVoting, user.NumOfVotes, user.memento.PartyName, user.memento.location, DataLogicPerson.getBalance(user));
             MessageBox.Show("welcome to " + user.memento.PartyName + " party");
         }
+
+       
     }
 }

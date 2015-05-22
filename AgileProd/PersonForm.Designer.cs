@@ -60,11 +60,11 @@
             // 
             // voteButton
             // 
-            this.voteButton.Location = new System.Drawing.Point(233, 11);
+            this.voteButton.Location = new System.Drawing.Point(6, 74);
             this.voteButton.Name = "voteButton";
-            this.voteButton.Size = new System.Drawing.Size(92, 23);
+            this.voteButton.Size = new System.Drawing.Size(90, 23);
             this.voteButton.TabIndex = 0;
-            this.voteButton.Text = "Vote";
+            this.voteButton.Text = "Vote to member";
             this.voteButton.UseVisualStyleBackColor = true;
             this.voteButton.Click += new System.EventHandler(this.voteButton_Click);
             // 
@@ -110,7 +110,7 @@
             // 
             this.InfoParty.Location = new System.Drawing.Point(6, 16);
             this.InfoParty.Name = "InfoParty";
-            this.InfoParty.Size = new System.Drawing.Size(75, 23);
+            this.InfoParty.Size = new System.Drawing.Size(90, 23);
             this.InfoParty.TabIndex = 22;
             this.InfoParty.Text = "Info about Party";
             this.InfoParty.UseVisualStyleBackColor = true;
@@ -121,16 +121,16 @@
             this.cmbxInfoParty.FormattingEnabled = true;
             this.cmbxInfoParty.Items.AddRange(new object[] {
             "select..."});
-            this.cmbxInfoParty.Location = new System.Drawing.Point(102, 30);
+            this.cmbxInfoParty.Location = new System.Drawing.Point(167, 18);
             this.cmbxInfoParty.Name = "cmbxInfoParty";
             this.cmbxInfoParty.Size = new System.Drawing.Size(121, 21);
             this.cmbxInfoParty.TabIndex = 23;
             // 
             // InfoAboutParty
             // 
-            this.InfoAboutParty.Location = new System.Drawing.Point(102, 57);
+            this.InfoAboutParty.Location = new System.Drawing.Point(167, 45);
             this.InfoAboutParty.Name = "InfoAboutParty";
-            this.InfoAboutParty.Size = new System.Drawing.Size(136, 192);
+            this.InfoAboutParty.Size = new System.Drawing.Size(136, 204);
             this.InfoAboutParty.TabIndex = 24;
             this.InfoAboutParty.UseCompatibleStateImageBehavior = false;
             this.InfoAboutParty.View = System.Windows.Forms.View.List;
@@ -139,7 +139,7 @@
             // 
             this.VoteParty.Location = new System.Drawing.Point(6, 45);
             this.VoteParty.Name = "VoteParty";
-            this.VoteParty.Size = new System.Drawing.Size(75, 23);
+            this.VoteParty.Size = new System.Drawing.Size(90, 23);
             this.VoteParty.TabIndex = 25;
             this.VoteParty.Text = "Vote to party";
             this.VoteParty.UseVisualStyleBackColor = true;
@@ -156,7 +156,7 @@
             // 
             // BtnBckLastPrty
             // 
-            this.BtnBckLastPrty.Location = new System.Drawing.Point(244, 256);
+            this.BtnBckLastPrty.Location = new System.Drawing.Point(158, 259);
             this.BtnBckLastPrty.Name = "BtnBckLastPrty";
             this.BtnBckLastPrty.Size = new System.Drawing.Size(405, 23);
             this.BtnBckLastPrty.TabIndex = 27;
