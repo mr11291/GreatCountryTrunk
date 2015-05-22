@@ -43,12 +43,16 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Delete_Party = new System.Windows.Forms.Button();
             this.End_Election = new System.Windows.Forms.Button();
+            this.VoteToParty = new System.Windows.Forms.Button();
+            this.lvotetoparty2 = new System.Windows.Forms.ListView();
             this.tabMenu.SuspendLayout();
             this.blankTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // blankTab
             // 
+            this.blankTab.Controls.Add(this.lvotetoparty2);
+            this.blankTab.Controls.Add(this.VoteToParty);
             this.blankTab.Controls.Add(this.End_Election);
             this.blankTab.Controls.Add(this.Delete_Party);
             this.blankTab.Controls.Add(this.button1);
@@ -71,7 +75,7 @@
             this.VoteButton.Name = "VoteButton";
             this.VoteButton.Size = new System.Drawing.Size(92, 23);
             this.VoteButton.TabIndex = 0;
-            this.VoteButton.Text = "Vote";
+            this.VoteButton.Text = "Vote to member";
             this.VoteButton.UseVisualStyleBackColor = true;
             this.VoteButton.Click += new System.EventHandler(this.VoteButton_Click);
             // 
@@ -115,7 +119,7 @@
             // 
             // AddPartyButton
             // 
-            this.AddPartyButton.Location = new System.Drawing.Point(6, 35);
+            this.AddPartyButton.Location = new System.Drawing.Point(6, 59);
             this.AddPartyButton.Name = "AddPartyButton";
             this.AddPartyButton.Size = new System.Drawing.Size(92, 23);
             this.AddPartyButton.TabIndex = 5;
@@ -178,7 +182,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(6, 63);
+            this.button1.Location = new System.Drawing.Point(6, 88);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 23);
             this.button1.TabIndex = 12;
@@ -207,6 +211,24 @@
             this.End_Election.Text = "End Election";
             this.End_Election.UseVisualStyleBackColor = true;
             this.End_Election.Click += new System.EventHandler(this.End_Election_Click);
+            // 
+            // VoteToParty
+            // 
+            this.VoteToParty.Location = new System.Drawing.Point(6, 31);
+            this.VoteToParty.Name = "VoteToParty";
+            this.VoteToParty.Size = new System.Drawing.Size(92, 22);
+            this.VoteToParty.TabIndex = 15;
+            this.VoteToParty.Text = "Vote to party";
+            this.VoteToParty.UseVisualStyleBackColor = true;
+            this.VoteToParty.Click += new System.EventHandler(this.VoteToParty_Click);
+            // 
+            // lvotetoparty2
+            // 
+            this.lvotetoparty2.Location = new System.Drawing.Point(113, 25);
+            this.lvotetoparty2.Name = "lvotetoparty2";
+            this.lvotetoparty2.Size = new System.Drawing.Size(141, 218);
+            this.lvotetoparty2.TabIndex = 16;
+            this.lvotetoparty2.UseCompatibleStateImageBehavior = false;
             // 
             // CommitteeForm
             // 
@@ -239,5 +261,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button Delete_Party;
         private System.Windows.Forms.Button End_Election;
+        private System.Windows.Forms.Button VoteToParty;
+        private System.Windows.Forms.ListView lvotetoparty2;
     }
 }
