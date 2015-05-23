@@ -58,10 +58,19 @@ namespace AgileProd
 
         private void initializeBankInfo()
         {
-            int tempBalance = DataLogicPerson.getBalance(this.user);
-            this.nameBox.Text = user.Name;
-            this.idBox.Text = Convert.ToString(user.Id);
-            this.balanceBox.Text = Convert.ToString(tempBalance) + " $";
+            try
+            {
+                int tempBalance = DataLogicPerson.getBalance(this.user);
+                this.nameBox.Text = user.Name;
+                this.idBox.Text = Convert.ToString(user.Id);
+                this.balanceBox.Text = Convert.ToString(tempBalance) + " $";
+            }
+            catch (NullReferenceException) 
+            {
+                this.nameBox.Text = "null";
+                this.idBox.Text = "null";
+                this.balanceBox.Text = "null";
+            }
         }
 
         private void initializeSettingsInfo()

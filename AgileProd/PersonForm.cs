@@ -28,7 +28,13 @@ namespace AgileProd
             this.cmbxInfoParty.DataSource = new BindingSource(templist, null);
             this.cmbxInfoParty.DisplayMember = "Key";
             this.cmbxInfoParty.ValueMember = "Value";
-            this.lblttlmoney.Text += " " + DataLogic.getBalance(user);
+            try
+            {
+                this.lblttlmoney.Text += " " + DataLogic.getBalance(user);
+            } catch (NullReferenceException)
+            {
+                this.lblttlmoney.Text += " " + "null";
+            }
             user.memento = DataLogicPerson.GetMemento(user.Id);
             if (Cuser.memento.PartyName != null)
             {

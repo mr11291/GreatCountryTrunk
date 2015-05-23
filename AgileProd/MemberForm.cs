@@ -26,7 +26,14 @@ namespace AgileProd
             fillPartyColleague();
             partyList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             partyList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-            this.lblttlmoney.Text = "Total money: " + DataLogic.getBalance(currMember);
+            try
+            {
+                this.lblttlmoney.Text = "Total money: " + DataLogic.getBalance(currMember);
+            }
+            catch (NullReferenceException) 
+            {
+                this.lblttlmoney.Text = "Total money: " + "null";
+            }
         }
 
         private void btnAddMem_Click(object sender, EventArgs e)
@@ -106,9 +113,9 @@ namespace AgileProd
             {
                 if (DataLogicPerson.VoterFee(currMember) > 0)
                 {
-                    this.lblttlmoney.Text = "Total money: " + DataLogic.getBalance(currMember);
-                    DataLogicPerson.voteToParty(currMember.Party);
-                    MessageBox.Show("You voted to " + currMember.Party + " party"); 
+                        this.lblttlmoney.Text = "Total money: " + DataLogic.getBalance(currMember);
+                        DataLogicPerson.voteToParty(currMember.Party);
+                        MessageBox.Show("You voted to " + currMember.Party + " party");
                 }
                 else
                 {
