@@ -28,7 +28,6 @@ namespace AgileProd
             InitializeComponent();
             //hise all the tabs and text box
             HideVoets();
-            pictureBox1.Hide();
             HideAddParty();
             lvotetoparty2.Hide();
         }
@@ -77,30 +76,27 @@ namespace AgileProd
         //This function is when user push to vote for a member
         private void ListOf2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //massge with the name of the member 
-            if (ListOf2.SelectedItems.Count > 0)
+            
+            DialogResult dialogResult = MessageBox.Show("You are going to pay for KIM " + DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) + " for the right to vote..", "Some Title", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                DialogResult dialogResult = MessageBox.Show("You sure that you whant to vote for " + ListOf2.SelectedItems[0].Text+"?", "Some Title", MessageBoxButtons.YesNo);
-                //massge with the price that the user going to pay of
-                if (dialogResult == DialogResult.Yes)
+                if (ListOf2.SelectedItems.Count > 0)
                 {
-                    DialogResult dialogResult2 = MessageBox.Show("Kim will charge you: " + Convert.ToString(DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes)) + "$", "", MessageBoxButtons.YesNo);
-                    //if agree those function update the database by user choice and add one to his num of vote
-                    if (dialogResult2 == DialogResult.Yes)
+                    if (DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) < DataLogic.getBalance(user))
                     {
-                        
                         DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text);
-                        DataLogicPerson.withdrawlFromAccount(user, DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes));
+                        MessageBox.Show("You voted to: " + ListOf2.SelectedItems[0].Text);
                         user.NumOfVotes++;
-
                     }
                     else
                     {
-                        return;
+                        MessageBox.Show("not enough money!!!");
                     }
 
                 }
+                
             }
+                
         }
         //when click to add party
         private void AddPartyButton_Click(object sender, EventArgs e)
