@@ -222,6 +222,16 @@ namespace AgileProd.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MadSittingPutinRoteted {
+            get {
+                object obj = ResourceManager.GetObject("MadSittingPutinRoteted", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap moneystack_op100 {
             get {
                 object obj = ResourceManager.GetObject("moneystack_op100", resourceCulture);
