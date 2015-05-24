@@ -129,13 +129,13 @@ namespace AgileProd
         private void infoBox1_Click(object sender, EventArgs e)
         {
             userNameTip.Show("", this, 160, 225);
-            userNameTip.Show("Please enter your username or register to the system", this, 160, 230);
+            userNameTip.Show("Please enter your username or register to the system", this, 160, 230, 5000);
         }
 
         private void infoBox2_Click(object sender, EventArgs e)
         {
             passwordTip.Show("", this, 160, 225);
-            passwordTip.Show("Please enter your password or register to the system", this, 160, 230);
+            passwordTip.Show("Please enter your password or register to the system", this, 160, 230, 5000);
         }
     }
 }

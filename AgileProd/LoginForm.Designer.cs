@@ -158,13 +158,17 @@
             // 
             // userNameTip
             // 
+            this.userNameTip.AutoPopDelay = 5000;
+            this.userNameTip.InitialDelay = 500;
             this.userNameTip.IsBalloon = true;
-            this.userNameTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.userNameTip.ReshowDelay = 100;
             // 
             // passwordTip
             // 
+            this.passwordTip.AutoPopDelay = 5000;
+            this.passwordTip.InitialDelay = 500;
             this.passwordTip.IsBalloon = true;
-            this.passwordTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.passwordTip.ReshowDelay = 100;
             // 
             // infoBox2
             // 
