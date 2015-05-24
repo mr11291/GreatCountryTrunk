@@ -36,6 +36,7 @@ namespace AgileProd
                 case 1:
                     {
                         initializeBankInfo();
+                        bankTab.ImageIndex = -1; //remove red dot from tab
                     }
                     break;
                 case 2:

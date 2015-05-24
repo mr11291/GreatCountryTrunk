@@ -285,7 +285,14 @@ namespace AgileProdDAL
 
         public static Memento GetMemento(int id)
         {
-            return data.GetMementoes()[id];
+            try
+            {
+                return data.GetMementoes()[id];
+            }
+            catch (KeyNotFoundException)
+            {
+                return null;
+            }
         }
         
     }

@@ -1,5 +1,5 @@
 507194715, Betzalel Henriques, 64 ,lfavq ,pass507194715 ,False ,0
-313136447, Japhet Rosen, 100 ,uxehv ,pass313136447 ,False ,0
+313136447, Japhet Rosen, 100 ,test ,test ,False ,0
 101231696, Alvah Gross, 100 ,obipt ,pass101231696 ,False ,0
 891598857, Seraphim Levinsky, 84 ,qiqmq ,pass891598857 ,False ,0
 688329124, Gabriel Rabinowicz, 84 ,rtwlh ,pass688329124 ,False ,0

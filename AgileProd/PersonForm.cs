@@ -20,26 +20,26 @@ namespace AgileProd
         public PersonForm(Person Cuser) : base(Cuser)
         {           
             InitializeComponent();
-            HideVoets();
             user = Cuser;
+            HideVotes();
             this.InfoAboutParty.Hide();
-            cmbxInfoParty.Hide();
-            var templist = DataLogicAdmin.AllParties();      //get list of all parties
-            this.cmbxInfoParty.DataSource = new BindingSource(templist, null);
-            this.cmbxInfoParty.DisplayMember = "Key";
-            this.cmbxInfoParty.ValueMember = "Value";
+            partyNameComboBox.Hide();
+            var templist = DataLogicAdmin.AllParties(); 
+
+            this.partyNameComboBox.DataSource = new BindingSource(templist, null);
+            this.partyNameComboBox.DisplayMember = "Key";
+            this.partyNameComboBox.ValueMember = "Value";
+
+            user.memento = DataLogicPerson.GetMemento(user.Id);
+
             try
             {
-                this.lblttlmoney.Text += " " + DataLogic.getBalance(user);
-            } catch (NullReferenceException)
-            {
-                this.lblttlmoney.Text += " " + "null";
+                if (user.memento.PartyName != null)
+                {
+                    retrunToPartyButton.Visible = true;
+                }
             }
-            user.memento = DataLogicPerson.GetMemento(user.Id);
-            if (Cuser.memento.PartyName != null)
-            {
-                BtnBckLastPrty.Visible = true;
-            }
+            catch { }
         }
 
         private void voteButton_Click(object sender, EventArgs e)
@@ -49,13 +49,13 @@ namespace AgileProd
             if (!ListOf.Visible)//check the status of listOf
             {
                 ListOf.Show();
-                CommitteListLabel.Show();
+                partyListLabel.Show();
             }
 
-            FeelListOf();// feel the list by party name
+            FillListOf();// fill the list by party name
         }
 
-        private void FeelListOf()
+        private void FillListOf()
         {
             
             foreach (var item in DataLogicCommittee.GetPartyList())//get all the partymember and add it to the list
@@ -64,11 +64,11 @@ namespace AgileProd
             }
         }
 
-        private void HideVoets()
+        private void HideVotes()
         {
             ListOf.Hide();
             ListOf2.Hide();
-            CommitteListLabel.Hide();
+            partyListLabel.Hide();
             MemberListLabel.Hide();
         }
 
@@ -91,6 +91,7 @@ namespace AgileProd
             }
 
         }
+
         //This function is when user push to vote for a member
         private void ListOf2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -127,10 +128,10 @@ namespace AgileProd
 
         private void InfoParty_Click(object sender, EventArgs e)
         {
-            cmbxInfoParty.Show();
+            partyNameComboBox.Show();
             this.InfoAboutParty.Show();
             this.InfoAboutParty.Clear();
-            List<string> listInfo = DataLogicPerson.InfoForParty(this.cmbxInfoParty.Text);
+            List<string> listInfo = DataLogicPerson.InfoForParty(this.partyNameComboBox.Text);
             for (int i = 0; i < listInfo.Count; i++)
             {
                 this.InfoAboutParty.Items.Add(listInfo[i]);
@@ -144,26 +145,42 @@ namespace AgileProd
 
         private void VoteParty_Click(object sender, EventArgs e)
         {
+
             if (DataLogicPerson.VoterFee(user) > 0)
             {
-                this.lblttlmoney.Text = "Total money: " + DataLogic.getBalance(user);
-                DataLogicPerson.voteToParty(this.cmbxInfoParty.Text);
-                MessageBox.Show("You voted to " + this.cmbxInfoParty.Text + " party");
+                bankTab.ImageIndex = 0;
+                DataLogicPerson.voteToParty(this.partyNameComboBox.Text);
+                MessageBox.Show("You have voted to " + this.partyNameComboBox.Text + " party");
             }
             else
             {
-                MessageBox.Show("not enough money!!!"); 
+                MessageBox.Show("Insufficient funds!"); 
             }
         }
 
         private void BtnBckLastPrty_Click(object sender, EventArgs e)
         {
             DataLogicAdmin.addMember(user.Id, user.Name, user.Age, user.UserName, user.Password, user.IsVoting, user.NumOfVotes, user.memento.PartyName, user.memento.location, DataLogicPerson.getBalance(user));
-            MessageBox.Show("welcome to " + user.memento.PartyName + " party");
+            MessageBox.Show("Welcome to " + user.memento.PartyName + " party");
         }
 
+        private void partyNameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (partyNameComboBox.Visible)
+            {
+                this.InfoAboutParty.Show();
+                this.InfoAboutParty.Clear();
+                List<string> listInfo = DataLogicPerson.InfoForParty(this.partyNameComboBox.Text);
+                for (int i = 0; i < listInfo.Count; i++)
+                {
+                    this.InfoAboutParty.Items.Add(listInfo[i]);
 
-
-       
+                    if (i == 0)
+                    {
+                        this.InfoAboutParty.Items[0].ForeColor = Color.Blue;
+                    }
+                }
+            }
+        }
     }
 }

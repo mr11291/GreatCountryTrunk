@@ -28,33 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonForm));
             this.voteButton = new System.Windows.Forms.Button();
-            this.CommitteListLabel = new System.Windows.Forms.Label();
+            this.partyListLabel = new System.Windows.Forms.Label();
             this.MemberListLabel = new System.Windows.Forms.Label();
             this.ListOf2 = new System.Windows.Forms.ListView();
             this.ListOf = new System.Windows.Forms.ListView();
             this.InfoParty = new System.Windows.Forms.Button();
-            this.cmbxInfoParty = new System.Windows.Forms.ComboBox();
+            this.partyNameComboBox = new System.Windows.Forms.ComboBox();
             this.InfoAboutParty = new System.Windows.Forms.ListView();
             this.VoteParty = new System.Windows.Forms.Button();
-            this.lblttlmoney = new System.Windows.Forms.Label();
-            this.BtnBckLastPrty = new System.Windows.Forms.Button();
+            this.retrunToPartyButton = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabMenu.SuspendLayout();
             this.blankTab.SuspendLayout();
             this.SuspendLayout();
             // 
+            // tabMenu
+            // 
+            this.tabMenu.ImageList = this.imageList1;
+            // 
             // blankTab
             // 
-            this.blankTab.Controls.Add(this.BtnBckLastPrty);
-            this.blankTab.Controls.Add(this.lblttlmoney);
+            this.blankTab.Controls.Add(this.retrunToPartyButton);
             this.blankTab.Controls.Add(this.VoteParty);
             this.blankTab.Controls.Add(this.InfoAboutParty);
-            this.blankTab.Controls.Add(this.cmbxInfoParty);
+            this.blankTab.Controls.Add(this.partyNameComboBox);
             this.blankTab.Controls.Add(this.InfoParty);
             this.blankTab.Controls.Add(this.ListOf2);
             this.blankTab.Controls.Add(this.ListOf);
             this.blankTab.Controls.Add(this.MemberListLabel);
-            this.blankTab.Controls.Add(this.CommitteListLabel);
+            this.blankTab.Controls.Add(this.partyListLabel);
             this.blankTab.Controls.Add(this.voteButton);
             this.blankTab.Text = "Person";
             // 
@@ -68,27 +73,27 @@
             this.voteButton.UseVisualStyleBackColor = true;
             this.voteButton.Click += new System.EventHandler(this.voteButton_Click);
             // 
-            // CommitteListLabel
+            // partyListLabel
             // 
-            this.CommitteListLabel.AutoSize = true;
-            this.CommitteListLabel.Location = new System.Drawing.Point(361, 16);
-            this.CommitteListLabel.Name = "CommitteListLabel";
-            this.CommitteListLabel.Size = new System.Drawing.Size(75, 13);
-            this.CommitteListLabel.TabIndex = 18;
-            this.CommitteListLabel.Text = "Committee List";
+            this.partyListLabel.AutoSize = true;
+            this.partyListLabel.Location = new System.Drawing.Point(332, 21);
+            this.partyListLabel.Name = "partyListLabel";
+            this.partyListLabel.Size = new System.Drawing.Size(53, 13);
+            this.partyListLabel.TabIndex = 18;
+            this.partyListLabel.Text = "Party List:";
             // 
             // MemberListLabel
             // 
             this.MemberListLabel.AutoSize = true;
-            this.MemberListLabel.Location = new System.Drawing.Point(548, 16);
+            this.MemberListLabel.Location = new System.Drawing.Point(504, 21);
             this.MemberListLabel.Name = "MemberListLabel";
-            this.MemberListLabel.Size = new System.Drawing.Size(64, 13);
+            this.MemberListLabel.Size = new System.Drawing.Size(67, 13);
             this.MemberListLabel.TabIndex = 19;
-            this.MemberListLabel.Text = "Member List";
+            this.MemberListLabel.Text = "Member List:";
             // 
             // ListOf2
             // 
-            this.ListOf2.Location = new System.Drawing.Point(507, 45);
+            this.ListOf2.Location = new System.Drawing.Point(507, 43);
             this.ListOf2.Name = "ListOf2";
             this.ListOf2.Size = new System.Drawing.Size(142, 204);
             this.ListOf2.TabIndex = 21;
@@ -98,7 +103,7 @@
             // 
             // ListOf
             // 
-            this.ListOf.Location = new System.Drawing.Point(335, 45);
+            this.ListOf.Location = new System.Drawing.Point(335, 43);
             this.ListOf.Name = "ListOf";
             this.ListOf.Size = new System.Drawing.Size(141, 204);
             this.ListOf.TabIndex = 20;
@@ -116,20 +121,20 @@
             this.InfoParty.UseVisualStyleBackColor = true;
             this.InfoParty.Click += new System.EventHandler(this.InfoParty_Click);
             // 
-            // cmbxInfoParty
+            // partyNameComboBox
             // 
-            this.cmbxInfoParty.FormattingEnabled = true;
-            this.cmbxInfoParty.Items.AddRange(new object[] {
+            this.partyNameComboBox.FormattingEnabled = true;
+            this.partyNameComboBox.Items.AddRange(new object[] {
             "select..."});
-            this.cmbxInfoParty.Location = new System.Drawing.Point(167, 18);
-            this.cmbxInfoParty.Name = "cmbxInfoParty";
-            this.cmbxInfoParty.Size = new System.Drawing.Size(121, 21);
-            this.cmbxInfoParty.TabIndex = 23;
-         
+            this.partyNameComboBox.Location = new System.Drawing.Point(167, 16);
+            this.partyNameComboBox.Name = "partyNameComboBox";
+            this.partyNameComboBox.Size = new System.Drawing.Size(121, 21);
+            this.partyNameComboBox.TabIndex = 23;
+            this.partyNameComboBox.SelectedIndexChanged += new System.EventHandler(this.partyNameComboBox_SelectedIndexChanged);
             // 
             // InfoAboutParty
             // 
-            this.InfoAboutParty.Location = new System.Drawing.Point(167, 45);
+            this.InfoAboutParty.Location = new System.Drawing.Point(167, 43);
             this.InfoAboutParty.Name = "InfoAboutParty";
             this.InfoAboutParty.Size = new System.Drawing.Size(136, 204);
             this.InfoAboutParty.TabIndex = 24;
@@ -146,25 +151,22 @@
             this.VoteParty.UseVisualStyleBackColor = true;
             this.VoteParty.Click += new System.EventHandler(this.VoteParty_Click);
             // 
-            // lblttlmoney
+            // retrunToPartyButton
             // 
-            this.lblttlmoney.AutoSize = true;
-            this.lblttlmoney.Location = new System.Drawing.Point(6, 264);
-            this.lblttlmoney.Name = "lblttlmoney";
-            this.lblttlmoney.Size = new System.Drawing.Size(68, 13);
-            this.lblttlmoney.TabIndex = 26;
-            this.lblttlmoney.Text = "Total money:";
+            this.retrunToPartyButton.Location = new System.Drawing.Point(6, 103);
+            this.retrunToPartyButton.Name = "retrunToPartyButton";
+            this.retrunToPartyButton.Size = new System.Drawing.Size(97, 23);
+            this.retrunToPartyButton.TabIndex = 27;
+            this.retrunToPartyButton.Text = "Return to a party";
+            this.retrunToPartyButton.UseVisualStyleBackColor = true;
+            this.retrunToPartyButton.Visible = false;
+            this.retrunToPartyButton.Click += new System.EventHandler(this.BtnBckLastPrty_Click);
             // 
-            // BtnBckLastPrty
+            // imageList1
             // 
-            this.BtnBckLastPrty.Location = new System.Drawing.Point(158, 259);
-            this.BtnBckLastPrty.Name = "BtnBckLastPrty";
-            this.BtnBckLastPrty.Size = new System.Drawing.Size(405, 23);
-            this.BtnBckLastPrty.TabIndex = 27;
-            this.BtnBckLastPrty.Text = "Return last party";
-            this.BtnBckLastPrty.UseVisualStyleBackColor = true;
-            this.BtnBckLastPrty.Visible = false;
-            this.BtnBckLastPrty.Click += new System.EventHandler(this.BtnBckLastPrty_Click);
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "RedDot.png");
             // 
             // PersonForm
             // 
@@ -183,15 +185,15 @@
         #endregion
 
         private System.Windows.Forms.Button voteButton;
-        private System.Windows.Forms.Label CommitteListLabel;
+        private System.Windows.Forms.Label partyListLabel;
         private System.Windows.Forms.Label MemberListLabel;
         private System.Windows.Forms.ListView ListOf2;
         private System.Windows.Forms.ListView ListOf;
         private System.Windows.Forms.Button InfoParty;
-        private System.Windows.Forms.ComboBox cmbxInfoParty;
+        private System.Windows.Forms.ComboBox partyNameComboBox;
         private System.Windows.Forms.ListView InfoAboutParty;
         private System.Windows.Forms.Button VoteParty;
-        private System.Windows.Forms.Label lblttlmoney;
-        private System.Windows.Forms.Button BtnBckLastPrty;
+        private System.Windows.Forms.Button retrunToPartyButton;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
