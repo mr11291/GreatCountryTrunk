@@ -199,7 +199,7 @@
             // 
             // readBtn
             // 
-            this.readBtn.Location = new System.Drawing.Point(248, 69);
+            this.readBtn.Location = new System.Drawing.Point(248, 54);
             this.readBtn.Name = "readBtn";
             this.readBtn.Size = new System.Drawing.Size(121, 23);
             this.readBtn.TabIndex = 6;
@@ -209,7 +209,7 @@
             // 
             // btnAllMsg
             // 
-            this.btnAllMsg.Location = new System.Drawing.Point(248, 112);
+            this.btnAllMsg.Location = new System.Drawing.Point(248, 83);
             this.btnAllMsg.Name = "btnAllMsg";
             this.btnAllMsg.Size = new System.Drawing.Size(121, 23);
             this.btnAllMsg.TabIndex = 5;

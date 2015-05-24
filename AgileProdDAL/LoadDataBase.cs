@@ -24,7 +24,7 @@ namespace AgileProdDAL
             Dictionary<int,Head> head = readFromHead(p);        //<id, committee member instance>
             Dictionary<int,Bank> acc = readFromBank();          //<id, bank account instance>
             Dictionary<int, Message> mes = readFromMessage();   //<id, message inbox instance>
-            Dictionary<int, Memento> memento = ReadFromMemento();
+            Dictionary<int, Memento> memento = readFromMemento();
             
             DataRepository dataR = new DataRepository(p, mem, parties, praimeries, head, admin, acc, mes, memento);  //creates data reposatory
 
@@ -140,7 +140,7 @@ namespace AgileProdDAL
 
             while (line != null)                                                //go into "while" loop, while there are more line 
             {
-                var div = line.Replace(" ", string.Empty).Split(',');           //parse and the line
+                var div = line.Split(',');           //parse and the line
 
                 for (int i = 0; i < people.Count; i++)                          //loop through people dictionary
                 {
@@ -148,7 +148,7 @@ namespace AgileProdDAL
                     if (int.Parse(div[0]) == temp.Id)                           //check if dictionary returned a valid value
                     {
                         //create a new party member
-                        Member partyMember = new Member(temp.Id, temp.Name, temp.Age, temp.UserName, temp.Password, false,temp.NumOfVotes, div[1], int.Parse(div[2]));
+                        Member partyMember = new Member(temp.Id, temp.Name, temp.Age, temp.UserName, temp.Password, false,temp.NumOfVotes, div[1].Trim(), int.Parse(div[2]));
                         members.Add(partyMember.Id, partyMember);               //add party member to party dictionary 
                         break;
                     }//if
@@ -243,7 +243,7 @@ namespace AgileProdDAL
             DataLogicMember.selectPartyLeader();
         }
 
-        private static Dictionary<int, Memento> ReadFromMemento()
+        private static Dictionary<int, Memento> readFromMemento()
         {
             Dictionary<int, Memento> memento = new Dictionary<int, Memento>();      //initialize new empty dictionary
             StreamReader file = new StreamReader(path + "\\memento.txt");       //initialize text reader

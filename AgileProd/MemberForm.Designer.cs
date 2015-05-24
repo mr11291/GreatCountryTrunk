@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MemberForm));
             this.label1 = new System.Windows.Forms.Label();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.btnAddMem = new System.Windows.Forms.Button();
@@ -44,14 +46,19 @@
             this.label6 = new System.Windows.Forms.Label();
             this.partyList = new System.Windows.Forms.ListView();
             this.changeSlogenButton = new System.Windows.Forms.Button();
-            this.lblttlmoney = new System.Windows.Forms.Label();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabMenu.SuspendLayout();
             this.blankTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tabMenu
+            // 
+            this.tabMenu.ImageList = this.imageList1;
             // 
             // blankTab
             // 
-            this.blankTab.Controls.Add(this.lblttlmoney);
             this.blankTab.Controls.Add(this.changeSlogenButton);
             this.blankTab.Controls.Add(this.partyList);
             this.blankTab.Controls.Add(this.label6);
@@ -65,7 +72,12 @@
             this.blankTab.Controls.Add(this.quitPartyButton);
             this.blankTab.Controls.Add(this.button2);
             this.blankTab.Controls.Add(this.MmberVote);
+            this.blankTab.Controls.Add(this.pictureBox1);
             this.blankTab.Text = "Party Member";
+            // 
+            // bankTab
+            // 
+            this.bankTab.ImageIndex = 0;
             // 
             // label1
             // 
@@ -97,7 +109,7 @@
             // 
             // MmberVote
             // 
-            this.MmberVote.Location = new System.Drawing.Point(8, 8);
+            this.MmberVote.Location = new System.Drawing.Point(5, 5);
             this.MmberVote.Name = "MmberVote";
             this.MmberVote.Size = new System.Drawing.Size(107, 23);
             this.MmberVote.TabIndex = 0;
@@ -107,18 +119,19 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(9, 37);
+            this.button2.Location = new System.Drawing.Point(5, 65);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(106, 23);
             this.button2.TabIndex = 1;
             this.button2.Text = "Add Member";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             // 
             // quitPartyButton
             // 
             this.quitPartyButton.ForeColor = System.Drawing.Color.Red;
-            this.quitPartyButton.Location = new System.Drawing.Point(8, 250);
+            this.quitPartyButton.Location = new System.Drawing.Point(585, 250);
             this.quitPartyButton.Name = "quitPartyButton";
             this.quitPartyButton.Size = new System.Drawing.Size(75, 23);
             this.quitPartyButton.TabIndex = 2;
@@ -129,7 +142,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(432, 40);
+            this.label2.Location = new System.Drawing.Point(430, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 3;
@@ -137,7 +150,7 @@
             // 
             // PartySlogenBox
             // 
-            this.PartySlogenBox.Location = new System.Drawing.Point(508, 37);
+            this.PartySlogenBox.Location = new System.Drawing.Point(506, 35);
             this.PartySlogenBox.Name = "PartySlogenBox";
             this.PartySlogenBox.ReadOnly = true;
             this.PartySlogenBox.Size = new System.Drawing.Size(154, 20);
@@ -146,7 +159,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(432, 13);
+            this.label3.Location = new System.Drawing.Point(430, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 13);
             this.label3.TabIndex = 5;
@@ -154,7 +167,7 @@
             // 
             // PartyNameBox
             // 
-            this.PartyNameBox.Location = new System.Drawing.Point(508, 10);
+            this.PartyNameBox.Location = new System.Drawing.Point(506, 8);
             this.PartyNameBox.Name = "PartyNameBox";
             this.PartyNameBox.ReadOnly = true;
             this.PartyNameBox.Size = new System.Drawing.Size(154, 20);
@@ -162,7 +175,7 @@
             // 
             // MySlogenBox
             // 
-            this.MySlogenBox.Location = new System.Drawing.Point(508, 63);
+            this.MySlogenBox.Location = new System.Drawing.Point(506, 61);
             this.MySlogenBox.Name = "MySlogenBox";
             this.MySlogenBox.ReadOnly = true;
             this.MySlogenBox.Size = new System.Drawing.Size(154, 20);
@@ -171,7 +184,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(432, 66);
+            this.label5.Location = new System.Drawing.Point(430, 64);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 13);
             this.label5.TabIndex = 8;
@@ -179,18 +192,19 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(9, 66);
+            this.button5.Location = new System.Drawing.Point(5, 95);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(107, 24);
             this.button5.TabIndex = 10;
             this.button5.Text = "Remove Member";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label6.Location = new System.Drawing.Point(432, 126);
+            this.label6.Location = new System.Drawing.Point(128, 126);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 13);
             this.label6.TabIndex = 11;
@@ -198,31 +212,38 @@
             // 
             // partyList
             // 
-            this.partyList.Location = new System.Drawing.Point(435, 148);
+            this.partyList.Location = new System.Drawing.Point(131, 143);
             this.partyList.Name = "partyList";
-            this.partyList.Size = new System.Drawing.Size(227, 131);
+            this.partyList.Size = new System.Drawing.Size(92, 131);
             this.partyList.TabIndex = 12;
             this.partyList.UseCompatibleStateImageBehavior = false;
             this.partyList.View = System.Windows.Forms.View.List;
             // 
             // changeSlogenButton
             // 
-            this.changeSlogenButton.Location = new System.Drawing.Point(508, 89);
+            this.changeSlogenButton.Location = new System.Drawing.Point(5, 35);
             this.changeSlogenButton.Name = "changeSlogenButton";
-            this.changeSlogenButton.Size = new System.Drawing.Size(98, 23);
+            this.changeSlogenButton.Size = new System.Drawing.Size(106, 23);
             this.changeSlogenButton.TabIndex = 13;
             this.changeSlogenButton.Text = "Suggest Slogen";
             this.changeSlogenButton.UseVisualStyleBackColor = true;
             this.changeSlogenButton.Click += new System.EventHandler(this.slogenChangeButton_Click);
             // 
-            // lblttlmoney
+            // imageList1
             // 
-            this.lblttlmoney.AutoSize = true;
-            this.lblttlmoney.Location = new System.Drawing.Point(6, 136);
-            this.lblttlmoney.Name = "lblttlmoney";
-            this.lblttlmoney.Size = new System.Drawing.Size(68, 13);
-            this.lblttlmoney.TabIndex = 15;
-            this.lblttlmoney.Text = "Total money:";
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "RedDot.png");
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AgileProd.Properties.Resources.HappyKim;
+            this.pictureBox1.Location = new System.Drawing.Point(180, 99);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(276, 187);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
             // 
             // MemberForm
             // 
@@ -242,6 +263,7 @@
             this.tabMenu.ResumeLayout(false);
             this.blankTab.ResumeLayout(false);
             this.blankTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,6 +287,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListView partyList;
         private System.Windows.Forms.Button changeSlogenButton;
-        private System.Windows.Forms.Label lblttlmoney;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

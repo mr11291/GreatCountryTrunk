@@ -24,16 +24,9 @@ namespace AgileProd
             this.currMember = currentMember;
             initializeSettingsInfo();
             fillPartyColleague();
+            bankTab.ImageIndex = -1;
             partyList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             partyList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-            try
-            {
-                this.lblttlmoney.Text = "Total money: " + DataLogic.getBalance(currMember);
-            }
-            catch (NullReferenceException) 
-            {
-                this.lblttlmoney.Text = "Total money: " + "null";
-            }
         }
 
         private void btnAddMem_Click(object sender, EventArgs e)
@@ -107,25 +100,31 @@ namespace AgileProd
 
         private void MmberVote_Click(object sender, EventArgs e)
         {   
-            //massge with the price that the user going to pay of
-            DialogResult dialogResult = MessageBox.Show("You are going to pay " + DataLogicPerson.GetChargeBynumberofvote(currMember.NumOfVotes) + " for the right to vote..", "Some Title", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            //massge with the price that the user is going to pay
+            if (currMember.NumOfVotes == 0)
             {
-                if (DataLogicPerson.VoterFee(currMember) > 0)
-                {
-                        this.lblttlmoney.Text = "Total money: " + DataLogic.getBalance(currMember);
-                        DataLogicPerson.voteToParty(currMember.Party);
-                        MessageBox.Show("You voted to " + currMember.Party + " party");
-                }
-                else
-                {
-                    MessageBox.Show("not enough money!!!");
-                }
+                DataLogicPerson.voteToParty(currMember.Party);
+                currMember.NumOfVotes++;
+                MessageBox.Show("You have successfuly voted for " + currMember.Party);
             }
-                
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Please pay " + DataLogicPerson.GetChargeBynumberofvote(currMember.NumOfVotes) + "$ to vote", "Attention!", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (DataLogicPerson.VoterFee(currMember) > 0)
+                    {
+                        DataLogicPerson.voteToParty(currMember.Party);
+                        currMember.NumOfVotes++;
+                        bankTab.ImageIndex = 0;
+                        MessageBox.Show("You have successfuly voted for " + currMember.Party);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Insufficient funds!");
+                    }
+                }
+            } 
         }
-
-
-
     }
 }
