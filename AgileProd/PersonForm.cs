@@ -24,22 +24,44 @@ namespace AgileProd
             HideVotes();
             this.InfoAboutParty.Hide();
             partyNameComboBox.Hide();
-            var templist = DataLogicAdmin.AllParties(); 
-
-            this.partyNameComboBox.DataSource = new BindingSource(templist, null);
-            this.partyNameComboBox.DisplayMember = "Key";
-            this.partyNameComboBox.ValueMember = "Value";
-
-            user.memento = DataLogicPerson.GetMemento(user.Id);
-
-            try
+            sittingPutin.Hide();
+            happySittingPutin.Hide();
+            if (!(DataLogicPerson.getPraimeries()))
             {
-                if (user.memento.PartyName != null)
+                voteButton.Hide();
+                retrunToPartyButton.Location = new Point(5, 65);
+                var templist = DataLogicAdmin.AllParties();
+
+                this.partyNameComboBox.DataSource = new BindingSource(templist, null);
+                this.partyNameComboBox.DisplayMember = "Key";
+                this.partyNameComboBox.ValueMember = "Value";
+
+                user.memento = DataLogicPerson.GetMemento(user.Id);
+
+                try
                 {
-                    retrunToPartyButton.Visible = true;
+                    if (user.memento.PartyName != null)
+                    {
+                        retrunToPartyButton.Visible = true;
+                    }
                 }
+                catch { }
             }
-            catch { }
+            else
+            {
+                partyInfoButton.Hide();
+                VoteParty.Hide();
+                voteButton.Location = new Point(5, 5);
+                retrunToPartyButton.Location = new Point(5, 35);
+                try
+                {
+                    if (user.memento.PartyName != null)
+                    {
+                        retrunToPartyButton.Visible = true;
+                    }
+                }
+                catch { }
+            }
         }
 
         private void voteButton_Click(object sender, EventArgs e)
@@ -50,6 +72,11 @@ namespace AgileProd
             {
                 ListOf.Show();
                 partyListLabel.Show();
+            }
+            else
+            {
+                ListOf.Hide();
+                partyListLabel.Hide();
             }
 
             FillListOf();// fill the list by party name
@@ -128,33 +155,42 @@ namespace AgileProd
 
         private void InfoParty_Click(object sender, EventArgs e)
         {
-            partyNameComboBox.Show();
-            this.InfoAboutParty.Show();
-            this.InfoAboutParty.Clear();
-            List<string> listInfo = DataLogicPerson.InfoForParty(this.partyNameComboBox.Text);
-            for (int i = 0; i < listInfo.Count; i++)
+            if (!(InfoAboutParty.Visible))
             {
-                this.InfoAboutParty.Items.Add(listInfo[i]);
-
-                if (i == 0)
-                {
-                    this.InfoAboutParty.Items[0].ForeColor = Color.Blue;
-                }
+                updateInfoBoxes();
+            }
+            else
+            {
+                this.InfoAboutParty.Clear();
+                partyNameComboBox.Hide();
+                this.InfoAboutParty.Hide();
+                happySittingPutin.Hide();
+                sittingPutin.Hide();
             }
         }
 
         private void VoteParty_Click(object sender, EventArgs e)
         {
-
-            if (DataLogicPerson.VoterFee(user) > 0)
+            if (InfoAboutParty.Visible)
             {
-                bankTab.ImageIndex = 0;
-                DataLogicPerson.voteToParty(this.partyNameComboBox.Text);
-                MessageBox.Show("You have voted to " + this.partyNameComboBox.Text + " party");
+                if (DataLogicPerson.VoterFee(user) > 0)
+                {
+                    sittingPutin.Hide();
+                    happySittingPutin.Show();
+                    bankTab.ImageIndex = 0;
+                    DataLogicPerson.voteToParty(this.partyNameComboBox.Text);
+                    MessageBox.Show("You have voted for " + this.partyNameComboBox.Text + " party");
+                }
+                else
+                {
+                    happySittingPutin.Hide();
+                    sittingPutin.Show();
+                    MessageBox.Show("Insufficient funds!");
+                }
             }
             else
             {
-                MessageBox.Show("Insufficient funds!"); 
+                updateInfoBoxes();
             }
         }
 
@@ -182,5 +218,24 @@ namespace AgileProd
                 }
             }
         }
+
+        private void updateInfoBoxes()
+        {
+            sittingPutin.Show();
+            partyNameComboBox.Show();
+            this.InfoAboutParty.Show();
+            this.InfoAboutParty.Clear();
+            List<string> listInfo = DataLogicPerson.InfoForParty(this.partyNameComboBox.Text);
+            for (int i = 0; i < listInfo.Count; i++)
+            {
+                this.InfoAboutParty.Items.Add(listInfo[i]);
+
+                if (i == 0)
+                {
+                    this.InfoAboutParty.Items[0].ForeColor = Color.Blue;
+                }
+            }
+        }
     }
+
 }

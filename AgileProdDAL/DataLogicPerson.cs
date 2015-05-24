@@ -186,9 +186,6 @@ namespace AgileProdDAL
             return data.GetMessages()[person.Id].Inbox.Count;
         }
 
-        //ON GOING DEVELOPMENT!:
-
-        //replyToMessage NOT FINISHED YET!
         public static void replyToMessage(Person person, int index, bool answer)
         {
             Tuple<int, string, int> message = getMessageInbox(person, index);
@@ -251,13 +248,6 @@ namespace AgileProdDAL
             }
         }
 
-       /* public static void IfWhantTovote(Boolean answer, int id)
-        {
-            if (answer)
-            {
-                
-            }
-        }*/
         public static int GetChargeBynumberofvote(int NumOfVotes)
         {
             return (int)(baseFee * NumOfVotes*1.5);
@@ -294,6 +284,10 @@ namespace AgileProdDAL
                 return null;
             }
         }
-        
+
+        public static bool getPraimeries()
+        {
+            return data.GetPraimerise();
+        }
     }
 }
