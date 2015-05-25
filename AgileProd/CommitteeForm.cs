@@ -281,7 +281,10 @@ namespace AgileProd
             if (dialogResult == DialogResult.Yes)
             {
                 DataLogicCommittee.ChangePraimeryStatus();
-                finishPraimeriesButton.Enabled = false;   
+                finishPraimeriesButton.Enabled = false;
+                voteToMemberButton.Enabled = false;
+                addPartyButton.Enabled = false;
+                deletePartyButton.Enabled = false;
             }     
         }
 
@@ -322,19 +325,22 @@ namespace AgileProd
 
         private void lvotetoparty2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (DataLogicPerson.VoterFee(user) > 0)
-            {
+
                 DialogResult dialogResult = MessageBox.Show("Would you like to pay " + DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) + "$ to vote?", "Attention!", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    DataLogicPerson.voteToParty(this.listOfParties.Text);
-                    MessageBox.Show("You have successfuly voted for " + this.listOfParties.Text);
+                    if (DataLogicPerson.VoterFee(user) > 0)
+                    {
+                        //fix crashing on second try
+                        DataLogicPerson.voteToParty(listOfParties.SelectedItems[0].Text);
+                        MessageBox.Show("You have successfuly voted for " + listOfParties.SelectedItems[0].Text);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Insufficiant funds!");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Insufficiant funds!");
-                }
-            }
+
         }   
     }
 }

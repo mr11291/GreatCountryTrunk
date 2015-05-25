@@ -139,7 +139,7 @@ namespace AgileProd
             {
                 DataLogicPerson.voteToMember(currMember.Name);
                 currMember.NumOfVotes++;
-                MessageBox.Show("You successfuly vote to yourself");
+                MessageBox.Show("You have successfuly voted for yourself!");
             }
             else
             {
@@ -156,7 +156,7 @@ namespace AgileProd
                             bankTab.ImageIndex = 0;
                         }
                         currMember.NumOfVotes++;
-                        MessageBox.Show("You successfuly add another vote to you");
+                        MessageBox.Show("You have successfuly voted for yourself!");
                     }
                     else
                     {

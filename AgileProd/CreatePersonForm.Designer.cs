@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.createButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,21 +42,14 @@
             this.ageBox = new System.Windows.Forms.TextBox();
             this.usernameBox = new System.Windows.Forms.TextBox();
             this.passwordBox = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.animatedArrow = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animatedArrow)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::AgileProd.Properties.Resources.HappyPutinSmiling;
-            this.pictureBox1.Location = new System.Drawing.Point(-60, 192);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(222, 162);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // createButton
             // 
@@ -169,6 +161,13 @@
             this.passwordBox.Size = new System.Drawing.Size(100, 20);
             this.passwordBox.TabIndex = 13;
             // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 2500;
+            this.toolTip1.InitialDelay = 500;
+            this.toolTip1.IsBalloon = true;
+            this.toolTip1.ReshowDelay = 100;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::AgileProd.Properties.Resources.InfoIcon;
@@ -178,19 +177,37 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 14;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // toolTip1
+            // pictureBox1
             // 
-            this.toolTip1.AutoPopDelay = 2500;
-            this.toolTip1.InitialDelay = 500;
-            this.toolTip1.IsBalloon = true;
-            this.toolTip1.ReshowDelay = 100;
+            this.pictureBox1.Image = global::AgileProd.Properties.Resources.HappyPutinSmiling;
+            this.pictureBox1.Location = new System.Drawing.Point(-60, 192);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(222, 162);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // animatedArrow
+            // 
+            this.animatedArrow.BackColor = System.Drawing.Color.Transparent;
+            this.animatedArrow.Enabled = false;
+            this.animatedArrow.Image = global::AgileProd.Properties.Resources.BlueArrow;
+            this.animatedArrow.Location = new System.Drawing.Point(183, 269);
+            this.animatedArrow.Name = "animatedArrow";
+            this.animatedArrow.Size = new System.Drawing.Size(50, 30);
+            this.animatedArrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.animatedArrow.TabIndex = 15;
+            this.animatedArrow.TabStop = false;
+            this.animatedArrow.Visible = false;
             // 
             // CreatePersonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(250, 332);
+            this.Controls.Add(this.animatedArrow);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.usernameBox);
@@ -207,8 +224,11 @@
             this.Controls.Add(this.createButton);
             this.Controls.Add(this.pictureBox1);
             this.Name = "CreatePersonForm";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Create Person";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animatedArrow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,6 +252,7 @@
         private System.Windows.Forms.TextBox passwordBox;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox animatedArrow;
 
     }
 }

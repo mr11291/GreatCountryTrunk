@@ -241,7 +241,7 @@
             this.Controls.Add(this.HandShakeImage);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LoginForm";
+            this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.muteButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoBox1)).EndInit();

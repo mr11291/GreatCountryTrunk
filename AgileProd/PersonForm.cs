@@ -125,23 +125,19 @@ namespace AgileProd
             if (ListOf2.SelectedItems.Count > 0)
             {
                 //massge with the name of the member 
-                DialogResult dialogResult = MessageBox.Show("You sure that you whant to vote for " + ListOf2.SelectedItems[0].Text+"?", "Some Title", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("You sure that you want to vote for " + ListOf2.SelectedItems[0].Text+"?", "Attention!", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     //massge with the price that the user going to pay of
-                    DialogResult dialogResult2 = MessageBox.Show("Kim will charge you: " + Convert.ToString(DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes)) + "$", "", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult2 = MessageBox.Show("Kim will charge you: " + Convert.ToString(DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes)) + "$", "Attention", MessageBoxButtons.YesNo);
                     if (dialogResult2 == DialogResult.Yes)
                     {
-                        //if agree those function update the database by user choice and add one to his num of vote
-                        
-                        
-
                         if (DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) < DataLogicPerson.getBalance(user))
                         {
                             DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text);
-                            DataLogicPerson.withdrawlFromAccount(user, DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes));
                             if (user.NumOfVotes > 0)
                             {
+                                DataLogicPerson.withdrawlFromAccount(user, DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes));
                                 bankTab.ImageIndex = 0;
                             }
                             user.NumOfVotes++; 
@@ -150,16 +146,12 @@ namespace AgileProd
                         {
                             MessageBox.Show("Insufficient funds!");
                         }
-
-                        
                     }
                     else
                     {
                         return;
                     }
-                  
                 }
-
             }
             else
             {

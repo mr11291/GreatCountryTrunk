@@ -63,6 +63,16 @@ namespace AgileProd.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlueArrow {
+            get {
+                object obj = ResourceManager.GetObject("BlueArrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cashenvelope_op100 {
             get {
                 object obj = ResourceManager.GetObject("cashenvelope_op100", resourceCulture);
