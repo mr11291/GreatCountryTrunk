@@ -53,7 +53,7 @@ namespace AgileProdDAL
                 }//for i
                        //create new prson using parsed data:   ID      Full Name            Age                 User Name        Password         BankAccount       Voter Status
                 Person newPerson = new Person(Convert.ToInt32(div[0]), div[1].Trim(), Convert.ToInt32(div[2]), div[3].Trim(), div[4].Trim(), Convert.ToBoolean(div[5]), Convert.ToInt32(div[6]));
-                //Person newPerson = new Person()
+                
                 people.Add(newPerson.Id, newPerson);                            //link new person to his/hers ID
                 line = file.ReadLine();                                         //get next line
             }

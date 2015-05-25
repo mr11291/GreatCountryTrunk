@@ -85,7 +85,7 @@
             // 
             this.voteButton.Location = new System.Drawing.Point(5, 65);
             this.voteButton.Name = "voteButton";
-            this.voteButton.Size = new System.Drawing.Size(90, 23);
+            this.voteButton.Size = new System.Drawing.Size(97, 23);
             this.voteButton.TabIndex = 0;
             this.voteButton.Text = "Vote to member";
             this.voteButton.UseVisualStyleBackColor = true;
@@ -134,7 +134,7 @@
             this.partyInfoButton.Location = new System.Drawing.Point(5, 5);
             this.partyInfoButton.Name = "partyInfoButton";
             this.partyInfoButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.partyInfoButton.Size = new System.Drawing.Size(90, 23);
+            this.partyInfoButton.Size = new System.Drawing.Size(97, 23);
             this.partyInfoButton.TabIndex = 22;
             this.partyInfoButton.Text = "Party list";
             this.partyInfoButton.UseVisualStyleBackColor = true;
@@ -161,13 +161,12 @@
             this.InfoAboutParty.TabIndex = 24;
             this.InfoAboutParty.UseCompatibleStateImageBehavior = false;
             this.InfoAboutParty.View = System.Windows.Forms.View.List;
-            //this.InfoAboutParty.SelectedIndexChanged += new System.EventHandler(this.InfoAboutParty_SelectedIndexChanged);
             // 
             // VoteParty
             // 
             this.VoteParty.Location = new System.Drawing.Point(5, 35);
             this.VoteParty.Name = "VoteParty";
-            this.VoteParty.Size = new System.Drawing.Size(90, 23);
+            this.VoteParty.Size = new System.Drawing.Size(97, 23);
             this.VoteParty.TabIndex = 25;
             this.VoteParty.Text = "Vote to party";
             this.VoteParty.UseVisualStyleBackColor = true;

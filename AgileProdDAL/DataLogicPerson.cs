@@ -293,5 +293,11 @@ namespace AgileProdDAL
         {
             return data.GetPeople();
         }
+
+        public static void createPerson(int id, String name, int age, String username, String password)
+        {
+            Person newPerson = new Person(id, name, age, username, password, false);
+            data.GetPeople().Add(id, newPerson);
+        }
     }
 }
