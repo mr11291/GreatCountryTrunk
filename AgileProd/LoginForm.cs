@@ -144,5 +144,11 @@ namespace AgileProd
         {
             snd.Stop();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            CreatePersonForm form = new CreatePersonForm(this);
+            form.Show();
+        }
     }
 }

@@ -45,10 +45,12 @@
             this.infoBox1 = new System.Windows.Forms.PictureBox();
             this.HandShakeImage = new System.Windows.Forms.PictureBox();
             this.wrongToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.muteButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HandShakeImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -204,6 +206,18 @@
             // 
             this.wrongToolTip.IsBalloon = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::AgileProd.Properties.Resources.NewIcon2;
+            this.pictureBox1.Location = new System.Drawing.Point(-6, 412);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(42, 45);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnEnter;
@@ -223,6 +237,7 @@
             this.Controls.Add(this.username);
             this.Controls.Add(this.lblPass);
             this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.HandShakeImage);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -231,6 +246,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.infoBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HandShakeImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,8 +256,8 @@
 
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPass;
-        private System.Windows.Forms.TextBox username;
-        private System.Windows.Forms.TextBox password;
+        public System.Windows.Forms.TextBox username;
+        public System.Windows.Forms.TextBox password;
         private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.PictureBox HandShakeImage;
         private System.Windows.Forms.Button enterperson;
@@ -254,6 +270,7 @@
         private System.Windows.Forms.PictureBox infoBox2;
         private System.Windows.Forms.PictureBox muteButton;
         private System.Windows.Forms.ToolTip wrongToolTip;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

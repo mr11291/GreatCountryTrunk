@@ -46,7 +46,7 @@
             this.deletePartyButton = new System.Windows.Forms.Button();
             this.endElectionsButton = new System.Windows.Forms.Button();
             this.voteToPartyButton = new System.Windows.Forms.Button();
-            this.lvotetoparty2 = new System.Windows.Forms.ListView();
+            this.listOfParties = new System.Windows.Forms.ListView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabMenu.SuspendLayout();
@@ -59,7 +59,7 @@
             // 
             // blankTab
             // 
-            this.blankTab.Controls.Add(this.lvotetoparty2);
+            this.blankTab.Controls.Add(this.listOfParties);
             this.blankTab.Controls.Add(this.voteToPartyButton);
             this.blankTab.Controls.Add(this.endElectionsButton);
             this.blankTab.Controls.Add(this.deletePartyButton);
@@ -77,6 +77,23 @@
             this.blankTab.Controls.Add(this.ListOf);
             this.blankTab.Controls.Add(this.voteToMemberButton);
             this.blankTab.Text = "Committee";
+            this.blankTab.Controls.SetChildIndex(this.voteToMemberButton, 0);
+            this.blankTab.Controls.SetChildIndex(this.ListOf, 0);
+            this.blankTab.Controls.SetChildIndex(this.ListOf2, 0);
+            this.blankTab.Controls.SetChildIndex(this.partyListLabel, 0);
+            this.blankTab.Controls.SetChildIndex(this.memberListLabel, 0);
+            this.blankTab.Controls.SetChildIndex(this.addPartyButton, 0);
+            this.blankTab.Controls.SetChildIndex(this.paryLeaderIdTextBox, 0);
+            this.blankTab.Controls.SetChildIndex(this.partyLeaderIdLabel, 0);
+            this.blankTab.Controls.SetChildIndex(this.EnterButton, 0);
+            this.blankTab.Controls.SetChildIndex(this.partyNameLabel, 0);
+            this.blankTab.Controls.SetChildIndex(this.partyNameTextBox, 0);
+            this.blankTab.Controls.SetChildIndex(this.EnterButton2, 0);
+            this.blankTab.Controls.SetChildIndex(this.finishPraimeriesButton, 0);
+            this.blankTab.Controls.SetChildIndex(this.deletePartyButton, 0);
+            this.blankTab.Controls.SetChildIndex(this.endElectionsButton, 0);
+            this.blankTab.Controls.SetChildIndex(this.voteToPartyButton, 0);
+            this.blankTab.Controls.SetChildIndex(this.listOfParties, 0);
             // 
             // voteToMemberButton
             // 
@@ -232,15 +249,15 @@
             this.voteToPartyButton.UseVisualStyleBackColor = true;
             this.voteToPartyButton.Click += new System.EventHandler(this.VoteToParty_Click);
             // 
-            // lvotetoparty2
+            // listOfParties
             // 
-            this.lvotetoparty2.Location = new System.Drawing.Point(521, 23);
-            this.lvotetoparty2.Name = "lvotetoparty2";
-            this.lvotetoparty2.Size = new System.Drawing.Size(141, 218);
-            this.lvotetoparty2.TabIndex = 16;
-            this.lvotetoparty2.UseCompatibleStateImageBehavior = false;
-            this.lvotetoparty2.View = System.Windows.Forms.View.List;
-            this.lvotetoparty2.SelectedIndexChanged += new System.EventHandler(this.lvotetoparty2_SelectedIndexChanged);
+            this.listOfParties.Location = new System.Drawing.Point(427, 23);
+            this.listOfParties.Name = "listOfParties";
+            this.listOfParties.Size = new System.Drawing.Size(141, 218);
+            this.listOfParties.TabIndex = 16;
+            this.listOfParties.UseCompatibleStateImageBehavior = false;
+            this.listOfParties.View = System.Windows.Forms.View.List;
+            this.listOfParties.SelectedIndexChanged += new System.EventHandler(this.lvotetoparty2_SelectedIndexChanged);
             // 
             // imageList1
             // 
@@ -280,7 +297,7 @@
         private System.Windows.Forms.Button deletePartyButton;
         private System.Windows.Forms.Button endElectionsButton;
         private System.Windows.Forms.Button voteToPartyButton;
-        private System.Windows.Forms.ListView lvotetoparty2;
+        private System.Windows.Forms.ListView listOfParties;
         
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ImageList imageList1;

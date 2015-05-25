@@ -54,7 +54,7 @@ namespace AgileProd
                     {
                         if (DataLogicCommittee.DeleteParty(this.input) == false)
                         {
-                            this.input = "";
+                            this.input = String.Empty;
                             inputWarning.Show();
                         }
                         else

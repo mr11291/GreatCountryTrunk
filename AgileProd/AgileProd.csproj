@@ -69,6 +69,12 @@
     <Compile Include="DeletPartyForm.Designer.cs">
       <DependentUpon>DeletPartyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreatePersonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreatePersonForm.Designer.cs">
+      <DependentUpon>CreatePersonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SlogenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommitteeForm.resx">
       <DependentUpon>CommitteeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreatePersonForm.resx">
+      <DependentUpon>CreatePersonForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeletPartyForm.resx">
       <DependentUpon>DeletPartyForm.cs</DependentUpon>

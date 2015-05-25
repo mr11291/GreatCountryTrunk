@@ -30,7 +30,7 @@ namespace AgileProd
             //hise all the tabs and text box
             HideVoets();
             HideAddParty();
-            lvotetoparty2.Hide();
+            listOfParties.Hide();
 
             if (DataLogicCommittee.getPraimeries() == true)
             {
@@ -57,6 +57,8 @@ namespace AgileProd
             {
                 voteToPartyButton.Location = new Point(5, 5);
                 endElectionsButton.Location = new Point(5, 35);
+                listOfParties.Location = new Point(113, 25);
+
                 voteToPartyButton.Show();
                 endElectionsButton.Show();
 
@@ -275,12 +277,11 @@ namespace AgileProd
         {
             HideVoets();
             HideAddParty();
-            DialogResult dialogResult = MessageBox.Show("You sure that you whant to start the elction? ", "Some Title", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to end the Praimeries? ", "Attenction!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 DataLogicCommittee.ChangePraimeryStatus();
-                finishPraimeriesButton.Enabled = false;
-                    
+                finishPraimeriesButton.Enabled = false;   
             }     
         }
 
@@ -307,13 +308,13 @@ namespace AgileProd
         {
             HideVoets();
             HideAddParty();
-            lvotetoparty2.Show();
+            listOfParties.Show();
             partyListLabel.Show();
-            foreach (var item in DataLogicCommittee.GetPartyList())//get all the partymember and add it to the list
+            foreach (var item in DataLogicCommittee.GetPartyList())//get all the party members and add it to the list
             {
-                lvotetoparty2.Items.Add(item.Key);
+                listOfParties.Items.Add(item.Key);
             }
-            MessageBox.Show("Click on the party that you whant to vote for..");
+            MessageBox.Show("Please click on the party that you want to vote for");
            
 
             
@@ -321,17 +322,17 @@ namespace AgileProd
 
         private void lvotetoparty2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("You are going to pay " + DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) + " for the right to vote..", "Some Title", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if (DataLogicPerson.VoterFee(user) > 0)
             {
-                if (DataLogicPerson.VoterFee(user) > 0)
+                DialogResult dialogResult = MessageBox.Show("Would you like to pay " + DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) + "$ to vote?", "Attention!", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    DataLogicPerson.voteToParty(this.lvotetoparty2.Text);
-                    MessageBox.Show("You voted to " + this.lvotetoparty2.Text + " party");
+                    DataLogicPerson.voteToParty(this.listOfParties.Text);
+                    MessageBox.Show("You have successfuly voted for " + this.listOfParties.Text);
                 }
                 else
                 {
-                    MessageBox.Show("not enough money!!!");
+                    MessageBox.Show("Insufficiant funds!");
                 }
             }
         }   
