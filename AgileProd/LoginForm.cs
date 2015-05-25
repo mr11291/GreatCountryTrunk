@@ -20,10 +20,6 @@ namespace AgileProd
         public LoginForm()
         {
             InitializeComponent();
-            enteradmin.Hide();
-            entercommittee.Hide();
-            entermember.Show();
-            enterperson.Show();
             playAnthem();
             snd.Play();
         }
@@ -81,7 +77,7 @@ namespace AgileProd
             }
             else
             {
-                inputWarning.Show();
+                wrongInput();
                 return;
             }
         }
@@ -128,14 +124,25 @@ namespace AgileProd
 
         private void infoBox1_Click(object sender, EventArgs e)
         {
-            userNameTip.Show("", this, 160, 225);
-            userNameTip.Show("Please enter your username or register to the system", this, 160, 230, 5000);
+            userNameTip.Show("", this, 150, 100);
+            userNameTip.Show("Please enter your username or register to the system", this, 145, 193, 5000);
         }
 
         private void infoBox2_Click(object sender, EventArgs e)
         {
-            passwordTip.Show("", this, 160, 225);
-            passwordTip.Show("Please enter your password or register to the system", this, 160, 230, 5000);
+            passwordTip.Show("", this, 150, 100);
+            passwordTip.Show("Please enter your password or register to the system", this, 145, 193, 5000);
+        }
+
+        private void wrongInput()
+        {
+            passwordTip.Show("", this, 150, 150);
+            passwordTip.Show("Ether your password or username are incorrect", this, 145, 193, 5000);
+        }
+
+        private void muteButton_Click(object sender, EventArgs e)
+        {
+            snd.Stop();
         }
     }
 }

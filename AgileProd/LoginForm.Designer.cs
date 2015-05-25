@@ -34,17 +34,18 @@
             this.username = new System.Windows.Forms.TextBox();
             this.password = new System.Windows.Forms.TextBox();
             this.btnEnter = new System.Windows.Forms.Button();
-            this.lblCreateVol = new System.Windows.Forms.LinkLabel();
-            this.inputWarning = new System.Windows.Forms.Label();
             this.enterperson = new System.Windows.Forms.Button();
             this.entercommittee = new System.Windows.Forms.Button();
             this.entermember = new System.Windows.Forms.Button();
             this.enteradmin = new System.Windows.Forms.Button();
             this.userNameTip = new System.Windows.Forms.ToolTip(this.components);
             this.passwordTip = new System.Windows.Forms.ToolTip(this.components);
+            this.muteButton = new System.Windows.Forms.PictureBox();
             this.infoBox2 = new System.Windows.Forms.PictureBox();
             this.infoBox1 = new System.Windows.Forms.PictureBox();
             this.HandShakeImage = new System.Windows.Forms.PictureBox();
+            this.wrongToolTip = new System.Windows.Forms.ToolTip(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.muteButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HandShakeImage)).BeginInit();
@@ -87,7 +88,7 @@
             // 
             this.btnEnter.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.btnEnter.Location = new System.Drawing.Point(120, 104);
+            this.btnEnter.Location = new System.Drawing.Point(120, 67);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(75, 23);
             this.btnEnter.TabIndex = 4;
@@ -95,65 +96,48 @@
             this.btnEnter.UseVisualStyleBackColor = false;
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
-            // lblCreateVol
-            // 
-            this.lblCreateVol.AutoSize = true;
-            this.lblCreateVol.Location = new System.Drawing.Point(12, 474);
-            this.lblCreateVol.Name = "lblCreateVol";
-            this.lblCreateVol.Size = new System.Drawing.Size(63, 13);
-            this.lblCreateVol.TabIndex = 5;
-            this.lblCreateVol.TabStop = true;
-            this.lblCreateVol.Text = "Create User";
-            // 
-            // inputWarning
-            // 
-            this.inputWarning.AutoSize = true;
-            this.inputWarning.ForeColor = System.Drawing.Color.Red;
-            this.inputWarning.Location = new System.Drawing.Point(51, 74);
-            this.inputWarning.Name = "inputWarning";
-            this.inputWarning.Size = new System.Drawing.Size(170, 13);
-            this.inputWarning.TabIndex = 6;
-            this.inputWarning.Text = "username or password is incorrect!";
-            this.inputWarning.Visible = false;
-            // 
             // enterperson
             // 
-            this.enterperson.Location = new System.Drawing.Point(234, 166);
+            this.enterperson.Location = new System.Drawing.Point(234, 123);
             this.enterperson.Name = "enterperson";
             this.enterperson.Size = new System.Drawing.Size(47, 23);
             this.enterperson.TabIndex = 8;
             this.enterperson.Text = "person";
             this.enterperson.UseVisualStyleBackColor = true;
+            this.enterperson.Visible = false;
             this.enterperson.Click += new System.EventHandler(this.enterperson_Click);
             // 
             // entercommittee
             // 
-            this.entercommittee.Location = new System.Drawing.Point(216, 224);
+            this.entercommittee.Location = new System.Drawing.Point(216, 181);
             this.entercommittee.Name = "entercommittee";
             this.entercommittee.Size = new System.Drawing.Size(65, 23);
             this.entercommittee.TabIndex = 9;
             this.entercommittee.Text = "committee";
             this.entercommittee.UseVisualStyleBackColor = true;
+            this.entercommittee.Visible = false;
             this.entercommittee.Click += new System.EventHandler(this.entercommittee_Click);
             // 
             // entermember
             // 
-            this.entermember.Location = new System.Drawing.Point(226, 195);
+            this.entermember.Location = new System.Drawing.Point(226, 152);
             this.entermember.Name = "entermember";
             this.entermember.Size = new System.Drawing.Size(55, 23);
             this.entermember.TabIndex = 10;
             this.entermember.Text = "member";
             this.entermember.UseVisualStyleBackColor = true;
+            this.entermember.Visible = false;
             this.entermember.Click += new System.EventHandler(this.entermember_Click);
             // 
             // enteradmin
             // 
-            this.enteradmin.Location = new System.Drawing.Point(234, 139);
+            this.enteradmin.Location = new System.Drawing.Point(234, 96);
             this.enteradmin.Name = "enteradmin";
             this.enteradmin.Size = new System.Drawing.Size(47, 21);
             this.enteradmin.TabIndex = 11;
             this.enteradmin.Text = "admin";
             this.enteradmin.UseVisualStyleBackColor = true;
+            this.enteradmin.Visible = false;
             this.enteradmin.Click += new System.EventHandler(this.enteradmin_Click);
             // 
             // userNameTip
@@ -170,8 +154,21 @@
             this.passwordTip.IsBalloon = true;
             this.passwordTip.ReshowDelay = 100;
             // 
+            // muteButton
+            // 
+            this.muteButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.muteButton.Image = global::AgileProd.Properties.Resources.MuteButton;
+            this.muteButton.Location = new System.Drawing.Point(248, 422);
+            this.muteButton.Name = "muteButton";
+            this.muteButton.Size = new System.Drawing.Size(33, 29);
+            this.muteButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.muteButton.TabIndex = 14;
+            this.muteButton.TabStop = false;
+            this.muteButton.Click += new System.EventHandler(this.muteButton_Click);
+            // 
             // infoBox2
             // 
+            this.infoBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.infoBox2.Image = global::AgileProd.Properties.Resources.InfoIcon;
             this.infoBox2.Location = new System.Drawing.Point(226, 44);
             this.infoBox2.Name = "infoBox2";
@@ -183,6 +180,7 @@
             // 
             // infoBox1
             // 
+            this.infoBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.infoBox1.Image = global::AgileProd.Properties.Resources.InfoIcon;
             this.infoBox1.Location = new System.Drawing.Point(226, 18);
             this.infoBox1.Name = "infoBox1";
@@ -195,12 +193,16 @@
             // HandShakeImage
             // 
             this.HandShakeImage.Image = global::AgileProd.Properties.Resources.KimLogoSmaller;
-            this.HandShakeImage.Location = new System.Drawing.Point(-37, 130);
+            this.HandShakeImage.Location = new System.Drawing.Point(-48, 96);
             this.HandShakeImage.Name = "HandShakeImage";
             this.HandShakeImage.Size = new System.Drawing.Size(369, 341);
             this.HandShakeImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.HandShakeImage.TabIndex = 7;
             this.HandShakeImage.TabStop = false;
+            // 
+            // wrongToolTip
+            // 
+            this.wrongToolTip.IsBalloon = true;
             // 
             // LoginForm
             // 
@@ -208,15 +210,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(284, 492);
+            this.ClientSize = new System.Drawing.Size(284, 454);
+            this.Controls.Add(this.muteButton);
             this.Controls.Add(this.infoBox2);
             this.Controls.Add(this.infoBox1);
             this.Controls.Add(this.enteradmin);
             this.Controls.Add(this.entermember);
             this.Controls.Add(this.entercommittee);
             this.Controls.Add(this.enterperson);
-            this.Controls.Add(this.inputWarning);
-            this.Controls.Add(this.lblCreateVol);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.password);
             this.Controls.Add(this.username);
@@ -226,6 +227,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
+            ((System.ComponentModel.ISupportInitialize)(this.muteButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HandShakeImage)).EndInit();
@@ -241,8 +243,6 @@
         private System.Windows.Forms.TextBox username;
         private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.Button btnEnter;
-        private System.Windows.Forms.LinkLabel lblCreateVol;
-        private System.Windows.Forms.Label inputWarning;
         private System.Windows.Forms.PictureBox HandShakeImage;
         private System.Windows.Forms.Button enterperson;
         private System.Windows.Forms.Button entercommittee;
@@ -252,6 +252,8 @@
         private System.Windows.Forms.ToolTip passwordTip;
         private System.Windows.Forms.PictureBox infoBox1;
         private System.Windows.Forms.PictureBox infoBox2;
+        private System.Windows.Forms.PictureBox muteButton;
+        private System.Windows.Forms.ToolTip wrongToolTip;
     }
 }
 
