@@ -68,6 +68,18 @@
             this.blankTab.Controls.Add(this.sittingPutin);
             this.blankTab.Controls.Add(this.happySittingPutin);
             this.blankTab.Text = "Person";
+            this.blankTab.Controls.SetChildIndex(this.happySittingPutin, 0);
+            this.blankTab.Controls.SetChildIndex(this.sittingPutin, 0);
+            this.blankTab.Controls.SetChildIndex(this.voteButton, 0);
+            this.blankTab.Controls.SetChildIndex(this.partyListLabel, 0);
+            this.blankTab.Controls.SetChildIndex(this.MemberListLabel, 0);
+            this.blankTab.Controls.SetChildIndex(this.ListOf, 0);
+            this.blankTab.Controls.SetChildIndex(this.ListOf2, 0);
+            this.blankTab.Controls.SetChildIndex(this.partyInfoButton, 0);
+            this.blankTab.Controls.SetChildIndex(this.partyNameComboBox, 0);
+            this.blankTab.Controls.SetChildIndex(this.InfoAboutParty, 0);
+            this.blankTab.Controls.SetChildIndex(this.VoteParty, 0);
+            this.blankTab.Controls.SetChildIndex(this.retrunToPartyButton, 0);
             // 
             // voteButton
             // 
@@ -149,6 +161,7 @@
             this.InfoAboutParty.TabIndex = 24;
             this.InfoAboutParty.UseCompatibleStateImageBehavior = false;
             this.InfoAboutParty.View = System.Windows.Forms.View.List;
+            //this.InfoAboutParty.SelectedIndexChanged += new System.EventHandler(this.InfoAboutParty_SelectedIndexChanged);
             // 
             // VoteParty
             // 
@@ -201,7 +214,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 312);
+            this.ClientSize = new System.Drawing.Size(684, 305);
             this.Name = "PersonForm";
             this.Text = "PersonForm";
             this.tabMenu.ResumeLayout(false);

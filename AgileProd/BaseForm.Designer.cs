@@ -30,6 +30,7 @@
         {
             this.tabMenu = new System.Windows.Forms.TabControl();
             this.blankTab = new System.Windows.Forms.TabPage();
+            this.username = new System.Windows.Forms.TextBox();
             this.bankTab = new System.Windows.Forms.TabPage();
             this.listView1 = new System.Windows.Forms.ListView();
             this.lastTransactionsLabel = new System.Windows.Forms.Label();
@@ -59,6 +60,7 @@
             this.settingsIdLabel = new System.Windows.Forms.Label();
             this.settingNameLabel = new System.Windows.Forms.Label();
             this.tabMenu.SuspendLayout();
+            this.blankTab.SuspendLayout();
             this.bankTab.SuspendLayout();
             this.messageTab.SuspendLayout();
             this.settingsTab.SuspendLayout();
@@ -80,6 +82,7 @@
             // 
             this.blankTab.BackColor = System.Drawing.SystemColors.ControlLight;
             this.blankTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.blankTab.Controls.Add(this.username);
             this.blankTab.ForeColor = System.Drawing.SystemColors.ControlText;
             this.blankTab.Location = new System.Drawing.Point(4, 22);
             this.blankTab.Name = "blankTab";
@@ -87,6 +90,16 @@
             this.blankTab.Size = new System.Drawing.Size(672, 284);
             this.blankTab.TabIndex = 1;
             this.blankTab.Text = "Blank";
+            // 
+            // username
+            // 
+            this.username.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.username.ForeColor = System.Drawing.Color.Red;
+            this.username.Location = new System.Drawing.Point(6, 259);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(126, 20);
+            this.username.TabIndex = 31;
+            this.username.Text = "User:";
             // 
             // bankTab
             // 
@@ -382,6 +395,8 @@
             this.Name = "BaseForm";
             this.Text = "BaseForm";
             this.tabMenu.ResumeLayout(false);
+            this.blankTab.ResumeLayout(false);
+            this.blankTab.PerformLayout();
             this.bankTab.ResumeLayout(false);
             this.bankTab.PerformLayout();
             this.messageTab.ResumeLayout(false);
@@ -424,6 +439,7 @@
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Button btnAllMsg;
         private System.Windows.Forms.Button readBtn;
+        private System.Windows.Forms.TextBox username;
 
     }
 }

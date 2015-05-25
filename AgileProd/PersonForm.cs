@@ -104,12 +104,11 @@ namespace AgileProd
             ListOf2.Clear();
             ListOf2.Show();
             MemberListLabel.Show();
-            ListOf2.Clear();
             if (ListOf.SelectedItems.Count > 0)
             {
                 foreach (var item in DataLogicMember.GetMember().Values)
                 {
-                    if (item.Party.Equals(ListOf.SelectedItems[0].Text.Replace(" ", String.Empty)))
+                    if (item.Party.Equals(ListOf.SelectedItems[0].Text.Trim()))
                     {
                         ListOf2.Items.Add(item.Name);//add the member to list
                     }
@@ -134,10 +133,23 @@ namespace AgileProd
                     if (dialogResult2 == DialogResult.Yes)
                     {
                         //if agree those function update the database by user choice and add one to his num of vote
+                        
                         DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text);
-                        DataLogicPerson.withdrawlFromAccount(user, DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes));
-                        bankTab.ImageIndex = 0;
-                        user.NumOfVotes++;
+
+                        if (DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) < DataLogicPerson.getBalance(user))
+                        {
+                            DataLogicPerson.withdrawlFromAccount(user, DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes));
+                            if (user.NumOfVotes > 0)
+                            {
+                                bankTab.ImageIndex = 0;
+                            }
+                            user.NumOfVotes++; 
+                        }
+                        else
+                        {
+                            MessageBox.Show("Insufficient funds!");
+                        }
+
                         
                     }
                     else
@@ -208,14 +220,21 @@ namespace AgileProd
                 this.InfoAboutParty.Show();
                 this.InfoAboutParty.Clear();
                 List<string> listInfo = DataLogicPerson.InfoForParty(this.partyNameComboBox.Text);
-                for (int i = 0; i < listInfo.Count; i++)
+                for (int i = 0, j = 0; i < listInfo.Count(); i++)
                 {
-                    this.InfoAboutParty.Items.Add(listInfo[i]);
 
                     if (i == 0)
                     {
-                        this.InfoAboutParty.Items[0].ForeColor = Color.Blue;
+                        this.InfoAboutParty.Items.Add(listInfo[j + 1]);
+                        i++;
+
                     }
+                    else
+                    {
+                        this.InfoAboutParty.Items.Add(listInfo[i]);
+
+                    }
+
                 }
             }
         }
@@ -226,17 +245,29 @@ namespace AgileProd
             partyNameComboBox.Show();
             this.InfoAboutParty.Show();
             this.InfoAboutParty.Clear();
-            List<string> listInfo = DataLogicPerson.InfoForParty(this.partyNameComboBox.Text);
-            for (int i = 0; i < listInfo.Count; i++)
-            {
-                this.InfoAboutParty.Items.Add(listInfo[i]);
 
-                if (i == 0)
+            List<string> listInfo = DataLogicPerson.InfoForParty(this.partyNameComboBox.Text);
+
+            
+            for (int i=0,j=0; i < listInfo.Count(); i++)
+            {
+                
+                if(i==0)
                 {
-                    this.InfoAboutParty.Items[0].ForeColor = Color.Blue;
+                    this.InfoAboutParty.Items.Add(listInfo[j + 1]);
+                    i++;
+             
                 }
+                else
+                {
+                    this.InfoAboutParty.Items.Add(listInfo[i]);
+
+                }
+                
             }
         }
+
+        
     }
 
 }
