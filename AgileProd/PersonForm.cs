@@ -136,6 +136,7 @@ namespace AgileProd
                         //if agree those function update the database by user choice and add one to his num of vote
                         DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text);
                         DataLogicPerson.withdrawlFromAccount(user, DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes));
+                        bankTab.ImageIndex = 0;
                         user.NumOfVotes++;
                         
                     }
