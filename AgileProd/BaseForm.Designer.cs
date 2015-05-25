@@ -95,7 +95,7 @@
             // 
             this.username.BackColor = System.Drawing.SystemColors.ControlLight;
             this.username.ForeColor = System.Drawing.Color.Red;
-            this.username.Location = new System.Drawing.Point(1, 259);
+            this.username.Location = new System.Drawing.Point(6, 259);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(126, 20);
             this.username.TabIndex = 31;

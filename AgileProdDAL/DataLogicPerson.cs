@@ -259,10 +259,9 @@ namespace AgileProdDAL
             List<string> ForParty = new List<string>();
             foreach (var x in data.GetMembers().Values)
             {
-                if (x.Party == nParty.Replace(" ",""))
+                if (x.Party == nParty)
                 {
                     ForParty.Add(x.Name);
-
                     if (x.Location == -1)
                     {
                         ForParty.Insert(0, x.Slogan);

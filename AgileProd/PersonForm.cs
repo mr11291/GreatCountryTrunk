@@ -21,7 +21,6 @@ namespace AgileProd
         {           
             InitializeComponent();
             user = Cuser;
-            
             HideVotes();
             this.InfoAboutParty.Hide();
             partyNameComboBox.Hide();
@@ -76,8 +75,6 @@ namespace AgileProd
             }
             else
             {
-                MemberListLabel.Hide();
-                ListOf2.Hide();
                 ListOf.Hide();
                 partyListLabel.Hide();
             }
@@ -221,14 +218,21 @@ namespace AgileProd
                 this.InfoAboutParty.Show();
                 this.InfoAboutParty.Clear();
                 List<string> listInfo = DataLogicPerson.InfoForParty(this.partyNameComboBox.Text);
-                for (int i = 0; i < listInfo.Count; i++)
+                for (int i = 0, j = 0; i < listInfo.Count(); i++)
                 {
-                    this.InfoAboutParty.Items.Add(listInfo[i]);
 
                     if (i == 0)
                     {
-                        this.InfoAboutParty.Items[0].ForeColor = Color.Blue;
+                        this.InfoAboutParty.Items.Add(listInfo[j + 1]);
+                        i++;
+
                     }
+                    else
+                    {
+                        this.InfoAboutParty.Items.Add(listInfo[i]);
+
+                    }
+
                 }
             }
         }
@@ -239,17 +243,29 @@ namespace AgileProd
             partyNameComboBox.Show();
             this.InfoAboutParty.Show();
             this.InfoAboutParty.Clear();
-            List<string> listInfo = DataLogicPerson.InfoForParty(this.partyNameComboBox.Text);
-            for (int i = 0; i < listInfo.Count; i++)
-            {
-                this.InfoAboutParty.Items.Add(listInfo[i]);
 
-                if (i == 0)
+            List<string> listInfo = DataLogicPerson.InfoForParty(this.partyNameComboBox.Text);
+
+            
+            for (int i=0,j=0; i < listInfo.Count(); i++)
+            {
+                
+                if(i==0)
                 {
-                    this.InfoAboutParty.Items[0].ForeColor = Color.Blue;
+                    this.InfoAboutParty.Items.Add(listInfo[j + 1]);
+                    i++;
+             
                 }
+                else
+                {
+                    this.InfoAboutParty.Items.Add(listInfo[i]);
+
+                }
+                
             }
         }
+
+        
     }
 
 }
