@@ -134,10 +134,11 @@ namespace AgileProd
                     {
                         //if agree those function update the database by user choice and add one to his num of vote
                         
-                        DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text);
+                        
 
                         if (DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) < DataLogicPerson.getBalance(user))
                         {
+                            DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text);
                             DataLogicPerson.withdrawlFromAccount(user, DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes));
                             if (user.NumOfVotes > 0)
                             {

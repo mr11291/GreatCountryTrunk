@@ -48,6 +48,7 @@
             this.changeSlogenButton = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Votetomember = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
             this.blankTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -59,6 +60,7 @@
             // 
             // blankTab
             // 
+            this.blankTab.Controls.Add(this.Votetomember);
             this.blankTab.Controls.Add(this.changeSlogenButton);
             this.blankTab.Controls.Add(this.partyList);
             this.blankTab.Controls.Add(this.label6);
@@ -74,6 +76,21 @@
             this.blankTab.Controls.Add(this.MmberVote);
             this.blankTab.Controls.Add(this.pictureBox1);
             this.blankTab.Text = "Party Member";
+            this.blankTab.Controls.SetChildIndex(this.pictureBox1, 0);
+            this.blankTab.Controls.SetChildIndex(this.MmberVote, 0);
+            this.blankTab.Controls.SetChildIndex(this.button2, 0);
+            this.blankTab.Controls.SetChildIndex(this.quitPartyButton, 0);
+            this.blankTab.Controls.SetChildIndex(this.label2, 0);
+            this.blankTab.Controls.SetChildIndex(this.PartySlogenBox, 0);
+            this.blankTab.Controls.SetChildIndex(this.label3, 0);
+            this.blankTab.Controls.SetChildIndex(this.PartyNameBox, 0);
+            this.blankTab.Controls.SetChildIndex(this.MySlogenBox, 0);
+            this.blankTab.Controls.SetChildIndex(this.label5, 0);
+            this.blankTab.Controls.SetChildIndex(this.button5, 0);
+            this.blankTab.Controls.SetChildIndex(this.label6, 0);
+            this.blankTab.Controls.SetChildIndex(this.partyList, 0);
+            this.blankTab.Controls.SetChildIndex(this.changeSlogenButton, 0);
+            this.blankTab.Controls.SetChildIndex(this.Votetomember, 0);
             // 
             // bankTab
             // 
@@ -119,7 +136,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(5, 65);
+            this.button2.Location = new System.Drawing.Point(4, 91);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(106, 23);
             this.button2.TabIndex = 1;
@@ -192,7 +209,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(5, 95);
+            this.button5.Location = new System.Drawing.Point(4, 120);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(107, 24);
             this.button5.TabIndex = 10;
@@ -221,7 +238,7 @@
             // 
             // changeSlogenButton
             // 
-            this.changeSlogenButton.Location = new System.Drawing.Point(5, 35);
+            this.changeSlogenButton.Location = new System.Drawing.Point(5, 62);
             this.changeSlogenButton.Name = "changeSlogenButton";
             this.changeSlogenButton.Size = new System.Drawing.Size(106, 23);
             this.changeSlogenButton.TabIndex = 13;
@@ -244,6 +261,16 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
+            // 
+            // Votetomember
+            // 
+            this.Votetomember.Location = new System.Drawing.Point(4, 33);
+            this.Votetomember.Name = "Votetomember";
+            this.Votetomember.Size = new System.Drawing.Size(107, 23);
+            this.Votetomember.TabIndex = 32;
+            this.Votetomember.Text = "Vote to yourself";
+            this.Votetomember.UseVisualStyleBackColor = true;
+            this.Votetomember.Click += new System.EventHandler(this.Votetomember_Click);
             // 
             // MemberForm
             // 
@@ -289,5 +316,6 @@
         private System.Windows.Forms.Button changeSlogenButton;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button Votetomember;
     }
 }

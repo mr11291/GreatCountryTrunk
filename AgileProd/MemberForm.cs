@@ -99,7 +99,7 @@ namespace AgileProd
 
 
         private void MmberVote_Click(object sender, EventArgs e)
-        {   
+        {
             //massge with the price that the user is going to pay
             if (currMember.NumOfVotes == 0)
             {
@@ -109,14 +109,19 @@ namespace AgileProd
             }
             else
             {
-                DialogResult dialogResult = MessageBox.Show("Please pay " + DataLogicPerson.GetChargeBynumberofvote(currMember.NumOfVotes) + "$ to vote", "Attention!", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Please pay to kim " + DataLogicPerson.GetChargeBynumberofvote(currMember.NumOfVotes) + "$ to vote", "Attention!", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    if (DataLogicPerson.VoterFee(currMember) > 0)
+                    if (DataLogicPerson.GetChargeBynumberofvote(currMember.NumOfVotes) < DataLogicPerson.getBalance(currMember))
                     {
+
                         DataLogicPerson.voteToParty(currMember.Party);
+                        DataLogicPerson.withdrawlFromAccount(currMember, DataLogicPerson.GetChargeBynumberofvote(currMember.NumOfVotes));
+                        if (currMember.NumOfVotes > 0)
+                        {
+                            bankTab.ImageIndex = 0;
+                        }
                         currMember.NumOfVotes++;
-                        bankTab.ImageIndex = 0;
                         MessageBox.Show("You have successfuly voted for " + currMember.Party);
                     }
                     else
@@ -124,7 +129,43 @@ namespace AgileProd
                         MessageBox.Show("Insufficient funds!");
                     }
                 }
-            } 
+
+            }
+            
+        }
+        private void Votetomember_Click(object sender, EventArgs e)
+        {
+            if (currMember.NumOfVotes == 0)
+            {
+                DataLogicPerson.voteToMember(currMember.Name);
+                currMember.NumOfVotes++;
+                MessageBox.Show("You successfuly vote to yourself");
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Please pay to kim " + DataLogicPerson.GetChargeBynumberofvote(currMember.NumOfVotes) + "$ to vote", "Attention!", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (DataLogicPerson.GetChargeBynumberofvote(currMember.NumOfVotes) < DataLogicPerson.getBalance(currMember))
+                    {
+
+                        DataLogicPerson.voteToMember(currMember.Name);
+                        DataLogicPerson.withdrawlFromAccount(currMember, DataLogicPerson.GetChargeBynumberofvote(currMember.NumOfVotes));
+                        if (currMember.NumOfVotes > 0)
+                        {
+                            bankTab.ImageIndex = 0;
+                        }
+                        currMember.NumOfVotes++;
+                        MessageBox.Show("You successfuly add another vote to you");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Insufficient funds!");
+                    }
+                }
+
+            }
+
         }
     }
 }
