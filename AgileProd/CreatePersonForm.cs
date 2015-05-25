@@ -44,7 +44,8 @@ namespace AgileProd
                 String usern = usernameBox.Text;
                 String passw = passwordBox.Text;
                 DataLogicPerson.createPerson(Convert.ToInt32(id), name, Convert.ToInt32(age), usern, passw);
-                //TODO create bank account and message box. test person
+                Bank account = new Bank(generateBalance(), Convert.ToInt32(id), name);
+                DataLogicBank.getBankDictionary().Add(account.Id, account);        
                 login.username.Text = usernameBox.Text;
                 login.password.Text = passwordBox.Text;
                 this.Close();
@@ -61,5 +62,15 @@ namespace AgileProd
             }
             return id;
         }
+
+        public int generateBalance()
+        {
+            Random rand = new Random();                      //initialize new sudo random
+            int amount = rand.Next(0, 100000);               //generate a random number
+
+            return amount;                                  //return the amount
+
+
+        }//generateBalance()
     }
 }

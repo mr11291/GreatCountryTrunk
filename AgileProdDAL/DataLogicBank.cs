@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using AgileProdObjectModel;
 namespace AgileProdDAL
 {
-    class DataLogicBank
+    public static class DataLogicBank
     {
         //Varaiables
         private static DataRepository data;
@@ -16,6 +16,12 @@ namespace AgileProdDAL
         {
             data = DataRepository.GetDataRepository();
         }
+
+        public static Dictionary<int, Bank> getBankDictionary()
+        {
+            return data.GetBankAccounts();
+        }
+        
 
     }
 }
