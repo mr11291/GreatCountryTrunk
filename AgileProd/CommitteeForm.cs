@@ -19,6 +19,7 @@ namespace AgileProd
         private Head user;
         private static int HeadId;//keep the id of the new head of party
         private static String Partyname;//keep the name of the new party
+
         //constractor of committee
         public CommitteeForm(Head user): base(user)
         {
@@ -30,7 +31,47 @@ namespace AgileProd
             HideVoets();
             HideAddParty();
             lvotetoparty2.Hide();
+
+            if (DataLogicCommittee.getPraimeries() == true)
+            {
+                voteToMemberButton.Location = new Point(5, 5);
+                addPartyButton.Location = new Point(5, 35);
+                deletePartyButton.Location = new Point(5, 65);
+                finishPraimeriesButton.Location = new Point(5, 95);
+                partyLeaderIdLabel.Location = new Point(110, 10);
+                paryLeaderIdTextBox.Location = new Point(223, 7);
+                partyNameLabel.Location = new Point(110, 35);
+                partyNameTextBox.Location = new Point(223, 32);
+                EnterButton.Location = new Point(370, 7);
+                EnterButton2.Location = new Point(370, 32);
+
+                voteToMemberButton.Show();
+                addPartyButton.Show();
+                deletePartyButton.Show();
+                finishPraimeriesButton.Show();
+                
+                voteToPartyButton.Hide();
+                endElectionsButton.Hide();
+            }
+            else
+            {
+                voteToPartyButton.Location = new Point(5, 5);
+                endElectionsButton.Location = new Point(5, 35);
+                voteToPartyButton.Show();
+                endElectionsButton.Show();
+
+                voteToMemberButton.Hide();
+                addPartyButton.Hide();
+                deletePartyButton.Hide();
+                finishPraimeriesButton.Hide();
+            }
+
+
+
+
+
         }
+
         //all the active of vote button
         private void VoteButton_Click(object sender, EventArgs e)
         {
@@ -38,11 +79,22 @@ namespace AgileProd
             if(!ListOf.Visible)//check the status of listOf
             {
                 ListOf.Show();
-                CommitteListLabel.Show();
+                partyListLabel.Show();
+            }
+            else
+            {
+                ListOf.Hide();
+                partyListLabel.Hide();
+                if (ListOf2.Visible)
+                {
+                    memberListLabel.Hide();
+                    ListOf2.Hide();
+                }
             }
                 
             FeelListOf();// feel the list by party name
         }
+
         // feel the list by party name
         private void FeelListOf()
         {
@@ -52,122 +104,172 @@ namespace AgileProd
                 ListOf.Items.Add(item.Key);
             }
         }
+
         //show all the members in the in the chosen party
         private void ListOf_SelectedIndexChanged(object sender, EventArgs e)
         {
             ListOf2.Show();
-            MemberListLabel.Show();
+            memberListLabel.Show();
             ListOf2.Clear();
             if (ListOf.SelectedItems.Count > 0)
             {
                 foreach (var item in DataLogicMember.GetMember().Values)
                 {
-                    if (item.Party.Equals(ListOf.SelectedItems[0].Text.Replace(" ",String.Empty)))
+                    if (item.Party.Equals(ListOf.SelectedItems[0].Text.Trim()))
                     {
-                        ListOf2.Items.Add(item.Name);//add the member to list
-                        
+                        ListOf2.Items.Add(item.Name);//add the member to list  
                     }
                 }
-                MessageBox.Show("Click on the member that you whant to vote for");
+                MessageBox.Show("Please click on a party member you would like to vote for");
             }
 
         }
+
         //vote to the chosen member
         //This function is when user push to vote for a member
         private void ListOf2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            DialogResult dialogResult = MessageBox.Show("You are going to pay for KIM " + DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) + " for the right to vote..", "Some Title", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if (user.NumOfVotes == 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Would you like to vote?", "Attention", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (ListOf2.SelectedItems.Count > 0)
+                    {
+                        if (DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) < DataLogic.getBalance(user))
+                        {
+                            DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text);
+                            MessageBox.Show("You have successfuly voted for " + ListOf2.SelectedItems[0].Text);
+                            user.NumOfVotes++;
+                        }
+                    }
+                }
+            }
+            else
             {
                 if (ListOf2.SelectedItems.Count > 0)
                 {
-                    if (DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) < DataLogic.getBalance(user))
+                    DialogResult dialogResult = MessageBox.Show("Would you like to pay " + DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) + "$ to vote?", "Attention", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
                     {
-                        DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text);
-                        MessageBox.Show("You voted to: " + ListOf2.SelectedItems[0].Text);
-                        user.NumOfVotes++;
-                    }
-                    else
-                    {
-                        MessageBox.Show("not enough money!!!");
-                    }
 
+                        if (DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) < DataLogic.getBalance(user))
+                        {
+                            DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text);
+                            DataLogicPerson.withdrawlFromAccount(user, DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes));
+                            MessageBox.Show("You have successfuly voted for " + ListOf2.SelectedItems[0].Text);
+                            bankTab.ImageIndex = 0;
+                            user.NumOfVotes++;
+                            
+                        }
+                        else
+                        {
+                            MessageBox.Show("Insufficiant Funds");
+                        }
+                    }
                 }
-                
-            }
-                
+            }   
         }
+
         //when click to add party
         private void AddPartyButton_Click(object sender, EventArgs e)
         {
-            Name1.Show();
-            TextName.Show();
-            EnterB.Show();
-            HideVoets();
+            if (!(partyLeaderIdLabel.Visible))
+            {
+                partyLeaderIdLabel.Show();
+                paryLeaderIdTextBox.Show();
+                EnterButton.Show();
+                HideVoets();
+            }
+            else
+            {
+                partyLeaderIdLabel.Hide();
+                paryLeaderIdTextBox.Hide();
+                paryLeaderIdTextBox.Clear();
+                EnterButton.Enabled = true;
+                EnterButton.Hide();
+                if (EnterButton2.Visible)
+                {
+                    partyNameLabel.Hide();
+                    partyNameTextBox.Hide();
+                    partyNameTextBox.Clear();
+                    EnterButton2.Enabled = true;
+                    EnterButton2.Hide();
+                }
+            }
                        
         }  
+
         //get from text box the id of the new head party
         private void EnterB_Click_1(object sender, EventArgs e)
         {
             String input;
-            input = TextName.Text;
+            input = paryLeaderIdTextBox.Text;
 
-            if (input == "")
-                {
-                    MessageBox.Show("Error");
-
-                }
-                else
-                {
-                    HeadId = int.Parse(input);
-                    EnterB.Text = "OK!!";
-                    Partynamelabel.Show();
-                    TextParty.Show();
-                    EnterB2.Show();
-                    EnterB.Enabled = false;
-                    
-                }
-          
+            if (input.Equals(String.Empty) || input.Any(char.IsLetter) || !(DataLogicPerson.getPersonDictionary().Keys.Contains(Convert.ToInt32(input))))
+            {
+                MessageBox.Show("Please use a valid ID");
+            }
+            else if (DataLogicMember.GetMember().Keys.Contains(Convert.ToInt32(input)))
+            {
+                MessageBox.Show("This ID belongs to an existing party member");
+            }
+            else
+            {
+                HeadId = Convert.ToInt32(input);
+                EnterButton.Text = "OK";
+                partyNameLabel.Show();
+                partyNameTextBox.Show();
+                EnterButton2.Show();
+                EnterButton.Enabled = false;
+            }
         }
+
         //get the name of the new party
         private void EnterB2_Click_1(object sender, EventArgs e)
         {
 
-            Partyname = TextParty.Text;
-            if (Partyname == "")
+            Partyname = partyNameTextBox.Text;
+            if (Partyname.Equals(String.Empty))
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("You cant use an empty name");
 
             }
             else
             {
-                EnterB2.Text = "OK";
-                EnterB2.Enabled = false;
-                if(!DataLogicCommittee.AddParty(Partyname, HeadId))
-                    {
-                        MessageBox.Show("Something went wrong");
-                        EnterB2.Enabled = true;
-                    }
+                EnterButton2.Text = "OK";
+                EnterButton2.Enabled = false;
+                if (!(DataLogicCommittee.GetPartyList().Keys.Contains(Partyname)))
+                {
+                    DataLogicCommittee.AddParty(Partyname, HeadId);
+                }
+                else
+                {
+                    MessageBox.Show("This name is already in use");
+                    EnterButton2.Enabled = true;
+                }
             }  
         }
+
         private void HideVoets()
         {
             ListOf.Hide();
             ListOf2.Hide();
-            CommitteListLabel.Hide();
-            MemberListLabel.Hide();
+            partyListLabel.Hide();
+            memberListLabel.Hide();
         }
+
         private void HideAddParty()
         {
-            Name1.Hide();
-            TextName.Hide();
-            EnterB.Hide();
-            Partynamelabel.Hide();
-            TextParty.Hide();
-            EnterB2.Hide();
+            partyLeaderIdLabel.Hide();
+            paryLeaderIdTextBox.Hide();
+            EnterButton.Hide();
+            partyNameLabel.Hide();
+            partyNameTextBox.Hide();
+            EnterButton2.Hide();
 
         }
+
         //start the elction and finish the primeris
         private void button1_Click(object sender, EventArgs e)
         {
@@ -177,7 +279,7 @@ namespace AgileProd
             if (dialogResult == DialogResult.Yes)
             {
                 DataLogicCommittee.ChangePraimeryStatus();
-                button1.Enabled = false;
+                finishPraimeriesButton.Enabled = false;
                     
             }     
         }
@@ -206,7 +308,7 @@ namespace AgileProd
             HideVoets();
             HideAddParty();
             lvotetoparty2.Show();
-            CommitteListLabel.Show();
+            partyListLabel.Show();
             foreach (var item in DataLogicCommittee.GetPartyList())//get all the partymember and add it to the list
             {
                 lvotetoparty2.Items.Add(item.Key);
@@ -232,7 +334,6 @@ namespace AgileProd
                     MessageBox.Show("not enough money!!!");
                 }
             }
-        }
-          
+        }   
     }
 }

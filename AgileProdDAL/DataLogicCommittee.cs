@@ -84,7 +84,10 @@ namespace AgileProdDAL
         }
         //public static void End_Election() {}
 
-
+        public static bool getPraimeries()
+        {
+            return data.GetPraimerise();
+        }
 
 
 

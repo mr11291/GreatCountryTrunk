@@ -289,5 +289,10 @@ namespace AgileProdDAL
         {
             return data.GetPraimerise();
         }
+
+        public static Dictionary<int, Person> getPersonDictionary()
+        {
+            return data.GetPeople();
+        }
     }
 }
