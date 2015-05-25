@@ -201,7 +201,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 312);
+            this.ClientSize = new System.Drawing.Size(684, 305);
             this.Name = "PersonForm";
             this.Text = "PersonForm";
             this.tabMenu.ResumeLayout(false);

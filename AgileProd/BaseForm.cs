@@ -25,6 +25,8 @@ namespace AgileProd
         {
             this.user = user;
             InitializeComponent();
+            username.BorderStyle = BorderStyle.None;
+            username.Text = "User: " + user.Name;
             tabMenu.SelectedIndexChanged += tabMenu_SelectedIndexChanged;
             fromList.View = View.Details;
         }
@@ -205,6 +207,8 @@ namespace AgileProd
             }
             MessageBox.Show(result);
         }
+
+    
 
 
     }
