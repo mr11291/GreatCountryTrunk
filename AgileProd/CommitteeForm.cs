@@ -325,22 +325,36 @@ namespace AgileProd
 
         private void lvotetoparty2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-                DialogResult dialogResult = MessageBox.Show("Would you like to pay " + DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) + "$ to vote?", "Attention!", MessageBoxButtons.YesNo);
+            if (listOfParties.SelectedIndices.Count <= 0)
+            {
+                return;
+            }
+            int intselectedindex = listOfParties.SelectedIndices[0];
+            if (intselectedindex >= 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("You sure that you want to vote for " + listOfParties.Items[intselectedindex].Text + "?", "Attention!", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    if (DataLogicPerson.VoterFee(user) > 0)
+                    DialogResult dialogResult2 = MessageBox.Show("Would you like to pay " + DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) + "$ to vote?", "Attention!", MessageBoxButtons.YesNo);
+                    if (dialogResult2 == DialogResult.Yes)
                     {
-                        //fix crashing on second try
-                        DataLogicPerson.voteToParty(listOfParties.SelectedItems[0].Text);
-                        MessageBox.Show("You have successfuly voted for " + listOfParties.SelectedItems[0].Text);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Insufficiant funds!");
+                        if (DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) < DataLogicPerson.getBalance(user))
+                        {
+                            DataLogicPerson.voteToParty(listOfParties.SelectedItems[0].Text);
+                            if (user.NumOfVotes > 0)
+                            {
+                                DataLogicPerson.withdrawlFromAccount(user, DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes));
+                                bankTab.ImageIndex = 0;
+                                MessageBox.Show("You have successfuly voted for " + listOfParties.Items[intselectedindex].Text);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Insufficiant funds!");
+                            }
+                        }
                     }
                 }
-
+            }
         }   
     }
 }
