@@ -43,15 +43,33 @@
             this.memberTab = new System.Windows.Forms.TabPage();
             this.committeeTab = new System.Windows.Forms.TabPage();
             this.adminTab = new System.Windows.Forms.TabPage();
+            this.memberInfoGrid = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partyTab = new System.Windows.Forms.TabPage();
+            this.committeeInfoGrid = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.person.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userInfoGrid)).BeginInit();
+            this.memberTab.SuspendLayout();
+            this.committeeTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memberInfoGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.committeeInfoGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.person);
             this.tabControl.Controls.Add(this.memberTab);
+            this.tabControl.Controls.Add(this.partyTab);
             this.tabControl.Controls.Add(this.committeeTab);
             this.tabControl.Controls.Add(this.adminTab);
             this.tabControl.Location = new System.Drawing.Point(0, 0);
@@ -158,6 +176,7 @@
             // 
             // memberTab
             // 
+            this.memberTab.Controls.Add(this.memberInfoGrid);
             this.memberTab.Location = new System.Drawing.Point(4, 22);
             this.memberTab.Name = "memberTab";
             this.memberTab.Padding = new System.Windows.Forms.Padding(3);
@@ -168,6 +187,7 @@
             // 
             // committeeTab
             // 
+            this.committeeTab.Controls.Add(this.committeeInfoGrid);
             this.committeeTab.Location = new System.Drawing.Point(4, 22);
             this.committeeTab.Name = "committeeTab";
             this.committeeTab.Padding = new System.Windows.Forms.Padding(3);
@@ -185,6 +205,105 @@
             this.adminTab.Text = "Admin";
             this.adminTab.UseVisualStyleBackColor = true;
             // 
+            // memberInfoGrid
+            // 
+            this.memberInfoGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.memberInfoGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.memberInfoGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.partyColumn,
+            this.dataGridViewTextBoxColumn6});
+            this.memberInfoGrid.Location = new System.Drawing.Point(107, 6);
+            this.memberInfoGrid.Name = "memberInfoGrid";
+            this.memberInfoGrid.Size = new System.Drawing.Size(623, 227);
+            this.memberInfoGrid.TabIndex = 5;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Loc. in party";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // partyColumn
+            // 
+            this.partyColumn.HeaderText = "Party";
+            this.partyColumn.Name = "partyColumn";
+            this.partyColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Password";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Username";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Age";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // partyTab
+            // 
+            this.partyTab.Location = new System.Drawing.Point(4, 22);
+            this.partyTab.Name = "partyTab";
+            this.partyTab.Size = new System.Drawing.Size(736, 239);
+            this.partyTab.TabIndex = 4;
+            this.partyTab.Text = "Party";
+            this.partyTab.UseVisualStyleBackColor = true;
+            // 
+            // committeeInfoGrid
+            // 
+            this.committeeInfoGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.committeeInfoGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.committeeInfoGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
+            this.committeeInfoGrid.Location = new System.Drawing.Point(107, 6);
+            this.committeeInfoGrid.Name = "committeeInfoGrid";
+            this.committeeInfoGrid.Size = new System.Drawing.Size(623, 227);
+            this.committeeInfoGrid.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "Age";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
             // AdminFormV2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,6 +316,10 @@
             this.tabControl.ResumeLayout(false);
             this.person.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.userInfoGrid)).EndInit();
+            this.memberTab.ResumeLayout(false);
+            this.committeeTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.memberInfoGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.committeeInfoGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -218,5 +341,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn votingColumn;
         private System.Windows.Forms.Button updateInfoButton;
+        private System.Windows.Forms.DataGridView memberInfoGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partyColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.TabPage partyTab;
+        private System.Windows.Forms.DataGridView committeeInfoGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
     }
 }

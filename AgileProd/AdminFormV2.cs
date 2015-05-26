@@ -22,10 +22,41 @@ namespace AgileProd
             user = admin;           //save user info
             InitializeComponent();  //initialize component
             fillUserInfo();         //initialize user info grid view
+            tabControl.SelectedIndexChanged += tabControl_SelectedIndexChanged;
             userInfoGrid.SelectionChanged += userInfoGrid_SelectionChanged;     //selected index changed event
-            
+ 
+        }
+
+        void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (tabControl.SelectedIndex)
+            {
+                case 0:
+                    {
+                        updateInfoGrid();
+                    }
+                    break;
+                case 1:
+                    {
+                        fillMemberInfo();
+                    }
+                    break;
+                case 2:
+                    {
+                        fillCommitteeInfo();
+                    }
+                    break;
+            }
         }
         
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////
+        /////////////   Person tab functions
+        /////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+
         private void createPersonButton_Click(object sender, EventArgs e)
         {
             CreatePersonForm newPerson = new CreatePersonForm(null);    //create a new createPersonForm
@@ -53,7 +84,6 @@ namespace AgileProd
                 }
                 userInfoGrid.Rows.Add(row);
             }
-
         }
 
         void userInfoGrid_SelectionChanged(object sender, EventArgs e)
@@ -111,5 +141,64 @@ namespace AgileProd
             fillUserInfo();             //update gridview
         }
 
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////
+        /////////////   Party Member tab
+        /////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+
+        private void fillMemberInfo()
+        {
+            foreach (var member in DataLogicAdmin.AllMembers()) //iterate trough data grid
+            {
+                DataGridViewRow row = new DataGridViewRow();    //create new row and fill it using the dictionary
+                row.CreateCells(userInfoGrid);
+                row.Cells[0].Value = DataLogicPerson.getPersonDictionary()[member.Key].Id;
+                row.Cells[1].Value = DataLogicPerson.getPersonDictionary()[member.Key].Name;
+                row.Cells[2].Value = DataLogicPerson.getPersonDictionary()[member.Key].Age;
+                row.Cells[3].Value = DataLogicPerson.getPersonDictionary()[member.Key].UserName;
+                row.Cells[4].Value = DataLogicPerson.getPersonDictionary()[member.Key].Password;
+                row.Cells[5].Value = member.Value.Party;
+                row.Cells[6].Value = member.Value.Location;
+
+                memberInfoGrid.Rows.Add(row);                     //add to datagrid
+            }
+        }
+
+        public void updateMemberGrid()
+        {
+            memberInfoGrid.Rows.Clear();  //clear gridview
+            fillUserInfo();               //update gridview
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////
+        /////////////   Committee Member tab
+        /////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+
+        private void fillCommitteeInfo()
+        {
+            foreach (var committee in DataLogicAdmin.AllCommittee()) //iterate trough data grid
+            {
+                DataGridViewRow row = new DataGridViewRow();    //create new row and fill it using the dictionary
+                row.CreateCells(userInfoGrid);
+                row.Cells[0].Value = DataLogicPerson.getPersonDictionary()[committee.Key].Id;
+                row.Cells[1].Value = DataLogicPerson.getPersonDictionary()[committee.Key].Name;
+                row.Cells[2].Value = DataLogicPerson.getPersonDictionary()[committee.Key].Age;
+
+                memberInfoGrid.Rows.Add(row);                     //add to datagrid
+            }
+        }
+
+        public void updateCommitteeGrid()
+        {
+            committeeInfoGrid.Rows.Clear();  //clear gridview
+            fillCommitteeInfo();               //update gridview
+        }
     }
 }
