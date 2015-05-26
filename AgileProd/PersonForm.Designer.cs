@@ -229,7 +229,6 @@
             this.suspiciusPutin.TabIndex = 32;
             this.suspiciusPutin.TabStop = false;
             this.suspiciusPutin.Visible = false;
-            this.suspiciusPutin.Click += new System.EventHandler(this.suspiciusPutin_DoubleClick);
             // 
             // DancingPuting
             // 

@@ -14,7 +14,6 @@ namespace AgileProd
 {
     public partial class PersonForm : BaseForm
     {
-        //private bool voteButtonPush = false;
         private Person user;
 
         public PersonForm(Person Cuser) : base(Cuser)
@@ -27,6 +26,7 @@ namespace AgileProd
             partyNameComboBox.Hide();
             sittingPutin.Hide();
             happySittingPutin.Hide();
+            suspiciusPutin.MouseDoubleClick += suspiciusPutin_MouseDoubleClick;
 
             if (!(DataLogicPerson.getPraimeries()))
             {
@@ -71,6 +71,14 @@ namespace AgileProd
                 }
                 catch { }
             }
+        }
+
+        void suspiciusPutin_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            dancingPutinTimer.Start();
+            DancingPuting.Enabled = true;
+            DancingPuting.Show();
+            username.BringToFront();
         }
 
         private void voteButton_Click(object sender, EventArgs e)
@@ -273,21 +281,19 @@ namespace AgileProd
             }
         }
 
-        private void suspiciusPutin_DoubleClick(object sender, EventArgs e)
-        {
-            dancingPutinTimer.Start();
-            DancingPuting.Enabled = true;
-            DancingPuting.Show();
-            username.BringToFront();
-        }
-
         private void dancingPutinTimer_Tick(object sender, EventArgs e)
         {
             DancingPuting.Enabled = false;
             DancingPuting.Hide();
         }
 
-
+        private void suspiciusPutin_DoubleClickfun()
+        {
+            dancingPutinTimer.Start();
+            DancingPuting.Enabled = true;
+            DancingPuting.Show();
+            username.BringToFront();
+        }
         
     }
 
