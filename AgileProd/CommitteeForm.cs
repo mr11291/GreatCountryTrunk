@@ -349,8 +349,14 @@ namespace AgileProd
                             }
                             else
                             {
-                                MessageBox.Show("Insufficiant funds!");
+                                MessageBox.Show("You have successfuly voted for " + listOfParties.Items[intselectedindex].Text);
+
                             }
+                            user.NumOfVotes++;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Insufficiant funds!");
                         }
                     }
                 }
