@@ -17,9 +17,15 @@ namespace AgileProd
     {
         LoginForm login = null;
 
-        public CreatePersonForm(LoginForm loginForm)
+        public CreatePersonForm(Form loginForm)
         {
-            login = loginForm;
+            if (loginForm != null)
+            {
+                if (loginForm.GetType() == typeof(LoginForm))
+                {
+                    login = (LoginForm)loginForm;
+                }
+            }
             InitializeComponent();
             idBox.Text = Convert.ToString(generateID());
 
@@ -46,9 +52,13 @@ namespace AgileProd
                 String passw = passwordBox.Text;
                 DataLogicPerson.createPerson(Convert.ToInt32(id), name, Convert.ToInt32(age), usern, passw);
                 Bank account = new Bank(generateBalance(), Convert.ToInt32(id), name);
-                DataLogicBank.getBankDictionary().Add(account.Id, account);        
-                login.username.Text = usernameBox.Text;
-                login.password.Text = passwordBox.Text;
+                DataLogicBank.getBankDictionary().Add(account.Id, account);
+
+                if (login.GetType() == typeof(LoginForm))
+                {
+                    login.username.Text = usernameBox.Text;
+                    login.password.Text = passwordBox.Text;
+                }
                 this.Close();
             }
         }
@@ -70,8 +80,6 @@ namespace AgileProd
             int amount = rand.Next(0, 100000);               //generate a random number
 
             return amount;                                  //return the amount
-
-
         }
 
         private async void pictureBox2_Click(object sender, EventArgs e)
@@ -110,12 +118,11 @@ namespace AgileProd
 
             animatedArrow.Hide();
 
+        }
 
-
-
-
-
-
-        }//generateBalance()
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -45,7 +45,7 @@ namespace AgileProd
             DataLogicMember.selectPartyLeader();
             if(tempAdmin != null)
             {
-                AdminForm newForm = new AdminForm(tempAdmin);
+                AdminFormV2 newForm = new AdminFormV2(tempAdmin);
                 snd.Stop();
                 this.Hide();
                 newForm.Show();

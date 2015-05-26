@@ -27,6 +27,7 @@ namespace AgileProd
             sittingPutin.Hide();
             happySittingPutin.Hide();
             suspiciusPutin.MouseDoubleClick += suspiciusPutin_MouseDoubleClick;
+            
 
             if (!(DataLogicPerson.getPraimeries()))
             {
@@ -294,7 +295,6 @@ namespace AgileProd
             DancingPuting.Show();
             username.BringToFront();
         }
-        
-    }
 
+    }
 }

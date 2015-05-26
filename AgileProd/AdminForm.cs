@@ -17,6 +17,7 @@ namespace AgileProd
     {
         bool buttonClickVP;
         bool buttonClickDelete;
+
         Admin user;
         //Button btnVoterDel;
         //Button btnVoterUp;
@@ -216,13 +217,5 @@ namespace AgileProd
             }
 
         }
-
-        //private void cngprty_Click(object sender, EventArgs e)
-        //{
-        //    if (DataLogicMember.GetMember()[int.Parse(txtIDForMember.Text)].Location != -1)
-        //    {
-        //        DataLogicMember.
-        //    }
-        //}
     }
 }
