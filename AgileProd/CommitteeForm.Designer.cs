@@ -272,6 +272,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 312);
             this.Name = "CommitteeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Committee";
             this.tabMenu.ResumeLayout(false);
             this.blankTab.ResumeLayout(false);

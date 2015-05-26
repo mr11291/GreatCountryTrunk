@@ -393,6 +393,7 @@
             this.ClientSize = new System.Drawing.Size(684, 312);
             this.Controls.Add(this.tabMenu);
             this.Name = "BaseForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BaseForm";
             this.tabMenu.ResumeLayout(false);
             this.blankTab.ResumeLayout(false);

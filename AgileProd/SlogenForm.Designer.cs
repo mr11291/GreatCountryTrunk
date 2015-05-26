@@ -69,6 +69,7 @@
             this.Controls.Add(this.slogandirections);
             this.Controls.Add(this.slogenBox);
             this.Name = "SlogenForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Slogen Update";
             this.ResumeLayout(false);
             this.PerformLayout();

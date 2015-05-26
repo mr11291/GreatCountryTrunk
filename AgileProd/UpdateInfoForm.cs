@@ -14,13 +14,14 @@ namespace AgileProd
 {
     public partial class UpdateInfoForm : Form
     {
-        private Person tempPerson;
-        Form previusForm;
-        public UpdateInfoForm(Person user, Form goBack)
+        private Person tempPerson = null;
+        AdminFormV2 adminform = null;
+
+        public UpdateInfoForm(Person user, AdminFormV2 form)
         {
             InitializeComponent();
             tempPerson = user; //used only to access person info without overriding button click event
-            previusForm = goBack;
+            adminform = form;
             initializeInfo(user);
         }
 
@@ -48,9 +49,9 @@ namespace AgileProd
                 DataLogic.ChangeAge(this.tempPerson, Convert.ToInt32(ageBox.Text));
                 DataLogic.ChangeUserName(this.tempPerson, (usernameBox.Text));
                 DataLogic.ChangePassword(this.tempPerson, (passwordBox.Text));
-                this.Hide();
-                previusForm.Show();
-                return;                                 //finish conformation event
+                adminform.updateInfoGrid();
+                MessageBox.Show("Updated succsessfuly");
+                this.Close();                            //finish conformation event
             }
             else if (dialogResult == DialogResult.No)   //if user clicked "No"
             {
@@ -61,13 +62,7 @@ namespace AgileProd
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            Form goBack = this.previusForm;
-            goBack.Show();
-            this.Hide();
-            return;
+            this.Close();
         }
-        
-
-
     }
 }
