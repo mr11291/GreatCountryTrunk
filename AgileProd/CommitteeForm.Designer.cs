@@ -77,6 +77,7 @@
             this.blankTab.Controls.Add(this.ListOf);
             this.blankTab.Controls.Add(this.voteToMemberButton);
             this.blankTab.Text = "Committee";
+            this.blankTab.Controls.SetChildIndex(this.username, 0);
             this.blankTab.Controls.SetChildIndex(this.voteToMemberButton, 0);
             this.blankTab.Controls.SetChildIndex(this.ListOf, 0);
             this.blankTab.Controls.SetChildIndex(this.ListOf2, 0);
@@ -107,7 +108,7 @@
             // 
             // ListOf
             // 
-            this.ListOf.Location = new System.Drawing.Point(113, 25);
+            this.ListOf.Location = new System.Drawing.Point(115, 25);
             this.ListOf.Name = "ListOf";
             this.ListOf.Size = new System.Drawing.Size(141, 216);
             this.ListOf.TabIndex = 1;
@@ -271,7 +272,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 312);
             this.Name = "CommitteeForm";
-            this.Text = "CommitteeForm";
+            this.Text = "Committee";
             this.tabMenu.ResumeLayout(false);
             this.blankTab.ResumeLayout(false);
             this.blankTab.PerformLayout();

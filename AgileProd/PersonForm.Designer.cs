@@ -43,10 +43,15 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.sittingPutin = new System.Windows.Forms.PictureBox();
             this.happySittingPutin = new System.Windows.Forms.PictureBox();
+            this.suspiciusPutin = new System.Windows.Forms.PictureBox();
+            this.DancingPuting = new System.Windows.Forms.PictureBox();
+            this.dancingPutinTimer = new System.Windows.Forms.Timer(this.components);
             this.tabMenu.SuspendLayout();
             this.blankTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sittingPutin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.happySittingPutin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.suspiciusPutin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DancingPuting)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMenu
@@ -67,7 +72,12 @@
             this.blankTab.Controls.Add(this.voteButton);
             this.blankTab.Controls.Add(this.sittingPutin);
             this.blankTab.Controls.Add(this.happySittingPutin);
+            this.blankTab.Controls.Add(this.suspiciusPutin);
+            this.blankTab.Controls.Add(this.DancingPuting);
             this.blankTab.Text = "Person";
+            this.blankTab.Controls.SetChildIndex(this.username, 0);
+            this.blankTab.Controls.SetChildIndex(this.DancingPuting, 0);
+            this.blankTab.Controls.SetChildIndex(this.suspiciusPutin, 0);
             this.blankTab.Controls.SetChildIndex(this.happySittingPutin, 0);
             this.blankTab.Controls.SetChildIndex(this.sittingPutin, 0);
             this.blankTab.Controls.SetChildIndex(this.voteButton, 0);
@@ -121,7 +131,7 @@
             // 
             // ListOf
             // 
-            this.ListOf.Location = new System.Drawing.Point(330, 32);
+            this.ListOf.Location = new System.Drawing.Point(316, 32);
             this.ListOf.Name = "ListOf";
             this.ListOf.Size = new System.Drawing.Size(141, 204);
             this.ListOf.TabIndex = 20;
@@ -209,18 +219,49 @@
             this.happySittingPutin.TabIndex = 29;
             this.happySittingPutin.TabStop = false;
             // 
+            // suspiciusPutin
+            // 
+            this.suspiciusPutin.Image = global::AgileProd.Properties.Resources.suspiciusPutin;
+            this.suspiciusPutin.Location = new System.Drawing.Point(305, 10);
+            this.suspiciusPutin.Name = "suspiciusPutin";
+            this.suspiciusPutin.Size = new System.Drawing.Size(302, 319);
+            this.suspiciusPutin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.suspiciusPutin.TabIndex = 32;
+            this.suspiciusPutin.TabStop = false;
+            this.suspiciusPutin.Visible = false;
+            this.suspiciusPutin.Click += new System.EventHandler(this.suspiciusPutin_DoubleClick);
+            // 
+            // DancingPuting
+            // 
+            this.DancingPuting.Enabled = false;
+            this.DancingPuting.Image = global::AgileProd.Properties.Resources.DancingPutin;
+            this.DancingPuting.Location = new System.Drawing.Point(70, 24);
+            this.DancingPuting.Name = "DancingPuting";
+            this.DancingPuting.Size = new System.Drawing.Size(195, 305);
+            this.DancingPuting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.DancingPuting.TabIndex = 33;
+            this.DancingPuting.TabStop = false;
+            this.DancingPuting.Visible = false;
+            // 
+            // dancingPutinTimer
+            // 
+            this.dancingPutinTimer.Interval = 14000;
+            this.dancingPutinTimer.Tick += new System.EventHandler(this.dancingPutinTimer_Tick);
+            // 
             // PersonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 305);
             this.Name = "PersonForm";
-            this.Text = "PersonForm";
+            this.Text = "Person";
             this.tabMenu.ResumeLayout(false);
             this.blankTab.ResumeLayout(false);
             this.blankTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sittingPutin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.happySittingPutin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.suspiciusPutin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DancingPuting)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -240,5 +281,8 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox sittingPutin;
         private System.Windows.Forms.PictureBox happySittingPutin;
+        private System.Windows.Forms.PictureBox suspiciusPutin;
+        private System.Windows.Forms.PictureBox DancingPuting;
+        public System.Windows.Forms.Timer dancingPutinTimer;
     }
 }

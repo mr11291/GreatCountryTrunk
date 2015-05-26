@@ -205,4 +205,10 @@
   <data name="BlueArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BlueArrow.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DancingPutin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DancingPutin.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DancingPutin2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DancingPutin2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

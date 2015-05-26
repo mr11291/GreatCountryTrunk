@@ -76,6 +76,7 @@
             this.blankTab.Controls.Add(this.MmberVote);
             this.blankTab.Controls.Add(this.pictureBox1);
             this.blankTab.Text = "Party Member";
+            this.blankTab.Controls.SetChildIndex(this.username, 0);
             this.blankTab.Controls.SetChildIndex(this.pictureBox1, 0);
             this.blankTab.Controls.SetChildIndex(this.MmberVote, 0);
             this.blankTab.Controls.SetChildIndex(this.button2, 0);
@@ -282,7 +283,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MemberForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MemberForm";
+            this.Text = "Member";
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.lblWelcome, 0);
             this.Controls.SetChildIndex(this.btnAddMem, 0);

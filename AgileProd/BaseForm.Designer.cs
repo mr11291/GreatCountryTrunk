@@ -439,7 +439,7 @@
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Button btnAllMsg;
         private System.Windows.Forms.Button readBtn;
-        private System.Windows.Forms.TextBox username;
+        public System.Windows.Forms.TextBox username;
 
     }
 }

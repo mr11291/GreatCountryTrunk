@@ -22,10 +22,12 @@ namespace AgileProd
             InitializeComponent();
             user = Cuser;
             HideVotes();
+
             this.InfoAboutParty.Hide();
             partyNameComboBox.Hide();
             sittingPutin.Hide();
             happySittingPutin.Hide();
+
             if (!(DataLogicPerson.getPraimeries()))
             {
                 voteButton.Hide();
@@ -37,7 +39,7 @@ namespace AgileProd
                 this.partyNameComboBox.ValueMember = "Value";
 
                 user.memento = DataLogicPerson.GetMemento(user.Id);
-
+                
                 try
                 {
                     if (user.memento.PartyName != null)
@@ -49,10 +51,17 @@ namespace AgileProd
             }
             else
             {
+                dancingPutinTimer = new Timer();
+                dancingPutinTimer.Interval = 16000;
+                dancingPutinTimer.Tick += new EventHandler(dancingPutinTimer_Tick);
+
                 partyInfoButton.Hide();
                 VoteParty.Hide();
                 voteButton.Location = new Point(5, 5);
                 retrunToPartyButton.Location = new Point(5, 35);
+                ListOf.Location = new Point(239, 32);
+                partyListLabel.Location = new Point(236, 10);
+                suspiciusPutin.Location = new Point(295, 10);
                 try
                 {
                     if (user.memento.PartyName != null)
@@ -67,16 +76,20 @@ namespace AgileProd
         private void voteButton_Click(object sender, EventArgs e)
         {
             ListOf.Clear();
-           
+            
             if (!ListOf.Visible)//check the status of listOf
             {
                 ListOf.Show();
                 partyListLabel.Show();
+                suspiciusPutin.Show();
             }
             else
             {
                 ListOf.Hide();
                 partyListLabel.Hide();
+                suspiciusPutin.Hide();
+                ListOf2.Hide();
+                MemberListLabel.Hide();
             }
 
             FillListOf();// fill the list by party name
@@ -259,6 +272,21 @@ namespace AgileProd
                 
             }
         }
+
+        private void suspiciusPutin_DoubleClick(object sender, EventArgs e)
+        {
+            dancingPutinTimer.Start();
+            DancingPuting.Enabled = true;
+            DancingPuting.Show();
+            username.BringToFront();
+        }
+
+        private void dancingPutinTimer_Tick(object sender, EventArgs e)
+        {
+            DancingPuting.Enabled = false;
+            DancingPuting.Hide();
+        }
+
 
         
     }

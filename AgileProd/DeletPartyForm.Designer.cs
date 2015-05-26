@@ -94,7 +94,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "DeletPartyForm";
-            this.Text = "DeletPartyForm";
+            this.Text = "Delete Party";
             this.ResumeLayout(false);
             this.PerformLayout();
 

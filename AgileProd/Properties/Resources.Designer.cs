@@ -123,6 +123,26 @@ namespace AgileProd.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DancingPutin {
+            get {
+                object obj = ResourceManager.GetObject("DancingPutin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DancingPutin2 {
+            get {
+                object obj = ResourceManager.GetObject("DancingPutin2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DisapointedPutin {
             get {
                 object obj = ResourceManager.GetObject("DisapointedPutin", resourceCulture);
