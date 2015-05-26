@@ -367,7 +367,6 @@
             this.cngprty.TabIndex = 12;
             this.cngprty.Text = "change party";
             this.cngprty.UseVisualStyleBackColor = true;
-           // this.cngprty.Click += new System.EventHandler(this.cngprty_Click);
             // 
             // txtIDForMember
             // 
