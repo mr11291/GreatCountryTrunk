@@ -23,6 +23,7 @@ namespace AgileProd
             user = admin;           //save user info
             InitializeComponent();  //initialize component
             fillUserInfo();         //initialize user info grid view
+            anchorStyle();
 
             tabControl.SelectedIndexChanged += tabControl_SelectedIndexChanged;
 
@@ -30,6 +31,7 @@ namespace AgileProd
             memberInfoGrid.SelectionChanged += memberInfoGrid_SelectionChanged; //selected index changed event
             partyInfoGrid.SelectionChanged += partyInfoGrid_SelectionChanged;   //selected index changed event
             bankInfoGrid.SelectionChanged += bankInfoGrid_SelectionChanged;     //selected index changed event
+            adminInfoGrid.SelectionChanged += adminInfoGrid_SelectionChanged;
         }
 
         void tabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -61,9 +63,21 @@ namespace AgileProd
                         updateBankGrid();
                     }
                     break;
+                case 5:
+                    {
+                        updateAdminGrid();
+                    }
+                    break;
             }
         }
-        
+
+        private void anchorStyle()
+        {
+            tabControl.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+            adminInfoGrid.Anchor = AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Top;
+            pictureBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+        }
+
         ///////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////////////
         /////////////
@@ -71,12 +85,6 @@ namespace AgileProd
         /////////////
         ///////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////////////
-
-        private void createPersonButton_Click(object sender, EventArgs e)
-        {
-            CreatePersonForm newPerson = new CreatePersonForm(null);    //create a new createPersonForm
-            newPerson.Show();                                           //show form
-        }
 
         void userInfoGrid_SelectionChanged(object sender, EventArgs e)
         {
@@ -92,27 +100,10 @@ namespace AgileProd
             }
         }
 
-        private void fillUserInfo()
+        private void createPersonButton_Click(object sender, EventArgs e)
         {
-            foreach (var person in DataLogicAdmin.AllPersons()) //iterate trough data grid
-            {
-                DataGridViewRow row = new DataGridViewRow();    //create new row and fill it using the dictionary
-                row.CreateCells(userInfoGrid);
-                row.Cells[0].Value = person.Value.Id;
-                row.Cells[1].Value = person.Value.Name;
-                row.Cells[2].Value = person.Value.Age;
-                row.Cells[3].Value = person.Value.UserName;
-                row.Cells[4].Value = person.Value.Password;
-                if (person.Value.IsVoting == true)
-                {
-                    row.Cells[5].Value = "True";
-                }
-                else
-                {
-                    row.Cells[5].Value = "False";
-                }
-                userInfoGrid.Rows.Add(row);
-            }
+            CreatePersonForm newPerson = new CreatePersonForm(null);    //create a new createPersonForm
+            newPerson.Show();                                           //show form
         }
 
         private void deletePersonButton_Click(object sender, EventArgs e)
@@ -147,6 +138,29 @@ namespace AgileProd
             else
             {
                 MessageBox.Show("Please select a person");                  //dispay coresponding message
+            }
+        }
+
+        private void fillUserInfo()
+        {
+            foreach (var person in DataLogicAdmin.AllPersons()) //iterate trough data grid
+            {
+                DataGridViewRow row = new DataGridViewRow();    //create new row and fill it using the dictionary
+                row.CreateCells(userInfoGrid);
+                row.Cells[0].Value = person.Value.Id;
+                row.Cells[1].Value = person.Value.Name;
+                row.Cells[2].Value = person.Value.Age;
+                row.Cells[3].Value = person.Value.UserName;
+                row.Cells[4].Value = person.Value.Password;
+                if (person.Value.IsVoting == true)
+                {
+                    row.Cells[5].Value = "True";
+                }
+                else
+                {
+                    row.Cells[5].Value = "False";
+                }
+                userInfoGrid.Rows.Add(row);
             }
         }
 
@@ -231,6 +245,30 @@ namespace AgileProd
             }
         }
 
+        private void deletePartyButton_Click(object sender, EventArgs e)
+        {
+            if (selectedPartyName != null) //if a party is selected
+            {
+                //check if user is sure of his desition
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete " + selectedPartyName + "?", "Attention", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (DataLogicCommittee.DeleteParty(selectedPartyName))  //if party is deleted successfuly
+                    {
+                        updatePartyGrid();
+                        MessageBox.Show("Party deleted successfuly!");      //show conformation message
+                    }
+                }
+
+                selectedPartyName = null; ;                                 //reset person id selection
+            }
+            else                                                            // if a person was not selected yet
+            {
+                MessageBox.Show("Please select a party");                  //display coresponding message
+            }
+
+        }
+
         private void fillPartyInfo()
         {
             int count = 0;
@@ -260,30 +298,6 @@ namespace AgileProd
         {
             partyInfoGrid.Rows.Clear();    //clear gridview
             fillPartyInfo();               //update gridview
-        }
-
-        private void deletePartyButton_Click(object sender, EventArgs e)
-        {
-            if (selectedPartyName != null) //if a party is selected
-            {
-                //check if user is sure of his desition
-                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete " + selectedPartyName + "?", "Attention", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    if (DataLogicCommittee.DeleteParty(selectedPartyName))  //if party is deleted successfuly
-                    {
-                        updatePartyGrid();
-                        MessageBox.Show("Party deleted successfuly!");      //show conformation message
-                    }
-                }
-                
-                selectedPartyName = null; ;                                 //reset person id selection
-            }
-            else                                                            // if a person was not selected yet
-            {
-                MessageBox.Show("Please select a party");                  //display coresponding message
-            }
-            
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -368,5 +382,62 @@ namespace AgileProd
             bankInfoGrid.Rows.Clear();  //clear gridview
             fillBankInfo();             //update gridview
         }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////
+        /////////////   Admin tab
+        /////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+
+        void adminInfoGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            if (adminInfoGrid.SelectedCells.Count > 0)                               //if any cells are selected
+            {
+                int selectedrowindex = adminInfoGrid.SelectedCells[0].RowIndex;      //get selected row index
+
+                adminInfoGrid.Rows[selectedrowindex].Selected = true;                //mark whole row with selection
+
+                DataGridViewRow selectedRow = adminInfoGrid.Rows[selectedrowindex];  //get selected row
+
+                selectedID = Convert.ToInt32(selectedRow.Cells[0].Value);           //get id of selected person
+            }
+        }
+
+        private void updateAdminInfoButton_Click(object sender, EventArgs e)
+        {
+            UpdateAdminForm tempForm = new UpdateAdminForm(DataLogicAdmin.AllAdmins()[selectedID], this);
+            tempForm.Show();
+        }
+
+        private void fillAdminInfo()
+        {
+            foreach (var admin in DataLogicAdmin.AllAdmins()) //iterate trough data grid
+            {
+                DataGridViewRow row = new DataGridViewRow();    //create new row and fill it using the dictionary
+                row.CreateCells(adminInfoGrid);
+                row.Cells[0].Value = admin.Key;
+                row.Cells[1].Value = admin.Value.Name;
+                row.Cells[2].Value = admin.Value.UserName;
+                row.Cells[3].Value = admin.Value.Password;
+
+                adminInfoGrid.Rows.Add(row);                     //add to datagrid
+            }
+        }
+
+        public void updateAdminGrid()
+        {
+            adminInfoGrid.Rows.Clear();  //clear gridview
+            fillAdminInfo();             //update gridview
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            LoginForm newForm = new LoginForm();
+            newForm.Show();
+            this.Close();
+        }
+
     }
 }

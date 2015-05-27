@@ -123,7 +123,7 @@
             this.Controls.Add(this.idBox);
             this.Name = "UpdateBankForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UpdateBankForm";
+            this.Text = "Update Account";
             this.ResumeLayout(false);
             this.PerformLayout();
 

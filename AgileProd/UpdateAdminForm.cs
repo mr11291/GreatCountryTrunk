@@ -12,24 +12,25 @@ using AgileProdDAL;
 
 namespace AgileProd
 {
-    public partial class UpdateBankForm : Form
+    public partial class UpdateAdminForm : Form
     {
-        Bank tempbank = null;
-        AdminFormV2 tempadmin = null;
+        Admin tempAdmin = null;
+        AdminFormV2 tempForm = null;
 
-        public UpdateBankForm(Bank bank, AdminFormV2 admin)
+        public UpdateAdminForm(Admin admin, AdminFormV2 form)
         {
             InitializeComponent();
-            tempbank = bank;
-            tempadmin = admin;
+            tempAdmin = admin;
+            tempForm = form;
             initializeInfo();
         }
 
         private void initializeInfo()
         {
-            idBox.Text = Convert.ToString(tempbank.Id);
-            nameBox.Text = tempbank.Name;
-            balanceBox.Text = Convert.ToString(tempbank.Balance);
+            idBox.Text = Convert.ToString(tempAdmin.Id);
+            nameBox.Text = tempAdmin.Name;
+            usernameBox.Text = tempAdmin.UserName;
+            passwordBox.Text = tempAdmin.Password;
 
             return;
         }
@@ -40,8 +41,10 @@ namespace AgileProd
             if (dialogResult == DialogResult.Yes)       //if user clicked "Yes"
             {
                 //update inforamtion
-                tempbank.Balance = Convert.ToInt32(balanceBox.Text);
-                tempadmin.updateBankGrid();
+                tempAdmin.Name = nameBox.Text;
+                tempAdmin.UserName = usernameBox.Text;
+                tempAdmin.Password = passwordBox.Text;
+                tempForm.updateAdminGrid();
                 this.Close();                            //finish conformation event
             }
             else if (dialogResult == DialogResult.No)   //if user clicked "No"
