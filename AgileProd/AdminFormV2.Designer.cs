@@ -41,28 +41,49 @@
             this.deletePersonButton = new System.Windows.Forms.Button();
             this.createPersonButton = new System.Windows.Forms.Button();
             this.memberTab = new System.Windows.Forms.TabPage();
-            this.committeeTab = new System.Windows.Forms.TabPage();
-            this.adminTab = new System.Windows.Forms.TabPage();
             this.memberInfoGrid = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partyTab = new System.Windows.Forms.TabPage();
+            this.committeeTab = new System.Windows.Forms.TabPage();
             this.committeeInfoGrid = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adminTab = new System.Windows.Forms.TabPage();
+            this.partyInfoGrid = new System.Windows.Forms.DataGridView();
+            this.partyNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partySizeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numOfVotesColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deletePartyButton = new System.Windows.Forms.Button();
+            this.runPrimeriesButton = new System.Windows.Forms.Button();
+            this.runElectionsButton = new System.Windows.Forms.Button();
+            this.settingsTab = new System.Windows.Forms.TabPage();
+            this.bankTab = new System.Windows.Forms.TabPage();
+            this.bankInfoGrid = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.updateBankInfoButton = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.person.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userInfoGrid)).BeginInit();
             this.memberTab.SuspendLayout();
-            this.committeeTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memberInfoGrid)).BeginInit();
+            this.partyTab.SuspendLayout();
+            this.committeeTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.committeeInfoGrid)).BeginInit();
+            this.adminTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.partyInfoGrid)).BeginInit();
+            this.bankTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bankInfoGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -71,7 +92,9 @@
             this.tabControl.Controls.Add(this.memberTab);
             this.tabControl.Controls.Add(this.partyTab);
             this.tabControl.Controls.Add(this.committeeTab);
+            this.tabControl.Controls.Add(this.bankTab);
             this.tabControl.Controls.Add(this.adminTab);
+            this.tabControl.Controls.Add(this.settingsTab);
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -185,26 +208,6 @@
             this.memberTab.Text = "Party Member";
             this.memberTab.UseVisualStyleBackColor = true;
             // 
-            // committeeTab
-            // 
-            this.committeeTab.Controls.Add(this.committeeInfoGrid);
-            this.committeeTab.Location = new System.Drawing.Point(4, 22);
-            this.committeeTab.Name = "committeeTab";
-            this.committeeTab.Padding = new System.Windows.Forms.Padding(3);
-            this.committeeTab.Size = new System.Drawing.Size(736, 239);
-            this.committeeTab.TabIndex = 2;
-            this.committeeTab.Text = "Committee";
-            this.committeeTab.UseVisualStyleBackColor = true;
-            // 
-            // adminTab
-            // 
-            this.adminTab.Location = new System.Drawing.Point(4, 22);
-            this.adminTab.Name = "adminTab";
-            this.adminTab.Size = new System.Drawing.Size(736, 239);
-            this.adminTab.TabIndex = 3;
-            this.adminTab.Text = "Admin";
-            this.adminTab.UseVisualStyleBackColor = true;
-            // 
             // memberInfoGrid
             // 
             this.memberInfoGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -222,35 +225,11 @@
             this.memberInfoGrid.Size = new System.Drawing.Size(623, 227);
             this.memberInfoGrid.TabIndex = 5;
             // 
-            // dataGridViewTextBoxColumn6
+            // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Loc. in party";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // partyColumn
-            // 
-            this.partyColumn.HeaderText = "Party";
-            this.partyColumn.Name = "partyColumn";
-            this.partyColumn.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Password";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Username";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Age";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -258,20 +237,57 @@
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Age";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Username";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Password";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // partyColumn
+            // 
+            this.partyColumn.HeaderText = "Party";
+            this.partyColumn.Name = "partyColumn";
+            this.partyColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Loc. in party";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // partyTab
             // 
+            this.partyTab.Controls.Add(this.deletePartyButton);
+            this.partyTab.Controls.Add(this.partyInfoGrid);
             this.partyTab.Location = new System.Drawing.Point(4, 22);
             this.partyTab.Name = "partyTab";
             this.partyTab.Size = new System.Drawing.Size(736, 239);
             this.partyTab.TabIndex = 4;
             this.partyTab.Text = "Party";
             this.partyTab.UseVisualStyleBackColor = true;
+            // 
+            // committeeTab
+            // 
+            this.committeeTab.Controls.Add(this.committeeInfoGrid);
+            this.committeeTab.Location = new System.Drawing.Point(4, 22);
+            this.committeeTab.Name = "committeeTab";
+            this.committeeTab.Padding = new System.Windows.Forms.Padding(3);
+            this.committeeTab.Size = new System.Drawing.Size(736, 239);
+            this.committeeTab.TabIndex = 2;
+            this.committeeTab.Text = "Committee";
+            this.committeeTab.UseVisualStyleBackColor = true;
             // 
             // committeeInfoGrid
             // 
@@ -304,6 +320,148 @@
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
+            // adminTab
+            // 
+            this.adminTab.Controls.Add(this.pictureBox1);
+            this.adminTab.Controls.Add(this.runElectionsButton);
+            this.adminTab.Controls.Add(this.runPrimeriesButton);
+            this.adminTab.Location = new System.Drawing.Point(4, 22);
+            this.adminTab.Name = "adminTab";
+            this.adminTab.Size = new System.Drawing.Size(736, 239);
+            this.adminTab.TabIndex = 3;
+            this.adminTab.Text = "Admin";
+            this.adminTab.UseVisualStyleBackColor = true;
+            // 
+            // partyInfoGrid
+            // 
+            this.partyInfoGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.partyInfoGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.partyInfoGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.partyNameColumn,
+            this.partySizeColumn,
+            this.numOfVotesColumn});
+            this.partyInfoGrid.Location = new System.Drawing.Point(107, 6);
+            this.partyInfoGrid.Name = "partyInfoGrid";
+            this.partyInfoGrid.Size = new System.Drawing.Size(623, 227);
+            this.partyInfoGrid.TabIndex = 7;
+            // 
+            // partyNameColumn
+            // 
+            this.partyNameColumn.HeaderText = "Party Name";
+            this.partyNameColumn.Name = "partyNameColumn";
+            this.partyNameColumn.ReadOnly = true;
+            // 
+            // partySizeColumn
+            // 
+            this.partySizeColumn.HeaderText = "Party size";
+            this.partySizeColumn.Name = "partySizeColumn";
+            this.partySizeColumn.ReadOnly = true;
+            // 
+            // numOfVotesColumn
+            // 
+            this.numOfVotesColumn.HeaderText = "Votes";
+            this.numOfVotesColumn.Name = "numOfVotesColumn";
+            this.numOfVotesColumn.ReadOnly = true;
+            // 
+            // deletePartyButton
+            // 
+            this.deletePartyButton.Location = new System.Drawing.Point(6, 6);
+            this.deletePartyButton.Name = "deletePartyButton";
+            this.deletePartyButton.Size = new System.Drawing.Size(94, 23);
+            this.deletePartyButton.TabIndex = 8;
+            this.deletePartyButton.Text = "Delete Party";
+            this.deletePartyButton.UseVisualStyleBackColor = true;
+            this.deletePartyButton.Click += new System.EventHandler(this.deletePartyButton_Click);
+            // 
+            // runPrimeriesButton
+            // 
+            this.runPrimeriesButton.Location = new System.Drawing.Point(6, 6);
+            this.runPrimeriesButton.Name = "runPrimeriesButton";
+            this.runPrimeriesButton.Size = new System.Drawing.Size(94, 23);
+            this.runPrimeriesButton.TabIndex = 9;
+            this.runPrimeriesButton.Text = "Run Praimeries";
+            this.runPrimeriesButton.UseVisualStyleBackColor = true;
+            // 
+            // runElectionsButton
+            // 
+            this.runElectionsButton.Location = new System.Drawing.Point(6, 36);
+            this.runElectionsButton.Name = "runElectionsButton";
+            this.runElectionsButton.Size = new System.Drawing.Size(94, 23);
+            this.runElectionsButton.TabIndex = 10;
+            this.runElectionsButton.Text = "Run Elections";
+            this.runElectionsButton.UseVisualStyleBackColor = true;
+            // 
+            // settingsTab
+            // 
+            this.settingsTab.Location = new System.Drawing.Point(4, 22);
+            this.settingsTab.Name = "settingsTab";
+            this.settingsTab.Size = new System.Drawing.Size(736, 239);
+            this.settingsTab.TabIndex = 5;
+            this.settingsTab.Text = "Settings";
+            this.settingsTab.UseVisualStyleBackColor = true;
+            // 
+            // bankTab
+            // 
+            this.bankTab.Controls.Add(this.updateBankInfoButton);
+            this.bankTab.Controls.Add(this.bankInfoGrid);
+            this.bankTab.Location = new System.Drawing.Point(4, 22);
+            this.bankTab.Name = "bankTab";
+            this.bankTab.Size = new System.Drawing.Size(736, 239);
+            this.bankTab.TabIndex = 6;
+            this.bankTab.Text = "Bank";
+            this.bankTab.UseVisualStyleBackColor = true;
+            // 
+            // bankInfoGrid
+            // 
+            this.bankInfoGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.bankInfoGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.bankInfoGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12});
+            this.bankInfoGrid.Location = new System.Drawing.Point(107, 6);
+            this.bankInfoGrid.Name = "bankInfoGrid";
+            this.bankInfoGrid.Size = new System.Drawing.Size(623, 227);
+            this.bankInfoGrid.TabIndex = 7;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.HeaderText = "Balance";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AgileProd.Properties.Resources.DancingPutin2;
+            this.pictureBox1.Location = new System.Drawing.Point(-8, 65);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(120, 171);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // updateBankInfoButton
+            // 
+            this.updateBankInfoButton.Location = new System.Drawing.Point(6, 6);
+            this.updateBankInfoButton.Name = "updateBankInfoButton";
+            this.updateBankInfoButton.Size = new System.Drawing.Size(94, 23);
+            this.updateBankInfoButton.TabIndex = 8;
+            this.updateBankInfoButton.Text = "Update Ac.";
+            this.updateBankInfoButton.UseVisualStyleBackColor = true;
+            this.updateBankInfoButton.Click += new System.EventHandler(this.updateBankInfoButton_Click);
+            // 
             // AdminFormV2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -317,9 +475,15 @@
             this.person.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.userInfoGrid)).EndInit();
             this.memberTab.ResumeLayout(false);
-            this.committeeTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.memberInfoGrid)).EndInit();
+            this.partyTab.ResumeLayout(false);
+            this.committeeTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.committeeInfoGrid)).EndInit();
+            this.adminTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.partyInfoGrid)).EndInit();
+            this.bankTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bankInfoGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -354,5 +518,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridView partyInfoGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partyNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partySizeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numOfVotesColumn;
+        private System.Windows.Forms.Button deletePartyButton;
+        private System.Windows.Forms.Button runElectionsButton;
+        private System.Windows.Forms.Button runPrimeriesButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TabPage bankTab;
+        private System.Windows.Forms.DataGridView bankInfoGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.TabPage settingsTab;
+        private System.Windows.Forms.Button updateBankInfoButton;
     }
 }

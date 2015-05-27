@@ -93,6 +93,12 @@
     <Compile Include="PersonForm.Designer.cs">
       <DependentUpon>PersonForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateBankForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateBankForm.Designer.cs">
+      <DependentUpon>UpdateBankForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SlogenForm.resx">
       <DependentUpon>SlogenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateBankForm.resx">
+      <DependentUpon>UpdateBankForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateInfoForm.resx">
       <DependentUpon>UpdateInfoForm.cs</DependentUpon>

@@ -44,6 +44,12 @@ namespace AgileProdDAL
             return new ReadOnlyDictionary<string, int>(data.GetPartyList());
         }
 
+        //AllAccounts() returns a READ-ONLY dictionarty of bank accounts
+        public static ReadOnlyDictionary<int, Bank> AllAccounts()
+        {
+            return new ReadOnlyDictionary<int, Bank>(data.GetBankAccounts());
+        }
+
         //AllMessages() returns a READ-ONLY dictionarty of messages
         public static ReadOnlyDictionary<int, Message> AllMessages()
         {
