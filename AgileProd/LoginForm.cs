@@ -86,7 +86,7 @@ namespace AgileProd
         {
             Admin tempAdmin = DataLogicAdmin.LoginAdmin("mr11291", "12345");
             DataLogicMember.selectPartyLeader();
-            AdminForm newForm = new AdminForm(tempAdmin);
+            AdminFormV2 newForm = new AdminFormV2(tempAdmin);
             this.Hide();
             newForm.Show();
             return;

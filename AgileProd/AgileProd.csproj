@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddPersonToPartyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPersonToPartyForm.Designer.cs">
+      <DependentUpon>AddPersonToPartyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminFormV2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation.cs" />
+    <EmbeddedResource Include="AddPersonToPartyForm.resx">
+      <DependentUpon>AddPersonToPartyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminFormV2.resx">
       <DependentUpon>AdminFormV2.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,9 +205,6 @@
     <None Include="Resources\KimLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\KoreanAnthem.mp3" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\KoreanAnthem.wav" />
   </ItemGroup>
   <ItemGroup>
@@ -254,6 +260,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\DancingPutin2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KoreanAnthem.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
