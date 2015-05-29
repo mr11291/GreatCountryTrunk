@@ -67,7 +67,6 @@
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adminTab = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.adminInfoGrid = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,6 +77,8 @@
             this.runPrimeriesButton = new System.Windows.Forms.Button();
             this.settingsTab = new System.Windows.Forms.TabPage();
             this.logoutButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.personToPlartyButton = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.person.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userInfoGrid)).BeginInit();
@@ -90,9 +91,9 @@
             this.bankTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bankInfoGrid)).BeginInit();
             this.adminTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.adminInfoGrid)).BeginInit();
             this.settingsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -112,6 +113,7 @@
             // 
             // person
             // 
+            this.person.Controls.Add(this.personToPlartyButton);
             this.person.Controls.Add(this.updateInfoButton);
             this.person.Controls.Add(this.userInfoGrid);
             this.person.Controls.Add(this.deletePersonButton);
@@ -436,16 +438,6 @@
             this.adminTab.Text = "Admin";
             this.adminTab.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::AgileProd.Properties.Resources.DancingPutin2;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 93);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(93, 140);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            // 
             // adminInfoGrid
             // 
             this.adminInfoGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -532,6 +524,26 @@
             this.logoutButton.UseVisualStyleBackColor = true;
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AgileProd.Properties.Resources.DancingPutin2;
+            this.pictureBox1.Location = new System.Drawing.Point(8, 93);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(93, 140);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
+            // personToPlartyButton
+            // 
+            this.personToPlartyButton.Location = new System.Drawing.Point(6, 93);
+            this.personToPlartyButton.Name = "personToPlartyButton";
+            this.personToPlartyButton.Size = new System.Drawing.Size(94, 35);
+            this.personToPlartyButton.TabIndex = 6;
+            this.personToPlartyButton.Text = "Add Person To Party";
+            this.personToPlartyButton.UseVisualStyleBackColor = true;
+            this.personToPlartyButton.Click += new System.EventHandler(this.personToPlartyButton_Click);
+            // 
             // AdminFormV2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -553,9 +565,9 @@
             this.bankTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bankInfoGrid)).EndInit();
             this.adminTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.adminInfoGrid)).EndInit();
             this.settingsTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -612,5 +624,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.Button updateAdminInfoButton;
         private System.Windows.Forms.Button logoutButton;
+        private System.Windows.Forms.Button personToPlartyButton;
     }
 }

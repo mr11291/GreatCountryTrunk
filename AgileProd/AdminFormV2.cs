@@ -15,8 +15,8 @@ namespace AgileProd
     public partial class AdminFormV2 : Form
     {
         Admin user = null;
-        int selectedID = 0;
-        String selectedPartyName = null;
+        public int selectedID = 0;
+        public String selectedPartyName = null;
 
         public AdminFormV2(Admin admin)
         {
@@ -134,6 +134,19 @@ namespace AgileProd
             {
                 UpdateInfoForm update = new UpdateInfoForm(DataLogicPerson.getPersonDictionary()[selectedID], this);
                 update.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please select a person");                  //dispay coresponding message
+            }
+        }
+
+        private void personToPlartyButton_Click(object sender, EventArgs e)
+        {
+            if (selectedID != 0)
+            {
+                AddPersonToPartyForm selectionForm = new AddPersonToPartyForm(this);
+                selectionForm.Show();
             }
             else
             {
