@@ -30,14 +30,9 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.person = new System.Windows.Forms.TabPage();
+            this.personToPlartyButton = new System.Windows.Forms.Button();
             this.updateInfoButton = new System.Windows.Forms.Button();
             this.userInfoGrid = new System.Windows.Forms.DataGridView();
-            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usernameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.votingColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deletePersonButton = new System.Windows.Forms.Button();
             this.createPersonButton = new System.Windows.Forms.Button();
             this.memberTab = new System.Windows.Forms.TabPage();
@@ -67,6 +62,7 @@
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adminTab = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.adminInfoGrid = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,8 +73,15 @@
             this.runPrimeriesButton = new System.Windows.Forms.Button();
             this.settingsTab = new System.Windows.Forms.TabPage();
             this.logoutButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.personToPlartyButton = new System.Windows.Forms.Button();
+            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usernameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.votingColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.votesColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.runPraimeriesWorker = new System.ComponentModel.BackgroundWorker();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.tabControl.SuspendLayout();
             this.person.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userInfoGrid)).BeginInit();
@@ -91,9 +94,9 @@
             this.bankTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bankInfoGrid)).BeginInit();
             this.adminTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.adminInfoGrid)).BeginInit();
             this.settingsTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -126,6 +129,16 @@
             this.person.Text = "Person";
             this.person.UseVisualStyleBackColor = true;
             // 
+            // personToPlartyButton
+            // 
+            this.personToPlartyButton.Location = new System.Drawing.Point(6, 93);
+            this.personToPlartyButton.Name = "personToPlartyButton";
+            this.personToPlartyButton.Size = new System.Drawing.Size(94, 35);
+            this.personToPlartyButton.TabIndex = 6;
+            this.personToPlartyButton.Text = "Add Person To Party";
+            this.personToPlartyButton.UseVisualStyleBackColor = true;
+            this.personToPlartyButton.Click += new System.EventHandler(this.personToPlartyButton_Click);
+            // 
             // updateInfoButton
             // 
             this.updateInfoButton.Location = new System.Drawing.Point(6, 64);
@@ -146,47 +159,12 @@
             this.ageColumn,
             this.usernameColumn,
             this.passwordColumn,
-            this.votingColumn});
+            this.votingColumn,
+            this.votesColumn});
             this.userInfoGrid.Location = new System.Drawing.Point(107, 6);
             this.userInfoGrid.Name = "userInfoGrid";
             this.userInfoGrid.Size = new System.Drawing.Size(623, 227);
             this.userInfoGrid.TabIndex = 4;
-            // 
-            // idColumn
-            // 
-            this.idColumn.HeaderText = "ID";
-            this.idColumn.Name = "idColumn";
-            this.idColumn.ReadOnly = true;
-            // 
-            // nameColumn
-            // 
-            this.nameColumn.HeaderText = "Name";
-            this.nameColumn.Name = "nameColumn";
-            this.nameColumn.ReadOnly = true;
-            // 
-            // ageColumn
-            // 
-            this.ageColumn.HeaderText = "Age";
-            this.ageColumn.Name = "ageColumn";
-            this.ageColumn.ReadOnly = true;
-            // 
-            // usernameColumn
-            // 
-            this.usernameColumn.HeaderText = "Username";
-            this.usernameColumn.Name = "usernameColumn";
-            this.usernameColumn.ReadOnly = true;
-            // 
-            // passwordColumn
-            // 
-            this.passwordColumn.HeaderText = "Password";
-            this.passwordColumn.Name = "passwordColumn";
-            this.passwordColumn.ReadOnly = true;
-            // 
-            // votingColumn
-            // 
-            this.votingColumn.HeaderText = "Voter";
-            this.votingColumn.Name = "votingColumn";
-            this.votingColumn.ReadOnly = true;
             // 
             // deletePersonButton
             // 
@@ -426,6 +404,7 @@
             // 
             // adminTab
             // 
+            this.adminTab.Controls.Add(this.progressBar);
             this.adminTab.Controls.Add(this.pictureBox1);
             this.adminTab.Controls.Add(this.adminInfoGrid);
             this.adminTab.Controls.Add(this.updateAdminInfoButton);
@@ -437,6 +416,16 @@
             this.adminTab.TabIndex = 3;
             this.adminTab.Text = "Admin";
             this.adminTab.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AgileProd.Properties.Resources.DancingPutin2;
+            this.pictureBox1.Location = new System.Drawing.Point(8, 93);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(93, 140);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
             // 
             // adminInfoGrid
             // 
@@ -503,6 +492,7 @@
             this.runPrimeriesButton.TabIndex = 9;
             this.runPrimeriesButton.Text = "Run Praimeries";
             this.runPrimeriesButton.UseVisualStyleBackColor = true;
+            this.runPrimeriesButton.Click += new System.EventHandler(this.runPrimeriesButton_Click);
             // 
             // settingsTab
             // 
@@ -524,25 +514,60 @@
             this.logoutButton.UseVisualStyleBackColor = true;
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
-            // pictureBox1
+            // idColumn
             // 
-            this.pictureBox1.Image = global::AgileProd.Properties.Resources.DancingPutin2;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 93);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(93, 140);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
+            this.idColumn.HeaderText = "ID";
+            this.idColumn.Name = "idColumn";
+            this.idColumn.ReadOnly = true;
             // 
-            // personToPlartyButton
+            // nameColumn
             // 
-            this.personToPlartyButton.Location = new System.Drawing.Point(6, 93);
-            this.personToPlartyButton.Name = "personToPlartyButton";
-            this.personToPlartyButton.Size = new System.Drawing.Size(94, 35);
-            this.personToPlartyButton.TabIndex = 6;
-            this.personToPlartyButton.Text = "Add Person To Party";
-            this.personToPlartyButton.UseVisualStyleBackColor = true;
-            this.personToPlartyButton.Click += new System.EventHandler(this.personToPlartyButton_Click);
+            this.nameColumn.HeaderText = "Name";
+            this.nameColumn.Name = "nameColumn";
+            this.nameColumn.ReadOnly = true;
+            // 
+            // ageColumn
+            // 
+            this.ageColumn.HeaderText = "Age";
+            this.ageColumn.Name = "ageColumn";
+            this.ageColumn.ReadOnly = true;
+            // 
+            // usernameColumn
+            // 
+            this.usernameColumn.HeaderText = "Username";
+            this.usernameColumn.Name = "usernameColumn";
+            this.usernameColumn.ReadOnly = true;
+            // 
+            // passwordColumn
+            // 
+            this.passwordColumn.HeaderText = "Password";
+            this.passwordColumn.Name = "passwordColumn";
+            this.passwordColumn.ReadOnly = true;
+            // 
+            // votingColumn
+            // 
+            this.votingColumn.HeaderText = "Voter";
+            this.votingColumn.Name = "votingColumn";
+            this.votingColumn.ReadOnly = true;
+            // 
+            // votesColumn
+            // 
+            this.votesColumn.HeaderText = "Times Voted";
+            this.votesColumn.Name = "votesColumn";
+            this.votesColumn.ReadOnly = true;
+            // 
+            // runPraimeriesWorker
+            // 
+            this.runPraimeriesWorker.WorkerReportsProgress = true;
+            this.runPraimeriesWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.runPraimeriesWorker_DoWork);
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(107, 218);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(623, 15);
+            this.progressBar.TabIndex = 16;
+            this.progressBar.Visible = false;
             // 
             // AdminFormV2
             // 
@@ -565,9 +590,9 @@
             this.bankTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bankInfoGrid)).EndInit();
             this.adminTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.adminInfoGrid)).EndInit();
             this.settingsTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -582,12 +607,6 @@
         private System.Windows.Forms.Button deletePersonButton;
         private System.Windows.Forms.Button createPersonButton;
         private System.Windows.Forms.DataGridView userInfoGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ageColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usernameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn votingColumn;
         private System.Windows.Forms.Button updateInfoButton;
         private System.Windows.Forms.DataGridView memberInfoGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -625,5 +644,14 @@
         private System.Windows.Forms.Button updateAdminInfoButton;
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Button personToPlartyButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usernameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passwordColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn votingColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn votesColumn;
+        private System.ComponentModel.BackgroundWorker runPraimeriesWorker;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }

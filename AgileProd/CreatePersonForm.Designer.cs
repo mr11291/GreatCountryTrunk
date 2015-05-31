@@ -43,12 +43,12 @@
             this.usernameBox = new System.Windows.Forms.TextBox();
             this.passwordBox = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.animatedArrow = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.animatedArrow = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.animatedArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.animatedArrow)).BeginInit();
             this.SuspendLayout();
             // 
             // createButton
@@ -169,6 +169,19 @@
             this.toolTip1.IsBalloon = true;
             this.toolTip1.ReshowDelay = 100;
             // 
+            // animatedArrow
+            // 
+            this.animatedArrow.BackColor = System.Drawing.Color.Transparent;
+            this.animatedArrow.Enabled = false;
+            this.animatedArrow.Image = global::AgileProd.Properties.Resources.WhiteArrow;
+            this.animatedArrow.Location = new System.Drawing.Point(195, 254);
+            this.animatedArrow.Name = "animatedArrow";
+            this.animatedArrow.Size = new System.Drawing.Size(30, 20);
+            this.animatedArrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.animatedArrow.TabIndex = 15;
+            this.animatedArrow.TabStop = false;
+            this.animatedArrow.Visible = false;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::AgileProd.Properties.Resources.InfoIcon;
@@ -189,19 +202,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // animatedArrow
-            // 
-            this.animatedArrow.BackColor = System.Drawing.Color.Transparent;
-            this.animatedArrow.Enabled = false;
-            this.animatedArrow.Image = global::AgileProd.Properties.Resources.BlueArrow;
-            this.animatedArrow.Location = new System.Drawing.Point(183, 269);
-            this.animatedArrow.Name = "animatedArrow";
-            this.animatedArrow.Size = new System.Drawing.Size(50, 30);
-            this.animatedArrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.animatedArrow.TabIndex = 15;
-            this.animatedArrow.TabStop = false;
-            this.animatedArrow.Visible = false;
             // 
             // CreatePersonForm
             // 
@@ -227,9 +227,9 @@
             this.Name = "CreatePersonForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Person";
+            ((System.ComponentModel.ISupportInitialize)(this.animatedArrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.animatedArrow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -11,7 +11,7 @@ namespace AgileProdDAL
     {
         //Varaiables
         private static DataRepository data;
-        private static int baseFee = 10000;
+        private static int baseFee = 800;
         
         //Setter Getter
         public static int BaseFee

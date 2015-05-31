@@ -31,7 +31,11 @@ namespace AgileProd
             memberInfoGrid.SelectionChanged += memberInfoGrid_SelectionChanged; //selected index changed event
             partyInfoGrid.SelectionChanged += partyInfoGrid_SelectionChanged;   //selected index changed event
             bankInfoGrid.SelectionChanged += bankInfoGrid_SelectionChanged;     //selected index changed event
-            adminInfoGrid.SelectionChanged += adminInfoGrid_SelectionChanged;
+            adminInfoGrid.SelectionChanged += adminInfoGrid_SelectionChanged;   //selected index changed event
+
+            
+            runPraimeriesWorker.RunWorkerCompleted += runPraimeriesWorker_RunWorkerCompleted;
+            runPraimeriesWorker.ProgressChanged += runPraimeriesWorker_ProgressChanged;
         }
 
         void tabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -173,6 +177,8 @@ namespace AgileProd
                 {
                     row.Cells[5].Value = "False";
                 }
+                row.Cells[6].Value = person.Value.NumOfVotes;
+
                 userInfoGrid.Rows.Add(row);
             }
         }
@@ -452,5 +458,35 @@ namespace AgileProd
             this.Close();
         }
 
+        private void runPrimeriesButton_Click(object sender, EventArgs e)
+        {
+            progressBar.Show();
+            this.Cursor = Cursors.WaitCursor;
+            runPraimeriesWorker.RunWorkerAsync();   //call background worker thread
+        }
+
+        private int getProcess()
+        {
+            return DataLogicAdmin.Process;
+        }
+
+        private void runPraimeriesWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            DataLogicAdmin.runPraimeries(runPraimeriesWorker);     //run praimeries
+        }
+
+        void runPraimeriesWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+            MessageBox.Show("Praimeries stage is over");    //inform user process is over
+            progressBar.Visible = false;
+            updatePartyGrid();
+            updateInfoGrid();
+        }
+
+        void runPraimeriesWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar.Value = e.ProgressPercentage;
+        }
     }
 }

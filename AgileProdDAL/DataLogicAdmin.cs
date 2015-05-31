@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AgileProdObjectModel;
-
 
 namespace AgileProdDAL
 {
@@ -13,6 +15,7 @@ namespace AgileProdDAL
     {
         //Varaiables
         private static DataRepository data;
+        public static int Process;
 
         //Constructor
         static DataLogicAdmin()
@@ -216,6 +219,111 @@ namespace AgileProdDAL
             {
                 return -1;
             }
+        }
+
+        private static bool getRandomBool()
+        {
+            Random rand = new Random();
+
+            if (rand.Next(100) % 2 == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public static bool runPraimeries(BackgroundWorker worker)
+        {
+            Random rand;
+            Random judge = new Random();
+            bool vote = true;
+            int i = 0;
+            Dictionary<String, int> partydict;
+
+            //set isVoting value
+            foreach (var person in data.GetPeople())    //iterate trough all people
+            {
+                if (person.Value.IsVoting == false)     //if a person is not a voter yet
+                {
+                    if (judge.Next(100) < 90)           //randomly select if a person want's to register as a voter with 80% propability for "true" value
+                    {
+                        person.Value.IsVoting = true;
+                    } 
+                }
+            }
+
+            //vote for a party member 
+            foreach (var person in data.GetPeople())
+            { 
+                i++;
+                worker.ReportProgress((int)((double)100 / data.GetPeople().Count() * i));
+                Console.Write(i + ". ");
+                Console.WriteLine(person.Value.Name + " ");
+                vote = true;
+                rand = new Random();
+
+                if (person.Value.IsVoting == true)                                               //if a person is a voter
+                {
+                    
+                    partydict = data.GetPartyList().OrderBy(x => rand.Next()).ToDictionary(item => item.Key, item => item.Value);
+
+                    while (vote == true)                                                         //while he dicides to vote
+                    {                                                                            //if a person has enogh money to pay for a vote
+                        if (DataLogicPerson.GetChargeBynumberofvote(person.Value.NumOfVotes) <= DataLogicBank.getBankDictionary()[person.Key].Balance)
+                        {
+                            foreach (var party in partydict)                                     //iterate trough party list
+                            {
+                                if (vote == true)
+                                {
+                                    if (getRandomBool())                                         //if a person decides to vote to this party
+                                    {
+                                        foreach (var member in data.GetMembers())                //find a member from this party
+                                        {
+                                            if (member.Value.Location != -1)
+                                            {
+                                                if (member.Value.Party.Equals(party.Key))        //if a member was found 
+                                                {
+                                                    if (getRandomBool())                         //if person decides to vote to this member
+                                                    {
+                                                        DataLogicPerson.voteToMember(person.Value, member.Value.Id);    //vote to selected member
+                                                        person.Value.NumOfVotes++;                                      //increase number of votes
+                                                        DataLogicBank.getBankDictionary()[person.Key].withdrawl(DataLogicPerson.GetChargeBynumberofvote(person.Value.NumOfVotes)); //withdrawl from persons account
+
+                                                        if (getRandomBool() == false)            //randomly select if a person want's to vote and assigns the coresponding value
+                                                        {
+                                                            vote = false;
+                                                            break;
+                                                        }
+                                                        else
+                                                        {
+                                                            if (DataLogicPerson.GetChargeBynumberofvote(person.Value.NumOfVotes) > DataLogicBank.getBankDictionary()[person.Key].Balance)
+                                                            {
+                                                                vote = false;
+                                                                break;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            vote = false;
+                        }
+                    }
+                }
+                Process++;
+            }
+            return true;
         }
     }
 }

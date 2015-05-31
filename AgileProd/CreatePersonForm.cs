@@ -28,6 +28,11 @@ namespace AgileProd
             }
             InitializeComponent();
             idBox.Text = Convert.ToString(generateID());
+            label2.Parent = this;
+            label3.Parent = this;
+            label4.Parent = this;
+            label5.Parent = this;
+            label6.Parent = this;
 
         }
 
@@ -84,33 +89,40 @@ namespace AgileProd
 
         private async void pictureBox2_Click(object sender, EventArgs e)
         {
+            animatedArrow.BackColor = Color.Transparent;
+
+            animatedArrow.Parent = label2;
             animatedArrow.Enabled = true;
-            animatedArrow.Location = new Point(35, 35);
+            animatedArrow.Location = new Point(0, 0);
             animatedArrow.Show();
             toolTip1.Show(String.Empty, pictureBox1, 0);
             toolTip1.Show("Please enter your name", pictureBox1, 120, 90, 2300);
 
             await Task.Delay(2500);
 
-            animatedArrow.Location = new Point(35, 90);
+            animatedArrow.Parent = label4;
+            animatedArrow.Location = new Point(0, 0);
             toolTip1.Show(String.Empty, pictureBox1, 0);
             toolTip1.Show("age", pictureBox1, 120, 90, 2300);
 
             await Task.Delay(2500);
 
-            animatedArrow.Location = new Point(35, 115);
+            animatedArrow.Parent = label5;
+            animatedArrow.Location = new Point(0, 0);
             toolTip1.Show(String.Empty, pictureBox1, 0);
             toolTip1.Show("username", pictureBox1, 120, 90, 2300);
 
             await Task.Delay(2500);
 
-            animatedArrow.Location = new Point(35, 140);
+            animatedArrow.Parent = label6;
+            animatedArrow.Location = new Point(0, 0);
             toolTip1.Show(String.Empty, pictureBox1, 0);
             toolTip1.Show("password", pictureBox1, 120, 90, 2300);
 
             await Task.Delay(2500);
 
-            animatedArrow.Location = new Point(30, 295);
+            animatedArrow.Parent = pictureBox1;
+            animatedArrow.Location = new Point(100, 100);
             toolTip1.Show(String.Empty, pictureBox1, 0);
             toolTip1.Show("and click the Create button", pictureBox1, 120, 10, 2300);
 

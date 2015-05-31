@@ -153,6 +153,16 @@ namespace AgileProd.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GreenArrow {
+            get {
+                object obj = ResourceManager.GetObject("GreenArrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap handshakemoney {
             get {
                 object obj = ResourceManager.GetObject("handshakemoney", resourceCulture);
@@ -355,6 +365,16 @@ namespace AgileProd.Properties {
         internal static System.Drawing.Bitmap suspiciusPutin {
             get {
                 object obj = ResourceManager.GetObject("suspiciusPutin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhiteArrow {
+            get {
+                object obj = ResourceManager.GetObject("WhiteArrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
