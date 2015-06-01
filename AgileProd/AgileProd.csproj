@@ -81,6 +81,18 @@
     <Compile Include="CreatePersonForm.Designer.cs">
       <DependentUpon>CreatePersonForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageForm.Designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SendMessageFom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendMessageFom.Designer.cs">
+      <DependentUpon>SendMessageFom.cs</DependentUpon>
+    </Compile>
     <Compile Include="SlogenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,8 +156,14 @@
     <EmbeddedResource Include="DeletPartyForm.resx">
       <DependentUpon>DeletPartyForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PersonForm.resx">
       <DependentUpon>PersonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SendMessageFom.resx">
+      <DependentUpon>SendMessageFom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SlogenForm.resx">
       <DependentUpon>SlogenForm.cs</DependentUpon>

@@ -141,10 +141,18 @@ namespace AgileProdDAL
 
         public static void ChangePraimeryStatus()
         {
-            if (data.GetPraimerise() == false)
-                data.setPraimeries(true);
-            else
+            if (data.GetPraimerise() == true)
+            {
                 data.setPraimeries(false);
+                foreach (var person in data.GetPeople().Values)
+                {
+                    person.NumOfVotes = 0;
+                }
+            }
+            else
+            {
+                data.setPraimeries(true);
+            }
         }
 
         public static bool addMember(int id, string name, int age, string username, string password, bool isVoting,int numofvote, string group, int location, int balance)
@@ -270,7 +278,7 @@ namespace AgileProdDAL
 
                     while (vote == true)                                                         //while he dicides to vote
                     {                                                                            //if a person has enogh money to pay for a vote
-                        if (DataLogicPerson.GetChargeBynumberofvote(person.Value.NumOfVotes) <= DataLogicBank.getBankDictionary()[person.Key].Balance)
+                        if (DataLogicPerson.getVotingFeeByNumOfVotes(person.Value.NumOfVotes) <= DataLogicBank.getBankDictionary()[person.Key].Balance)
                         {
                             foreach (var party in partydict)                                     //iterate trough party list
                             {
@@ -288,7 +296,7 @@ namespace AgileProdDAL
                                                     {
                                                         DataLogicPerson.voteToMember(person.Value, member.Value.Id);    //vote to selected member
                                                         person.Value.NumOfVotes++;                                      //increase number of votes
-                                                        DataLogicBank.getBankDictionary()[person.Key].withdrawl(DataLogicPerson.GetChargeBynumberofvote(person.Value.NumOfVotes)); //withdrawl from persons account
+                                                        DataLogicBank.getBankDictionary()[person.Key].withdrawl(DataLogicPerson.getVotingFeeByNumOfVotes(person.Value.NumOfVotes)); //withdrawl from persons account
 
                                                         if (getRandomBool() == false)            //randomly select if a person want's to vote and assigns the coresponding value
                                                         {
@@ -297,7 +305,7 @@ namespace AgileProdDAL
                                                         }
                                                         else
                                                         {
-                                                            if (DataLogicPerson.GetChargeBynumberofvote(person.Value.NumOfVotes) > DataLogicBank.getBankDictionary()[person.Key].Balance)
+                                                            if (DataLogicPerson.getVotingFeeByNumOfVotes(person.Value.NumOfVotes) > DataLogicBank.getBankDictionary()[person.Key].Balance)
                                                             {
                                                                 vote = false;
                                                                 break;

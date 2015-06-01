@@ -248,7 +248,7 @@ namespace AgileProdDAL
             }
         }
 
-        public static int GetChargeBynumberofvote(int NumOfVotes)
+        public static int getVotingFeeByNumOfVotes(int NumOfVotes)
         {
             return (int)(baseFee * NumOfVotes*1.5);
 

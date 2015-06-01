@@ -14,7 +14,8 @@ namespace AgileProd
 {
     public partial class BaseForm : Form
     {
-        private Person user;
+        private Person user = null;
+        private String selectedPerson = null;
 
         private BaseForm()
         {
@@ -28,7 +29,13 @@ namespace AgileProd
             username.BorderStyle = BorderStyle.None;
             username.Text = "User: " + user.Name;
             tabMenu.SelectedIndexChanged += tabMenu_SelectedIndexChanged;
+            personList.SelectedIndexChanged += personList_SelectedIndexChanged;
             fromList.View = View.Details;
+        }
+
+        void personList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedPerson = Convert.ToString(personList.FocusedItem.Text);
         }
 
         private void tabMenu_SelectedIndexChanged(object sender, EventArgs e)
@@ -43,12 +50,12 @@ namespace AgileProd
                     break;
                 case 2:
                     {
-                        //tabMenu.TabPages[2].Text = "Messages";
                         while (fromList.Items.Count > 0)
                         {
                             fromList.Items.RemoveAt(0);
                         }
                         fillMessageList();
+                        fillPersonList();
                     }
                     break;
                 case 3:
@@ -84,6 +91,19 @@ namespace AgileProd
             this.settingsPasswordBox.Text = user.Password;
         }
 
+        private void fillPersonList()
+        {
+            ListViewItem details = new ListViewItem();
+
+            foreach (var person in DataLogicPerson.getPersonDictionary())
+            {
+                if (person.Key != user.Id)
+                {
+                    personList.Items.Add(person.Value.Name);
+                }
+            }
+        }
+
         private void fillMessageList()
         {
             var messages = DataLogicPerson.getMessages(user);
@@ -109,7 +129,14 @@ namespace AgileProd
         private void readButton_Click(object sender, EventArgs e)
         {
             ListViewItem details = new ListViewItem();
-            details = fromList.SelectedItems[0];
+            try
+            {
+                details = fromList.SelectedItems[0];
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return;
+            }
             
             //find message
             foreach (var item in DataLogicPerson.getMessages(user))
@@ -118,22 +145,25 @@ namespace AgileProd
                 if (item.Item1 == Convert.ToInt32(details.SubItems[1].Text))
                 {
                     //display message
-                    DialogResult dialogResult = MessageBox.Show(item.Item2, Convert.ToString(details.SubItems[0].Text) + ":", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        //if its a bribe offer
-                        if (DataLogicPerson.isMember(item.Item1) && item.Item3 > 0)
-                        {
-                            if (DataLogicPerson.voteToMember(user, item.Item1))
-                            {
-                                MessageBox.Show("You have voted for" + DataLogicPerson.getMemberNameById(item.Item1));
-                            }
-                        }
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
-                        //do something else
-                    }
+                    MessageForm messageDialog = new MessageForm(item);
+                    messageDialog.Show();
+
+                    //DialogResult dialogResult = MessageBox.Show(item.Item2, Convert.ToString(details.SubItems[0].Text) + ":", MessageBoxButtons.YesNo);
+                    //if (dialogResult == DialogResult.Yes)
+                    //{
+                    //    //if its a bribe offer
+                    //    if (DataLogicPerson.isMember(item.Item1) && item.Item3 > 0)
+                    //    {
+                    //        if (DataLogicPerson.voteToMember(user, item.Item1))
+                    //        {
+                    //            MessageBox.Show("You have voted for" + DataLogicPerson.getMemberNameById(item.Item1));
+                    //        }
+                    //    }
+                    //}
+                    //else if (dialogResult == DialogResult.No)
+                    //{
+                    //    //do something else
+                    //}
                 }
             }
 
@@ -156,19 +186,8 @@ namespace AgileProd
         private void logoutButton_Click(object sender, EventArgs e)
         {
             LoginForm goback = new LoginForm();
-            //TODO update database
             this.Close();
             goback.Show();
-        }
-
-        private void settingsNameBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void settingsIdBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         protected bool checkOpened(string name)
@@ -208,8 +227,29 @@ namespace AgileProd
             MessageBox.Show(result);
         }
 
-    
+        private void writeButton_Click(object sender, EventArgs e)
+        {
+            int personid = 0;
+            if (selectedPerson != null)
+            {
+                foreach (var person in DataLogicPerson.getPersonDictionary())
+                {
+                    if (selectedPerson.Equals(person.Value.Name))
+                    {
+                        personid = person.Key;
+                        break;
+                    }
+                }
+            }
 
-
+            if (personid != 0)
+            {
+                if (selectedPerson != null)
+                {
+                    SendMessageFom newForm = new SendMessageFom(user.Id, personid);
+                    newForm.Show();
+                }
+            }
+        }
     }
 }

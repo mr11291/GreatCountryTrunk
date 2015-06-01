@@ -138,7 +138,7 @@ namespace AgileProd
                 {
                     if (ListOf2.SelectedItems.Count > 0)
                     {
-                        if (DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) < DataLogic.getBalance(user))
+                        if (DataLogicPerson.getVotingFeeByNumOfVotes(user.NumOfVotes) < DataLogic.getBalance(user))
                         {
                             DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text);
                             MessageBox.Show("You have successfuly voted for " + ListOf2.SelectedItems[0].Text);
@@ -151,14 +151,14 @@ namespace AgileProd
             {
                 if (ListOf2.SelectedItems.Count > 0)
                 {
-                    DialogResult dialogResult = MessageBox.Show("Would you like to pay " + DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) + "$ to vote?", "Attention", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Would you like to pay " + DataLogicPerson.getVotingFeeByNumOfVotes(user.NumOfVotes) + "$ to vote?", "Attention", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
 
-                        if (DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) < DataLogic.getBalance(user))
+                        if (DataLogicPerson.getVotingFeeByNumOfVotes(user.NumOfVotes) < DataLogic.getBalance(user))
                         {
                             DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text);
-                            DataLogicPerson.withdrawlFromAccount(user, DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes));
+                            DataLogicPerson.withdrawlFromAccount(user, DataLogicPerson.getVotingFeeByNumOfVotes(user.NumOfVotes));
                             MessageBox.Show("You have successfuly voted for " + ListOf2.SelectedItems[0].Text);
                             bankTab.ImageIndex = 0;
                             user.NumOfVotes++;
@@ -335,15 +335,15 @@ namespace AgileProd
                 DialogResult dialogResult = MessageBox.Show("You sure that you want to vote for " + listOfParties.Items[intselectedindex].Text + "?", "Attention!", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    DialogResult dialogResult2 = MessageBox.Show("Would you like to pay " + DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) + "$ to vote?", "Attention!", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult2 = MessageBox.Show("Would you like to pay " + DataLogicPerson.getVotingFeeByNumOfVotes(user.NumOfVotes) + "$ to vote?", "Attention!", MessageBoxButtons.YesNo);
                     if (dialogResult2 == DialogResult.Yes)
                     {
-                        if (DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) < DataLogicPerson.getBalance(user))
+                        if (DataLogicPerson.getVotingFeeByNumOfVotes(user.NumOfVotes) < DataLogicPerson.getBalance(user))
                         {
                             DataLogicPerson.voteToParty(listOfParties.SelectedItems[0].Text);
                             if (user.NumOfVotes > 0)
                             {
-                                DataLogicPerson.withdrawlFromAccount(user, DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes));
+                                DataLogicPerson.withdrawlFromAccount(user, DataLogicPerson.getVotingFeeByNumOfVotes(user.NumOfVotes));
                                 bankTab.ImageIndex = 0;
                                 MessageBox.Show("You have successfuly voted for " + listOfParties.Items[intselectedindex].Text);
                             }

@@ -41,6 +41,8 @@
             this.idLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.messageTab = new System.Windows.Forms.TabPage();
+            this.replyButton = new System.Windows.Forms.Button();
+            this.writeButton = new System.Windows.Forms.Button();
             this.readBtn = new System.Windows.Forms.Button();
             this.btnAllMsg = new System.Windows.Forms.Button();
             this.readButton = new System.Windows.Forms.Button();
@@ -59,6 +61,7 @@
             this.settingsUserNameLabel = new System.Windows.Forms.Label();
             this.settingsIdLabel = new System.Windows.Forms.Label();
             this.settingNameLabel = new System.Windows.Forms.Label();
+            this.personList = new System.Windows.Forms.ListView();
             this.tabMenu.SuspendLayout();
             this.blankTab.SuspendLayout();
             this.bankTab.SuspendLayout();
@@ -199,6 +202,9 @@
             this.messageTab.BackgroundImage = global::AgileProd.Properties.Resources.cashenvelope_op15;
             this.messageTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.messageTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.messageTab.Controls.Add(this.personList);
+            this.messageTab.Controls.Add(this.replyButton);
+            this.messageTab.Controls.Add(this.writeButton);
             this.messageTab.Controls.Add(this.readBtn);
             this.messageTab.Controls.Add(this.btnAllMsg);
             this.messageTab.Controls.Add(this.readButton);
@@ -210,11 +216,30 @@
             this.messageTab.TabIndex = 4;
             this.messageTab.Text = "Messages";
             // 
+            // replyButton
+            // 
+            this.replyButton.Location = new System.Drawing.Point(432, 64);
+            this.replyButton.Name = "replyButton";
+            this.replyButton.Size = new System.Drawing.Size(90, 25);
+            this.replyButton.TabIndex = 8;
+            this.replyButton.Text = "Reply";
+            this.replyButton.UseVisualStyleBackColor = true;
+            // 
+            // writeButton
+            // 
+            this.writeButton.Location = new System.Drawing.Point(433, 33);
+            this.writeButton.Name = "writeButton";
+            this.writeButton.Size = new System.Drawing.Size(90, 25);
+            this.writeButton.TabIndex = 7;
+            this.writeButton.Text = "Write";
+            this.writeButton.UseVisualStyleBackColor = true;
+            this.writeButton.Click += new System.EventHandler(this.writeButton_Click);
+            // 
             // readBtn
             // 
-            this.readBtn.Location = new System.Drawing.Point(248, 54);
+            this.readBtn.Location = new System.Drawing.Point(380, 224);
             this.readBtn.Name = "readBtn";
-            this.readBtn.Size = new System.Drawing.Size(121, 23);
+            this.readBtn.Size = new System.Drawing.Size(143, 23);
             this.readBtn.TabIndex = 6;
             this.readBtn.Text = "Read Next Message";
             this.readBtn.UseVisualStyleBackColor = true;
@@ -222,9 +247,9 @@
             // 
             // btnAllMsg
             // 
-            this.btnAllMsg.Location = new System.Drawing.Point(248, 83);
+            this.btnAllMsg.Location = new System.Drawing.Point(380, 253);
             this.btnAllMsg.Name = "btnAllMsg";
-            this.btnAllMsg.Size = new System.Drawing.Size(121, 23);
+            this.btnAllMsg.Size = new System.Drawing.Size(143, 23);
             this.btnAllMsg.TabIndex = 5;
             this.btnAllMsg.Text = "Show All Messages";
             this.btnAllMsg.UseVisualStyleBackColor = true;
@@ -232,9 +257,9 @@
             // 
             // readButton
             // 
-            this.readButton.Location = new System.Drawing.Point(248, 25);
+            this.readButton.Location = new System.Drawing.Point(433, 6);
             this.readButton.Name = "readButton";
-            this.readButton.Size = new System.Drawing.Size(75, 23);
+            this.readButton.Size = new System.Drawing.Size(90, 25);
             this.readButton.TabIndex = 2;
             this.readButton.Text = "Read";
             this.readButton.UseVisualStyleBackColor = true;
@@ -260,7 +285,7 @@
             this.fromList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.fromList.Location = new System.Drawing.Point(6, 25);
             this.fromList.Name = "fromList";
-            this.fromList.Size = new System.Drawing.Size(236, 254);
+            this.fromList.Size = new System.Drawing.Size(368, 254);
             this.fromList.TabIndex = 0;
             this.fromList.UseCompatibleStateImageBehavior = false;
             // 
@@ -339,7 +364,6 @@
             this.settingsIdBox.ReadOnly = true;
             this.settingsIdBox.Size = new System.Drawing.Size(100, 20);
             this.settingsIdBox.TabIndex = 6;
-            this.settingsIdBox.TextChanged += new System.EventHandler(this.settingsIdBox_TextChanged);
             // 
             // settingsNameBox
             // 
@@ -348,7 +372,6 @@
             this.settingsNameBox.Name = "settingsNameBox";
             this.settingsNameBox.Size = new System.Drawing.Size(100, 20);
             this.settingsNameBox.TabIndex = 5;
-            this.settingsNameBox.TextChanged += new System.EventHandler(this.settingsNameBox_TextChanged);
             // 
             // settingsPasswordLabel
             // 
@@ -385,6 +408,15 @@
             this.settingNameLabel.Size = new System.Drawing.Size(38, 13);
             this.settingNameLabel.TabIndex = 0;
             this.settingNameLabel.Text = "Name:";
+            // 
+            // personList
+            // 
+            this.personList.Location = new System.Drawing.Point(528, 6);
+            this.personList.Name = "personList";
+            this.personList.Size = new System.Drawing.Size(137, 270);
+            this.personList.TabIndex = 9;
+            this.personList.UseCompatibleStateImageBehavior = false;
+            this.personList.View = System.Windows.Forms.View.List;
             // 
             // BaseForm
             // 
@@ -441,6 +473,9 @@
         private System.Windows.Forms.Button btnAllMsg;
         private System.Windows.Forms.Button readBtn;
         public System.Windows.Forms.TextBox username;
+        private System.Windows.Forms.Button replyButton;
+        private System.Windows.Forms.Button writeButton;
+        private System.Windows.Forms.ListView personList;
 
     }
 }

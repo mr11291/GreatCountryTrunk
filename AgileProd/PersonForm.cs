@@ -151,15 +151,15 @@ namespace AgileProd
                 if (dialogResult == DialogResult.Yes)
                 {
                     //massge with the price that the user going to pay of
-                    DialogResult dialogResult2 = MessageBox.Show("You will have to pay " + Convert.ToString(DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes)) + "$ as a voters fee", "Attention", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult2 = MessageBox.Show("You will have to pay " + Convert.ToString(DataLogicPerson.getVotingFeeByNumOfVotes(user.NumOfVotes)) + "$ as a voters fee", "Attention", MessageBoxButtons.YesNo);
                     if (dialogResult2 == DialogResult.Yes)
                     {
-                        if (DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes) < DataLogicPerson.getBalance(user))
+                        if (DataLogicPerson.getVotingFeeByNumOfVotes(user.NumOfVotes) < DataLogicPerson.getBalance(user))
                         {
                             DataLogicPerson.voteToMember(ListOf2.SelectedItems[0].Text);
                             if (user.NumOfVotes > 0)
                             {
-                                DataLogicPerson.withdrawlFromAccount(user, DataLogicPerson.GetChargeBynumberofvote(user.NumOfVotes));
+                                DataLogicPerson.withdrawlFromAccount(user, DataLogicPerson.getVotingFeeByNumOfVotes(user.NumOfVotes));
                                 bankTab.ImageIndex = 0;
                             }
                             user.NumOfVotes++; 
