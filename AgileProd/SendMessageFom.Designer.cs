@@ -71,7 +71,6 @@
             this.currentMoneyBox.Size = new System.Drawing.Size(70, 20);
             this.currentMoneyBox.TabIndex = 5;
             this.currentMoneyBox.Visible = false;
-            this.currentMoneyBox.TextChanged += new System.EventHandler(this.currentMoneyBox_TextChanged);
             // 
             // sendButton
             // 

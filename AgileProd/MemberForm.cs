@@ -109,14 +109,14 @@ namespace AgileProd
             }
             else
             {
-                DialogResult dialogResult = MessageBox.Show("Please pay to kim " + DataLogicPerson.GetChargeBynumberofvote(currMember.NumOfVotes) + "$ to vote", "Attention!", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Please pay to kim " + DataLogicPerson.getVotingFeeByNumOfVotes(currMember.NumOfVotes) + "$ to vote", "Attention!", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    if (DataLogicPerson.GetChargeBynumberofvote(currMember.NumOfVotes) < DataLogicPerson.getBalance(currMember))
+                    if (DataLogicPerson.getVotingFeeByNumOfVotes(currMember.NumOfVotes) < DataLogicPerson.getBalance(currMember))
                     {
 
                         DataLogicPerson.voteToParty(currMember.Party);
-                        DataLogicPerson.withdrawlFromAccount(currMember, DataLogicPerson.GetChargeBynumberofvote(currMember.NumOfVotes));
+                        DataLogicPerson.withdrawlFromAccount(currMember, DataLogicPerson.getVotingFeeByNumOfVotes(currMember.NumOfVotes));
                         if (currMember.NumOfVotes > 0)
                         {
                             bankTab.ImageIndex = 0;
@@ -143,14 +143,14 @@ namespace AgileProd
             }
             else
             {
-                DialogResult dialogResult = MessageBox.Show("Please pay to kim " + DataLogicPerson.GetChargeBynumberofvote(currMember.NumOfVotes) + "$ to vote", "Attention!", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Please pay to kim " + DataLogicPerson.getVotingFeeByNumOfVotes(currMember.NumOfVotes) + "$ to vote", "Attention!", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    if (DataLogicPerson.GetChargeBynumberofvote(currMember.NumOfVotes) < DataLogicPerson.getBalance(currMember))
+                    if (DataLogicPerson.getVotingFeeByNumOfVotes(currMember.NumOfVotes) < DataLogicPerson.getBalance(currMember))
                     {
 
                         DataLogicPerson.voteToMember(currMember.Name);
-                        DataLogicPerson.withdrawlFromAccount(currMember, DataLogicPerson.GetChargeBynumberofvote(currMember.NumOfVotes));
+                        DataLogicPerson.withdrawlFromAccount(currMember, DataLogicPerson.getVotingFeeByNumOfVotes(currMember.NumOfVotes));
                         if (currMember.NumOfVotes > 0)
                         {
                             bankTab.ImageIndex = 0;

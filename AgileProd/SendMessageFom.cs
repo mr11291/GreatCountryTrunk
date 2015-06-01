@@ -26,8 +26,8 @@ namespace AgileProd
             if (DataLogicMember.GetMember().Keys.Contains(sender))
             {
                 moneytrackBar.Maximum = DataLogicBank.getBankDictionary()[sender].Balance;
-                moneytrackBar.Value = DataLogicPerson.GetChargeBynumberofvote(DataLogicPerson.getPersonDictionary()[reciverID].NumOfVotes);
-                currentMoneyBox.Text = Convert.ToString(DataLogicPerson.GetChargeBynumberofvote(DataLogicPerson.getPersonDictionary()[reciverID].NumOfVotes));
+                moneytrackBar.Value = DataLogicPerson.getVotingFeeByNumOfVotes(DataLogicPerson.getPersonDictionary()[reciverID].NumOfVotes);
+                currentMoneyBox.Text = Convert.ToString(DataLogicPerson.getVotingFeeByNumOfVotes(DataLogicPerson.getPersonDictionary()[reciverID].NumOfVotes));
                 maxLabel.Text = Convert.ToString(DataLogicBank.getBankDictionary()[sender].Balance);
                 initializeJobOffer();
                 initializeBribeOffer();
@@ -40,7 +40,6 @@ namespace AgileProd
                 messageMenu.Show();
                 messageMenu.SelectedIndexChanged += messageMenu_SelectedIndexChanged;
             }
-
         }
 
         void messageMenu_SelectedIndexChanged(object sender, EventArgs e)
@@ -74,25 +73,13 @@ namespace AgileProd
             bribeAmount = moneytrackBar.Value;
             try
             {
-                if (bribeAmount <= DataLogicPerson.GetChargeBynumberofvote(DataLogicPerson.getPersonDictionary()[reciverID].NumOfVotes))
+                if (bribeAmount <= DataLogicPerson.getVotingFeeByNumOfVotes(DataLogicPerson.getPersonDictionary()[reciverID].NumOfVotes))
                 {
                     currentMoneyBox.ForeColor = Color.Red;
                 }
                 else
                 {
                     currentMoneyBox.ForeColor = Color.Black;
-                }
-            }
-            catch { }
-        }
-
-        private void currentMoneyBox_TextChanged(object sender, EventArgs e)
-       {
-            try
-            {
-                if (Convert.ToInt32(currentMoneyBox.Text) <= DataLogicPerson.GetChargeBynumberofvote(DataLogicPerson.getPersonDictionary()[reciverID].NumOfVotes))
-                {
-                    currentMoneyBox.ForeColor = Color.Red;
                 }
             }
             catch { }
