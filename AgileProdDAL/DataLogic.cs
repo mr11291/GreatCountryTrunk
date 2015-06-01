@@ -91,19 +91,18 @@ namespace AgileProdDAL
             }
         }//DeletePerson(int)
         public static void Ifenter()
-        {
-                DateTime now = new DateTime();
-                now = DateTime.Now;
-                //long time = now.Ticks;
-                 foreach (var x in data.GetLastEntery())
-                 {
-                     DateTime myDate = new DateTime(x.Value.Last);
-                     var y = (now - myDate).TotalHours;
-                     if(y>8760)//HourInYear
-                     {
-                         DataLogic.DeletePerson(x.Key);
-                     }    
-                 }
+        {   
+
+            DateTime now = new DateTime();
+            now = DateTime.Now;
+            foreach (var x in data.GetLastEntery())
+            {   
+                DateTime myDate = new DateTime(x.Value.Last);//crating a new date by datetime fomat from ticks time
+                if ((now - myDate).TotalHours > 8760)//8760-HourInYear check the difrents between the times
+                {
+                    DataLogic.DeletePerson(x.Key);//dekete person if not enter to the system 
+                }    
+            }
   
 
         }
@@ -113,7 +112,7 @@ namespace AgileProdDAL
             {
                 if(x.Key==id)
                 {
-                    x.Value.Last = DateTime.Now.Ticks;
+                    x.Value.Last = DateTime.Now.Ticks;//update the new last visit
                 }
             }
       
