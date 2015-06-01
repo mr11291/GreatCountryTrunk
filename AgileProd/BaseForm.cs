@@ -145,8 +145,8 @@ namespace AgileProd
                 if (item.Item1 == Convert.ToInt32(details.SubItems[1].Text))
                 {
                     //display message
-                    MessageForm messageDialog = new MessageForm(item);
-                    messageDialog.Show();
+                    MessageForm messageDialog = new MessageForm(item ,user);
+                    messageDialog.ShowDialog();
 
                     //DialogResult dialogResult = MessageBox.Show(item.Item2, Convert.ToString(details.SubItems[0].Text) + ":", MessageBoxButtons.YesNo);
                     //if (dialogResult == DialogResult.Yes)
@@ -247,7 +247,7 @@ namespace AgileProd
                 if (selectedPerson != null)
                 {
                     SendMessageFom newForm = new SendMessageFom(user.Id, personid);
-                    newForm.Show();
+                    newForm.ShowDialog();
                 }
             }
         }

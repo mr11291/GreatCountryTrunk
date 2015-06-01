@@ -32,6 +32,8 @@
             this.replyButton = new System.Windows.Forms.Button();
             this.yesButton = new System.Windows.Forms.Button();
             this.noButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.nextButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // messageBox
@@ -52,35 +54,64 @@
             this.replyButton.TabIndex = 1;
             this.replyButton.Text = "Reply";
             this.replyButton.UseVisualStyleBackColor = true;
+            this.replyButton.Visible = false;
+            this.replyButton.Click += new System.EventHandler(this.replyButton_Click);
             // 
             // yesButton
             // 
-            this.yesButton.Location = new System.Drawing.Point(93, 166);
+            this.yesButton.Location = new System.Drawing.Point(174, 166);
             this.yesButton.Name = "yesButton";
             this.yesButton.Size = new System.Drawing.Size(75, 23);
             this.yesButton.TabIndex = 2;
             this.yesButton.Text = "Yes";
             this.yesButton.UseVisualStyleBackColor = true;
+            this.yesButton.Visible = false;
             // 
             // noButton
             // 
-            this.noButton.Location = new System.Drawing.Point(174, 166);
+            this.noButton.Location = new System.Drawing.Point(255, 166);
             this.noButton.Name = "noButton";
             this.noButton.Size = new System.Drawing.Size(75, 23);
             this.noButton.TabIndex = 3;
             this.noButton.Text = "No";
             this.noButton.UseVisualStyleBackColor = true;
+            this.noButton.Visible = false;
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.Location = new System.Drawing.Point(93, 166);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 4;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Visible = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // nextButton
+            // 
+            this.nextButton.Location = new System.Drawing.Point(417, 166);
+            this.nextButton.Name = "nextButton";
+            this.nextButton.Size = new System.Drawing.Size(75, 23);
+            this.nextButton.TabIndex = 5;
+            this.nextButton.Text = "Next";
+            this.nextButton.UseVisualStyleBackColor = true;
+            this.nextButton.Visible = false;
+            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
             // 
             // MessageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 197);
+            this.Controls.Add(this.nextButton);
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.noButton);
             this.Controls.Add(this.yesButton);
             this.Controls.Add(this.replyButton);
             this.Controls.Add(this.messageBox);
             this.Name = "MessageForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MessageForm";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -93,5 +124,7 @@
         private System.Windows.Forms.Button replyButton;
         private System.Windows.Forms.Button yesButton;
         private System.Windows.Forms.Button noButton;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Button nextButton;
     }
 }

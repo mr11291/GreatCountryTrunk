@@ -39,6 +39,7 @@
             this.bribeTab = new System.Windows.Forms.TabPage();
             this.jobTab = new System.Windows.Forms.TabPage();
             this.jobOfferBox = new System.Windows.Forms.TextBox();
+            this.regularMessageBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.moneytrackBar)).BeginInit();
             this.messageMenu.SuspendLayout();
             this.bribeTab.SuspendLayout();
@@ -89,6 +90,7 @@
             this.cancelButton.TabIndex = 7;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // minLabel
             // 
@@ -153,6 +155,15 @@
             this.jobOfferBox.Size = new System.Drawing.Size(467, 113);
             this.jobOfferBox.TabIndex = 2;
             // 
+            // regularMessageBox
+            // 
+            this.regularMessageBox.Location = new System.Drawing.Point(12, 12);
+            this.regularMessageBox.Multiline = true;
+            this.regularMessageBox.Name = "regularMessageBox";
+            this.regularMessageBox.Size = new System.Drawing.Size(481, 174);
+            this.regularMessageBox.TabIndex = 11;
+            this.regularMessageBox.Visible = false;
+            // 
             // SendMessageFom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,7 +176,9 @@
             this.Controls.Add(this.sendButton);
             this.Controls.Add(this.currentMoneyBox);
             this.Controls.Add(this.moneytrackBar);
+            this.Controls.Add(this.regularMessageBox);
             this.Name = "SendMessageFom";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SendMessageFom";
             ((System.ComponentModel.ISupportInitialize)(this.moneytrackBar)).EndInit();
             this.messageMenu.ResumeLayout(false);
@@ -191,5 +204,6 @@
         private System.Windows.Forms.TabPage bribeTab;
         private System.Windows.Forms.TabPage jobTab;
         private System.Windows.Forms.TextBox jobOfferBox;
+        private System.Windows.Forms.TextBox regularMessageBox;
     }
 }

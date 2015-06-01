@@ -40,6 +40,10 @@ namespace AgileProd
                 messageMenu.Show();
                 messageMenu.SelectedIndexChanged += messageMenu_SelectedIndexChanged;
             }
+            else
+            {
+                regularMessageBox.Show();
+            }
         }
 
         void messageMenu_SelectedIndexChanged(object sender, EventArgs e)
@@ -71,6 +75,7 @@ namespace AgileProd
         {
             currentMoneyBox.Text = Convert.ToString(moneytrackBar.Value);
             bribeAmount = moneytrackBar.Value;
+            initializeBribeOffer();
             try
             {
                 if (bribeAmount <= DataLogicPerson.getVotingFeeByNumOfVotes(DataLogicPerson.getPersonDictionary()[reciverID].NumOfVotes))
@@ -89,8 +94,8 @@ namespace AgileProd
         {
             bribeOfferBox.Text = "Dear " +
                                  DataLogicPerson.getPersonDictionary()[reciverID].Name +
-                                 ", I would love if you kindly vote for me. Here is a little insentive." +
-                                 " " + bribeAmount;
+                                 ", I would love if you could kindly vote for me. Here is a little insentive -" +
+                                 " " + currentMoneyBox.Text + "$";
         }
 
         private void initializeJobOffer()
@@ -99,6 +104,11 @@ namespace AgileProd
                                DataLogicPerson.getPersonDictionary()[reciverID].Name +
                                ", We have reviewed your account and we would like you to join " +
                                DataLogicMember.GetMember()[senderID].Party;
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
