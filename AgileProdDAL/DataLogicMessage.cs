@@ -7,7 +7,7 @@ using AgileProdObjectModel;
 
 namespace AgileProdDAL
 {
-    class DataLogicMessage
+    public class DataLogicMessage
     {
         //Varaiables
         private static DataRepository data;
@@ -22,6 +22,11 @@ namespace AgileProdDAL
         {
             Message newMessage = null;
             data.GetMessages().Add(id, newMessage);
+        }
+
+        public static Message getAllMessages(int id)
+        {
+            return data.GetMessages()[id];
         }
     }
 }
