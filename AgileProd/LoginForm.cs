@@ -19,6 +19,7 @@ namespace AgileProd
         
         public LoginForm()
         {
+            DataLogic.Ifenter();
             InitializeComponent();
             playAnthem();
             snd.Play();
@@ -49,6 +50,7 @@ namespace AgileProd
                 snd.Stop();
                 this.Hide();
                 newForm.Show();
+                DataLogic.UpdateEntery(tempAdmin.Id);
                 return;
             }
             else if(tempHead !=null)
@@ -57,6 +59,7 @@ namespace AgileProd
                 snd.Stop();
                 this.Hide();
                 newForm.Show();
+                DataLogic.UpdateEntery(tempHead.Id);
                 return;
             }
             else if(tempMember != null)
@@ -65,6 +68,7 @@ namespace AgileProd
                 snd.Stop();
                 this.Hide();
                 f.Show();
+                DataLogic.UpdateEntery(tempMember.Id);
                 return;
             }
             else if(tempPerson!=null)
@@ -73,6 +77,7 @@ namespace AgileProd
                 snd.Stop();
                 this.Hide();
                 newfrom.Show();
+                DataLogic.UpdateEntery(tempPerson.Id);
                 return;
             }
             else

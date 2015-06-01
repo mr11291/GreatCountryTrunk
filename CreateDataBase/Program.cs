@@ -15,7 +15,8 @@ namespace CreateDataBase
                                                          @"C:\Users\Guyvkn\Desktop\GreatCountryTrunk\AgileProdDAL\Database\parties.txt",
                                                          @"C:\Users\Guyvkn\Desktop\GreatCountryTrunk\AgileProdDAL\Database\committee.txt",
                                                          @"C:\Users\Guyvkn\Desktop\GreatCountryTrunk\AgileProdDAL\Database\bankAccounts.txt",
-                                                         @"C:\Users\Guyvkn\Desktop\GreatCountryTrunk\AgileProdDAL\Database\messageInbox.txt");
+                                                         @"C:\Users\Guyvkn\Desktop\GreatCountryTrunk\AgileProdDAL\Database\messageInbox.txt",
+                                                         @"C:\Users\Guyvkn\Desktop\GreatCountryTrunk\AgileProdDAL\Database\LastEntry.txt");
             csvF.writeFiles();
         }
     }

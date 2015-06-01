@@ -25,8 +25,9 @@ namespace AgileProdDAL
             Dictionary<int,Bank> acc = readFromBank();          //<id, bank account instance>
             Dictionary<int, Message> mes = readFromMessage();   //<id, message inbox instance>
             Dictionary<int, Memento> memento = readFromMemento();
-            
-            DataRepository dataR = new DataRepository(p, mem, parties, praimeries, head, admin, acc, mes, memento);  //creates data reposatory
+            Dictionary<int, LastEntry> l = readFromEntry();// <id,lest enrty instance>
+
+            DataRepository dataR = new DataRepository(p, mem, parties, praimeries, head, admin, acc, mes, memento,l);  //creates data reposatory
 
             return dataR;           //returns a data reposatory of all of the dictionaries
         }//LoadToDataReposatory()
@@ -88,7 +89,30 @@ namespace AgileProdDAL
             file.Close();
             return bankAccounts;                                                //return bank accounts dictionary
         }//readFromPeople()
+        //readFromlastenrty creates a dictionary from last entry database
+        private static Dictionary<int, LastEntry> readFromEntry()
+        {
+            Dictionary<int, LastEntry> LastEntry = new Dictionary<int,LastEntry>();
+            StreamReader file = new StreamReader(path + "\\LastEntry.txt");
 
+            string line = file.ReadLine();                                      //get first line
+
+            while (line != null)                                                //loop trough the whole file
+            {
+                var div = line.Split(',').ToList();                             //split and convert to list
+
+                for (int i = 0; i < div.Count - 1; i++)                         //loop trough string list
+                {
+                    div[i].Replace(" ", string.Empty);                          //delete any white spaces
+                }//for i
+                //create lastenry  instance
+                LastEntry enter = new LastEntry(Convert.ToInt32(div[0]), Convert.ToInt64(div[1]));
+                LastEntry.Add(enter.Id, enter);                                 //add instance to lastenrty  dictionary
+                line = file.ReadLine();                                         //get next line
+            }
+            file.Close();
+            return LastEntry;                                                //return lastentry dictionary
+        }//readFromPeople()
         //readFromMessage creates a dictionary from messages database
         private static Dictionary<int, Message> readFromMessage()
         {

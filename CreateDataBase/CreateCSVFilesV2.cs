@@ -19,6 +19,7 @@ namespace CreateDataBase
         public const bool isVoting = false;                                   //isVoting determines if this person has registed as a voter
         public const string defaultPass = "pass";                             //defualt password
         public string personPath;                                             //path to person database file
+        public string lastentryPath;
         public string memberPath;                                             //path to party member database file
         public string CommiteePath;                                           //path to comittee database file
         public string partiesPath;
@@ -35,13 +36,14 @@ namespace CreateDataBase
          * it's inner varaiables.
          * Also takes the number of people we would like to create as an integer parameter.
          */
-        public CreateCSVFilesV2(string personPath, string memberPath, string partiesPath, string committeePath, string bankPath, string messagePath)
+        public CreateCSVFilesV2(string personPath, string memberPath, string partiesPath, string committeePath, string bankPath, string messagePath,string lastentryPath)
         {
             this.personPath = personPath;
             this.memberPath = memberPath;
             this.partiesPath = partiesPath;
             this.CommiteePath = committeePath;
             this.bankPath = bankPath;
+            this.lastentryPath = lastentryPath;
             this.messagePath = messagePath;
             this.listOfNames = getNamelist();               //gets the list of names we will be using in the program
             this.numberOfPeople = this.listOfNames.Count;   //uses the size of the list to initialize the varaiable "numberOfPeople"
@@ -159,7 +161,14 @@ namespace CreateDataBase
                 file.WriteLine(ID[i] + ", " + listOfNames[i] + ", " + generateBalance(0, 100000));
             }
         }
-
+        public void writeToLastEnter(StreamWriter file, List<int> ID)
+        {
+            DateTime date = new DateTime(2015, 1, 1);
+            for (int i = 0; i < listOfNames.Count; i++)
+            {
+                file.WriteLine(ID[i] + ", " + date.Ticks);
+            }
+        }
         public void writeToParties(StreamWriter file, List<String> partyList)
         {
             for (int i = 0; i < partyList.Count; i++)
@@ -271,7 +280,8 @@ namespace CreateDataBase
             StreamWriter memberfile = new StreamWriter(memberPath);      //party member path
             StreamWriter partiesfile = new StreamWriter(partiesPath);
             StreamWriter committeefile = new StreamWriter(CommiteePath); //coommittee member path
-            StreamWriter messagefile = new StreamWriter(messagePath);    //coommittee member path
+            StreamWriter messagefile = new StreamWriter(messagePath);
+            StreamWriter LastEnter = new StreamWriter(lastentryPath);//coommittee member path
 
             ID = writeToPerson(personfile);                              //write people database
             personfile.Close();
@@ -283,6 +293,9 @@ namespace CreateDataBase
 
             writeToBank(bankfile, ID);                                   //write bank file
             bankfile.Close();
+
+            writeToLastEnter(LastEnter, ID);
+            LastEnter.Close();
 
             writeToParties(partiesfile, this.partyList);                 //write to party data base
             partiesfile.Close();

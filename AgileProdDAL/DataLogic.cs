@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AgileProdObjectModel;
 using System.Collections.ObjectModel;
 
+
 namespace AgileProdDAL
 {
     public static class DataLogic
@@ -89,7 +90,36 @@ namespace AgileProdDAL
                 return false;
             }
         }//DeletePerson(int)
+        public static void Ifenter()
+        {
+                DateTime now = new DateTime();
+                now = DateTime.Now;
+                //long time = now.Ticks;
+                 foreach (var x in data.GetLastEntery())
+                 {
+                     DateTime myDate = new DateTime(x.Value.Last);
+                     var y = (now - myDate).TotalHours;
+                     if(y>8760)//HourInYear
+                     {
+                         DataLogic.DeletePerson(x.Key);
+                     }    
+                 }
+  
 
+        }
+        public static void UpdateEntery(int id)
+        {
+            foreach (var x in data.GetLastEntery())
+            {
+                if(x.Key==id)
+                {
+                    x.Value.Last = DateTime.Now.Ticks;
+                }
+            }
+      
+            
+
+        }
 
 
         //those functions are used for UpdateInfo form

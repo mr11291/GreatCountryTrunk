@@ -14,6 +14,7 @@ namespace AgileProdDAL
         private static Dictionary<int, Member> members;     //<id, party member instance> 
         private static Dictionary<int, Message> messages;   //<id, message inbox instance> 
         private static Dictionary<int, Bank> bankAccounts;  //<id, bank account instnace> 
+        private static Dictionary<int, LastEntry> LastE;
         private static Dictionary<int, Head> committee;     //<id, committee member instance> 
         private static Dictionary<int, Admin> admin;        //<id, admin instance>
         private static Dictionary<string, int> partyList;   //<party name, amount of votes recived>
@@ -24,7 +25,7 @@ namespace AgileProdDAL
         public DataRepository(Dictionary<int, Person> peopleD, Dictionary<int, Member> membersD,
                                Dictionary<string, int> partyListD, bool praimeriseD, Dictionary<int, Head> headD,
                                Dictionary<int, Admin> adminD, Dictionary<int, Bank> bankAccountsD,
-                               Dictionary<int, Message> messagesD, Dictionary<int, Memento> memento)
+                               Dictionary<int, Message> messagesD, Dictionary<int, Memento> memento, Dictionary<int, LastEntry> Last)
         {
             people = peopleD;
             members = membersD;
@@ -35,6 +36,7 @@ namespace AgileProdDAL
             messages = messagesD;
             admin = adminD;
             memetoes = memento;
+            LastE = Last;
             
         }
 
@@ -71,6 +73,10 @@ namespace AgileProdDAL
         public Dictionary<int, Bank> GetBankAccounts()
         {
             return bankAccounts;
+        }
+        public Dictionary<int, LastEntry> GetLastEntery()
+        {
+            return LastE;
         }
         public Dictionary<string, int> GetPartyList()
         {

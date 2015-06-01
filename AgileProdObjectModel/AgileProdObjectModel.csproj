@@ -42,6 +42,7 @@
     <Compile Include="Admin.cs" />
     <Compile Include="Bank.cs" />
     <Compile Include="Head.cs" />
+    <Compile Include="LastEntry.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="Memento.cs" />
     <Compile Include="Message.cs" />
