@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AgileProdDAL;
+using AgileProdObjectModel;
 
 namespace AgileProd
 {
@@ -52,7 +53,9 @@ namespace AgileProd
             {
                 case 0:
                     {
+                        jobOfferBox.Hide();
                         moneytrackBar.Show();
+                        bribeOfferBox.Show();
                         maxLabel.Show();
                         minLabel.Show();
                         currentMoneyBox.Show();
@@ -62,9 +65,11 @@ namespace AgileProd
                 case 1:
                     {
                         moneytrackBar.Hide();
+                        bribeOfferBox.Hide();
                         maxLabel.Hide();
                         minLabel.Hide();
                         currentMoneyBox.Hide();
+                        jobOfferBox.Show();
                         initializeJobOffer();
                     }
                     break;
@@ -108,6 +113,26 @@ namespace AgileProd
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void sendButton_Click(object sender, EventArgs e)
+        {
+            Person reciver = DataLogicPerson.getPersonDictionary()[reciverID];
+
+            if (regularMessageBox.Visible)
+            {
+                DataLogicMessage.getAllMessages(reciver.Id).addMessage(senderID, regularMessageBox.Text, 0);
+            }
+            else if (bribeOfferBox.Visible)
+            {
+                DataLogicMessage.getAllMessages(reciver.Id).addMessage(senderID, bribeOfferBox.Text, Convert.ToInt32(currentMoneyBox.Text));
+            }
+            else if (jobOfferBox.Visible)
+            {
+                DataLogicMessage.getAllMessages(reciver.Id).addMessage(senderID, jobOfferBox.Text, 0);
+            }
+
             this.Close();
         }
     }

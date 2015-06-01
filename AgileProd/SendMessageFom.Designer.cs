@@ -55,6 +55,7 @@
             this.bribeOfferBox.ReadOnly = true;
             this.bribeOfferBox.Size = new System.Drawing.Size(467, 113);
             this.bribeOfferBox.TabIndex = 1;
+            this.bribeOfferBox.Visible = false;
             // 
             // moneytrackBar
             // 
@@ -81,6 +82,7 @@
             this.sendButton.TabIndex = 6;
             this.sendButton.Text = "Send";
             this.sendButton.UseVisualStyleBackColor = true;
+            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
             // 
             // cancelButton
             // 
@@ -154,6 +156,7 @@
             this.jobOfferBox.ReadOnly = true;
             this.jobOfferBox.Size = new System.Drawing.Size(467, 113);
             this.jobOfferBox.TabIndex = 2;
+            this.jobOfferBox.Visible = false;
             // 
             // regularMessageBox
             // 
