@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AgileProdDAL;
+using AgileProdObjectModel;
 
 namespace AgileProd
 {
@@ -40,6 +41,10 @@ namespace AgileProd
                 messageMenu.Show();
                 messageMenu.SelectedIndexChanged += messageMenu_SelectedIndexChanged;
             }
+            else
+            {
+                regularMessageBox.Show();
+            }
         }
 
         void messageMenu_SelectedIndexChanged(object sender, EventArgs e)
@@ -48,7 +53,9 @@ namespace AgileProd
             {
                 case 0:
                     {
+                        jobOfferBox.Hide();
                         moneytrackBar.Show();
+                        bribeOfferBox.Show();
                         maxLabel.Show();
                         minLabel.Show();
                         currentMoneyBox.Show();
@@ -58,9 +65,11 @@ namespace AgileProd
                 case 1:
                     {
                         moneytrackBar.Hide();
+                        bribeOfferBox.Hide();
                         maxLabel.Hide();
                         minLabel.Hide();
                         currentMoneyBox.Hide();
+                        jobOfferBox.Show();
                         initializeJobOffer();
                     }
                     break;
@@ -71,6 +80,7 @@ namespace AgileProd
         {
             currentMoneyBox.Text = Convert.ToString(moneytrackBar.Value);
             bribeAmount = moneytrackBar.Value;
+            initializeBribeOffer();
             try
             {
                 if (bribeAmount <= DataLogicPerson.getVotingFeeByNumOfVotes(DataLogicPerson.getPersonDictionary()[reciverID].NumOfVotes))
@@ -89,8 +99,8 @@ namespace AgileProd
         {
             bribeOfferBox.Text = "Dear " +
                                  DataLogicPerson.getPersonDictionary()[reciverID].Name +
-                                 ", I would love if you kindly vote for me. Here is a little insentive." +
-                                 " " + bribeAmount;
+                                 ", I would love if you could kindly vote for me. Here is a little insentive -" +
+                                 " " + currentMoneyBox.Text + "$";
         }
 
         private void initializeJobOffer()
@@ -99,6 +109,31 @@ namespace AgileProd
                                DataLogicPerson.getPersonDictionary()[reciverID].Name +
                                ", We have reviewed your account and we would like you to join " +
                                DataLogicMember.GetMember()[senderID].Party;
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void sendButton_Click(object sender, EventArgs e)
+        {
+            Person reciver = DataLogicPerson.getPersonDictionary()[reciverID];
+
+            if (regularMessageBox.Visible)
+            {
+                DataLogicMessage.getAllMessages(reciver.Id).addMessage(senderID, regularMessageBox.Text, 0);
+            }
+            else if (bribeOfferBox.Visible)
+            {
+                DataLogicMessage.getAllMessages(reciver.Id).addMessage(senderID, bribeOfferBox.Text, Convert.ToInt32(currentMoneyBox.Text));
+            }
+            else if (jobOfferBox.Visible)
+            {
+                DataLogicMessage.getAllMessages(reciver.Id).addMessage(senderID, jobOfferBox.Text, 0);
+            }
+
+            this.Close();
         }
     }
 }
