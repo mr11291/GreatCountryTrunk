@@ -28,5 +28,10 @@ namespace AgileProdDAL
         {
             return data.GetMessages()[id];
         }
+
+        public static Dictionary<int, Message> getMessageDictionary()
+        {
+            return data.GetMessages();
+        }
     }
 }

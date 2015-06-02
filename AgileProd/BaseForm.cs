@@ -137,36 +137,24 @@ namespace AgileProd
             {
                 return;
             }
-            
-            //find message
-            foreach (var item in DataLogicPerson.getMessages(user))
-            {
-                //find sender id
-                if (item.Item1 == Convert.ToInt32(details.SubItems[1].Text))
-                {
-                    //display message
-                    MessageForm messageDialog = new MessageForm(item ,user);
-                    messageDialog.ShowDialog();
 
-                    //DialogResult dialogResult = MessageBox.Show(item.Item2, Convert.ToString(details.SubItems[0].Text) + ":", MessageBoxButtons.YesNo);
-                    //if (dialogResult == DialogResult.Yes)
-                    //{
-                    //    //if its a bribe offer
-                    //    if (DataLogicPerson.isMember(item.Item1) && item.Item3 > 0)
-                    //    {
-                    //        if (DataLogicPerson.voteToMember(user, item.Item1))
-                    //        {
-                    //            MessageBox.Show("You have voted for" + DataLogicPerson.getMemberNameById(item.Item1));
-                    //        }
-                    //    }
-                    //}
-                    //else if (dialogResult == DialogResult.No)
-                    //{
-                    //    //do something else
-                    //}
+            try
+            {
+                //find message
+                foreach (var item in DataLogicPerson.getMessages(user))
+                {
+                    //find sender id
+                    if (item.Item1 == Convert.ToInt32(details.SubItems[1].Text))
+                    {
+                        //display message
+                        MessageForm messageDialog = new MessageForm(item, user);
+                        messageDialog.ShowDialog();
+                        fromList.Clear();
+                        fillMessageList();
+                    }
                 }
             }
-
+            catch (InvalidOperationException){}
         }
 
         private void saveButton_Click(object sender, EventArgs e)

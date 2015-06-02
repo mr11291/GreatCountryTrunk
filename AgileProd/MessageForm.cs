@@ -76,5 +76,47 @@ namespace AgileProd
                 MessageBox.Show("No more messages to read");
             }
         }
+
+        private void yesButton_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            if (messageItem.Item3 > 0)
+            {
+
+                if (DataLogicBank.getBankDictionary()[messageItem.Item1].withdrawl(messageItem.Item3) != 0)          //try to withdrawl from sender's account
+                {   
+                    DataLogicBank.getBankDictionary()[user.Id].deposit(messageItem.Item3);                          //deposit into reciver's account
+
+                    DataLogicPerson.voteToMember(DataLogicPerson.getPersonDictionary()[messageItem.Item1].Name);    //vote for sender 
+                    DataLogicBank.getBankDictionary()[messageItem.Item1].withdrawl(DataLogicPerson.getVotingFeeByNumOfVotes(user.NumOfVotes)); //withdrawl from reciver's account
+
+                }
+                else
+                {
+                    MessageBox.Show("Looks like " + DataLogicPerson.getPersonDictionary()[messageItem.Item1].Name + " doesn't have enough money");
+                }
+
+                foreach (var message in DataLogicMessage.getMessageDictionary()[user.Id].Inbox)
+                {
+                    if (message.Item1 == messageItem.Item1 && message.Item2.Equals(messageItem.Item2) && message.Item3 == message.Item3)
+                    {
+                        DataLogicMessage.getMessageDictionary()[user.Id].removeMessage(i);
+                        if (DataLogicMessage.getMessageDictionary()[user.Id].Count == 0)
+                        {
+                            DataLogicMessage.getMessageDictionary().Remove(user.Id);
+                            DataLogicMessage.getMessageDictionary().Add(user.Id, null);
+                            break;
+                        }
+                    }
+                    i++;
+                }
+            }
+            else if (DataLogicMember.GetMember().Keys.Contains(messageItem.Item1) && messageItem.Item3 == 0)
+            {
+
+            }
+
+            this.Close();
+        }
     }
 }

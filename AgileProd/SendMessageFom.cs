@@ -26,9 +26,19 @@ namespace AgileProd
             reciverID = reciver;
             if (DataLogicMember.GetMember().Keys.Contains(sender))
             {
+                moneytrackBar.Minimum = 1;
                 moneytrackBar.Maximum = DataLogicBank.getBankDictionary()[sender].Balance;
-                moneytrackBar.Value = DataLogicPerson.getVotingFeeByNumOfVotes(DataLogicPerson.getPersonDictionary()[reciverID].NumOfVotes);
-                currentMoneyBox.Text = Convert.ToString(DataLogicPerson.getVotingFeeByNumOfVotes(DataLogicPerson.getPersonDictionary()[reciverID].NumOfVotes));
+                if (DataLogicPerson.getPersonDictionary()[reciverID].NumOfVotes == 0)
+                {
+                    moneytrackBar.Value = 1;
+                    currentMoneyBox.Text = "1";
+                }
+                else
+                {
+                    moneytrackBar.Value = DataLogicPerson.getVotingFeeByNumOfVotes(DataLogicPerson.getPersonDictionary()[reciverID].NumOfVotes);
+                    currentMoneyBox.Text = Convert.ToString(DataLogicPerson.getVotingFeeByNumOfVotes(DataLogicPerson.getPersonDictionary()[reciverID].NumOfVotes));
+                }
+                
                 maxLabel.Text = Convert.ToString(DataLogicBank.getBankDictionary()[sender].Balance);
                 initializeJobOffer();
                 initializeBribeOffer();
@@ -37,6 +47,7 @@ namespace AgileProd
                 minLabel.Show();
                 maxLabel.Show();
                 currentMoneyBox.Show();
+                bribeOfferBox.Show();
 
                 messageMenu.Show();
                 messageMenu.SelectedIndexChanged += messageMenu_SelectedIndexChanged;
@@ -122,15 +133,39 @@ namespace AgileProd
 
             if (regularMessageBox.Visible)
             {
-                DataLogicMessage.getAllMessages(reciver.Id).addMessage(senderID, regularMessageBox.Text, 0);
+                try
+                {
+                    DataLogicMessage.getAllMessages(reciver.Id).addMessage(senderID, regularMessageBox.Text, 0);
+                }
+                catch (NullReferenceException)
+                {
+                    AgileProdObjectModel.Message newInbox = new AgileProdObjectModel.Message(senderID, regularMessageBox.Text, 0);
+                    DataLogicMessage.getMessageDictionary()[reciverID] = newInbox;
+                }
             }
             else if (bribeOfferBox.Visible)
             {
-                DataLogicMessage.getAllMessages(reciver.Id).addMessage(senderID, bribeOfferBox.Text, Convert.ToInt32(currentMoneyBox.Text));
+                try
+                {
+                    DataLogicMessage.getAllMessages(reciver.Id).addMessage(senderID, bribeOfferBox.Text, Convert.ToInt32(currentMoneyBox.Text));
+                }
+                catch (NullReferenceException)
+                {
+                    AgileProdObjectModel.Message newInbox = new AgileProdObjectModel.Message(senderID, bribeOfferBox.Text, Convert.ToInt32(currentMoneyBox.Text));
+                    DataLogicMessage.getMessageDictionary()[reciverID] = newInbox;
+                }
             }
             else if (jobOfferBox.Visible)
             {
-                DataLogicMessage.getAllMessages(reciver.Id).addMessage(senderID, jobOfferBox.Text, 0);
+                try
+                {
+                    DataLogicMessage.getAllMessages(reciver.Id).addMessage(senderID, jobOfferBox.Text, 0);
+                }
+                catch (NullReferenceException)
+                {
+                    AgileProdObjectModel.Message newInbox = new AgileProdObjectModel.Message(senderID, jobOfferBox.Text, 0);
+                    DataLogicMessage.getMessageDictionary()[reciverID] = newInbox;
+                }
             }
 
             this.Close();

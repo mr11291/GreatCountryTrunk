@@ -101,7 +101,7 @@
             this.minLabel.Name = "minLabel";
             this.minLabel.Size = new System.Drawing.Size(13, 13);
             this.minLabel.TabIndex = 8;
-            this.minLabel.Text = "0";
+            this.minLabel.Text = "1";
             this.minLabel.Visible = false;
             // 
             // maxLabel

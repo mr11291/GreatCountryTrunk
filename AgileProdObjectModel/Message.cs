@@ -16,11 +16,11 @@ namespace AgileProdObjectModel
             public void Add(int item1, string item2, int item3)
             {
                 Add(new Tuple<int, string, int>(item1, item2, item3)); 
-                
             }
+
             public void Remove(int index)
             {
-                Remove(index);
+                this.RemoveAt(index);
             }
         }
 

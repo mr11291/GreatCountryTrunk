@@ -66,6 +66,7 @@
             this.yesButton.Text = "Yes";
             this.yesButton.UseVisualStyleBackColor = true;
             this.yesButton.Visible = false;
+            this.yesButton.Click += new System.EventHandler(this.yesButton_Click);
             // 
             // noButton
             // 
