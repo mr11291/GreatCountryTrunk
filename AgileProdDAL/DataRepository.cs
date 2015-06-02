@@ -21,7 +21,7 @@ namespace AgileProdDAL
         private static DataRepository instance;             //an instance of data reposetory
 
         //constructor
-        public DataRepository(Dictionary<int, Person> peopleD, Dictionary<int, Member> membersD,
+        private DataRepository(Dictionary<int, Person> peopleD, Dictionary<int, Member> membersD,
                                Dictionary<string, int> partyListD, bool praimeriseD, Dictionary<int, Head> headD,
                                Dictionary<int, Admin> adminD, Dictionary<int, Bank> bankAccountsD,
                                Dictionary<int, Message> messagesD, Dictionary<int, Memento> memento)
@@ -84,7 +84,16 @@ namespace AgileProdDAL
         {
             if (instance == null)
             {
-                instance = LoadDataBase.LoadToDataRepository();
+                bool praimeries = LoadDataBase.checkPrimeriesStatus();           //holds a bool varaiable to determine if Praimeries are on
+                Dictionary<int, Admin> admin = LoadDataBase.readFromAdmin();      //<id, admin instance>
+                Dictionary<string, int> parties = LoadDataBase.readFromParties(); //<party name, amount of votes>
+                Dictionary<int, Person> p = LoadDataBase.readFromPeople();        //<id, peson instance>
+                Dictionary<int, Member> mem = LoadDataBase.readFromMember(p);     //<id, party member instance>
+                Dictionary<int, Head> head = LoadDataBase.readFromHead(p);        //<id, committee member instance>
+                Dictionary<int, Bank> acc = LoadDataBase.readFromBank();          //<id, bank account instance>
+                Dictionary<int, Message> mes = LoadDataBase.readFromMessage();   //<id, message inbox instance>
+                Dictionary<int, Memento> memento = LoadDataBase.ReadFromMemento();
+                instance = new DataRepository(p, mem, parties, praimeries,head, admin, acc, mes, memento);
             }
             return instance;
         }//Singleton instance
