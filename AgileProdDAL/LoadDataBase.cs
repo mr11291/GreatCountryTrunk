@@ -33,7 +33,7 @@ namespace AgileProdDAL
                         div[i].Replace(" ", string.Empty);                      //delete any white spaces
                     }
                 }//for i
-                       //create new prson using parsed data:   ID      Full Name            Age                 User Name        Password         BankAccount       Voter Status
+                       //create new prson using parsed data:   ID      Full Name            Age                 User Name        Password          Voter Status             Number Of Votes
                 Person newPerson = new Person(Convert.ToInt32(div[0]), div[1].Trim(), Convert.ToInt32(div[2]), div[3].Trim(), div[4].Trim(), Convert.ToBoolean(div[5]), Convert.ToInt32(div[6]));
                 
                 people.Add(newPerson.Id, newPerson);                            //link new person to his/hers ID

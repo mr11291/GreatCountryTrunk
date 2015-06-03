@@ -149,8 +149,13 @@ namespace AgileProd
                         //display message
                         MessageForm messageDialog = new MessageForm(item, user);
                         messageDialog.ShowDialog();
-                        fromList.Clear();
+                        while (fromList.Items.Count > 0)
+                        {
+                            fromList.Items.RemoveAt(0);
+                        }
                         fillMessageList();
+                        //fromList.Clear();
+                        //fillMessageList();
                     }
                 }
             }

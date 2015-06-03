@@ -22,7 +22,6 @@ namespace AgileProdDAL
             data = DataRepository.GetDataRepository(); //initialize data base.
         }//DataLogic()
 
-
         public static bool addMember(int id, string name, int age, string username, string password, bool isVoting,int numofvote, string group, int location, int balance)   //admin
         {
             if (!data.GetMembers().Any(current => current.Key == id))
@@ -35,7 +34,6 @@ namespace AgileProdDAL
             }
             return false;
         }
-
 
         //Admin Functions 
         /*
@@ -75,6 +73,7 @@ namespace AgileProdDAL
         {
             return data.GetPartyList()[PartyName];
         }
+
         /*
          * DeletePerson deletes a person using a given ID
          */
@@ -90,6 +89,7 @@ namespace AgileProdDAL
                 return false;
             }
         }//DeletePerson(int)
+
         public static void Ifenter()
         {   
 
@@ -106,6 +106,7 @@ namespace AgileProdDAL
   
 
         }
+
         public static void UpdateEntery(int id)
         {
             foreach (var x in data.GetLastEntery())
@@ -119,7 +120,6 @@ namespace AgileProdDAL
             
 
         }
-
 
         //those functions are used for UpdateInfo form
         public static void ChangeName(Person someone, string newname)

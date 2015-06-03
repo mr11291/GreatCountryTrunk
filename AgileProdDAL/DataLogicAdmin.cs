@@ -65,6 +65,16 @@ namespace AgileProdDAL
             return new ReadOnlyDictionary<int, Admin>(data.GetAdmin());
         }
 
+        public static ReadOnlyDictionary<int, LastEntry> AllEntries()
+        {
+            return new ReadOnlyDictionary<int,LastEntry>(data.GetLastEntery());
+        }
+
+        public static ReadOnlyDictionary<int, Memento> AllMementoes()
+        {
+            return new ReadOnlyDictionary<int, Memento>(data.GetMementoes());
+        }
+
         //PraimeriesStatus returns the boolean status of the praimeries
         public static bool PraimeriesStatus()
         {
