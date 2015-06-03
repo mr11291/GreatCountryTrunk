@@ -280,6 +280,8 @@ namespace AgileProd
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to end the Praimeries? ", "Attenction!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                EndingPrimariesPage logo = new EndingPrimariesPage();
+                logo.ShowDialog();
                 DataLogicCommittee.ChangePraimeryStatus();
                 finishPraimeriesButton.Enabled = false;
                 voteToMemberButton.Enabled = false;

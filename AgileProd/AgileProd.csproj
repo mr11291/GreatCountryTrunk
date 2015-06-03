@@ -81,6 +81,12 @@
     <Compile Include="CreatePersonForm.Designer.cs">
       <DependentUpon>CreatePersonForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EndPrimeriesPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EndPrimeriesPage.Designer.cs">
+      <DependentUpon>EndPrimeriesPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="MessageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeletPartyForm.resx">
       <DependentUpon>DeletPartyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EndPrimeriesPage.resx">
+      <DependentUpon>EndPrimeriesPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MessageForm.resx">
       <DependentUpon>MessageForm.cs</DependentUpon>
@@ -287,6 +296,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\WhiteArrow.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ElectionsGif.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

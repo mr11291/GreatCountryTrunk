@@ -23,7 +23,7 @@
 877159410, Elisheva Singer, 34 ,ffhfo ,pass877159410 ,False ,0
 968587004, Melchoir Perlman, 119 ,yndht ,pass968587004 ,False ,0
 947343085, Chanan Blumenfeld, 119 ,ixucc ,pass947343085 ,False ,0
-694509404, Mathe Duzy, 119 ,jajtb ,pass694509404 ,False ,0
+694509404, Mathe Duzy, 119 ,test3 ,test3 ,False ,0
 773484480, Tuvya Goldberg, 54 ,ifisa ,pass773484480 ,False ,0
 798906305, Guri Liebermann, 54 ,hdvby ,pass798906305 ,False ,0
 631871347, Heber Datz, 37 ,epuxt ,pass631871347 ,False ,0

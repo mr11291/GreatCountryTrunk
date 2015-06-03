@@ -133,9 +133,6 @@
   <data name="cashstack_op10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cashstack_op10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="handshakemoney" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\handshakemoney.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="KimLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\KimLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -202,9 +199,6 @@
   <data name="NewIcon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NewIcon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BlueArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BlueArrow.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="DancingPutin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DancingPutin.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -214,10 +208,10 @@
   <data name="KoreanAnthem1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\KoreanAnthem.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="GreenArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GreenArrow.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="WhiteArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhiteArrow.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ElectionsGif" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ElectionsGif.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
