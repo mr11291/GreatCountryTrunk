@@ -13,27 +13,8 @@ namespace AgileProdDAL
     {
         private static string path = Settings.Default.DataPath;
 
-        //loadToDataPerosatory collects all of the dictionaries to one place
-        internal static DataRepository LoadToDataRepository()
-        { 
-            bool praimeries = checkPrimeriesStatus();           //holds a bool varaiable to determine if Praimeries are on
-            Dictionary<int,Admin> admin = readFromAdmin();      //<id, admin instance>
-            Dictionary<string,int> parties = readFromParties(); //<party name, amount of votes>
-            Dictionary<int,Person> p = readFromPeople();        //<id, peson instance>
-            Dictionary<int,Member> mem = readFromMember(p);     //<id, party member instance>
-            Dictionary<int,Head> head = readFromHead(p);        //<id, committee member instance>
-            Dictionary<int,Bank> acc = readFromBank();          //<id, bank account instance>
-            Dictionary<int, Message> mes = readFromMessage();   //<id, message inbox instance>
-            Dictionary<int, Memento> memento = readFromMemento();
-            Dictionary<int, LastEntry> l = readFromEntry();// <id,lest enrty instance>
-
-            DataRepository dataR = new DataRepository(p, mem, parties, praimeries, head, admin, acc, mes, memento,l);  //creates data reposatory
-
-            return dataR;           //returns a data reposatory of all of the dictionaries
-        }//LoadToDataReposatory()
-
         //readFromPeople creates a dictionary from people database
-        private static Dictionary<int, Person> readFromPeople()
+        public static Dictionary<int, Person> readFromPeople()
         {
             Dictionary<int, Person> people = new Dictionary<int, Person>();     //initialize new empty dictionary
             StreamReader file = new StreamReader(path + "\\people.txt");        //initialize text reader
@@ -63,7 +44,7 @@ namespace AgileProdDAL
         }//readFromPeople()
 
         //readFromBank creates a dictionary from bank accounts database
-        private static Dictionary<int, Bank> readFromBank()
+        public static Dictionary<int, Bank> readFromBank()
         {
             Dictionary<int, Bank> bankAccounts = new Dictionary<int, Bank>();
             StreamReader file = new StreamReader(path + "\\bankAccounts.txt");
@@ -89,8 +70,9 @@ namespace AgileProdDAL
             file.Close();
             return bankAccounts;                                                //return bank accounts dictionary
         }//readFromPeople()
+
         //readFromlastenrty creates a dictionary from last entry database
-        private static Dictionary<int, LastEntry> readFromEntry()
+        public static Dictionary<int, LastEntry> readFromEntry()
         {
             Dictionary<int, LastEntry> LastEntry = new Dictionary<int,LastEntry>();
             StreamReader file = new StreamReader(path + "\\LastEntry.txt");
@@ -113,8 +95,9 @@ namespace AgileProdDAL
             file.Close();
             return LastEntry;                                                //return lastentry dictionary
         }//readFromPeople()
+
         //readFromMessage creates a dictionary from messages database
-        private static Dictionary<int, Message> readFromMessage()
+        public static Dictionary<int, Message> readFromMessage()
         {
             Dictionary<int, Message> messages = new Dictionary<int, Message>();
             StreamReader file = new StreamReader(path + "\\messageInbox.txt");
@@ -155,7 +138,7 @@ namespace AgileProdDAL
         }//readFromMessage()
 
         //readFromMember creates a dictionary from party member database
-        private static Dictionary<int, Member> readFromMember(Dictionary<int, Person> people)
+        public static Dictionary<int, Member> readFromMember(Dictionary<int, Person> people)
         {
             Dictionary<int, Member> members=new Dictionary<int,Member>();      //initialize new empty dictionary
             StreamReader file = new StreamReader(path + "\\members.txt");       //initialize text reader
@@ -184,7 +167,7 @@ namespace AgileProdDAL
         }//readFromMember(Dictionary<int, Person>)
 
         //readFromHead creates a dictionary from committee database
-        private static Dictionary<int, Head> readFromHead(Dictionary<int, Person> people)
+        public static Dictionary<int, Head> readFromHead(Dictionary<int, Person> people)
         {
             Dictionary<int, Head> committee = new Dictionary<int, Head>();      //initialize a new empty dictionarty
             StreamReader file = new StreamReader(path + "\\committee.txt");     //initialize file reader
@@ -212,7 +195,7 @@ namespace AgileProdDAL
         }//readFromHead(Dictionary<int, Person>)
 
         //readFromAdmin creates a dictionary from admin database
-        private static Dictionary<string, int> readFromParties()
+        public static Dictionary<string, int> readFromParties()
         {
             Dictionary<string, int> parties = new Dictionary<string, int>();    //inititalize new empty dictionary
             StreamReader file = new StreamReader(path + "\\parties.txt");       //initialize file reader
@@ -228,7 +211,7 @@ namespace AgileProdDAL
         }//readFromParties();
 
         //checkPraimeriesStatus returns true if there are on going praimeries, other wise it returns false;
-        private static bool checkPrimeriesStatus()
+        public static bool checkPrimeriesStatus()
         {
             StreamReader file = new StreamReader(path + "\\praimerise.txt"); //initialize file reader
             string line = file.ReadLine();
@@ -237,7 +220,7 @@ namespace AgileProdDAL
         }//checkPrimeriesStatus()
 
         //readFromAdmin creates a dictionary from admin database
-        private static Dictionary<int, Admin> readFromAdmin()
+        public static Dictionary<int, Admin> readFromAdmin()
         {
             Dictionary<int, Admin> admin = new Dictionary<int, Admin>();    //inititalize new empty dictionary
             StreamReader file = new StreamReader(path + "\\admin.txt");     //initialize file reader
@@ -267,7 +250,8 @@ namespace AgileProdDAL
             DataLogicMember.selectPartyLeader();
         }
 
-        private static Dictionary<int, Memento> readFromMemento()
+        //readFromMemento creates a dictionary from memento database
+        public static Dictionary<int, Memento> readFromMemento()
         {
             Dictionary<int, Memento> memento = new Dictionary<int, Memento>();      //initialize new empty dictionary
             StreamReader file = new StreamReader(path + "\\memento.txt");       //initialize text reader
@@ -284,6 +268,5 @@ namespace AgileProdDAL
             file.Close();
             return memento;                       
         }
-
     }
 }
