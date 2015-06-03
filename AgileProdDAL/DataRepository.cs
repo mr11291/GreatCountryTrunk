@@ -40,25 +40,25 @@ namespace AgileProdDAL
 			
 		}
 
-        public static DataRepository GetDataRepository()
-        {
-            if (instance == null)
-            {
-                bool praimeries = LoadDataBase.checkPrimeriesStatus();            //holds a bool varaiable to determine if Praimeries are on
-                Dictionary<int, Admin> admin = LoadDataBase.readFromAdmin();      //<id, admin instance>
-                Dictionary<string, int> parties = LoadDataBase.readFromParties(); //<party name, amount of votes>
-                Dictionary<int, Person> p = LoadDataBase.readFromPeople();        //<id, peson instance>
-                Dictionary<int, Member> mem = LoadDataBase.readFromMember(p);     //<id, party member instance>
-                Dictionary<int, Head> head = LoadDataBase.readFromHead(p);        //<id, committee member instance>
-                Dictionary<int, Bank> acc = LoadDataBase.readFromBank();          //<id, bank account instance>
-                Dictionary<int, Message> mes = LoadDataBase.readFromMessage();    //<id, message inbox instance>
-                Dictionary<int, Memento> memento = LoadDataBase.readFromMemento();//<id, memento instance>
-                Dictionary<int, LastEntry> l = LoadDataBase.readFromEntry();      //<id, last enrty instance>
+		public static DataRepository GetDataRepository()
+		{
+			if (instance == null)
+			{
+				bool praimeries = LoadDataBase.checkPrimeriesStatus();            //holds a bool varaiable to determine if Praimeries are on
+				Dictionary<int, Admin> admin = LoadDataBase.readFromAdmin();      //<id, admin instance>
+				Dictionary<string, int> parties = LoadDataBase.readFromParties(); //<party name, amount of votes>
+				Dictionary<int, Person> p = LoadDataBase.readFromPeople();        //<id, peson instance>
+				Dictionary<int, Member> mem = LoadDataBase.readFromMember(p);     //<id, party member instance>
+				Dictionary<int, Head> head = LoadDataBase.readFromHead(p);        //<id, committee member instance>
+				Dictionary<int, Bank> acc = LoadDataBase.readFromBank();          //<id, bank account instance>
+				Dictionary<int, Message> mes = LoadDataBase.readFromMessage();    //<id, message inbox instance>
+				Dictionary<int, Memento> memento = LoadDataBase.readFromMemento();//<id, memento instance>
+				Dictionary<int, LastEntry> l = LoadDataBase.readFromEntry();      //<id, last enrty instance>
 
-                instance = new DataRepository(p, mem, parties, praimeries, head, admin, acc, mes, memento, l);
-            }
-            return instance;
-        }//Singleton instance
+				instance = new DataRepository(p, mem, parties, praimeries, head, admin, acc, mes, memento, l);
+			}
+			return instance;
+		}//Singleton instance
 
 		/*
 		 * Those function use local data base to create dynamic dictionary based database.
