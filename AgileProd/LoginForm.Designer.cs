@@ -34,10 +34,6 @@
             this.username = new System.Windows.Forms.TextBox();
             this.password = new System.Windows.Forms.TextBox();
             this.btnEnter = new System.Windows.Forms.Button();
-            this.enterperson = new System.Windows.Forms.Button();
-            this.entercommittee = new System.Windows.Forms.Button();
-            this.entermember = new System.Windows.Forms.Button();
-            this.enteradmin = new System.Windows.Forms.Button();
             this.userNameTip = new System.Windows.Forms.ToolTip(this.components);
             this.passwordTip = new System.Windows.Forms.ToolTip(this.components);
             this.muteButton = new System.Windows.Forms.PictureBox();
@@ -73,6 +69,7 @@
             // 
             // username
             // 
+            this.username.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.username.Location = new System.Drawing.Point(120, 15);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(100, 20);
@@ -80,6 +77,7 @@
             // 
             // password
             // 
+            this.password.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.password.Location = new System.Drawing.Point(120, 41);
             this.password.Name = "password";
             this.password.PasswordChar = '*';
@@ -88,7 +86,7 @@
             // 
             // btnEnter
             // 
-            this.btnEnter.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnEnter.BackColor = System.Drawing.Color.Yellow;
             this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.btnEnter.Location = new System.Drawing.Point(120, 67);
             this.btnEnter.Name = "btnEnter";
@@ -97,50 +95,6 @@
             this.btnEnter.Text = "Log in";
             this.btnEnter.UseVisualStyleBackColor = false;
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
-            // 
-            // enterperson
-            // 
-            this.enterperson.Location = new System.Drawing.Point(234, 123);
-            this.enterperson.Name = "enterperson";
-            this.enterperson.Size = new System.Drawing.Size(47, 23);
-            this.enterperson.TabIndex = 8;
-            this.enterperson.Text = "person";
-            this.enterperson.UseVisualStyleBackColor = true;
-            this.enterperson.Visible = false;
-            this.enterperson.Click += new System.EventHandler(this.enterperson_Click);
-            // 
-            // entercommittee
-            // 
-            this.entercommittee.Location = new System.Drawing.Point(216, 181);
-            this.entercommittee.Name = "entercommittee";
-            this.entercommittee.Size = new System.Drawing.Size(65, 23);
-            this.entercommittee.TabIndex = 9;
-            this.entercommittee.Text = "committee";
-            this.entercommittee.UseVisualStyleBackColor = true;
-            this.entercommittee.Visible = false;
-            this.entercommittee.Click += new System.EventHandler(this.entercommittee_Click);
-            // 
-            // entermember
-            // 
-            this.entermember.Location = new System.Drawing.Point(226, 152);
-            this.entermember.Name = "entermember";
-            this.entermember.Size = new System.Drawing.Size(55, 23);
-            this.entermember.TabIndex = 10;
-            this.entermember.Text = "member";
-            this.entermember.UseVisualStyleBackColor = true;
-            this.entermember.Visible = false;
-            this.entermember.Click += new System.EventHandler(this.entermember_Click);
-            // 
-            // enteradmin
-            // 
-            this.enteradmin.Location = new System.Drawing.Point(234, 96);
-            this.enteradmin.Name = "enteradmin";
-            this.enteradmin.Size = new System.Drawing.Size(47, 21);
-            this.enteradmin.TabIndex = 11;
-            this.enteradmin.Text = "admin";
-            this.enteradmin.UseVisualStyleBackColor = true;
-            this.enteradmin.Visible = false;
-            this.enteradmin.Click += new System.EventHandler(this.enteradmin_Click);
             // 
             // userNameTip
             // 
@@ -223,15 +177,11 @@
             this.AcceptButton = this.btnEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Lavender;
+            this.BackColor = System.Drawing.Color.Red;
             this.ClientSize = new System.Drawing.Size(284, 454);
             this.Controls.Add(this.muteButton);
             this.Controls.Add(this.infoBox2);
             this.Controls.Add(this.infoBox1);
-            this.Controls.Add(this.enteradmin);
-            this.Controls.Add(this.entermember);
-            this.Controls.Add(this.entercommittee);
-            this.Controls.Add(this.enterperson);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.password);
             this.Controls.Add(this.username);
@@ -239,9 +189,11 @@
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.HandShakeImage);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.muteButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoBox1)).EndInit();
@@ -260,10 +212,6 @@
         public System.Windows.Forms.TextBox password;
         private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.PictureBox HandShakeImage;
-        private System.Windows.Forms.Button enterperson;
-        private System.Windows.Forms.Button entercommittee;
-        private System.Windows.Forms.Button entermember;
-        private System.Windows.Forms.Button enteradmin;
         private System.Windows.Forms.ToolTip userNameTip;
         private System.Windows.Forms.ToolTip passwordTip;
         private System.Windows.Forms.PictureBox infoBox1;

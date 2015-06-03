@@ -156,6 +156,11 @@ namespace AgileProd
             form.Show();
         }
 
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
 
     }

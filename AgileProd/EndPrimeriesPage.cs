@@ -24,7 +24,6 @@ namespace AgileProd
             startAnimation();
         }
 
-
         private void ElectionTimer_Tick(object sender, EventArgs e)
         {
             pictureBox1.Enabled = false;
