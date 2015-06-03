@@ -36,6 +36,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::AgileProd.Properties.Resources.ElectionsGif;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
@@ -53,6 +54,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Red;
             this.ClientSize = new System.Drawing.Size(684, 312);
             this.Controls.Add(this.pictureBox1);
             this.Name = "EndingPrimariesPage";

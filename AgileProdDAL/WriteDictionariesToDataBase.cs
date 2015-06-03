@@ -72,7 +72,27 @@ namespace AgileProdDAL
         private void WriteToPraimerise()
         {
             file = new StreamWriter(path + "\\praimerise.txt");
-            file.WriteLine(DataLogicAdmin.PraimeriesStatus());
+            if (DataLogicAdmin.PraimeriesStatus())
+            {
+                file.WriteLine("1");
+            }
+            else
+            {
+                file.WriteLine("0");
+            } 
+        }
+
+        private void WriteToElections()
+        {
+            file = new StreamWriter(path + "\\elections.txt");
+            if (DataLogicCommittee.getElections())
+            {
+                file.WriteLine("1");
+            }
+            else
+            {
+                file.WriteLine("0");
+            } 
         }
 
         private void WriteToMessage()

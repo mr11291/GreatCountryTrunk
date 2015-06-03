@@ -268,5 +268,13 @@ namespace AgileProdDAL
             file.Close();
             return memento;                       
         }
+
+        public static bool checkElectionsStatus()
+        {
+            StreamReader file = new StreamReader(path + "\\elections.txt"); //initialize file reader
+            string line = file.ReadLine();
+            file.Close();
+            return Convert.ToBoolean(int.Parse(line));                       //conver and return 0 or 1 as boolean value
+        }
     }
 }

@@ -81,6 +81,12 @@
     <Compile Include="CreatePersonForm.Designer.cs">
       <DependentUpon>CreatePersonForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ElectionsResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionsResultForm.Designer.cs">
+      <DependentUpon>ElectionsResultForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EndPrimeriesPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeletPartyForm.resx">
       <DependentUpon>DeletPartyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionsResultForm.resx">
+      <DependentUpon>ElectionsResultForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EndPrimeriesPage.resx">
       <DependentUpon>EndPrimeriesPage.cs</DependentUpon>

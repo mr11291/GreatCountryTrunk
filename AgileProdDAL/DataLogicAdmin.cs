@@ -276,8 +276,7 @@ namespace AgileProdDAL
             { 
                 i++;
                 worker.ReportProgress((int)((double)100 / data.GetPeople().Count() * i));
-                Console.Write(i + ". ");
-                Console.WriteLine(person.Value.Name + " ");
+
                 vote = true;
                 rand = new Random();
 
@@ -330,6 +329,109 @@ namespace AgileProdDAL
                                 else
                                 {
                                     break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            vote = false;
+                        }
+                    }
+                }
+                Process++;
+            }
+            return true;
+        }
+
+        public static bool runElections(BackgroundWorker worker)
+        {
+            Random rand;
+            Random judge = new Random();
+            bool vote = true;
+            int i = 0;
+            Dictionary<String, int> partydict;
+
+            //set isVoting value
+            foreach (var person in data.GetPeople())    //iterate trough all people
+            {
+                if (person.Value.IsVoting == false)     //if a person is not a voter yet
+                {
+                    if (judge.Next(100) < 90)           //randomly select if a person want's to register as a voter with 80% propability for "true" value
+                    {
+                        person.Value.IsVoting = true;
+                    }
+                }
+            }
+
+            //vote for a party member 
+            foreach (var person in data.GetPeople())
+            { 
+                i++;
+                worker.ReportProgress((int)((double)100 / data.GetPeople().Count() * i));
+
+                vote = true;
+                rand = new Random();
+
+                if (person.Value.IsVoting == true)                                               //if a person is a voter
+                {
+                    partydict = data.GetPartyList().OrderBy(x => rand.Next()).ToDictionary(item => item.Key, item => item.Value);
+
+                    while (vote == true)                                                         //while he dicides to vote
+                    {                                                                            //if a person has enogh money to pay for a vote
+                        if (DataLogicPerson.getVotingFeeByNumOfVotes(person.Value.NumOfVotes) <= DataLogicBank.getBankDictionary()[person.Key].Balance)
+                        {
+                            if (DataLogicMember.GetMember().Keys.Contains(person.Key))         //if this person is a party member
+                            {
+                                DataLogicPerson.voteToParty(DataLogicMember.GetMember()[person.Key].Party);
+                                person.Value.NumOfVotes++;
+                                DataLogicBank.getBankDictionary()[person.Key].withdrawl(DataLogicPerson.getVotingFeeByNumOfVotes(person.Value.NumOfVotes));
+
+                                if (getRandomBool() == false)            //randomly select if a person want's to vote and assigns the coresponding value
+                                {
+                                    vote = false;
+                                    break;
+                                }
+                                else
+                                {
+                                    if (DataLogicPerson.getVotingFeeByNumOfVotes(person.Value.NumOfVotes) > DataLogicBank.getBankDictionary()[person.Key].Balance)
+                                    {
+                                        vote = false;
+                                        break;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                foreach (var party in partydict)                                     //iterate trough party list
+                                {
+                                    if (vote == true)
+                                    {
+                                        if (getRandomBool())                                         //if a person decides to vote to this party
+                                        {
+
+                                            DataLogicPerson.voteToParty(party.Key);
+                                            person.Value.NumOfVotes++;                                      //increase number of votes
+                                            DataLogicBank.getBankDictionary()[person.Key].withdrawl(DataLogicPerson.getVotingFeeByNumOfVotes(person.Value.NumOfVotes)); //withdrawl from persons account
+
+                                            if (getRandomBool() == false)            //randomly select if a person want's to vote and assigns the coresponding value
+                                            {
+                                                vote = false;
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                if (DataLogicPerson.getVotingFeeByNumOfVotes(person.Value.NumOfVotes) > DataLogicBank.getBankDictionary()[person.Key].Balance)
+                                                {
+                                                    vote = false;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
                                 }
                             }
                         }

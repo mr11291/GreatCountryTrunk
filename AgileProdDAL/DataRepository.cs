@@ -19,13 +19,21 @@ namespace AgileProdDAL
 		private static Dictionary<int, Admin> admin;        //<id, admin instance>
 		private static Dictionary<string, int> partyList;   //<party name, amount of votes recived>
 		private static bool praimerise;                     //represents an on going praimeries
+        private static bool elections;                     //represents an on going praimeries
 		private static DataRepository instance;             //an instance of data reposetory
 
 		//constructor
-		private DataRepository(Dictionary<int, Person> peopleD, Dictionary<int, Member> membersD,
-							   Dictionary<string, int> partyListD, bool praimeriseD, Dictionary<int, Head> headD,
-							   Dictionary<int, Admin> adminD, Dictionary<int, Bank> bankAccountsD,
-							   Dictionary<int, Message> messagesD, Dictionary<int, Memento> memento, Dictionary<int, LastEntry> Last)
+		private DataRepository(Dictionary<int, Person> peopleD, 
+                               Dictionary<int, Member> membersD,
+							   Dictionary<string, int> partyListD, 
+                               bool praimeriseD, 
+                               Dictionary<int, Head> headD,
+							   Dictionary<int, Admin> adminD,  
+                               Dictionary<int, Bank> bankAccountsD,
+							   Dictionary<int, Message> messagesD, 
+                               Dictionary<int, Memento> memento, 
+                               Dictionary<int, LastEntry> Last, 
+                               bool electionsD)
 		{
 			people = peopleD;
 			members = membersD;
@@ -37,6 +45,7 @@ namespace AgileProdDAL
 			admin = adminD;
 			memetoes = memento;
 			LastE = Last;
+            elections = electionsD;
 			
 		}
 
@@ -45,6 +54,7 @@ namespace AgileProdDAL
 			if (instance == null)
 			{
 				bool praimeries = LoadDataBase.checkPrimeriesStatus();            //holds a bool varaiable to determine if Praimeries are on
+                bool elections = LoadDataBase.checkElectionsStatus();
 				Dictionary<int, Admin> admin = LoadDataBase.readFromAdmin();      //<id, admin instance>
 				Dictionary<string, int> parties = LoadDataBase.readFromParties(); //<party name, amount of votes>
 				Dictionary<int, Person> p = LoadDataBase.readFromPeople();        //<id, peson instance>
@@ -55,7 +65,7 @@ namespace AgileProdDAL
 				Dictionary<int, Memento> memento = LoadDataBase.readFromMemento();//<id, memento instance>
 				Dictionary<int, LastEntry> l = LoadDataBase.readFromEntry();      //<id, last enrty instance>
 
-				instance = new DataRepository(p, mem, parties, praimeries, head, admin, acc, mes, memento, l);
+				instance = new DataRepository(p, mem, parties, praimeries, head, admin, acc, mes, memento, l, elections);
 			}
 			return instance;
 		}//Singleton instance
@@ -115,6 +125,16 @@ namespace AgileProdDAL
 		{
 			return praimerise;
 		}
+
+        public bool GetElections()
+        {
+            return elections;
+        }
+
+        public void SetElections(bool value)
+        {
+            elections = value;
+        }
 
 		public void setMemento(Dictionary<int, Memento> memento)
 		{

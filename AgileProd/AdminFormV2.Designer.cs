@@ -33,6 +33,13 @@
             this.personToPlartyButton = new System.Windows.Forms.Button();
             this.updateInfoButton = new System.Windows.Forms.Button();
             this.userInfoGrid = new System.Windows.Forms.DataGridView();
+            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usernameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.votingColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.votesColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deletePersonButton = new System.Windows.Forms.Button();
             this.createPersonButton = new System.Windows.Forms.Button();
             this.memberTab = new System.Windows.Forms.TabPage();
@@ -62,6 +69,7 @@
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adminTab = new System.Windows.Forms.TabPage();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.adminInfoGrid = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,15 +81,8 @@
             this.runPrimeriesButton = new System.Windows.Forms.Button();
             this.settingsTab = new System.Windows.Forms.TabPage();
             this.logoutButton = new System.Windows.Forms.Button();
-            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usernameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.votingColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.votesColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.runPraimeriesWorker = new System.ComponentModel.BackgroundWorker();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.runElectionsWorker = new System.ComponentModel.BackgroundWorker();
             this.tabControl.SuspendLayout();
             this.person.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userInfoGrid)).BeginInit();
@@ -165,6 +166,48 @@
             this.userInfoGrid.Name = "userInfoGrid";
             this.userInfoGrid.Size = new System.Drawing.Size(623, 227);
             this.userInfoGrid.TabIndex = 4;
+            // 
+            // idColumn
+            // 
+            this.idColumn.HeaderText = "ID";
+            this.idColumn.Name = "idColumn";
+            this.idColumn.ReadOnly = true;
+            // 
+            // nameColumn
+            // 
+            this.nameColumn.HeaderText = "Name";
+            this.nameColumn.Name = "nameColumn";
+            this.nameColumn.ReadOnly = true;
+            // 
+            // ageColumn
+            // 
+            this.ageColumn.HeaderText = "Age";
+            this.ageColumn.Name = "ageColumn";
+            this.ageColumn.ReadOnly = true;
+            // 
+            // usernameColumn
+            // 
+            this.usernameColumn.HeaderText = "Username";
+            this.usernameColumn.Name = "usernameColumn";
+            this.usernameColumn.ReadOnly = true;
+            // 
+            // passwordColumn
+            // 
+            this.passwordColumn.HeaderText = "Password";
+            this.passwordColumn.Name = "passwordColumn";
+            this.passwordColumn.ReadOnly = true;
+            // 
+            // votingColumn
+            // 
+            this.votingColumn.HeaderText = "Voter";
+            this.votingColumn.Name = "votingColumn";
+            this.votingColumn.ReadOnly = true;
+            // 
+            // votesColumn
+            // 
+            this.votesColumn.HeaderText = "Times Voted";
+            this.votesColumn.Name = "votesColumn";
+            this.votesColumn.ReadOnly = true;
             // 
             // deletePersonButton
             // 
@@ -417,6 +460,14 @@
             this.adminTab.Text = "Admin";
             this.adminTab.UseVisualStyleBackColor = true;
             // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(107, 218);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(623, 15);
+            this.progressBar.TabIndex = 16;
+            this.progressBar.Visible = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::AgileProd.Properties.Resources.DancingPutin2;
@@ -483,6 +534,7 @@
             this.runElectionsButton.TabIndex = 10;
             this.runElectionsButton.Text = "Run Elections";
             this.runElectionsButton.UseVisualStyleBackColor = true;
+            this.runElectionsButton.Click += new System.EventHandler(this.runElectionsButton_Click);
             // 
             // runPrimeriesButton
             // 
@@ -514,60 +566,15 @@
             this.logoutButton.UseVisualStyleBackColor = true;
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
-            // idColumn
-            // 
-            this.idColumn.HeaderText = "ID";
-            this.idColumn.Name = "idColumn";
-            this.idColumn.ReadOnly = true;
-            // 
-            // nameColumn
-            // 
-            this.nameColumn.HeaderText = "Name";
-            this.nameColumn.Name = "nameColumn";
-            this.nameColumn.ReadOnly = true;
-            // 
-            // ageColumn
-            // 
-            this.ageColumn.HeaderText = "Age";
-            this.ageColumn.Name = "ageColumn";
-            this.ageColumn.ReadOnly = true;
-            // 
-            // usernameColumn
-            // 
-            this.usernameColumn.HeaderText = "Username";
-            this.usernameColumn.Name = "usernameColumn";
-            this.usernameColumn.ReadOnly = true;
-            // 
-            // passwordColumn
-            // 
-            this.passwordColumn.HeaderText = "Password";
-            this.passwordColumn.Name = "passwordColumn";
-            this.passwordColumn.ReadOnly = true;
-            // 
-            // votingColumn
-            // 
-            this.votingColumn.HeaderText = "Voter";
-            this.votingColumn.Name = "votingColumn";
-            this.votingColumn.ReadOnly = true;
-            // 
-            // votesColumn
-            // 
-            this.votesColumn.HeaderText = "Times Voted";
-            this.votesColumn.Name = "votesColumn";
-            this.votesColumn.ReadOnly = true;
-            // 
             // runPraimeriesWorker
             // 
             this.runPraimeriesWorker.WorkerReportsProgress = true;
             this.runPraimeriesWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.runPraimeriesWorker_DoWork);
             // 
-            // progressBar
+            // runElectionsWorker
             // 
-            this.progressBar.Location = new System.Drawing.Point(107, 218);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(623, 15);
-            this.progressBar.TabIndex = 16;
-            this.progressBar.Visible = false;
+            this.runElectionsWorker.WorkerReportsProgress = true;
+            this.runElectionsWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.runElectionsWorker_DoWork);
             // 
             // AdminFormV2
             // 
@@ -653,5 +660,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn votesColumn;
         private System.ComponentModel.BackgroundWorker runPraimeriesWorker;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.ComponentModel.BackgroundWorker runElectionsWorker;
     }
 }

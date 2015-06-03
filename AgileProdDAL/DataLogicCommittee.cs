@@ -16,6 +16,7 @@ namespace AgileProdDAL
         {
             data = DataRepository.GetDataRepository();
         }
+
         public static Head LoginCommittee(string username, string password)  //Committee
         {
             
@@ -31,6 +32,7 @@ namespace AgileProdDAL
             }
             return Success;                                                             //return member instance                        
         }
+
         public static Dictionary<string, int> GetPartyList()
         {
             return data.GetPartyList();
@@ -86,7 +88,19 @@ namespace AgileProdDAL
             return data.GetPraimerise();
         }
 
+        public static bool getElections()
+        {
+            return data.GetElections();
+        }
 
+        public static void startElections()
+        {
+            data.SetElections(true);
+        }
 
+        public static void endElections()
+        {
+            data.SetElections(false);
+        }
     }
 }

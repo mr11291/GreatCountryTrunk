@@ -36,6 +36,9 @@ namespace AgileProd
             
             runPraimeriesWorker.RunWorkerCompleted += runPraimeriesWorker_RunWorkerCompleted;
             runPraimeriesWorker.ProgressChanged += runPraimeriesWorker_ProgressChanged;
+
+            runElectionsWorker.RunWorkerCompleted += runElectionsWorkier_RunWorkerCompleted;
+            runElectionsWorker.ProgressChanged += runElectionsWorker_ProgressChanged;
         }
 
         void tabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -475,18 +478,50 @@ namespace AgileProd
             DataLogicAdmin.runPraimeries(runPraimeriesWorker);     //run praimeries
         }
 
+        private void runElectionsWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            DataLogicAdmin.runElections(runElectionsWorker);      //run elections
+        }
+
         void runPraimeriesWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             this.Cursor = Cursors.Default;
             MessageBox.Show("Praimeries stage is over");    //inform user process is over
             progressBar.Visible = false;
+            updateMemberGrid();
             updatePartyGrid();
             updateInfoGrid();
+            progressBar.Value = 0;
         }
 
         void runPraimeriesWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             progressBar.Value = e.ProgressPercentage;
+        }
+
+        void runElectionsWorkier_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+            MessageBox.Show("Elections stage is over");    //inform user process is over
+            progressBar.Visible = false;
+            updateMemberGrid();
+            updatePartyGrid();
+            updateInfoGrid();
+            progressBar.Value = 0;
+            ElectionsResultForm results = new ElectionsResultForm();
+            results.ShowDialog();
+        }
+
+        void runElectionsWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar.Value = e.ProgressPercentage;
+        }
+
+        private void runElectionsButton_Click(object sender, EventArgs e)
+        {
+            progressBar.Show();
+            this.Cursor = Cursors.WaitCursor;
+            runElectionsWorker.RunWorkerAsync();   //call background worker thread
         }
     }
 }
