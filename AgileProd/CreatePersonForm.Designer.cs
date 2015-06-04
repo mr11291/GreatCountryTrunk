@@ -86,7 +86,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 41);
+            this.label2.Location = new System.Drawing.Point(12, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 4;
@@ -95,7 +95,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 67);
+            this.label3.Location = new System.Drawing.Point(12, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(21, 13);
             this.label3.TabIndex = 5;
@@ -104,7 +104,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 93);
+            this.label4.Location = new System.Drawing.Point(12, 90);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 6;
@@ -113,7 +113,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 119);
+            this.label5.Location = new System.Drawing.Point(12, 116);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 13);
             this.label5.TabIndex = 7;
@@ -122,7 +122,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 145);
+            this.label6.Location = new System.Drawing.Point(12, 142);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 13);
             this.label6.TabIndex = 8;
@@ -130,14 +130,14 @@
             // 
             // nameBox
             // 
-            this.nameBox.Location = new System.Drawing.Point(95, 38);
+            this.nameBox.Location = new System.Drawing.Point(105, 38);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(100, 20);
             this.nameBox.TabIndex = 9;
             // 
             // idBox
             // 
-            this.idBox.Location = new System.Drawing.Point(95, 64);
+            this.idBox.Location = new System.Drawing.Point(105, 64);
             this.idBox.Name = "idBox";
             this.idBox.ReadOnly = true;
             this.idBox.Size = new System.Drawing.Size(100, 20);
@@ -145,21 +145,21 @@
             // 
             // ageBox
             // 
-            this.ageBox.Location = new System.Drawing.Point(95, 90);
+            this.ageBox.Location = new System.Drawing.Point(105, 90);
             this.ageBox.Name = "ageBox";
             this.ageBox.Size = new System.Drawing.Size(100, 20);
             this.ageBox.TabIndex = 11;
             // 
             // usernameBox
             // 
-            this.usernameBox.Location = new System.Drawing.Point(95, 116);
+            this.usernameBox.Location = new System.Drawing.Point(105, 116);
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(100, 20);
             this.usernameBox.TabIndex = 12;
             // 
             // passwordBox
             // 
-            this.passwordBox.Location = new System.Drawing.Point(95, 142);
+            this.passwordBox.Location = new System.Drawing.Point(105, 142);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.Size = new System.Drawing.Size(100, 20);
             this.passwordBox.TabIndex = 13;
@@ -210,7 +210,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Red;
-            this.ClientSize = new System.Drawing.Size(250, 332);
+            this.ClientSize = new System.Drawing.Size(269, 332);
             this.Controls.Add(this.animatedArrow);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.passwordBox);

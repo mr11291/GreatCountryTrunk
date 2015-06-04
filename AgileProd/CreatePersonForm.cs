@@ -96,7 +96,7 @@ namespace AgileProd
 
             animatedArrow.Parent = this;
             animatedArrow.Enabled = true;
-            animatedArrow.Location = new Point(30, 41);
+            animatedArrow.Location = new Point(65, 38);
             animatedArrow.Show();
             toolTip1.Show(String.Empty, pictureBox1, 0);
             toolTip1.Show("Please enter your name", pictureBox1, 120, 90, 2300);
@@ -104,30 +104,32 @@ namespace AgileProd
             await Task.Delay(2500);
 
             animatedArrow.Parent = this;
-            animatedArrow.Location = new Point(30, 91);
+            animatedArrow.Location = new Point(65, 90);
             toolTip1.Show(String.Empty, pictureBox1, 0);
             toolTip1.Show("age", pictureBox1, 120, 90, 2300);
 
             await Task.Delay(2500);
 
             animatedArrow.Parent = this;
-            animatedArrow.Location = new Point(0, 0);
+            animatedArrow.Location = new Point(73, 116);
             toolTip1.Show(String.Empty, pictureBox1, 0);
             toolTip1.Show("username", pictureBox1, 120, 90, 2300);
 
             await Task.Delay(2500);
 
             animatedArrow.Parent = this;
-            animatedArrow.Location = new Point(0, 0);
+            animatedArrow.Location = new Point(65, 142);
             toolTip1.Show(String.Empty, pictureBox1, 0);
             toolTip1.Show("password", pictureBox1, 120, 90, 2300);
 
             await Task.Delay(2500);
 
             animatedArrow.Parent = pictureBox1;
-            animatedArrow.Location = new Point(100, 100);
+            animatedArrow.Parent = this;
+            animatedArrow.Location = new Point(65, 142);
             toolTip1.Show(String.Empty, pictureBox1, 0);
             toolTip1.Show("and click the Create button", pictureBox1, 120, 10, 2300);
+            animatedArrow.Parent = pictureBox1;
 
             await Task.Delay(2500);
 
@@ -139,5 +141,7 @@ namespace AgileProd
         {
             this.Close();
         }
+
+
     }
 }
