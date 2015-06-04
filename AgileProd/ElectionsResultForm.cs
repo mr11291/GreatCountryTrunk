@@ -62,7 +62,11 @@ namespace AgileProd
                         {
                             for (col = 0; col < locationMatrix.GetLength(1); col++)
                             {
-                                if (locationMatrix[row, col] == true)
+                                //if (row == 2 && col == 1)
+                                //{
+                                //    MessageBox.Show("LLAA");
+                                //}
+                                if (locationMatrix[row, col] == true && (member.Value.Location != -1 || winnigParty != true))
                                 {
                                     counter++;
                                     //gui size goes here!
@@ -128,6 +132,8 @@ namespace AgileProd
                             {
                                 memberName[i].Font = new Font(memberName[i].Font, FontStyle.Bold);
                             }
+                            //if (xLocation == 0)
+                            //    MessageBox.Show("xl = 0");
                             memberName[i].Location = new Point(xLocation - 30, yLocation + 20);
 
                             partyName[i].Text = ascendingParty.Key;
