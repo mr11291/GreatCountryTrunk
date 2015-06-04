@@ -28,7 +28,7 @@ namespace AgileProd
             happySittingPutin.Hide();
             suspiciusPutin.MouseDoubleClick += suspiciusPutin_MouseDoubleClick;
             
-
+            
             if (!(DataLogicPerson.getPraimeries()))
             {
                 voteButton.Hide();
@@ -72,8 +72,23 @@ namespace AgileProd
                 }
                 catch { }
             }
+            if (DataLogicPerson.getElections())
+            {
+                VoteParty.Hide();
+                partyInfoButton.Hide();
+                DialogResult dialogResult = MessageBox.Show("The election is done!!! Do you whant to see the result??", " ", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    ElectionsResultForm up = new ElectionsResultForm();
+                    up.Show();
+                }  
+            }
         }
 
+        public void HideThis()
+        {
+            this.Hide();
+        }
         void suspiciusPutin_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             dancingPutinTimer.Start();

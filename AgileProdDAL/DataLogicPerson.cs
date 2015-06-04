@@ -302,6 +302,10 @@ namespace AgileProdDAL
         {
             return data.GetPraimerise();
         }
+        public static bool getElections()
+        {
+            return data.GetElections();
+        }
 
         public static Dictionary<int, Person> getPersonDictionary()
         {
