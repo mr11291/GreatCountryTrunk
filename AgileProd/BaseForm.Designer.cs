@@ -41,6 +41,8 @@
             this.idLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.messageTab = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.personList = new System.Windows.Forms.ListView();
             this.writeButton = new System.Windows.Forms.Button();
             this.readButton = new System.Windows.Forms.Button();
             this.fromLabel = new System.Windows.Forms.Label();
@@ -58,8 +60,6 @@
             this.settingsUserNameLabel = new System.Windows.Forms.Label();
             this.settingsIdLabel = new System.Windows.Forms.Label();
             this.settingNameLabel = new System.Windows.Forms.Label();
-            this.personList = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabMenu.SuspendLayout();
             this.blankTab.SuspendLayout();
             this.bankTab.SuspendLayout();
@@ -211,6 +211,25 @@
             this.messageTab.Size = new System.Drawing.Size(672, 284);
             this.messageTab.TabIndex = 4;
             this.messageTab.Text = "Messages";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label1.Location = new System.Drawing.Point(525, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(133, 16);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "People In System:";
+            // 
+            // personList
+            // 
+            this.personList.Location = new System.Drawing.Point(528, 28);
+            this.personList.Name = "personList";
+            this.personList.Size = new System.Drawing.Size(137, 217);
+            this.personList.TabIndex = 9;
+            this.personList.UseCompatibleStateImageBehavior = false;
+            this.personList.View = System.Windows.Forms.View.List;
             // 
             // writeButton
             // 
@@ -376,25 +395,6 @@
             this.settingNameLabel.TabIndex = 0;
             this.settingNameLabel.Text = "Name:";
             // 
-            // personList
-            // 
-            this.personList.Location = new System.Drawing.Point(528, 28);
-            this.personList.Name = "personList";
-            this.personList.Size = new System.Drawing.Size(137, 217);
-            this.personList.TabIndex = 9;
-            this.personList.UseCompatibleStateImageBehavior = false;
-            this.personList.View = System.Windows.Forms.View.List;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label1.Location = new System.Drawing.Point(525, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 16);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "People In System:";
-            // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -404,6 +404,7 @@
             this.Name = "BaseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BaseForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosing);
             this.tabMenu.ResumeLayout(false);
             this.blankTab.ResumeLayout(false);
             this.blankTab.PerformLayout();

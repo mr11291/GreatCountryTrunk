@@ -156,8 +156,10 @@ namespace AgileProd
             form.Show();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
+     
+        private void Form1_FormClosing(object sender, FormClosedEventArgs e)
         {
+            //WriteDictionariesToDataBase update = new WriteDictionariesToDataBase();
 
         }
 

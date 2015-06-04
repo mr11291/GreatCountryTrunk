@@ -523,5 +523,11 @@ namespace AgileProd
             this.Cursor = Cursors.WaitCursor;
             runElectionsWorker.RunWorkerAsync();   //call background worker thread
         }
+
+        private void Form1_FormClosing(object sender, FormClosedEventArgs e)
+        {
+           // WriteDictionariesToDataBase update = new WriteDictionariesToDataBase();
+
+        }
     }
 }

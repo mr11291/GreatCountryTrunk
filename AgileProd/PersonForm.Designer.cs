@@ -253,8 +253,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 305);
             this.Name = "PersonForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Person";
+
             this.tabMenu.ResumeLayout(false);
             this.blankTab.ResumeLayout(false);
             this.blankTab.PerformLayout();

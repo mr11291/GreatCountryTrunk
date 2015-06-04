@@ -585,6 +585,7 @@
             this.Name = "AdminFormV2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosing);
             this.tabControl.ResumeLayout(false);
             this.person.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.userInfoGrid)).EndInit();
