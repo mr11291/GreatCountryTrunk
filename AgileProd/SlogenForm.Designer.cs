@@ -35,7 +35,7 @@
             // 
             // slogenBox
             // 
-            this.slogenBox.Location = new System.Drawing.Point(32, 73);
+            this.slogenBox.Location = new System.Drawing.Point(15, 34);
             this.slogenBox.Name = "slogenBox";
             this.slogenBox.Size = new System.Drawing.Size(222, 20);
             this.slogenBox.TabIndex = 0;
@@ -44,7 +44,7 @@
             // slogandirections
             // 
             this.slogandirections.AutoSize = true;
-            this.slogandirections.Location = new System.Drawing.Point(29, 41);
+            this.slogandirections.Location = new System.Drawing.Point(12, 9);
             this.slogandirections.Name = "slogandirections";
             this.slogandirections.Size = new System.Drawing.Size(149, 13);
             this.slogandirections.TabIndex = 1;
@@ -52,19 +52,21 @@
             // 
             // Submmit
             // 
-            this.Submmit.Location = new System.Drawing.Point(98, 116);
+            this.Submmit.BackColor = System.Drawing.Color.Yellow;
+            this.Submmit.Location = new System.Drawing.Point(97, 60);
             this.Submmit.Name = "Submmit";
             this.Submmit.Size = new System.Drawing.Size(75, 23);
             this.Submmit.TabIndex = 2;
             this.Submmit.Text = "Submit";
-            this.Submmit.UseVisualStyleBackColor = true;
+            this.Submmit.UseVisualStyleBackColor = false;
             this.Submmit.Click += new System.EventHandler(this.Submmit_Click);
             // 
             // SlogenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 171);
+            this.BackColor = System.Drawing.Color.Red;
+            this.ClientSize = new System.Drawing.Size(252, 90);
             this.Controls.Add(this.Submmit);
             this.Controls.Add(this.slogandirections);
             this.Controls.Add(this.slogenBox);

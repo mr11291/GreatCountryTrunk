@@ -69,7 +69,7 @@
             // 
             // username
             // 
-            this.username.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.username.BackColor = System.Drawing.Color.Snow;
             this.username.Location = new System.Drawing.Point(120, 15);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(100, 20);
@@ -77,7 +77,7 @@
             // 
             // password
             // 
-            this.password.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.password.BackColor = System.Drawing.Color.Snow;
             this.password.Location = new System.Drawing.Point(120, 41);
             this.password.Name = "password";
             this.password.PasswordChar = '*';

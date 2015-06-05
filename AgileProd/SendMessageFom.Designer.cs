@@ -48,7 +48,7 @@
             // 
             // bribeOfferBox
             // 
-            this.bribeOfferBox.BackColor = System.Drawing.SystemColors.Control;
+            this.bribeOfferBox.BackColor = System.Drawing.Color.Snow;
             this.bribeOfferBox.Location = new System.Drawing.Point(3, 4);
             this.bribeOfferBox.Multiline = true;
             this.bribeOfferBox.Name = "bribeOfferBox";
@@ -68,6 +68,7 @@
             // 
             // currentMoneyBox
             // 
+            this.currentMoneyBox.BackColor = System.Drawing.Color.Snow;
             this.currentMoneyBox.Location = new System.Drawing.Point(317, 195);
             this.currentMoneyBox.Name = "currentMoneyBox";
             this.currentMoneyBox.Size = new System.Drawing.Size(70, 20);
@@ -76,22 +77,24 @@
             // 
             // sendButton
             // 
+            this.sendButton.BackColor = System.Drawing.Color.Yellow;
             this.sendButton.Location = new System.Drawing.Point(12, 192);
             this.sendButton.Name = "sendButton";
             this.sendButton.Size = new System.Drawing.Size(75, 23);
             this.sendButton.TabIndex = 6;
             this.sendButton.Text = "Send";
-            this.sendButton.UseVisualStyleBackColor = true;
+            this.sendButton.UseVisualStyleBackColor = false;
             this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
             // 
             // cancelButton
             // 
+            this.cancelButton.BackColor = System.Drawing.Color.Yellow;
             this.cancelButton.Location = new System.Drawing.Point(93, 192);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 7;
             this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.UseVisualStyleBackColor = false;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // minLabel
@@ -121,7 +124,7 @@
             this.messageMenu.Location = new System.Drawing.Point(12, 13);
             this.messageMenu.Name = "messageMenu";
             this.messageMenu.SelectedIndex = 0;
-            this.messageMenu.Size = new System.Drawing.Size(481, 147);
+            this.messageMenu.Size = new System.Drawing.Size(480, 147);
             this.messageMenu.TabIndex = 10;
             this.messageMenu.Visible = false;
             // 
@@ -131,7 +134,7 @@
             this.bribeTab.Location = new System.Drawing.Point(4, 22);
             this.bribeTab.Name = "bribeTab";
             this.bribeTab.Padding = new System.Windows.Forms.Padding(3);
-            this.bribeTab.Size = new System.Drawing.Size(473, 121);
+            this.bribeTab.Size = new System.Drawing.Size(472, 121);
             this.bribeTab.TabIndex = 0;
             this.bribeTab.Text = "Bribe";
             this.bribeTab.UseVisualStyleBackColor = true;
@@ -142,14 +145,14 @@
             this.jobTab.Location = new System.Drawing.Point(4, 22);
             this.jobTab.Name = "jobTab";
             this.jobTab.Padding = new System.Windows.Forms.Padding(3);
-            this.jobTab.Size = new System.Drawing.Size(473, 121);
+            this.jobTab.Size = new System.Drawing.Size(472, 121);
             this.jobTab.TabIndex = 1;
             this.jobTab.Text = "Job Offer";
             this.jobTab.UseVisualStyleBackColor = true;
             // 
             // jobOfferBox
             // 
-            this.jobOfferBox.BackColor = System.Drawing.SystemColors.Control;
+            this.jobOfferBox.BackColor = System.Drawing.Color.Snow;
             this.jobOfferBox.Location = new System.Drawing.Point(3, 4);
             this.jobOfferBox.Multiline = true;
             this.jobOfferBox.Name = "jobOfferBox";
@@ -160,10 +163,11 @@
             // 
             // regularMessageBox
             // 
+            this.regularMessageBox.BackColor = System.Drawing.Color.Red;
             this.regularMessageBox.Location = new System.Drawing.Point(12, 12);
             this.regularMessageBox.Multiline = true;
             this.regularMessageBox.Name = "regularMessageBox";
-            this.regularMessageBox.Size = new System.Drawing.Size(481, 174);
+            this.regularMessageBox.Size = new System.Drawing.Size(481, 148);
             this.regularMessageBox.TabIndex = 11;
             this.regularMessageBox.Visible = false;
             // 
@@ -171,6 +175,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Red;
             this.ClientSize = new System.Drawing.Size(504, 222);
             this.Controls.Add(this.messageMenu);
             this.Controls.Add(this.maxLabel);

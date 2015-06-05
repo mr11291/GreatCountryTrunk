@@ -56,7 +56,7 @@
             // inputWarning
             // 
             this.inputWarning.AutoSize = true;
-            this.inputWarning.ForeColor = System.Drawing.Color.Red;
+            this.inputWarning.ForeColor = System.Drawing.Color.Brown;
             this.inputWarning.Location = new System.Drawing.Point(53, 72);
             this.inputWarning.Name = "inputWarning";
             this.inputWarning.Size = new System.Drawing.Size(242, 13);
@@ -65,18 +65,19 @@
             // 
             // Delete
             // 
+            this.Delete.BackColor = System.Drawing.Color.Yellow;
             this.Delete.Location = new System.Drawing.Point(120, 88);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(75, 23);
             this.Delete.TabIndex = 3;
             this.Delete.Text = "Delete";
-            this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.UseVisualStyleBackColor = false;
             this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // inputWarning2
             // 
             this.inputWarning2.AutoSize = true;
-            this.inputWarning2.ForeColor = System.Drawing.Color.Red;
+            this.inputWarning2.ForeColor = System.Drawing.Color.Brown;
             this.inputWarning2.Location = new System.Drawing.Point(256, 56);
             this.inputWarning2.Name = "inputWarning2";
             this.inputWarning2.Size = new System.Drawing.Size(70, 13);
@@ -87,6 +88,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Red;
             this.ClientSize = new System.Drawing.Size(342, 131);
             this.Controls.Add(this.inputWarning2);
             this.Controls.Add(this.Delete);

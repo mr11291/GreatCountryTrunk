@@ -81,7 +81,7 @@
             // 
             // blankTab
             // 
-            this.blankTab.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.blankTab.BackColor = System.Drawing.Color.Red;
             this.blankTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.blankTab.Controls.Add(this.username);
             this.blankTab.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -104,7 +104,7 @@
             // 
             // bankTab
             // 
-            this.bankTab.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.bankTab.BackColor = System.Drawing.Color.Red;
             this.bankTab.BackgroundImage = global::AgileProd.Properties.Resources.cashstack_op10;
             this.bankTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.bankTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -196,7 +196,7 @@
             // 
             // messageTab
             // 
-            this.messageTab.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.messageTab.BackColor = System.Drawing.Color.Red;
             this.messageTab.BackgroundImage = global::AgileProd.Properties.Resources.cashenvelope_op15;
             this.messageTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.messageTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -224,6 +224,7 @@
             // 
             // personList
             // 
+            this.personList.BackColor = System.Drawing.Color.Snow;
             this.personList.Location = new System.Drawing.Point(528, 28);
             this.personList.Name = "personList";
             this.personList.Size = new System.Drawing.Size(137, 217);
@@ -233,22 +234,24 @@
             // 
             // writeButton
             // 
+            this.writeButton.BackColor = System.Drawing.Color.Yellow;
             this.writeButton.Location = new System.Drawing.Point(528, 251);
             this.writeButton.Name = "writeButton";
             this.writeButton.Size = new System.Drawing.Size(90, 25);
             this.writeButton.TabIndex = 7;
             this.writeButton.Text = "Write";
-            this.writeButton.UseVisualStyleBackColor = true;
+            this.writeButton.UseVisualStyleBackColor = false;
             this.writeButton.Click += new System.EventHandler(this.writeButton_Click);
             // 
             // readButton
             // 
+            this.readButton.BackColor = System.Drawing.Color.Yellow;
             this.readButton.Location = new System.Drawing.Point(9, 251);
             this.readButton.Name = "readButton";
             this.readButton.Size = new System.Drawing.Size(90, 25);
             this.readButton.TabIndex = 2;
             this.readButton.Text = "Read";
-            this.readButton.UseVisualStyleBackColor = true;
+            this.readButton.UseVisualStyleBackColor = false;
             this.readButton.Click += new System.EventHandler(this.readButton_Click);
             // 
             // fromLabel
@@ -263,7 +266,7 @@
             // 
             // fromList
             // 
-            this.fromList.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.fromList.BackColor = System.Drawing.Color.Snow;
             this.fromList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.nameHeader,
             this.idHeader});
@@ -285,7 +288,7 @@
             // 
             // settingsTab
             // 
-            this.settingsTab.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.settingsTab.BackColor = System.Drawing.Color.Red;
             this.settingsTab.BackgroundImage = global::AgileProd.Properties.Resources.wrench_op10;
             this.settingsTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.settingsTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -308,27 +311,29 @@
             // 
             // logoutButton
             // 
+            this.logoutButton.BackColor = System.Drawing.Color.Yellow;
             this.logoutButton.Location = new System.Drawing.Point(587, 251);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(75, 23);
             this.logoutButton.TabIndex = 10;
             this.logoutButton.Text = "Log out";
-            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.UseVisualStyleBackColor = false;
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // saveButton
             // 
+            this.saveButton.BackColor = System.Drawing.Color.Yellow;
             this.saveButton.Location = new System.Drawing.Point(70, 124);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 9;
             this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // settingsPasswordBox
             // 
-            this.settingsPasswordBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.settingsPasswordBox.BackColor = System.Drawing.Color.White;
             this.settingsPasswordBox.Location = new System.Drawing.Point(70, 98);
             this.settingsPasswordBox.Name = "settingsPasswordBox";
             this.settingsPasswordBox.Size = new System.Drawing.Size(100, 20);
@@ -336,7 +341,7 @@
             // 
             // settingsUserNameBox
             // 
-            this.settingsUserNameBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.settingsUserNameBox.BackColor = System.Drawing.Color.White;
             this.settingsUserNameBox.Location = new System.Drawing.Point(70, 72);
             this.settingsUserNameBox.Name = "settingsUserNameBox";
             this.settingsUserNameBox.Size = new System.Drawing.Size(100, 20);
@@ -353,7 +358,7 @@
             // 
             // settingsNameBox
             // 
-            this.settingsNameBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.settingsNameBox.BackColor = System.Drawing.Color.White;
             this.settingsNameBox.Location = new System.Drawing.Point(70, 20);
             this.settingsNameBox.Name = "settingsNameBox";
             this.settingsNameBox.Size = new System.Drawing.Size(100, 20);

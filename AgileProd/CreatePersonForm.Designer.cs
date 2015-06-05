@@ -130,6 +130,7 @@
             // 
             // nameBox
             // 
+            this.nameBox.BackColor = System.Drawing.Color.White;
             this.nameBox.Location = new System.Drawing.Point(105, 38);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(100, 20);
@@ -145,6 +146,7 @@
             // 
             // ageBox
             // 
+            this.ageBox.BackColor = System.Drawing.Color.White;
             this.ageBox.Location = new System.Drawing.Point(105, 90);
             this.ageBox.Name = "ageBox";
             this.ageBox.Size = new System.Drawing.Size(100, 20);
@@ -152,6 +154,7 @@
             // 
             // usernameBox
             // 
+            this.usernameBox.BackColor = System.Drawing.Color.White;
             this.usernameBox.Location = new System.Drawing.Point(105, 116);
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(100, 20);
@@ -159,6 +162,7 @@
             // 
             // passwordBox
             // 
+            this.passwordBox.BackColor = System.Drawing.Color.White;
             this.passwordBox.Location = new System.Drawing.Point(105, 142);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.Size = new System.Drawing.Size(100, 20);

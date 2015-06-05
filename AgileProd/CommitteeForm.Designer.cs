@@ -96,18 +96,24 @@
             this.blankTab.Controls.SetChildIndex(this.voteToPartyButton, 0);
             this.blankTab.Controls.SetChildIndex(this.listOfParties, 0);
             // 
+            // username
+            // 
+            this.username.ForeColor = System.Drawing.Color.Black;
+            // 
             // voteToMemberButton
             // 
+            this.voteToMemberButton.BackColor = System.Drawing.Color.Yellow;
             this.voteToMemberButton.Location = new System.Drawing.Point(5, 5);
             this.voteToMemberButton.Name = "voteToMemberButton";
             this.voteToMemberButton.Size = new System.Drawing.Size(95, 25);
             this.voteToMemberButton.TabIndex = 0;
             this.voteToMemberButton.Text = "Vote to member";
-            this.voteToMemberButton.UseVisualStyleBackColor = true;
+            this.voteToMemberButton.UseVisualStyleBackColor = false;
             this.voteToMemberButton.Click += new System.EventHandler(this.VoteButton_Click);
             // 
             // ListOf
             // 
+            this.ListOf.BackColor = System.Drawing.Color.Snow;
             this.ListOf.Location = new System.Drawing.Point(115, 25);
             this.ListOf.Name = "ListOf";
             this.ListOf.Size = new System.Drawing.Size(141, 216);
@@ -118,6 +124,7 @@
             // 
             // ListOf2
             // 
+            this.ListOf2.BackColor = System.Drawing.Color.Snow;
             this.ListOf2.Location = new System.Drawing.Point(270, 25);
             this.ListOf2.Name = "ListOf2";
             this.ListOf2.Size = new System.Drawing.Size(142, 216);
@@ -146,12 +153,13 @@
             // 
             // addPartyButton
             // 
+            this.addPartyButton.BackColor = System.Drawing.Color.Yellow;
             this.addPartyButton.Location = new System.Drawing.Point(5, 65);
             this.addPartyButton.Name = "addPartyButton";
             this.addPartyButton.Size = new System.Drawing.Size(95, 25);
             this.addPartyButton.TabIndex = 5;
             this.addPartyButton.Text = "Add Party";
-            this.addPartyButton.UseVisualStyleBackColor = true;
+            this.addPartyButton.UseVisualStyleBackColor = false;
             this.addPartyButton.Click += new System.EventHandler(this.AddPartyButton_Click);
             // 
             // paryLeaderIdTextBox
@@ -173,12 +181,13 @@
             // 
             // EnterButton
             // 
+            this.EnterButton.BackColor = System.Drawing.Color.Yellow;
             this.EnterButton.Location = new System.Drawing.Point(267, 185);
             this.EnterButton.Name = "EnterButton";
             this.EnterButton.Size = new System.Drawing.Size(76, 20);
             this.EnterButton.TabIndex = 8;
             this.EnterButton.Text = "Enter";
-            this.EnterButton.UseVisualStyleBackColor = true;
+            this.EnterButton.UseVisualStyleBackColor = false;
             this.EnterButton.Click += new System.EventHandler(this.EnterB_Click_1);
             // 
             // partyNameLabel
@@ -199,59 +208,65 @@
             // 
             // EnterButton2
             // 
+            this.EnterButton2.BackColor = System.Drawing.Color.Yellow;
             this.EnterButton2.Location = new System.Drawing.Point(267, 211);
             this.EnterButton2.Name = "EnterButton2";
             this.EnterButton2.Size = new System.Drawing.Size(75, 21);
             this.EnterButton2.TabIndex = 11;
             this.EnterButton2.Text = "Enter";
-            this.EnterButton2.UseVisualStyleBackColor = true;
+            this.EnterButton2.UseVisualStyleBackColor = false;
             this.EnterButton2.Click += new System.EventHandler(this.EnterB2_Click_1);
             // 
             // finishPraimeriesButton
             // 
-            this.finishPraimeriesButton.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.finishPraimeriesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.finishPraimeriesButton.ForeColor = System.Drawing.Color.DodgerBlue;
             this.finishPraimeriesButton.Location = new System.Drawing.Point(5, 95);
             this.finishPraimeriesButton.Name = "finishPraimeriesButton";
             this.finishPraimeriesButton.Size = new System.Drawing.Size(95, 25);
             this.finishPraimeriesButton.TabIndex = 12;
             this.finishPraimeriesButton.Text = "Finish Primeries";
-            this.finishPraimeriesButton.UseVisualStyleBackColor = true;
+            this.finishPraimeriesButton.UseVisualStyleBackColor = false;
             this.finishPraimeriesButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // deletePartyButton
             // 
-            this.deletePartyButton.ForeColor = System.Drawing.Color.Red;
+            this.deletePartyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.deletePartyButton.ForeColor = System.Drawing.Color.Brown;
             this.deletePartyButton.Location = new System.Drawing.Point(5, 125);
             this.deletePartyButton.Name = "deletePartyButton";
             this.deletePartyButton.Size = new System.Drawing.Size(95, 25);
             this.deletePartyButton.TabIndex = 13;
             this.deletePartyButton.Text = "Delete Party";
-            this.deletePartyButton.UseVisualStyleBackColor = true;
+            this.deletePartyButton.UseVisualStyleBackColor = false;
             this.deletePartyButton.Click += new System.EventHandler(this.Delete_Party_Click);
             // 
             // endElectionsButton
             // 
-            this.endElectionsButton.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.endElectionsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.endElectionsButton.ForeColor = System.Drawing.Color.DodgerBlue;
             this.endElectionsButton.Location = new System.Drawing.Point(5, 155);
             this.endElectionsButton.Name = "endElectionsButton";
             this.endElectionsButton.Size = new System.Drawing.Size(95, 25);
             this.endElectionsButton.TabIndex = 14;
             this.endElectionsButton.Text = "End Elections";
-            this.endElectionsButton.UseVisualStyleBackColor = true;
+            this.endElectionsButton.UseVisualStyleBackColor = false;
             this.endElectionsButton.Click += new System.EventHandler(this.End_Election_Click);
             // 
             // voteToPartyButton
             // 
+            this.voteToPartyButton.BackColor = System.Drawing.Color.Yellow;
             this.voteToPartyButton.Location = new System.Drawing.Point(5, 35);
             this.voteToPartyButton.Name = "voteToPartyButton";
             this.voteToPartyButton.Size = new System.Drawing.Size(95, 25);
             this.voteToPartyButton.TabIndex = 15;
             this.voteToPartyButton.Text = "Vote to party";
-            this.voteToPartyButton.UseVisualStyleBackColor = true;
+            this.voteToPartyButton.UseVisualStyleBackColor = false;
             this.voteToPartyButton.Click += new System.EventHandler(this.VoteToParty_Click);
             // 
             // listOfParties
             // 
+            this.listOfParties.BackColor = System.Drawing.Color.Snow;
             this.listOfParties.Location = new System.Drawing.Point(427, 23);
             this.listOfParties.Name = "listOfParties";
             this.listOfParties.Size = new System.Drawing.Size(141, 218);
@@ -272,7 +287,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 312);
             this.Name = "CommitteeForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Committee";
             this.tabMenu.ResumeLayout(false);
             this.blankTab.ResumeLayout(false);

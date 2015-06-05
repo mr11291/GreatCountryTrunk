@@ -91,14 +91,19 @@
             this.blankTab.Controls.SetChildIndex(this.VoteParty, 0);
             this.blankTab.Controls.SetChildIndex(this.retrunToPartyButton, 0);
             // 
+            // username
+            // 
+            this.username.ForeColor = System.Drawing.Color.Black;
+            // 
             // voteButton
             // 
+            this.voteButton.BackColor = System.Drawing.Color.Yellow;
             this.voteButton.Location = new System.Drawing.Point(5, 65);
             this.voteButton.Name = "voteButton";
             this.voteButton.Size = new System.Drawing.Size(97, 23);
             this.voteButton.TabIndex = 0;
             this.voteButton.Text = "Vote to member";
-            this.voteButton.UseVisualStyleBackColor = true;
+            this.voteButton.UseVisualStyleBackColor = false;
             this.voteButton.Click += new System.EventHandler(this.voteButton_Click);
             // 
             // partyListLabel
@@ -121,6 +126,7 @@
             // 
             // ListOf2
             // 
+            this.ListOf2.BackColor = System.Drawing.Color.Snow;
             this.ListOf2.Location = new System.Drawing.Point(507, 32);
             this.ListOf2.Name = "ListOf2";
             this.ListOf2.Size = new System.Drawing.Size(142, 204);
@@ -131,6 +137,7 @@
             // 
             // ListOf
             // 
+            this.ListOf.BackColor = System.Drawing.Color.Snow;
             this.ListOf.Location = new System.Drawing.Point(316, 32);
             this.ListOf.Name = "ListOf";
             this.ListOf.Size = new System.Drawing.Size(141, 204);
@@ -141,13 +148,14 @@
             // 
             // partyInfoButton
             // 
+            this.partyInfoButton.BackColor = System.Drawing.Color.Yellow;
             this.partyInfoButton.Location = new System.Drawing.Point(5, 5);
             this.partyInfoButton.Name = "partyInfoButton";
             this.partyInfoButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.partyInfoButton.Size = new System.Drawing.Size(97, 23);
             this.partyInfoButton.TabIndex = 22;
             this.partyInfoButton.Text = "Party list";
-            this.partyInfoButton.UseVisualStyleBackColor = true;
+            this.partyInfoButton.UseVisualStyleBackColor = false;
             this.partyInfoButton.Click += new System.EventHandler(this.InfoParty_Click);
             // 
             // partyNameComboBox
@@ -163,6 +171,7 @@
             // 
             // InfoAboutParty
             // 
+            this.InfoAboutParty.BackColor = System.Drawing.Color.Snow;
             this.InfoAboutParty.GridLines = true;
             this.InfoAboutParty.Location = new System.Drawing.Point(155, 32);
             this.InfoAboutParty.MultiSelect = false;
@@ -174,22 +183,24 @@
             // 
             // VoteParty
             // 
+            this.VoteParty.BackColor = System.Drawing.Color.Yellow;
             this.VoteParty.Location = new System.Drawing.Point(5, 35);
             this.VoteParty.Name = "VoteParty";
             this.VoteParty.Size = new System.Drawing.Size(97, 23);
             this.VoteParty.TabIndex = 25;
             this.VoteParty.Text = "Vote to party";
-            this.VoteParty.UseVisualStyleBackColor = true;
+            this.VoteParty.UseVisualStyleBackColor = false;
             this.VoteParty.Click += new System.EventHandler(this.VoteParty_Click);
             // 
             // retrunToPartyButton
             // 
+            this.retrunToPartyButton.BackColor = System.Drawing.Color.Yellow;
             this.retrunToPartyButton.Location = new System.Drawing.Point(5, 95);
             this.retrunToPartyButton.Name = "retrunToPartyButton";
             this.retrunToPartyButton.Size = new System.Drawing.Size(97, 23);
             this.retrunToPartyButton.TabIndex = 27;
             this.retrunToPartyButton.Text = "Return to a party";
-            this.retrunToPartyButton.UseVisualStyleBackColor = true;
+            this.retrunToPartyButton.UseVisualStyleBackColor = false;
             this.retrunToPartyButton.Visible = false;
             this.retrunToPartyButton.Click += new System.EventHandler(this.BtnBckLastPrty_Click);
             // 
@@ -254,7 +265,6 @@
             this.ClientSize = new System.Drawing.Size(684, 305);
             this.Name = "PersonForm";
             this.Text = "Person";
-
             this.tabMenu.ResumeLayout(false);
             this.blankTab.ResumeLayout(false);
             this.blankTab.PerformLayout();

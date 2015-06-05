@@ -118,5 +118,10 @@ namespace AgileProd
 
             this.Close();
         }
+
+        private void noButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

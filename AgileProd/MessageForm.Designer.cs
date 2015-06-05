@@ -38,7 +38,7 @@
             // 
             // messageBox
             // 
-            this.messageBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.messageBox.BackColor = System.Drawing.Color.Snow;
             this.messageBox.Location = new System.Drawing.Point(12, 12);
             this.messageBox.Multiline = true;
             this.messageBox.Name = "messageBox";
@@ -48,44 +48,49 @@
             // 
             // replyButton
             // 
+            this.replyButton.BackColor = System.Drawing.Color.Yellow;
             this.replyButton.Location = new System.Drawing.Point(12, 166);
             this.replyButton.Name = "replyButton";
             this.replyButton.Size = new System.Drawing.Size(75, 23);
             this.replyButton.TabIndex = 1;
             this.replyButton.Text = "Reply";
-            this.replyButton.UseVisualStyleBackColor = true;
+            this.replyButton.UseVisualStyleBackColor = false;
             this.replyButton.Visible = false;
             this.replyButton.Click += new System.EventHandler(this.replyButton_Click);
             // 
             // yesButton
             // 
+            this.yesButton.BackColor = System.Drawing.Color.Yellow;
             this.yesButton.Location = new System.Drawing.Point(174, 166);
             this.yesButton.Name = "yesButton";
             this.yesButton.Size = new System.Drawing.Size(75, 23);
             this.yesButton.TabIndex = 2;
             this.yesButton.Text = "Yes";
-            this.yesButton.UseVisualStyleBackColor = true;
+            this.yesButton.UseVisualStyleBackColor = false;
             this.yesButton.Visible = false;
             this.yesButton.Click += new System.EventHandler(this.yesButton_Click);
             // 
             // noButton
             // 
+            this.noButton.BackColor = System.Drawing.Color.Yellow;
             this.noButton.Location = new System.Drawing.Point(255, 166);
             this.noButton.Name = "noButton";
             this.noButton.Size = new System.Drawing.Size(75, 23);
             this.noButton.TabIndex = 3;
             this.noButton.Text = "No";
-            this.noButton.UseVisualStyleBackColor = true;
+            this.noButton.UseVisualStyleBackColor = false;
             this.noButton.Visible = false;
+            this.noButton.Click += new System.EventHandler(this.noButton_Click);
             // 
             // cancelButton
             // 
+            this.cancelButton.BackColor = System.Drawing.Color.Yellow;
             this.cancelButton.Location = new System.Drawing.Point(93, 166);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 4;
             this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.UseVisualStyleBackColor = false;
             this.cancelButton.Visible = false;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
@@ -104,6 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Red;
             this.ClientSize = new System.Drawing.Size(504, 197);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.cancelButton);
