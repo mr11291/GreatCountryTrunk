@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AgileProdDAL;
@@ -17,6 +18,13 @@ namespace AgileProd
         public ElectionsResultForm()
         {
             InitializeComponent();
+            Shown += ElectionsResultForm_Shown;
+            
+            
+        }
+
+        void ElectionsResultForm_Shown(object sender, EventArgs e)
+        {
             sortGoverment();
         }
 
@@ -92,7 +100,7 @@ namespace AgileProd
                         chair[i].Visible = true;
                         chair[i].AutoSize = true;
                         chair[i].Bounds = new Rectangle(10, 20 + padding + height, 40, 22);
-
+                        
                         memberName[i] = new Label();
                         memberName[i].Visible = true;
                         memberName[i].AutoSize = true;
@@ -100,7 +108,7 @@ namespace AgileProd
                         partyName[i] = new Label();
                         partyName[i].Visible = true;
                         partyName[i].AutoSize = true;
-
+                        
                         //name chair after it's number
                         chair[i].Name = "chair" + i.ToString();
                         memberName[i].Name = "name" + i.ToString();

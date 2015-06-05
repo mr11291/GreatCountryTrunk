@@ -89,6 +89,7 @@ namespace AgileProd
         {
             this.Hide();
         }
+
         void suspiciusPutin_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             dancingPutinTimer.Start();
@@ -310,12 +311,6 @@ namespace AgileProd
             DancingPuting.Show();
             username.BringToFront();
         }
-
-     
-
-       
-       
-
     }
 
 }

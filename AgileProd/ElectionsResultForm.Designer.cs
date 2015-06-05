@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.showTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // showTimer
+            // 
+            this.showTimer.Interval = 300;
             // 
             // ElectionsResultForm
             // 
@@ -44,5 +50,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer showTimer;
     }
 }

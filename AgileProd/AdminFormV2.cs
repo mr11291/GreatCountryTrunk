@@ -527,6 +527,7 @@ namespace AgileProd
         private void Form1_FormClosing(object sender, FormClosedEventArgs e)
         {
            // WriteDictionariesToDataBase update = new WriteDictionariesToDataBase();
+            this.Close();
 
         }
     }
