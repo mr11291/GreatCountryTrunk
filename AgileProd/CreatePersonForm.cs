@@ -60,6 +60,9 @@ namespace AgileProd
                 DataLogicPerson.createPerson(Convert.ToInt32(id), name, Convert.ToInt32(age), usern, passw);
                 Bank account = new Bank(generateBalance(), Convert.ToInt32(id), name);
                 DataLogicBank.getBankDictionary().Add(account.Id, account);
+                DateTime l = DateTime.Now;
+                LastEntry last = new LastEntry(Convert.ToInt32(id), l.Ticks);
+                DataLogicLastEntry.getLastEntryDictionary().Add(Convert.ToInt32(id), last);
                 DataLogicMessage.getMessageDictionary().Add(account.Id, null);
 
                 if (login.GetType() == typeof(LoginForm))

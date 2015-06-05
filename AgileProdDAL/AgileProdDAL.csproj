@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLogicBank.cs" />
+    <Compile Include="DataLogicLastEntry.cs" />
     <Compile Include="DataLogicMessage.cs" />
     <Compile Include="DataLogic.cs" />
     <Compile Include="DataLogicAdmin.cs" />
