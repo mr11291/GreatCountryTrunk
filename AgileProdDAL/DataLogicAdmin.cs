@@ -305,6 +305,7 @@ namespace AgileProdDAL
                                                     {
                                                         DataLogicPerson.voteToMember(person.Value, member.Value.Id);    //vote to selected member
                                                         person.Value.NumOfVotes++;                                      //increase number of votes
+                                                        DataLogic.UpdateEntery(person.Key);
                                                         DataLogicBank.getBankDictionary()[person.Key].withdrawl(DataLogicPerson.getVotingFeeByNumOfVotes(person.Value.NumOfVotes)); //withdrawl from persons account
 
                                                         if (getRandomBool() == false)            //randomly select if a person want's to vote and assigns the coresponding value
@@ -384,6 +385,7 @@ namespace AgileProdDAL
                             {
                                 DataLogicPerson.voteToParty(DataLogicMember.GetMember()[person.Key].Party);
                                 person.Value.NumOfVotes++;
+                                DataLogic.UpdateEntery(person.Key);
                                 DataLogicBank.getBankDictionary()[person.Key].withdrawl(DataLogicPerson.getVotingFeeByNumOfVotes(person.Value.NumOfVotes));
 
                                 if (getRandomBool() == false)            //randomly select if a person want's to vote and assigns the coresponding value
