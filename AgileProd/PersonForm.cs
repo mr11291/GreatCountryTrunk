@@ -217,20 +217,38 @@ namespace AgileProd
         {
             if (InfoAboutParty.Visible)
             {
-                if (DataLogicPerson.VoterFee(user) > 0)
+                DialogResult dialogResult2 = MessageBox.Show("You will have to pay " + Convert.ToString(DataLogicPerson.getVotingFeeByNumOfVotes(user.NumOfVotes)) + "$ as a voters fee", "Attention", MessageBoxButtons.YesNo);
+                if (dialogResult2 == DialogResult.Yes)
                 {
-                    sittingPutin.Hide();
-                    happySittingPutin.Show();
-                    bankTab.ImageIndex = 0;
-                    DataLogicPerson.voteToParty(this.partyNameComboBox.Text);
-                    MessageBox.Show("You have voted for " + this.partyNameComboBox.Text + " party");
+                    if (DataLogicPerson.getVotingFeeByNumOfVotes(user.NumOfVotes) < DataLogicPerson.getBalance(user))
+                    {
+                        sittingPutin.Hide();
+                        happySittingPutin.Show();
+                        bankTab.ImageIndex = 0;
+                        DataLogicPerson.voteToParty(this.partyNameComboBox.Text);
+                        
+                        DataLogicPerson.withdrawlFromAccount(user, DataLogicPerson.getVotingFeeByNumOfVotes(user.NumOfVotes));
+                        user.NumOfVotes++;
+                        MessageBox.Show("You have voted for " + this.partyNameComboBox.Text + " party");
+                    }
+
+                    else
+                    {
+                        happySittingPutin.Hide();
+                        sittingPutin.Show();
+                        MessageBox.Show("Insufficient funds!");
+
+                    }
+
                 }
-                else
+                if (dialogResult2 == DialogResult.No)
                 {
                     happySittingPutin.Hide();
                     sittingPutin.Show();
-                    MessageBox.Show("Insufficient funds!");
+
                 }
+                
+               
             }
             else
             {
