@@ -97,7 +97,6 @@ namespace AgileProd
 
         }
 
-
         private void MmberVote_Click(object sender, EventArgs e)
         {
             //massge with the price that the user is going to pay
@@ -133,6 +132,7 @@ namespace AgileProd
             }
             
         }
+
         private void Votetomember_Click(object sender, EventArgs e)
         {
             if (currMember.NumOfVotes == 0)

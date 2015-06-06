@@ -32,8 +32,6 @@
             this.blankTab = new System.Windows.Forms.TabPage();
             this.username = new System.Windows.Forms.TextBox();
             this.bankTab = new System.Windows.Forms.TabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.lastTransactionsLabel = new System.Windows.Forms.Label();
             this.balanceBox = new System.Windows.Forms.TextBox();
             this.idBox = new System.Windows.Forms.TextBox();
             this.nameBox = new System.Windows.Forms.TextBox();
@@ -60,11 +58,13 @@
             this.settingsUserNameLabel = new System.Windows.Forms.Label();
             this.settingsIdLabel = new System.Windows.Forms.Label();
             this.settingNameLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabMenu.SuspendLayout();
             this.blankTab.SuspendLayout();
             this.bankTab.SuspendLayout();
             this.messageTab.SuspendLayout();
             this.settingsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMenu
@@ -81,7 +81,7 @@
             // 
             // blankTab
             // 
-            this.blankTab.BackColor = System.Drawing.Color.Red;
+            this.blankTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.blankTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.blankTab.Controls.Add(this.username);
             this.blankTab.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -94,7 +94,7 @@
             // 
             // username
             // 
-            this.username.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.username.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.username.ForeColor = System.Drawing.Color.Red;
             this.username.Location = new System.Drawing.Point(6, 259);
             this.username.Name = "username";
@@ -104,12 +104,11 @@
             // 
             // bankTab
             // 
-            this.bankTab.BackColor = System.Drawing.Color.Red;
+            this.bankTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.bankTab.BackgroundImage = global::AgileProd.Properties.Resources.cashstack_op10;
             this.bankTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.bankTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.bankTab.Controls.Add(this.listView1);
-            this.bankTab.Controls.Add(this.lastTransactionsLabel);
+            this.bankTab.Controls.Add(this.pictureBox1);
             this.bankTab.Controls.Add(this.balanceBox);
             this.bankTab.Controls.Add(this.idBox);
             this.bankTab.Controls.Add(this.nameBox);
@@ -121,24 +120,6 @@
             this.bankTab.Size = new System.Drawing.Size(672, 284);
             this.bankTab.TabIndex = 3;
             this.bankTab.Text = "Bank";
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(480, 41);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(185, 235);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // lastTransactionsLabel
-            // 
-            this.lastTransactionsLabel.AutoSize = true;
-            this.lastTransactionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.lastTransactionsLabel.Location = new System.Drawing.Point(477, 22);
-            this.lastTransactionsLabel.Name = "lastTransactionsLabel";
-            this.lastTransactionsLabel.Size = new System.Drawing.Size(135, 16);
-            this.lastTransactionsLabel.TabIndex = 8;
-            this.lastTransactionsLabel.Text = "Last Transactions:";
             // 
             // balanceBox
             // 
@@ -196,7 +177,7 @@
             // 
             // messageTab
             // 
-            this.messageTab.BackColor = System.Drawing.Color.Red;
+            this.messageTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.messageTab.BackgroundImage = global::AgileProd.Properties.Resources.cashenvelope_op15;
             this.messageTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.messageTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -225,9 +206,9 @@
             // personList
             // 
             this.personList.BackColor = System.Drawing.Color.Snow;
-            this.personList.Location = new System.Drawing.Point(528, 28);
+            this.personList.Location = new System.Drawing.Point(492, 28);
             this.personList.Name = "personList";
-            this.personList.Size = new System.Drawing.Size(137, 217);
+            this.personList.Size = new System.Drawing.Size(173, 197);
             this.personList.TabIndex = 9;
             this.personList.UseCompatibleStateImageBehavior = false;
             this.personList.View = System.Windows.Forms.View.List;
@@ -235,9 +216,10 @@
             // writeButton
             // 
             this.writeButton.BackColor = System.Drawing.Color.Yellow;
-            this.writeButton.Location = new System.Drawing.Point(528, 251);
+            this.writeButton.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.writeButton.Location = new System.Drawing.Point(535, 231);
             this.writeButton.Name = "writeButton";
-            this.writeButton.Size = new System.Drawing.Size(90, 25);
+            this.writeButton.Size = new System.Drawing.Size(130, 45);
             this.writeButton.TabIndex = 7;
             this.writeButton.Text = "Write";
             this.writeButton.UseVisualStyleBackColor = false;
@@ -246,9 +228,10 @@
             // readButton
             // 
             this.readButton.BackColor = System.Drawing.Color.Yellow;
-            this.readButton.Location = new System.Drawing.Point(9, 251);
+            this.readButton.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.readButton.Location = new System.Drawing.Point(3, 231);
             this.readButton.Name = "readButton";
-            this.readButton.Size = new System.Drawing.Size(90, 25);
+            this.readButton.Size = new System.Drawing.Size(130, 45);
             this.readButton.TabIndex = 2;
             this.readButton.Text = "Read";
             this.readButton.UseVisualStyleBackColor = false;
@@ -258,7 +241,7 @@
             // 
             this.fromLabel.AutoSize = true;
             this.fromLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.fromLabel.Location = new System.Drawing.Point(6, 9);
+            this.fromLabel.Location = new System.Drawing.Point(3, 9);
             this.fromLabel.Name = "fromLabel";
             this.fromLabel.Size = new System.Drawing.Size(47, 16);
             this.fromLabel.TabIndex = 1;
@@ -272,9 +255,9 @@
             this.idHeader});
             this.fromList.GridLines = true;
             this.fromList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.fromList.Location = new System.Drawing.Point(9, 28);
+            this.fromList.Location = new System.Drawing.Point(3, 28);
             this.fromList.Name = "fromList";
-            this.fromList.Size = new System.Drawing.Size(347, 217);
+            this.fromList.Size = new System.Drawing.Size(341, 197);
             this.fromList.TabIndex = 0;
             this.fromList.UseCompatibleStateImageBehavior = false;
             // 
@@ -288,7 +271,7 @@
             // 
             // settingsTab
             // 
-            this.settingsTab.BackColor = System.Drawing.Color.Red;
+            this.settingsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.settingsTab.BackgroundImage = global::AgileProd.Properties.Resources.wrench_op10;
             this.settingsTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.settingsTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -312,9 +295,10 @@
             // logoutButton
             // 
             this.logoutButton.BackColor = System.Drawing.Color.Yellow;
-            this.logoutButton.Location = new System.Drawing.Point(587, 251);
+            this.logoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.logoutButton.Location = new System.Drawing.Point(535, 231);
             this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(75, 23);
+            this.logoutButton.Size = new System.Drawing.Size(130, 45);
             this.logoutButton.TabIndex = 10;
             this.logoutButton.Text = "Log out";
             this.logoutButton.UseVisualStyleBackColor = false;
@@ -323,9 +307,10 @@
             // saveButton
             // 
             this.saveButton.BackColor = System.Drawing.Color.Yellow;
-            this.saveButton.Location = new System.Drawing.Point(70, 124);
+            this.saveButton.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.Location = new System.Drawing.Point(3, 231);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.Size = new System.Drawing.Size(130, 45);
             this.saveButton.TabIndex = 9;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = false;
@@ -400,6 +385,17 @@
             this.settingNameLabel.TabIndex = 0;
             this.settingNameLabel.Text = "Name:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::AgileProd.Properties.Resources.HappyKim;
+            this.pictureBox1.Location = new System.Drawing.Point(325, 86);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(349, 200);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -419,6 +415,7 @@
             this.messageTab.PerformLayout();
             this.settingsTab.ResumeLayout(false);
             this.settingsTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -431,8 +428,6 @@
         protected System.Windows.Forms.TabPage bankTab;
         protected System.Windows.Forms.TabPage messageTab;
         private System.Windows.Forms.ListView fromList;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Label lastTransactionsLabel;
         private System.Windows.Forms.TextBox balanceBox;
         private System.Windows.Forms.TextBox idBox;
         private System.Windows.Forms.TextBox nameBox;
@@ -457,6 +452,7 @@
         private System.Windows.Forms.Button writeButton;
         private System.Windows.Forms.ListView personList;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
 
     }
 }

@@ -96,6 +96,7 @@ namespace AgileProdDAL
         //the function remove party member from DB, if neccery delete allso the party from DB
         // return int for messeges in GUI:
         //0- "the member dosn't excist" , 1- "function seccied" , (-1)- "the party dosn't excist" 
+
         public static int QuitParty(Member mem)
         {
             if (data.GetMembers().ContainsKey(mem.Id))
@@ -152,6 +153,7 @@ namespace AgileProdDAL
             }
             return temp;
         }
+
         public static void InsertToMemento(int id, Memento memento)
         {
             data.GetMementoes().Add(id, memento);

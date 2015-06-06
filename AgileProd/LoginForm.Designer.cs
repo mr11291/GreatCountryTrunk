@@ -36,17 +36,17 @@
             this.btnEnter = new System.Windows.Forms.Button();
             this.userNameTip = new System.Windows.Forms.ToolTip(this.components);
             this.passwordTip = new System.Windows.Forms.ToolTip(this.components);
+            this.wrongToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.muteButton = new System.Windows.Forms.PictureBox();
             this.infoBox2 = new System.Windows.Forms.PictureBox();
             this.infoBox1 = new System.Windows.Forms.PictureBox();
-            this.HandShakeImage = new System.Windows.Forms.PictureBox();
-            this.wrongToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.HandShakeImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.muteButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HandShakeImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HandShakeImage)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -87,10 +87,10 @@
             // btnEnter
             // 
             this.btnEnter.BackColor = System.Drawing.Color.Yellow;
-            this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.btnEnter.Location = new System.Drawing.Point(120, 67);
+            this.btnEnter.Font = new System.Drawing.Font("Source Sans Pro", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnter.Location = new System.Drawing.Point(80, 80);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(75, 23);
+            this.btnEnter.Size = new System.Drawing.Size(130, 45);
             this.btnEnter.TabIndex = 4;
             this.btnEnter.Text = "Log in";
             this.btnEnter.UseVisualStyleBackColor = false;
@@ -110,13 +110,17 @@
             this.passwordTip.IsBalloon = true;
             this.passwordTip.ReshowDelay = 100;
             // 
+            // wrongToolTip
+            // 
+            this.wrongToolTip.IsBalloon = true;
+            // 
             // muteButton
             // 
             this.muteButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.muteButton.Image = global::AgileProd.Properties.Resources.MuteButton;
-            this.muteButton.Location = new System.Drawing.Point(248, 422);
+            this.muteButton.Image = global::AgileProd.Properties.Resources.MuteButton2;
+            this.muteButton.Location = new System.Drawing.Point(231, 463);
             this.muteButton.Name = "muteButton";
-            this.muteButton.Size = new System.Drawing.Size(33, 29);
+            this.muteButton.Size = new System.Drawing.Size(41, 41);
             this.muteButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.muteButton.TabIndex = 14;
             this.muteButton.TabStop = false;
@@ -146,39 +150,35 @@
             this.infoBox1.TabStop = false;
             this.infoBox1.Click += new System.EventHandler(this.infoBox1_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::AgileProd.Properties.Resources.NewIcon3;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 463);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(43, 41);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // HandShakeImage
             // 
             this.HandShakeImage.Image = global::AgileProd.Properties.Resources.KimLogoSmaller;
-            this.HandShakeImage.Location = new System.Drawing.Point(-48, 96);
+            this.HandShakeImage.Location = new System.Drawing.Point(-43, 140);
             this.HandShakeImage.Name = "HandShakeImage";
             this.HandShakeImage.Size = new System.Drawing.Size(369, 341);
             this.HandShakeImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.HandShakeImage.TabIndex = 7;
             this.HandShakeImage.TabStop = false;
             // 
-            // wrongToolTip
-            // 
-            this.wrongToolTip.IsBalloon = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::AgileProd.Properties.Resources.NewIcon2;
-            this.pictureBox1.Location = new System.Drawing.Point(-6, 412);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(42, 45);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Red;
-            this.ClientSize = new System.Drawing.Size(284, 454);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(284, 516);
             this.Controls.Add(this.muteButton);
             this.Controls.Add(this.infoBox2);
             this.Controls.Add(this.infoBox1);
@@ -197,8 +197,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.muteButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HandShakeImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HandShakeImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

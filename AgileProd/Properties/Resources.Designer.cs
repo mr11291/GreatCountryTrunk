@@ -312,6 +312,16 @@ namespace AgileProd.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MuteButton2 {
+            get {
+                object obj = ResourceManager.GetObject("MuteButton2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap NewIcon {
             get {
                 object obj = ResourceManager.GetObject("NewIcon", resourceCulture);
@@ -325,6 +335,16 @@ namespace AgileProd.Properties {
         internal static System.Drawing.Bitmap NewIcon2 {
             get {
                 object obj = ResourceManager.GetObject("NewIcon2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NewIcon3 {
+            get {
+                object obj = ResourceManager.GetObject("NewIcon3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
