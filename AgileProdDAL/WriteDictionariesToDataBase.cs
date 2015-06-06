@@ -37,6 +37,7 @@ namespace AgileProdDAL
             {
                 file.WriteLine(person.Id + ", " + person.Name + ", " + person.Age + ", " + person.UserName + ", " + person.Password + ", " + person.IsVoting + ", " + person.NumOfVotes);
             }
+            file.Close();
         }
 
         private void WriteToPartyMember()
@@ -47,6 +48,7 @@ namespace AgileProdDAL
             {
                 file.WriteLine(member.Id + ", " + member.Party + ", " + member.Location);
             }
+            file.Close();
         }
 
         private void WriteToCommittee()
@@ -57,6 +59,7 @@ namespace AgileProdDAL
             {
                 file.WriteLine(committee.Id + ", " + committee.Age);
             }
+            file.Close();
         }
 
         private void WriteToPartyList()
@@ -67,6 +70,7 @@ namespace AgileProdDAL
             {
                 file.WriteLine(party.Key + ", " + party.Value);
             }
+            file.Close();
         }
 
         private void WriteToPraimerise()
@@ -79,7 +83,8 @@ namespace AgileProdDAL
             else
             {
                 file.WriteLine("0");
-            } 
+            }
+            file.Close();
         }
 
         private void WriteToElections()
@@ -92,7 +97,8 @@ namespace AgileProdDAL
             else
             {
                 file.WriteLine("0");
-            } 
+            }
+            file.Close();
         }
 
         private void WriteToMessage()
@@ -134,6 +140,7 @@ namespace AgileProdDAL
                     }
                 }
             }
+            file.Close();
         }
 
         private void WriteToBank()
@@ -144,6 +151,7 @@ namespace AgileProdDAL
             {
                 file.WriteLine(account.Key + ", " + account.Value.Name + ", " + account.Value.Balance);
             }
+            file.Close();
         }
 
         private void WriteToLastEnty()
@@ -154,6 +162,7 @@ namespace AgileProdDAL
             {
                 file.WriteLine(log.Key + ", " + log.Value.Last);
             }
+            file.Close();
         }
 
         private void WriteToAdmin()
@@ -164,6 +173,7 @@ namespace AgileProdDAL
             {
                 file.WriteLine(admin.Key + ", " + admin.Value.Name + ", " + admin.Value.UserName + ", " + admin.Value.Password);
             }
+            file.Close();
         }
 
         private void WriteToMemento()
@@ -174,6 +184,7 @@ namespace AgileProdDAL
             {
                 file.WriteLine(memento.Key + ", " + memento.Value.PartyName + ", " + memento.Value.location);
             }
+            file.Close();
         }
     }
 
