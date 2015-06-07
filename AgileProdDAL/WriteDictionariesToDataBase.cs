@@ -22,6 +22,7 @@ namespace AgileProdDAL
             WriteToCommittee();
             WriteToPartyList();
             WriteToPraimerise();
+            WriteToElections();
             WriteToMessage();
             WriteToBank();
             WriteToLastEnty();
