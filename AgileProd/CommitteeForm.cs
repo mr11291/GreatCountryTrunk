@@ -307,6 +307,7 @@ namespace AgileProd
         private void End_Election_Click(object sender, EventArgs e)
         {
             //End_Election function at DataLgicCommittee
+            ElectionsResultForm form = new ElectionsResultForm();
         }
 
         private void VoteToParty_Click(object sender, EventArgs e)
