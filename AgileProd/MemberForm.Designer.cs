@@ -208,7 +208,7 @@
             // suggestSlogenButton
             // 
             this.suggestSlogenButton.BackColor = System.Drawing.Color.Yellow;
-            this.suggestSlogenButton.Location = new System.Drawing.Point(6, 28);
+            this.suggestSlogenButton.Location = new System.Drawing.Point(6, 32);
             this.suggestSlogenButton.Name = "suggestSlogenButton";
             this.suggestSlogenButton.Size = new System.Drawing.Size(109, 23);
             this.suggestSlogenButton.TabIndex = 13;
@@ -257,12 +257,13 @@
             // 
             // VoteToYourParty
             // 
-            this.VoteToYourParty.Location = new System.Drawing.Point(6, 54);
+            this.VoteToYourParty.BackColor = System.Drawing.Color.Yellow;
+            this.VoteToYourParty.Location = new System.Drawing.Point(6, 59);
             this.VoteToYourParty.Name = "VoteToYourParty";
             this.VoteToYourParty.Size = new System.Drawing.Size(109, 23);
             this.VoteToYourParty.TabIndex = 35;
             this.VoteToYourParty.Text = "Vote to your party";
-            this.VoteToYourParty.UseVisualStyleBackColor = true;
+            this.VoteToYourParty.UseVisualStyleBackColor = false;
             this.VoteToYourParty.Click += new System.EventHandler(this.VoteToYourParty_Click);
             // 
             // MemberForm

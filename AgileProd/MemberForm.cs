@@ -111,15 +111,19 @@ namespace AgileProd
                 suggestSlogenButton.Show();
                 VoteToYourParty.Hide();
             }
-            else if (DataLogicPerson.getElections() == true && DataLogicPerson.getElections() == false)            //if it's the elections
+            else if (DataLogicPerson.getPraimeries() == true && DataLogicPerson.getElections() == false)            //if it's the elections
             {
                 voteToYourSelfButton.Hide();
                 suggestSlogenButton.Hide();
                 VoteToYourParty.Location = new Point(5, 5);
+                VoteToYourParty.Show();
 
             }
-            else if (DataLogicPerson.getElections() == true && DataLogicPerson.getElections() == true)
+            else if (DataLogicPerson.getPraimeries() == true && DataLogicPerson.getElections() == true)
             {
+                voteToYourSelfButton.Hide();
+                suggestSlogenButton.Hide();
+                VoteToYourParty.Hide();
                 DialogResult dialogResult = MessageBox.Show("The election is done!! Do whant to see the result?? ", "Attention!", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
