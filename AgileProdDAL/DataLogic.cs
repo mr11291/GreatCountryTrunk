@@ -103,8 +103,6 @@ namespace AgileProdDAL
                     DataLogic.DeletePerson(x.Key);//dekete person if not enter to the system 
                 }    
             }
-  
-
         }
 
         public static void UpdateEntery(int id)
