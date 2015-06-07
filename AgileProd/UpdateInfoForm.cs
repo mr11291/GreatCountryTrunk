@@ -33,6 +33,7 @@ namespace AgileProd
             idBox.Text = Convert.ToString(user.Id);
             nameBox.Text = user.Name;
             ageBox.Text = Convert.ToString(user.Age);
+            votingTestBox.Text = Convert.ToString(Convert.ToInt32(user.IsVoting));
             usernameBox.Text = user.UserName;
             passwordBox.Text = user.Password;
             return;
@@ -49,6 +50,7 @@ namespace AgileProd
                 DataLogic.ChangeAge(this.tempPerson, Convert.ToInt32(ageBox.Text));
                 DataLogic.ChangeUserName(this.tempPerson, (usernameBox.Text));
                 DataLogic.ChangePassword(this.tempPerson, (passwordBox.Text));
+                this.tempPerson.IsVoting = Convert.ToBoolean(Convert.ToInt32(votingTestBox.Text));
                 adminform.updateInfoGrid();
                 MessageBox.Show("Updated succsessfuly");
                 this.Close();                            //finish conformation event

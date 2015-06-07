@@ -40,6 +40,8 @@
             this.nameBox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.votingTestBox = new System.Windows.Forms.TextBox();
+            this.votingLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // idLabel
@@ -72,7 +74,7 @@
             // usernameLabel
             // 
             this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(36, 101);
+            this.usernameLabel.Location = new System.Drawing.Point(36, 127);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(58, 13);
             this.usernameLabel.TabIndex = 3;
@@ -81,7 +83,7 @@
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(36, 127);
+            this.passwordLabel.Location = new System.Drawing.Point(36, 153);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(56, 13);
             this.passwordLabel.TabIndex = 4;
@@ -103,14 +105,14 @@
             // 
             // usernameBox
             // 
-            this.usernameBox.Location = new System.Drawing.Point(98, 98);
+            this.usernameBox.Location = new System.Drawing.Point(98, 124);
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(100, 20);
             this.usernameBox.TabIndex = 7;
             // 
             // passwordBox
             // 
-            this.passwordBox.Location = new System.Drawing.Point(98, 124);
+            this.passwordBox.Location = new System.Drawing.Point(98, 150);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.Size = new System.Drawing.Size(100, 20);
             this.passwordBox.TabIndex = 8;
@@ -125,7 +127,7 @@
             // saveButton
             // 
             this.saveButton.BackColor = System.Drawing.Color.Yellow;
-            this.saveButton.Location = new System.Drawing.Point(39, 158);
+            this.saveButton.Location = new System.Drawing.Point(39, 192);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 25);
             this.saveButton.TabIndex = 10;
@@ -136,7 +138,7 @@
             // cancelButton
             // 
             this.cancelButton.BackColor = System.Drawing.Color.Yellow;
-            this.cancelButton.Location = new System.Drawing.Point(120, 158);
+            this.cancelButton.Location = new System.Drawing.Point(120, 192);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 25);
             this.cancelButton.TabIndex = 11;
@@ -144,12 +146,30 @@
             this.cancelButton.UseVisualStyleBackColor = false;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // votingTestBox
+            // 
+            this.votingTestBox.Location = new System.Drawing.Point(98, 98);
+            this.votingTestBox.Name = "votingTestBox";
+            this.votingTestBox.Size = new System.Drawing.Size(100, 20);
+            this.votingTestBox.TabIndex = 13;
+            // 
+            // votingLabel
+            // 
+            this.votingLabel.AutoSize = true;
+            this.votingLabel.Location = new System.Drawing.Point(36, 101);
+            this.votingLabel.Name = "votingLabel";
+            this.votingLabel.Size = new System.Drawing.Size(40, 13);
+            this.votingLabel.TabIndex = 12;
+            this.votingLabel.Text = "Voting:";
+            // 
             // UpdateInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Red;
-            this.ClientSize = new System.Drawing.Size(234, 197);
+            this.ClientSize = new System.Drawing.Size(234, 229);
+            this.Controls.Add(this.votingTestBox);
+            this.Controls.Add(this.votingLabel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.nameBox);
@@ -184,6 +204,8 @@
         private System.Windows.Forms.TextBox nameBox;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.TextBox votingTestBox;
+        private System.Windows.Forms.Label votingLabel;
     }
 }
 
