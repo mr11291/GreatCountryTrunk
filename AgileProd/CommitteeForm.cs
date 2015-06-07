@@ -32,7 +32,7 @@ namespace AgileProd
             HideAddParty();
             listOfParties.Hide();
 
-            if (DataLogicCommittee.getPraimeries() == true)
+            if (DataLogicCommittee.getPraimeries() == true && DataLogicPerson.getElections() == false)
             {
                 voteToMemberButton.Location = new Point(5, 5);
                 addPartyButton.Location = new Point(5, 35);
@@ -53,7 +53,7 @@ namespace AgileProd
                 voteToPartyButton.Hide();
                 endElectionsButton.Hide();
             }
-            else
+            else if (DataLogicCommittee.getPraimeries() == false && DataLogicPerson.getElections() == true)
             {
                 voteToPartyButton.Location = new Point(5, 5);
                 endElectionsButton.Location = new Point(5, 35);
@@ -67,11 +67,6 @@ namespace AgileProd
                 deletePartyButton.Hide();
                 finishPraimeriesButton.Hide();
             }
-
-
-
-
-
         }
 
         //all the active of vote button
