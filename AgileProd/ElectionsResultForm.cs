@@ -70,10 +70,7 @@ namespace AgileProd
                         {
                             for (col = 0; col < locationMatrix.GetLength(1); col++)
                             {
-                                //if (row == 2 && col == 1)
-                                //{
-                                //    MessageBox.Show("LLAA");
-                                //}
+
                                 if (locationMatrix[row, col] == true && (member.Value.Location != -1 || winnigParty != true))
                                 {
                                     counter++;
