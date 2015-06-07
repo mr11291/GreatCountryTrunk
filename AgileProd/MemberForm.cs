@@ -97,73 +97,97 @@ namespace AgileProd
 
         }
 
-
         private void MmberVote_Click(object sender, EventArgs e)
         {
             //massge with the price that the user is going to pay
-            if (currMember.NumOfVotes == 0)
+            if (currMember.NumOfVotes == 0)                                             //if its the first time this member votes:
             {
-                DataLogicPerson.voteToParty(currMember.Party);
-                currMember.NumOfVotes++;
-                MessageBox.Show("You have successfuly voted for " + currMember.Party);
+                DataLogicPerson.voteToParty(currMember.Party);                          //vote to the his party
+                currMember.NumOfVotes++;                                                //icrease number of votes
+                MessageBox.Show("You have successfuly voted for " + currMember.Party);  //display conformation message
             }
-            else
+            else                                                                        //if its not the first time this member votes:
             {
-                DialogResult dialogResult = MessageBox.Show("Please pay to kim " + DataLogicPerson.getVotingFeeByNumOfVotes(currMember.NumOfVotes) + "$ to vote", "Attention!", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                //notifiy member about cost of paying
+                DialogResult dialogResult = MessageBox.Show("Please pay " + DataLogicPerson.getVotingFeeByNumOfVotes(currMember.NumOfVotes) + "$ to vote", "Attention!", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)                   //if member agrees to pay
                 {
-                    if (DataLogicPerson.getVotingFeeByNumOfVotes(currMember.NumOfVotes) < DataLogicPerson.getBalance(currMember))
+                    if (DataLogicPerson.getVotingFeeByNumOfVotes(currMember.NumOfVotes) < DataLogicPerson.getBalance(currMember))           //check if member has enough money
                     {
-
-                        DataLogicPerson.voteToParty(currMember.Party);
-                        DataLogicPerson.withdrawlFromAccount(currMember, DataLogicPerson.getVotingFeeByNumOfVotes(currMember.NumOfVotes));
-                        if (currMember.NumOfVotes > 0)
-                        {
-                            bankTab.ImageIndex = 0;
-                        }
-                        currMember.NumOfVotes++;
-                        MessageBox.Show("You have successfuly voted for " + currMember.Party);
+                        DataLogicPerson.voteToParty(currMember.Party);                                                                      //vote to party
+                        DataLogicPerson.withdrawlFromAccount(currMember, DataLogicPerson.getVotingFeeByNumOfVotes(currMember.NumOfVotes));  //withdrawl amount from voter
+                        bankTab.ImageIndex = 0;                                                                                             //inform member there's been a change in his bank avvount
+                        MessageBox.Show("You have successfuly voted for " + currMember.Party);                                              //display conformation message
                     }
                     else
                     {
-                        MessageBox.Show("Insufficient funds!");
+                        //if member doesn't have enough money
+                        MessageBox.Show("Insufficient funds!"); //display coresponding message
                     }
                 }
 
             }
             
         }
+
         private void Votetomember_Click(object sender, EventArgs e)
         {
-            if (currMember.NumOfVotes == 0)
+            if (currMember.NumOfVotes == 0)                                     //if this party member still haven't voted:
             {
-                DataLogicPerson.voteToMember(currMember.Name);
-                currMember.NumOfVotes++;
-                MessageBox.Show("You have successfuly voted for yourself!");
+                DataLogicPerson.voteToMember(currMember.Name);                  //to to userself
+                currMember.NumOfVotes++;                                        //increace number of votes count
+                MessageBox.Show("You have successfuly voted for yourself!");    //display conformation message
             }
-            else
+            else                                                                //if this party member has already voted:
             {
-                DialogResult dialogResult = MessageBox.Show("Please pay to kim " + DataLogicPerson.getVotingFeeByNumOfVotes(currMember.NumOfVotes) + "$ to vote", "Attention!", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                //display voting notification about the cost of the vote
+                DialogResult dialogResult = MessageBox.Show("Please pay " + DataLogicPerson.getVotingFeeByNumOfVotes(currMember.NumOfVotes) + "$ to vote", "Attention!", MessageBoxButtons.YesNo);
+                
+                if (dialogResult == DialogResult.Yes)                           //if member pressed yes
                 {
-                    if (DataLogicPerson.getVotingFeeByNumOfVotes(currMember.NumOfVotes) < DataLogicPerson.getBalance(currMember))
+                    if (DataLogicPerson.getVotingFeeByNumOfVotes(currMember.NumOfVotes) < DataLogicPerson.getBalance(currMember))           //if this member has enough money to vote
                     {
 
-                        DataLogicPerson.voteToMember(currMember.Name);
-                        DataLogicPerson.withdrawlFromAccount(currMember, DataLogicPerson.getVotingFeeByNumOfVotes(currMember.NumOfVotes));
-                        if (currMember.NumOfVotes > 0)
-                        {
-                            bankTab.ImageIndex = 0;
-                        }
-                        currMember.NumOfVotes++;
-                        MessageBox.Show("You have successfuly voted for yourself!");
+                        DataLogicPerson.voteToMember(currMember.Name);                                                                      //vote
+                        DataLogicPerson.withdrawlFromAccount(currMember, DataLogicPerson.getVotingFeeByNumOfVotes(currMember.NumOfVotes));  //withdrawl amount from members account
+                        bankTab.ImageIndex = 0;                                                                                             //alert member there's been a change in he's account
+                        currMember.NumOfVotes++;                                                                                            //icrease num of votes counter
+                        MessageBox.Show("You have successfuly voted for yourself!");                                                        //display conformation message
                     }
                     else
                     {
+                        //if member doesn't have eanough money, display coresponding message
                         MessageBox.Show("Insufficient funds!");
                     }
                 }
 
+            }
+
+        }
+
+        private void initializeMenu(){
+            if (DataLogicPerson.getPraimeries() == true)                //if its praimeries
+            {
+                voteToYourSelfButton.Location = new Point(5, 5);        //set locations
+                suggestSlogenButton.Location = new Point(5, 35);
+
+                voteToYourSelfButton.Show();                            //show buttons
+                suggestSlogenButton.Show();
+                pickSlogenButton.Show();
+                if (currMember.Location == -1)                          //if its praimeries and the user is the party leader
+                {
+                    //addMemberButton.Location = new Point(5, 65);        //set locations
+                    //removeMemberButton.Location = new Point(5, 95);
+
+                    //addMemberButton.Show();                             //show buttons
+                    //removeMemberButton.Show();
+                }
+            }
+            else if (DataLogicPerson.getElections() == true)            //if it's the elections
+            {
+                voteToYourPartyButton.Location = new Point(5, 5);       //set locations
+
+                voteToYourPartyButton.Show();                           //show buttons
             }
 
         }

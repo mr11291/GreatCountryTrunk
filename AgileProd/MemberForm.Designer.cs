@@ -33,8 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.btnAddMem = new System.Windows.Forms.Button();
-            this.MmberVote = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.voteToYourPartyButton = new System.Windows.Forms.Button();
             this.quitPartyButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.PartySlogenBox = new System.Windows.Forms.TextBox();
@@ -42,13 +41,13 @@
             this.PartyNameBox = new System.Windows.Forms.TextBox();
             this.MySlogenBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.partyList = new System.Windows.Forms.ListView();
-            this.changeSlogenButton = new System.Windows.Forms.Button();
+            this.suggestSlogenButton = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Votetomember = new System.Windows.Forms.Button();
+            this.voteToYourSelfButton = new System.Windows.Forms.Button();
+            this.pickSlogenButton = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
             this.blankTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -60,11 +59,12 @@
             // 
             // blankTab
             // 
-            this.blankTab.Controls.Add(this.Votetomember);
-            this.blankTab.Controls.Add(this.changeSlogenButton);
+            this.blankTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.blankTab.Controls.Add(this.pickSlogenButton);
+            this.blankTab.Controls.Add(this.voteToYourSelfButton);
+            this.blankTab.Controls.Add(this.suggestSlogenButton);
             this.blankTab.Controls.Add(this.partyList);
             this.blankTab.Controls.Add(this.label6);
-            this.blankTab.Controls.Add(this.button5);
             this.blankTab.Controls.Add(this.label5);
             this.blankTab.Controls.Add(this.MySlogenBox);
             this.blankTab.Controls.Add(this.PartyNameBox);
@@ -72,14 +72,12 @@
             this.blankTab.Controls.Add(this.PartySlogenBox);
             this.blankTab.Controls.Add(this.label2);
             this.blankTab.Controls.Add(this.quitPartyButton);
-            this.blankTab.Controls.Add(this.button2);
-            this.blankTab.Controls.Add(this.MmberVote);
+            this.blankTab.Controls.Add(this.voteToYourPartyButton);
             this.blankTab.Controls.Add(this.pictureBox1);
             this.blankTab.Text = "Party Member";
             this.blankTab.Controls.SetChildIndex(this.username, 0);
             this.blankTab.Controls.SetChildIndex(this.pictureBox1, 0);
-            this.blankTab.Controls.SetChildIndex(this.MmberVote, 0);
-            this.blankTab.Controls.SetChildIndex(this.button2, 0);
+            this.blankTab.Controls.SetChildIndex(this.voteToYourPartyButton, 0);
             this.blankTab.Controls.SetChildIndex(this.quitPartyButton, 0);
             this.blankTab.Controls.SetChildIndex(this.label2, 0);
             this.blankTab.Controls.SetChildIndex(this.PartySlogenBox, 0);
@@ -87,11 +85,11 @@
             this.blankTab.Controls.SetChildIndex(this.PartyNameBox, 0);
             this.blankTab.Controls.SetChildIndex(this.MySlogenBox, 0);
             this.blankTab.Controls.SetChildIndex(this.label5, 0);
-            this.blankTab.Controls.SetChildIndex(this.button5, 0);
             this.blankTab.Controls.SetChildIndex(this.label6, 0);
             this.blankTab.Controls.SetChildIndex(this.partyList, 0);
-            this.blankTab.Controls.SetChildIndex(this.changeSlogenButton, 0);
-            this.blankTab.Controls.SetChildIndex(this.Votetomember, 0);
+            this.blankTab.Controls.SetChildIndex(this.suggestSlogenButton, 0);
+            this.blankTab.Controls.SetChildIndex(this.voteToYourSelfButton, 0);
+            this.blankTab.Controls.SetChildIndex(this.pickSlogenButton, 0);
             // 
             // bankTab
             // 
@@ -99,7 +97,10 @@
             // 
             // username
             // 
+            this.username.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.username.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.username.ForeColor = System.Drawing.Color.Black;
+            this.username.Size = new System.Drawing.Size(126, 13);
             // 
             // label1
             // 
@@ -129,34 +130,23 @@
             this.btnAddMem.UseVisualStyleBackColor = true;
             this.btnAddMem.Click += new System.EventHandler(this.btnAddMem_Click);
             // 
-            // MmberVote
+            // voteToYourPartyButton
             // 
-            this.MmberVote.BackColor = System.Drawing.Color.Yellow;
-            this.MmberVote.Location = new System.Drawing.Point(5, 5);
-            this.MmberVote.Name = "MmberVote";
-            this.MmberVote.Size = new System.Drawing.Size(107, 23);
-            this.MmberVote.TabIndex = 0;
-            this.MmberVote.Text = "Vote to your party";
-            this.MmberVote.UseVisualStyleBackColor = false;
-            this.MmberVote.Click += new System.EventHandler(this.MmberVote_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Yellow;
-            this.button2.Location = new System.Drawing.Point(4, 91);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Add Member";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Visible = false;
+            this.voteToYourPartyButton.BackColor = System.Drawing.Color.Yellow;
+            this.voteToYourPartyButton.Location = new System.Drawing.Point(5, 5);
+            this.voteToYourPartyButton.Name = "voteToYourPartyButton";
+            this.voteToYourPartyButton.Size = new System.Drawing.Size(107, 23);
+            this.voteToYourPartyButton.TabIndex = 0;
+            this.voteToYourPartyButton.Text = "Vote to your party";
+            this.voteToYourPartyButton.UseVisualStyleBackColor = false;
+            this.voteToYourPartyButton.Visible = false;
+            this.voteToYourPartyButton.Click += new System.EventHandler(this.MmberVote_Click);
             // 
             // quitPartyButton
             // 
-            this.quitPartyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.quitPartyButton.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.quitPartyButton.Location = new System.Drawing.Point(585, 250);
+            this.quitPartyButton.BackColor = System.Drawing.Color.Red;
+            this.quitPartyButton.ForeColor = System.Drawing.Color.Black;
+            this.quitPartyButton.Location = new System.Drawing.Point(592, 256);
             this.quitPartyButton.Name = "quitPartyButton";
             this.quitPartyButton.Size = new System.Drawing.Size(75, 23);
             this.quitPartyButton.TabIndex = 2;
@@ -215,22 +205,11 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "My Slogen:";
             // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.Yellow;
-            this.button5.Location = new System.Drawing.Point(4, 120);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(107, 24);
-            this.button5.TabIndex = 10;
-            this.button5.Text = "Remove Member";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Visible = false;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label6.Location = new System.Drawing.Point(128, 126);
+            this.label6.Location = new System.Drawing.Point(135, 109);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 13);
             this.label6.TabIndex = 11;
@@ -239,23 +218,24 @@
             // partyList
             // 
             this.partyList.BackColor = System.Drawing.Color.Snow;
-            this.partyList.Location = new System.Drawing.Point(131, 143);
+            this.partyList.Location = new System.Drawing.Point(138, 126);
             this.partyList.Name = "partyList";
             this.partyList.Size = new System.Drawing.Size(92, 131);
             this.partyList.TabIndex = 12;
             this.partyList.UseCompatibleStateImageBehavior = false;
             this.partyList.View = System.Windows.Forms.View.List;
             // 
-            // changeSlogenButton
+            // suggestSlogenButton
             // 
-            this.changeSlogenButton.BackColor = System.Drawing.Color.Yellow;
-            this.changeSlogenButton.Location = new System.Drawing.Point(5, 62);
-            this.changeSlogenButton.Name = "changeSlogenButton";
-            this.changeSlogenButton.Size = new System.Drawing.Size(106, 23);
-            this.changeSlogenButton.TabIndex = 13;
-            this.changeSlogenButton.Text = "Suggest Slogen";
-            this.changeSlogenButton.UseVisualStyleBackColor = false;
-            this.changeSlogenButton.Click += new System.EventHandler(this.slogenChangeButton_Click);
+            this.suggestSlogenButton.BackColor = System.Drawing.Color.Yellow;
+            this.suggestSlogenButton.Location = new System.Drawing.Point(5, 65);
+            this.suggestSlogenButton.Name = "suggestSlogenButton";
+            this.suggestSlogenButton.Size = new System.Drawing.Size(106, 23);
+            this.suggestSlogenButton.TabIndex = 13;
+            this.suggestSlogenButton.Text = "Suggest Slogen";
+            this.suggestSlogenButton.UseVisualStyleBackColor = false;
+            this.suggestSlogenButton.Visible = false;
+            this.suggestSlogenButton.Click += new System.EventHandler(this.slogenChangeButton_Click);
             // 
             // imageList1
             // 
@@ -266,23 +246,35 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::AgileProd.Properties.Resources.HappyKim;
-            this.pictureBox1.Location = new System.Drawing.Point(180, 99);
+            this.pictureBox1.Location = new System.Drawing.Point(182, 95);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(276, 187);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
-            // Votetomember
+            // voteToYourSelfButton
             // 
-            this.Votetomember.BackColor = System.Drawing.Color.Yellow;
-            this.Votetomember.Location = new System.Drawing.Point(4, 33);
-            this.Votetomember.Name = "Votetomember";
-            this.Votetomember.Size = new System.Drawing.Size(107, 23);
-            this.Votetomember.TabIndex = 32;
-            this.Votetomember.Text = "Vote to yourself";
-            this.Votetomember.UseVisualStyleBackColor = false;
-            this.Votetomember.Click += new System.EventHandler(this.Votetomember_Click);
+            this.voteToYourSelfButton.BackColor = System.Drawing.Color.Yellow;
+            this.voteToYourSelfButton.Location = new System.Drawing.Point(5, 35);
+            this.voteToYourSelfButton.Name = "voteToYourSelfButton";
+            this.voteToYourSelfButton.Size = new System.Drawing.Size(107, 23);
+            this.voteToYourSelfButton.TabIndex = 32;
+            this.voteToYourSelfButton.Text = "Vote to yourself";
+            this.voteToYourSelfButton.UseVisualStyleBackColor = false;
+            this.voteToYourSelfButton.Visible = false;
+            this.voteToYourSelfButton.Click += new System.EventHandler(this.Votetomember_Click);
+            // 
+            // pickSlogenButton
+            // 
+            this.pickSlogenButton.BackColor = System.Drawing.Color.Yellow;
+            this.pickSlogenButton.Location = new System.Drawing.Point(506, 91);
+            this.pickSlogenButton.Name = "pickSlogenButton";
+            this.pickSlogenButton.Size = new System.Drawing.Size(107, 23);
+            this.pickSlogenButton.TabIndex = 33;
+            this.pickSlogenButton.Text = "Pick Slogen";
+            this.pickSlogenButton.UseVisualStyleBackColor = false;
+            this.pickSlogenButton.Visible = false;
             // 
             // MemberForm
             // 
@@ -313,20 +305,19 @@
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Button btnAddMem;
         private System.Windows.Forms.Button quitPartyButton;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button MmberVote;
+        private System.Windows.Forms.Button voteToYourPartyButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox PartySlogenBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox MySlogenBox;
         private System.Windows.Forms.TextBox PartyNameBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListView partyList;
-        private System.Windows.Forms.Button changeSlogenButton;
+        private System.Windows.Forms.Button suggestSlogenButton;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button Votetomember;
+        private System.Windows.Forms.Button voteToYourSelfButton;
+        private System.Windows.Forms.Button pickSlogenButton;
     }
 }

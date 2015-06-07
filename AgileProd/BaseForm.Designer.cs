@@ -32,8 +32,6 @@
             this.blankTab = new System.Windows.Forms.TabPage();
             this.username = new System.Windows.Forms.TextBox();
             this.bankTab = new System.Windows.Forms.TabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.lastTransactionsLabel = new System.Windows.Forms.Label();
             this.balanceBox = new System.Windows.Forms.TextBox();
             this.idBox = new System.Windows.Forms.TextBox();
             this.nameBox = new System.Windows.Forms.TextBox();
@@ -81,7 +79,7 @@
             // 
             // blankTab
             // 
-            this.blankTab.BackColor = System.Drawing.Color.Red;
+            this.blankTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.blankTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.blankTab.Controls.Add(this.username);
             this.blankTab.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -94,22 +92,21 @@
             // 
             // username
             // 
-            this.username.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.username.ForeColor = System.Drawing.Color.Red;
+            this.username.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.username.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.username.ForeColor = System.Drawing.Color.Black;
             this.username.Location = new System.Drawing.Point(6, 259);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(126, 20);
+            this.username.Size = new System.Drawing.Size(126, 13);
             this.username.TabIndex = 31;
             this.username.Text = "User:";
             // 
             // bankTab
             // 
-            this.bankTab.BackColor = System.Drawing.Color.Red;
+            this.bankTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.bankTab.BackgroundImage = global::AgileProd.Properties.Resources.cashstack_op10;
             this.bankTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.bankTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.bankTab.Controls.Add(this.listView1);
-            this.bankTab.Controls.Add(this.lastTransactionsLabel);
             this.bankTab.Controls.Add(this.balanceBox);
             this.bankTab.Controls.Add(this.idBox);
             this.bankTab.Controls.Add(this.nameBox);
@@ -121,24 +118,6 @@
             this.bankTab.Size = new System.Drawing.Size(672, 284);
             this.bankTab.TabIndex = 3;
             this.bankTab.Text = "Bank";
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(480, 41);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(185, 235);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // lastTransactionsLabel
-            // 
-            this.lastTransactionsLabel.AutoSize = true;
-            this.lastTransactionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.lastTransactionsLabel.Location = new System.Drawing.Point(477, 22);
-            this.lastTransactionsLabel.Name = "lastTransactionsLabel";
-            this.lastTransactionsLabel.Size = new System.Drawing.Size(135, 16);
-            this.lastTransactionsLabel.TabIndex = 8;
-            this.lastTransactionsLabel.Text = "Last Transactions:";
             // 
             // balanceBox
             // 
@@ -196,7 +175,7 @@
             // 
             // messageTab
             // 
-            this.messageTab.BackColor = System.Drawing.Color.Red;
+            this.messageTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.messageTab.BackgroundImage = global::AgileProd.Properties.Resources.cashenvelope_op15;
             this.messageTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.messageTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -288,7 +267,7 @@
             // 
             // settingsTab
             // 
-            this.settingsTab.BackColor = System.Drawing.Color.Red;
+            this.settingsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.settingsTab.BackgroundImage = global::AgileProd.Properties.Resources.wrench_op10;
             this.settingsTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.settingsTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -431,8 +410,6 @@
         protected System.Windows.Forms.TabPage bankTab;
         protected System.Windows.Forms.TabPage messageTab;
         private System.Windows.Forms.ListView fromList;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Label lastTransactionsLabel;
         private System.Windows.Forms.TextBox balanceBox;
         private System.Windows.Forms.TextBox idBox;
         private System.Windows.Forms.TextBox nameBox;

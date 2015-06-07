@@ -99,6 +99,12 @@
     <Compile Include="MessageForm.Designer.cs">
       <DependentUpon>MessageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PickSlogenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PickSlogenForm.Designer.cs">
+      <DependentUpon>PickSlogenForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SendMessageFom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PersonForm.resx">
       <DependentUpon>PersonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PickSlogenForm.resx">
+      <DependentUpon>PickSlogenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SendMessageFom.resx">
       <DependentUpon>SendMessageFom.cs</DependentUpon>

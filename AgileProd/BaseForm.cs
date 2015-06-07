@@ -26,16 +26,19 @@ namespace AgileProd
         {
             this.user = user;
             InitializeComponent();
-            username.BorderStyle = BorderStyle.None;
+
+            //set setting configurations
             username.Text = "User: " + user.Name;
+
             tabMenu.SelectedIndexChanged += tabMenu_SelectedIndexChanged;
             personList.SelectedIndexChanged += personList_SelectedIndexChanged;
+
             fromList.View = View.Details;
         }
 
         void personList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedPerson = Convert.ToString(personList.FocusedItem.Text);
+            selectedPerson = Convert.ToString(personList.FocusedItem.Text);     //save selected person
         }
 
         private void tabMenu_SelectedIndexChanged(object sender, EventArgs e)
@@ -44,23 +47,23 @@ namespace AgileProd
             {
                 case 1:
                     {
-                        initializeBankInfo();
+                        initializeBankInfo();    //initialize the users bank info
                         bankTab.ImageIndex = -1; //remove red dot from tab
                     }
                     break;
                 case 2:
                     {
-                        while (fromList.Items.Count > 0)
+                        while (fromList.Items.Count > 0)    //clean message list if exists
                         {
                             fromList.Items.RemoveAt(0);
                         }
-                        fillMessageList();
-                        fillPersonList();
+                        fillMessageList();                  //fill updated message list
+                        fillPersonList();                   //fill person list
                     }
                     break;
                 case 3:
                     {
-                        initializeSettingsInfo();
+                        initializeSettingsInfo();           //initialize users settings
                     }
                     break;
             }
@@ -68,7 +71,7 @@ namespace AgileProd
 
         private void initializeBankInfo()
         {
-            try
+            try     //try initializing bank settings
             {
                 int tempBalance = DataLogicPerson.getBalance(this.user);
                 this.nameBox.Text = user.Name;
@@ -251,8 +254,5 @@ namespace AgileProd
             
             
         }
-       
-
-
     }
 }
