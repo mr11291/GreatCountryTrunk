@@ -88,6 +88,12 @@ namespace AgileProdDAL
             return data.GetPraimerise();
         }
 
+        public static void endPraimeries()
+        {
+            data.setPraimeries(true);
+            data.SetElections(false);
+        }
+
         public static bool getElections()
         {
             return data.GetElections();
@@ -95,12 +101,14 @@ namespace AgileProdDAL
 
         public static void startElections()
         {
-            data.SetElections(true);
+            data.setPraimeries(true);
+            data.SetElections(false);
         }
 
         public static void endElections()
         {
-            data.SetElections(false);
+            data.setPraimeries(true);
+            data.SetElections(true);
         }
     }
 }

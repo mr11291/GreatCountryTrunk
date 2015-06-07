@@ -32,7 +32,7 @@ namespace AgileProd
             HideAddParty();
             listOfParties.Hide();
 
-            if (DataLogicCommittee.getPraimeries() == true && DataLogicPerson.getElections() == false)
+            if (DataLogicCommittee.getPraimeries() == false && DataLogicPerson.getElections() == false)
             {
                 voteToMemberButton.Location = new Point(5, 5);
                 addPartyButton.Location = new Point(5, 35);
@@ -49,11 +49,9 @@ namespace AgileProd
                 addPartyButton.Show();
                 deletePartyButton.Show();
                 finishPraimeriesButton.Show();
-                
-                voteToPartyButton.Hide();
-                endElectionsButton.Hide();
+
             }
-            else if (DataLogicCommittee.getPraimeries() == false && DataLogicPerson.getElections() == true)
+            else if (DataLogicCommittee.getPraimeries() == true && DataLogicPerson.getElections() == false)
             {
                 voteToPartyButton.Location = new Point(5, 5);
                 endElectionsButton.Location = new Point(5, 35);
@@ -66,6 +64,17 @@ namespace AgileProd
                 addPartyButton.Hide();
                 deletePartyButton.Hide();
                 finishPraimeriesButton.Hide();
+            }
+            else if (DataLogicCommittee.getPraimeries() == true && DataLogicPerson.getElections() == true) 
+            {
+                DataLogicCommittee.endElections();
+                ElectionsResultForm form = new ElectionsResultForm();
+                partyListLabel.Hide();
+                endElectionsButton.Location = new Point(5, 5);
+                ListOf.Hide();
+                form.Show();
+                voteToPartyButton.Hide();
+
             }
         }
 
@@ -294,15 +303,22 @@ namespace AgileProd
         {
             if (!(Application.OpenForms.OfType<DeletPartyForm>().Any()))
             {
-                    DeletPartyForm newform = new DeletPartyForm();
-                    newform.ShowDialog();
+                DeletPartyForm newform = new DeletPartyForm();
+                newform.ShowDialog();
+                ListOf.Hide();
+                listOfParties.Hide();
+                ListOf2.Hide();
+                partyListLabel.Hide();
+                memberListLabel.Hide();
             }
         }
 
         private void End_Election_Click(object sender, EventArgs e)
         {
-            //End_Election function at DataLgicCommittee
+            DataLogicCommittee.endElections();
             ElectionsResultForm form = new ElectionsResultForm();
+            form.Show();
+            voteToPartyButton.Hide();
         }
 
         private void VoteToParty_Click(object sender, EventArgs e)

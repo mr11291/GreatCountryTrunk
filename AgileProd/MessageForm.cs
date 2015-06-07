@@ -113,7 +113,8 @@ namespace AgileProd
             }
             else if (DataLogicMember.GetMember().Keys.Contains(messageItem.Item1) && messageItem.Item3 == 0)
             {
-
+                Member turnToMember = new Member(user.Id, user.Name, user.Age, user.UserName, user.Password, user.IsVoting, user.NumOfVotes, DataLogicMember.GetMember()[messageItem.Item1].Party, 0);
+                DataLogicMember.GetMember().Add(user.Id, turnToMember);
             }
 
             this.Close();
@@ -121,7 +122,7 @@ namespace AgileProd
 
         private void noButton_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

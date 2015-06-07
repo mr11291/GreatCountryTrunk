@@ -91,10 +91,6 @@
             this.blankTab.Controls.SetChildIndex(this.VoteParty, 0);
             this.blankTab.Controls.SetChildIndex(this.retrunToPartyButton, 0);
             // 
-            // username
-            // 
-            this.username.ForeColor = System.Drawing.Color.Black;
-            // 
             // voteButton
             // 
             this.voteButton.BackColor = System.Drawing.Color.Yellow;
@@ -104,6 +100,7 @@
             this.voteButton.TabIndex = 0;
             this.voteButton.Text = "Vote to member";
             this.voteButton.UseVisualStyleBackColor = false;
+            this.voteButton.Visible = false;
             this.voteButton.Click += new System.EventHandler(this.voteButton_Click);
             // 
             // partyListLabel
@@ -156,6 +153,7 @@
             this.partyInfoButton.TabIndex = 22;
             this.partyInfoButton.Text = "Party list";
             this.partyInfoButton.UseVisualStyleBackColor = false;
+            this.partyInfoButton.Visible = false;
             this.partyInfoButton.Click += new System.EventHandler(this.InfoParty_Click);
             // 
             // partyNameComboBox
@@ -190,6 +188,7 @@
             this.VoteParty.TabIndex = 25;
             this.VoteParty.Text = "Vote to party";
             this.VoteParty.UseVisualStyleBackColor = false;
+            this.VoteParty.Visible = false;
             this.VoteParty.Click += new System.EventHandler(this.VoteParty_Click);
             // 
             // retrunToPartyButton

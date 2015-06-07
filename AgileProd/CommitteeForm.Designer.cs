@@ -96,10 +96,6 @@
             this.blankTab.Controls.SetChildIndex(this.voteToPartyButton, 0);
             this.blankTab.Controls.SetChildIndex(this.listOfParties, 0);
             // 
-            // username
-            // 
-            this.username.ForeColor = System.Drawing.Color.Black;
-            // 
             // voteToMemberButton
             // 
             this.voteToMemberButton.BackColor = System.Drawing.Color.Yellow;
@@ -109,6 +105,7 @@
             this.voteToMemberButton.TabIndex = 0;
             this.voteToMemberButton.Text = "Vote to member";
             this.voteToMemberButton.UseVisualStyleBackColor = false;
+            this.voteToMemberButton.Visible = false;
             this.voteToMemberButton.Click += new System.EventHandler(this.VoteButton_Click);
             // 
             // ListOf
@@ -160,6 +157,7 @@
             this.addPartyButton.TabIndex = 5;
             this.addPartyButton.Text = "Add Party";
             this.addPartyButton.UseVisualStyleBackColor = false;
+            this.addPartyButton.Visible = false;
             this.addPartyButton.Click += new System.EventHandler(this.AddPartyButton_Click);
             // 
             // paryLeaderIdTextBox
@@ -178,6 +176,7 @@
             this.partyLeaderIdLabel.Size = new System.Drawing.Size(107, 13);
             this.partyLeaderIdLabel.TabIndex = 7;
             this.partyLeaderIdLabel.Text = "New Party Leader Id:";
+            this.partyLeaderIdLabel.Visible = false;
             // 
             // EnterButton
             // 
@@ -198,6 +197,7 @@
             this.partyNameLabel.Size = new System.Drawing.Size(90, 13);
             this.partyNameLabel.TabIndex = 9;
             this.partyNameLabel.Text = "New Party Name:";
+            this.partyNameLabel.Visible = false;
             // 
             // partyNameTextBox
             // 
@@ -227,6 +227,7 @@
             this.finishPraimeriesButton.TabIndex = 12;
             this.finishPraimeriesButton.Text = "Finish Primeries";
             this.finishPraimeriesButton.UseVisualStyleBackColor = false;
+            this.finishPraimeriesButton.Visible = false;
             this.finishPraimeriesButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // deletePartyButton
@@ -239,6 +240,7 @@
             this.deletePartyButton.TabIndex = 13;
             this.deletePartyButton.Text = "Delete Party";
             this.deletePartyButton.UseVisualStyleBackColor = false;
+            this.deletePartyButton.Visible = false;
             this.deletePartyButton.Click += new System.EventHandler(this.Delete_Party_Click);
             // 
             // endElectionsButton
@@ -251,6 +253,7 @@
             this.endElectionsButton.TabIndex = 14;
             this.endElectionsButton.Text = "End Elections";
             this.endElectionsButton.UseVisualStyleBackColor = false;
+            this.endElectionsButton.Visible = false;
             this.endElectionsButton.Click += new System.EventHandler(this.End_Election_Click);
             // 
             // voteToPartyButton
@@ -262,6 +265,7 @@
             this.voteToPartyButton.TabIndex = 15;
             this.voteToPartyButton.Text = "Vote to party";
             this.voteToPartyButton.UseVisualStyleBackColor = false;
+            this.voteToPartyButton.Visible = false;
             this.voteToPartyButton.Click += new System.EventHandler(this.VoteToParty_Click);
             // 
             // listOfParties

@@ -29,17 +29,13 @@ namespace AgileProd
             suspiciusPutin.MouseDoubleClick += suspiciusPutin_MouseDoubleClick;
             
             
-            if (!(DataLogicPerson.getPraimeries()))
+            if (DataLogicPerson.getPraimeries() == false && DataLogicPerson.getElections() == false)
             {
-                voteButton.Hide();
-                retrunToPartyButton.Location = new Point(5, 65);
-                var templist = DataLogicAdmin.AllParties();
+                voteButton.Location = new Point(5, 5);
+                voteButton.Show();
 
-                this.partyNameComboBox.DataSource = new BindingSource(templist, null);
-                this.partyNameComboBox.DisplayMember = "Key";
-                this.partyNameComboBox.ValueMember = "Value";
+                retrunToPartyButton.Location = new Point(5, 35);
 
-                user.memento = DataLogicPerson.GetMemento(user.Id);
                 
                 try
                 {
@@ -50,19 +46,30 @@ namespace AgileProd
                 }
                 catch { }
             }
-            else
+            else if (DataLogicPerson.getPraimeries() == true && DataLogicPerson.getElections() == false)
             {
                 dancingPutinTimer = new Timer();
                 dancingPutinTimer.Interval = 16000;
                 dancingPutinTimer.Tick += new EventHandler(dancingPutinTimer_Tick);
 
-                partyInfoButton.Hide();
-                VoteParty.Hide();
+
+                VoteParty.Show();
+                partyInfoButton.Show();
+
                 voteButton.Location = new Point(5, 5);
                 retrunToPartyButton.Location = new Point(5, 35);
                 ListOf.Location = new Point(239, 32);
                 partyListLabel.Location = new Point(236, 10);
                 suspiciusPutin.Location = new Point(295, 10);
+
+                var templist = DataLogicAdmin.AllParties();
+
+                this.partyNameComboBox.DataSource = new BindingSource(templist, null);
+                this.partyNameComboBox.DisplayMember = "Key";
+                this.partyNameComboBox.ValueMember = "Value";
+
+                user.memento = DataLogicPerson.GetMemento(user.Id);
+
                 try
                 {
                     if (user.memento.PartyName != null)
@@ -72,7 +79,7 @@ namespace AgileProd
                 }
                 catch { }
             }
-            if (DataLogicPerson.getElections())
+            else if (DataLogicPerson.getPraimeries() == true && DataLogicPerson.getElections() == true)
             {
                 VoteParty.Hide();
                 partyInfoButton.Hide();
@@ -297,7 +304,6 @@ namespace AgileProd
 
             List<string> listInfo = DataLogicPerson.InfoForParty(this.partyNameComboBox.Text);
 
-            
             for (int i=0,j=0; i < listInfo.Count(); i++)
             {
                 

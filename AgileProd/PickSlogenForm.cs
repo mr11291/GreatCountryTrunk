@@ -33,16 +33,19 @@ namespace AgileProd
         {
             foreach (var member in DataLogicMember.GetMember())
             {
-                if (member.Value.Slogan != string.Empty)
+                if (member.Value.Party.Equals(user.Party))
                 {
-                    ListViewItem details = new ListViewItem();
-                    string senderId = Convert.ToString(member.Key);
-                    string slogen = member.Value.Slogan;
-                    details.Text = senderId;
-                    details.SubItems.Add(Convert.ToString(slogen));
-                    slogenList.Items.Add(details);
+                    if (member.Value.Slogan != string.Empty)
+                    {
+                        ListViewItem details = new ListViewItem();
+                        string senderId = Convert.ToString(member.Key);
+                        string slogen = member.Value.Slogan;
+                        details.Text = senderId;
+                        details.SubItems.Add(Convert.ToString(slogen));
+                        slogenList.Items.Add(details);
 
-                    slogenList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                        slogenList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                    }
                 }
             }
         }
