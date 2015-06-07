@@ -346,11 +346,13 @@ namespace AgileProdDAL
 
         public static bool runElections(BackgroundWorker worker)
         {
+            restartBankaccount();//reset the balnce of the pepole
             Random rand;
             Random judge = new Random();
             bool vote = true;
             int i = 0;
             Dictionary<String, int> partydict;
+
 
             //set isVoting value
             foreach (var person in data.GetPeople())    //iterate trough all people
@@ -447,5 +449,16 @@ namespace AgileProdDAL
             }
             return true;
         }
+        public static void restartBankaccount()
+        {
+            Random rnd = new Random();
+            
+            foreach (var x in DataLogicBank.getBankDictionary())
+            {
+                x.Value.Balance=rnd.Next(0, 1000000);     
+            }
+
+        }
     }
+    
 }
